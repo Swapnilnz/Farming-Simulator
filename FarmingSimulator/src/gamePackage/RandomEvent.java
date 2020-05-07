@@ -9,10 +9,16 @@ import java.util.Random;
  */
 public class RandomEvent {
 	private Random rnd;
+	public int chanceValue = 50;
+	private boolean occurs = false;
 	
 	public RandomEvent() {
 		rnd = new Random();
-		boolean occurs = rnd.nextBoolean();
+		float temp = (float) Math.random();
+		if (temp >= chanceValue) {
+			occurs = true;
+
+		}
 		if (occurs) {
 			String event = whichEvent(rnd);
 		}

@@ -4,7 +4,8 @@ package gamePackage;
  * 
  * @author Swapnil B, Reed E
  * Class Crop takes a String "crop" (e.g. "grass") that specified the crop to be created.
- * Thus crop attributes are initialised through "crop"
+ * Thus crop attributes are initialised through "crop". Has usual getters and setters for attributes
+ * purchasePrice, sellPrice, daysTillHarvest, cropAmount, cropType.
  */
 
 public class Crop {
@@ -103,9 +104,4 @@ public class Crop {
 		
 	}
 	
-	public static void main(String[] args) {
-		Crop crops = new Crop("apple");
-		System.out.println(crops.daysTillHarvest);
-
-	}
 }
