@@ -153,11 +153,17 @@ public class GameEnvironment {
 		String tempName = input.nextLine();
 		boolean nameFound = false;
 		while (nameFound == false) {
-			if (tempName.length() <= 20) {
+			if ((tempName.length() <= 20) && (tempName.length() > 0)) {
 				farmName = tempName;
-				System.out.println("Nice!. Your farm's name is now " + tempName);
+				System.out.println("Good choice. Your farm's name is now '" + farmName + "'.");
+				nameFound = true;
+			} else if (tempName.length() == 0) {
+				farmName = farmerName + "'s Farm";
+				System.out.println("Okay! Your farm's name is " + farmName + "'.");
+				nameFound = true;
 			} else {
 				System.out.println("Sorry! Your name is too long, please try to keep it within 20 characters.");
+				tempName = input.nextLine();
 			}
 		}
 
