@@ -52,6 +52,7 @@ public class GameEnvironment {
 			
 		}
 	}
+	
 	private void inputNumDays() {
 		System.out.println("How long would you like your farming adventure to last?\nYou can choose between 5 and 15 days!");
 		Scanner input = new Scanner(System.in);
@@ -60,10 +61,21 @@ public class GameEnvironment {
 		while (numFound == false) {
 			try {
 				int newNum = Integer.parseInt(tempNum);
+				if ((newNum <= 15) && (newNum >= 5)) {
+					numFound = true;
+					numDays = newNum;
+					
+				} else {
+					System.out.println("Please enter a number between 5 and 15!\nTry again:");
+					tempNum = input.nextLine();
+
+				}
 			} catch (Exception e) {
 				System.out.println("Please enter a number between 5 and 15!\nTry again:");
 				tempNum = input.nextLine();
 			}
+			
+
 		}
 	}
 
