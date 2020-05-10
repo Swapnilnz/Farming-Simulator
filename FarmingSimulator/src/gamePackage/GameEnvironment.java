@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class GameEnvironment {
 	private int numDays;
 	private String farmerName;
-	// Need farmtype
+	private String farmType;
 	private String farmName;
 	private static String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	
@@ -40,7 +40,10 @@ public class GameEnvironment {
 			if ((acceptableLength) && (successful)) {
 				farmerName = tempName;
 				nameFound = true;
-				System.out.println("Hello farmer " + farmerName + "!");
+		        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+
+				System.out.println("Hello farmer " + farmerName + ", welcome to Farming Simulator!");
+
 			} else {
 		        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 				System.out.println("Sorry, '" + tempName + "' is an invalid name!");
@@ -61,7 +64,7 @@ public class GameEnvironment {
 		while (numFound == false) {
 			try {
 				int newNum = Integer.parseInt(tempNum);
-				if ((newNum <= 15) && (newNum >= 5)) {
+				if ((newNum <= 10) && (newNum >= 5)) {
 					numFound = true;
 					numDays = newNum;
 					
@@ -79,6 +82,52 @@ public class GameEnvironment {
 		}
 	}
 
+	private void chooseFarm() throws InterruptedException, IOException {
+        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+		System.out.println("Awesome! Now, you have to make a big decision...\n"
+				+ "Which type of farm would you like to begin your journey with?\n"
+				+ "Each type has its own pros and cons...So choose carefully.\n"
+				+ "Enter the number next to the type of farm you would like.\n"
+				+ "1. Desert Farm\n"
+				+ "2. Mountain Farm\n"
+				+ "3. Plains Farm\n"
+				+ "4. Swamp Farm");
+		Scanner input = new Scanner(System.in);
+		String tempNum = input.nextLine();
+		boolean valid = false;
+
+		while (valid == false) {
+			try {
+				int newNum = Integer.parseInt(tempNum);
+				if (newNum == 1) {
+					valid = true;
+					// Desert Farm
+					DesertFarm farm = new DesertFarm(); farmType = farm.getFarmType();
+				} else if (newNum == 2) {
+					valid = true;
+					// Mountain Farm
+					MountainFarm farm = new MountainFarm(); farmType = farm.getFarmType();
+				} else if (newNum == 3) {
+					valid = true;
+					// Plains Farm
+					PlainsFarm farm = new PlainsFarm(); farmType = farm.getFarmType();
+				} else if (newNum == 4) {
+					valid = true;
+					// Swamp Farm
+					SwampFarm farm = new SwampFarm(); farmType = farm.getFarmType();
+				} else {
+					System.out.println("Sorry, that is not a valid choice, please enter a number between 1 and 4");
+					tempNum = input.nextLine();
+				}
+			} catch (Exception e) {
+				System.out.println("Sorry, that is not a valid choice, please enter a number between 1 and 4");
+				tempNum = input.nextLine();
+			}
+
+
+		}
+	}
+	
 	public static void main(String[] args) throws InterruptedException, IOException {
 		// TODO Auto-generated method stub
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
@@ -86,6 +135,7 @@ public class GameEnvironment {
 		GameEnvironment game = new GameEnvironment();
 		game.introduction();
 		game.inputNumDays();
+		game.chooseFarm();
 	}
 
 }
