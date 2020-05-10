@@ -11,7 +11,11 @@ public class GameEnvironment {
 	private String farmName;
 	private static String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	
-	
+	/**
+	 * Procedure that gets the farmers name through cmd input; follows given guidelines of 3-15 length alphabetic String
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
 	private void introduction() throws InterruptedException, IOException {
 
 		Scanner input = new Scanner(System.in);
@@ -56,6 +60,9 @@ public class GameEnvironment {
 		}
 	}
 	
+	/**
+	 * Procedure that gets the number of days the farmer would like to play (between 5 and 15)
+	 */
 	private void inputNumDays() {
 		System.out.println("How long would you like your farming adventure to last?\nYou can choose between 5 and 15 days!");
 		Scanner input = new Scanner(System.in);
@@ -82,6 +89,12 @@ public class GameEnvironment {
 		}
 	}
 
+	/**
+	 * Procedure that lets the farmer choose their farm out of the four: Desert, Mountain, Plains, or Swamp
+	 * This is done through user cmd input of a number from 1 to 4.
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
 	private void chooseFarm() throws InterruptedException, IOException {
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 		System.out.println("Awesome! Now, you have to make a big decision...\n"
@@ -128,6 +141,27 @@ public class GameEnvironment {
 		}
 	}
 	
+	/**
+	 * Gets farm name by input from user and updates class attribute farmName.
+	 * Given name must be <= 20 characters long.
+	 */
+	private void inputFarmName() {
+		System.out.println("You have chosen a " + farmType
+				+ "\nIt is time to choose a name for your farm.\n"
+				+ "Type below:");
+		Scanner input = new Scanner(System.in);
+		String tempName = input.nextLine();
+		boolean nameFound = false;
+		while (nameFound == false) {
+			if (tempName.length() <= 20) {
+				farmName = tempName;
+				System.out.println("Nice!. Your farm's name is now " + tempName);
+			} else {
+				System.out.println("Sorry! Your name is too long, please try to keep it within 20 characters.");
+			}
+		}
+
+	}
 	public static void main(String[] args) throws InterruptedException, IOException {
 		// TODO Auto-generated method stub
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
@@ -136,6 +170,7 @@ public class GameEnvironment {
 		game.introduction();
 		game.inputNumDays();
 		game.chooseFarm();
+		game.inputFarmName();
 	}
 
 }
