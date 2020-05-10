@@ -10,6 +10,7 @@ public class GameEnvironment {
 	private String farmType;
 	private String farmName;
 	private static String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	public int numActions = 2;
 	
 	/**
 	 * Procedure that gets the farmers name through cmd input; follows given guidelines of 3-15 length alphabetic String
@@ -168,7 +169,8 @@ public class GameEnvironment {
 		}
 
 	}
-	public static void main(String[] args) throws InterruptedException, IOException {
+	
+public static void main(String[] args) throws InterruptedException, IOException {
 		// TODO Auto-generated method stub
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 
@@ -177,6 +179,7 @@ public class GameEnvironment {
 		game.inputNumDays();
 		game.chooseFarm();
 		game.inputFarmName();
+		// implement startAdventure
 	}
 
 }
