@@ -10,6 +10,26 @@ public class Farm {
 		this.growthRate = growthRate;
 	}
 	
+	public void decreaseFarmMoney(int money) {
+		this.farmMoney -= money;
+	}
+	
+	public void increaseFarmMoney(int money) {
+		this.farmMoney += money;
+	}
+	
+	public void setFarmType(String farmType) {
+		this.farmType = farmType;
+	}
+
+	public void setFarmMoney(int farmMoney) {
+		this.farmMoney = farmMoney;
+	}
+
+	public void setGrowthRate(double growthRate) {
+		this.growthRate = growthRate;
+	}
+
 	public String getFarmType() {
 		return this.farmType;
 	}
