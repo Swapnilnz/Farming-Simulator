@@ -4,7 +4,6 @@ package gamePackage;
 public class GameEnvironment {
 	protected int numDays;
 	protected Farmer farmer;
-	protected String farmerName;
 	protected Farm farm;
 	protected String farmName;
 	public static String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
