@@ -2,12 +2,11 @@ package gamePackage;
 
 public class Farm {
 	private String farmType;
-	private int farmMoney;
+	private int farmMoney = 100;
 	private double growthRate;
 	
-	public Farm(String farmType, int farmMoney, double growthRate) {
+	public Farm(String farmType, double growthRate) {
 		this.farmType = farmType;
-		this.farmMoney = farmMoney;
 		this.growthRate = growthRate;
 	}
 	
