@@ -1,22 +1,40 @@
 package gamePackage;
 
 public class Farmer {
-	private String name;
-	private int age;
+	protected String name;
+	protected int age;
+	// Avatar?
 	
-	public String getname() {
+	public Farmer(String inputName, int farmerAge) {
+		name = inputName;
+		age = farmerAge;
+	}
+
+
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
 		return name;
 	}
-	
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	/**
+	 * @return the age
+	 */
 	public int getAge() {
 		return age;
-		
 	}
-	
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	/**
+	 * @param age the age to set
+	 */
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 }
