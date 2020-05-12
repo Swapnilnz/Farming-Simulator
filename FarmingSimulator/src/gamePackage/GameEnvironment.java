@@ -8,7 +8,7 @@ public class GameEnvironment {
 	protected Farm farm;
 	protected String farmName;
 	public static String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	public int numActions = 2;
+	public int numActions = 3;
 	public boolean gameFinished = false;
 	
 	
