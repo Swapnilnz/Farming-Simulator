@@ -12,8 +12,9 @@ public class UI {
 	/**
 	 * Procedure that gets the farmers name through cmd input; follows given guidelines of 3-15 length alphabetic String
 	 */
-	public void inputFarmerName() {
+	public String inputFarmerName() {
 		Scanner input = new Scanner(System.in);
+		String finalName = "";
 		System.out.println("Hello aspiring farmer! What is your name? ");
 		String tempName = input.nextLine();
 		boolean nameFound = false;
@@ -21,9 +22,9 @@ public class UI {
 			boolean valid = game.farmerNameChecker(tempName);
 			
 			if (valid) {
-				game.farmerName = tempName;
+				finalName = tempName;
 				nameFound = true;
-				System.out.println("Hello farmer " + game.farmerName + ", welcome to Farming Simulator!");
+				System.out.println("Hello farmer " + finalName + ", welcome to Farming Simulator!");
 
 			} else {
 				System.out.println("Sorry, '" + tempName + "' is an invalid name!");
@@ -34,8 +35,38 @@ public class UI {
 			    
 			
 		}
+		return finalName;
+
 	}
 
+	/**
+	 * Procedure that gets the farmers age through cmd input; follows given guidelines num between 0-100
+	 */
+	public int inputFarmerAge() {
+		System.out.println("What is your age?");
+		int finalAge = 21;
+		boolean numFound = false;
+		while (numFound == false) {
+			try {
+				Scanner input = new Scanner(System.in);
+				int tempNum = input.nextInt();
+				if ((tempNum <= 100) && (tempNum > 0)) {
+					numFound = true;
+					finalAge = tempNum;
+					
+				} else {
+					System.out.println("Please enter a number between 0 and 100!\nTry again:");
+
+				}
+			} catch (Exception e) {
+				System.out.println("Please enter a number between 0 and 100!\nTry again:");
+			}
+			
+
+		}
+		return finalAge;
+	}
+	
 	/**
 	 * Procedure that gets the number of days the farmer would like to play (between 5 and 15)
 	 */
@@ -86,19 +117,19 @@ public class UI {
 				if (newNum == 1) {
 					valid = true;
 					// Desert Farm
-					DesertFarm dFarm = new DesertFarm(); game.farmType = dFarm.getFarmType(); game.farm = dFarm;
+					DesertFarm dFarm = new DesertFarm(); game.farm = dFarm;
 				} else if (newNum == 2) {
 					valid = true;
 					// Mountain Farm
-					MountainFarm mFarm = new MountainFarm(); game.farmType = mFarm.getFarmType(); game.farm = mFarm;
+					MountainFarm mFarm = new MountainFarm(); game.farm = mFarm;
 				} else if (newNum == 3) {
 					valid = true;
 					// Plains Farm
-					PlainsFarm pFarm = new PlainsFarm(); game.farmType = pFarm.getFarmType(); game.farm = pFarm;
+					PlainsFarm pFarm = new PlainsFarm(); game.farm = pFarm;
 				} else if (newNum == 4) {
 					valid = true;
 					// Swamp Farm
-					SwampFarm sFarm = new SwampFarm(); game.farmType = sFarm.getFarmType(); game.farm = sFarm;
+					SwampFarm sFarm = new SwampFarm(); game.farm = sFarm;
 				} else {
 					System.out.println("Sorry, that is not a valid choice, please enter a number between 1 and 4");
 					tempNum = input.nextLine();
@@ -117,7 +148,7 @@ public class UI {
 	 * Given name must be <= 20 characters long.
 	 */
 	public void inputFarmName() {
-		System.out.println("You have chosen a " + game.farmType
+		System.out.println("You have chosen a " + game.getFarm().getFarmType()
 				+ "\nIt is time to choose a name for your farm.\n"
 				+ "Type below:");
 		Scanner input = new Scanner(System.in);

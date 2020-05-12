@@ -1,14 +1,23 @@
 package gamePackage;
 
+
 public class GameEnvironment {
 	protected int numDays;
+	protected Farmer farmer;
 	protected String farmerName;
-	protected String farmType;
 	protected Farm farm;
 	protected String farmName;
 	public static String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	public int numActions = 2;
 	public boolean gameFinished = false;
+	
+	
+	public void getFarmer(GameEnvironment game) {
+		UI UI = new UI(game);
+		String farmerName = UI.inputFarmerName();
+		int farmerAge = UI.inputFarmerAge();
+		farmer = new Farmer(farmerName, farmerAge);
+	}
 	
 	/**
 	 * Checks if a given name is valid according to requirements (3-15 chars, alphabetic only)
@@ -43,7 +52,7 @@ public static void main(String[] args) {
 
 		GameEnvironment game = new GameEnvironment();
 		UI UI = new UI(game);
-		UI.inputFarmerName();
+		game.getFarmer(game);
 		UI.inputNumDays();
 		UI.inputChooseFarm();
 		UI.inputFarmName();
@@ -62,34 +71,6 @@ public int getNumDays() {
  */
 public void setNumDays(int numDays) {
 	this.numDays = numDays;
-}
-
-/**
- * @return the farmerName
- */
-public String getFarmerName() {
-	return farmerName;
-}
-
-/**
- * @param farmerName the farmerName to set
- */
-public void setFarmerName(String farmerName) {
-	this.farmerName = farmerName;
-}
-
-/**
- * @return the farmType
- */
-public String getFarmType() {
-	return farmType;
-}
-
-/**
- * @param farmType the farmType to set
- */
-public void setFarmType(String farmType) {
-	this.farmType = farmType;
 }
 
 /**
@@ -146,6 +127,20 @@ public boolean isGameFinished() {
  */
 public void setGameFinished(boolean gameFinished) {
 	this.gameFinished = gameFinished;
+}
+
+/**
+ * @return the farmer
+ */
+public Farmer getFarmer() {
+	return farmer;
+}
+
+/**
+ * @param farmer the farmer to set
+ */
+public void setFarmer(Farmer farmer) {
+	this.farmer = farmer;
 }
 
 }
