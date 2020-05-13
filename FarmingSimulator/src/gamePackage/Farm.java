@@ -1,7 +1,6 @@
 package gamePackage;
 
 import java.util.ArrayList;
-import java.util.function.Predicate;
 
 public class Farm {
 	private String farmType;
@@ -12,53 +11,125 @@ public class Farm {
 	int chickenCount = 0;
 	private double growthRate;
 	private ArrayList<Animal> animalList = new ArrayList<Animal>();
+	
 	/*
 	 * Adds animal to list if instance of Class Animal
 	 */
-	public void addAnimal(Object o) {
-		if (o instanceof Animal) {
-			animalList.add((Animal) o);
+	public boolean chickenOnFarm() {
+		for (Animal animal: animalList) {
+			if (animal instanceof Sheep) {
+				return true;
+			} 
+		} 
+		return false;
+	}
+	
+	public boolean cowOnFarm() {
+		for (Animal animal: animalList) {
+			if (animal instanceof Cow) {
+				return true;
+			} 
+		} 
+		return false;
+	}
+	
+		public boolean pigOnFarm() {
+		for (Animal animal: animalList) {
+			if (animal instanceof Pig) {
+				return true;
+			} 
+		} 
+		return false;
+	}
+		
+	public boolean sheepOnFarm() {
+		for (Animal animal: animalList) {
+			if (animal instanceof Sheep) {
+				return true;
+			} 
+		} 
+		return false;
+	}
+		
+	public void addChickenToFarm() {
+		Chicken chick = new Chicken();
+		this.animalList.add(chick);
+		this.chickenCount++;
+	}
+	
+	public void addCowToFarm() {
+		Cow cow = new Cow();
+		this.animalList.add(cow);
+		this.cowCount++;
+	}
+	
+	public void addSheepToFarm() {
+		Sheep sheep = new Sheep();
+		this.animalList.add(sheep);
+		this.sheepCount++;
+	}
+	
+	public void addPigToFarm() {
+		Pig pig = new Pig();
+		this.animalList.add(pig);
+		this.pigCount++;
+	}
+	/*
+	 * remove sheep if sheep is on farm.
+	 */
+	public void removeSheep() {
+		for (Animal animal: animalList) {
+			if (animal instanceof Sheep) {
+				this.animalList.remove(animal);
+				this.sheepCount--;
+				break;
+			}
 		}
 	}
 	/*
-	 * Removes the first animal in the list if there!
-	 * 
+	 * remove cow if cow is on farm.
 	 */
-	public void removeAnimal(Animal animal) {
-		if (animalList.contains(animal)) {
-			this.animalList.remove(animal);
-		}
-	}
-	
-	public void countUpdateAnimals() {
-		this.sheepCount = 0;
-		this.cowCount = 0;
-		this.pigCount = 0;
-		this.chickenCount = 0;
+	public void removeCow() {
 		for (Animal animal: animalList) {
-			if (animal.getAnimalType() == "Sheep") {
-				this.sheepCount += 1;
-			} 
-			else if (animal.getAnimalType() == "Cow") {
-				this.cowCount += 1;
+			if (animal instanceof Cow) {
+				this.animalList.remove(animal);
+				this.cowCount--;
+				break;
 			}
-			else if (animal.getAnimalType() == "Pig") {
-				this.pigCount += 1;
-			}
-			else if (animal.getAnimalType() == "Chicken") {
-				this.chickenCount += 1;
-			}
-				
 		}
 	}
-	public void displayAnimalCounts() {
-		countUpdateAnimals();
-		System.out.printf("Number of Sheep on Farm %s\n", sheepCount);
-		System.out.printf("Number of Cow on Farm %s\n", cowCount);
-		System.out.printf("Number of Pig on Farm %s\n", pigCount);
-		System.out.printf("Number of Chicken on Farm %s\n", chickenCount);
+	/*
+	 * remove pig if pig is on farm.
+	 */
+	public void removePig() {
+		for (Animal animal: animalList) {
+			if (animal instanceof Pig) {
+				this.animalList.remove(animal);
+				this.pigCount--;
+				break;
+			}
+		}
 	}
-	
+	/*
+	 * remove chicken if chicken is on farm.
+	 */
+	public void removeChicken() {
+		for (Animal animal: animalList) {
+			if (animal instanceof Chicken) {
+				this.animalList.remove(animal);
+				this.chickenCount--;
+				break;
+			}
+		}
+	}
+
+	public void displayAnimalCounts() {
+		System.out.printf("Number of Sheep on Farm %s\n", this.sheepCount);
+		System.out.printf("Number of Cow on Farm %s\n", this.cowCount);
+		System.out.printf("Number of Pig on Farm %s\n", this.pigCount);
+		System.out.printf("Number of Chicken on Farm %s\n", this.chickenCount);
+	}
+
 	public Farm(String farmType, double growthRate) {
 		this.farmType = farmType;
 		this.growthRate = growthRate;
@@ -72,6 +143,9 @@ public class Farm {
 		this.farmMoney += money;
 	}
 	
+	/*
+	 * Getter and Setters below
+	 */
 	public void setFarmType(String farmType) {
 		this.farmType = farmType;
 	}
@@ -99,16 +173,17 @@ public class Farm {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		SwampFarm farm = new SwampFarm();
-		Chicken item = new Chicken();
-		Cow item2 = new Cow();
-		farm.addAnimal(item);
-		farm.addAnimal(item);
-		farm.addAnimal(item2);
-		farm.addAnimal(item2);
-		farm.removeAnimal(item2);
-		farm.removeAnimal(item2);
-		farm.removeAnimal(item2);
+		farm.addChickenToFarm();
+		farm.addCowToFarm();
+		farm.addPigToFarm();
+		farm.addPigToFarm();
+		farm.addPigToFarm();
+		farm.addPigToFarm();
+		farm.addPigToFarm();
+		farm.addPigToFarm();
+		farm.addChickenToFarm();
 		farm.displayAnimalCounts();
+		System.out.println(farm.chickenOnFarm());
 
 	}
 
