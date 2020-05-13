@@ -18,6 +18,18 @@ public class Animal {
 	
 	}
 	
+	public void increaseHappiness() {
+		if (this.happiness < 1) {
+			this.happiness += 0.05;
+		}
+	}
+	
+	public void decreaseHappiness() {
+		if (this.happiness > 0) {
+			this.happiness -= 0.05;
+		}
+	}
+	
 	public double getHappiness() {
 		return this.happiness;
 	}
