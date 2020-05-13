@@ -37,4 +37,30 @@ class AnimalTest {
 		assertEquals((int)500, (int)item.getWeight());
 		assertEquals((double)0.8, (double)item.getHappiness());
 	}
+	/*
+	 * Want to check it decreases the correct amount each iteration.
+	 * - and that it doesn't go lower than 0
+	 */
+	void testAnimalMoneyDecreases() {
+		Chicken item = new Chicken();
+		item.decreaseHappiness();
+		item.decreaseHappiness();
+		assertEquals((double)0.7, (double)item.getHappiness());
+		for (int i=0; i<100; i++) {
+			item.decreaseHappiness();
+		}
+		assertEquals((double)0.0, (double)item.getHappiness());
+	}
+	void testAnimalMoneyIncreases() {
+		Chicken item = new Chicken();
+		item.increaseHappiness();
+		item.increaseHappiness();
+		assertEquals((double)0.9, (double)item.getHappiness());
+		for (int i=0; i<100; i++) {
+			item.increaseHappiness();
+		}
+		assertEquals((double)1.0, (double)item.getHappiness());
+	}
+		
+	
 }
