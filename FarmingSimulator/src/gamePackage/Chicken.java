@@ -16,10 +16,4 @@ public class Chicken extends Animal {
 		super("Chicken", 5, 0.7);
 	}
 	
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
 }

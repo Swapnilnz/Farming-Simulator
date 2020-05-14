@@ -1,0 +1,19 @@
+1. Fix up Crop class as a parent class
+
+2. add Paddock array.
+ a) set amount 4 at start
+ Tend to crops.
+(a) Tending to crops will speed up their growing process, decreasing the
+amount of time until they can be harvested.
+(b) A farmer will only be able to tend to one variety of crop in one action
+- the days pass by quickly with the busy farming life!
+(c) Crops can be tend
+
+3. Tend to the farm land. (Method in GameEnvironment)
+(a) Tending to the farm’s land keeps the farm tidy and well maintained.
+(b) Keeping the farm well maintained allows for more crops to be grown,
+and keeps the animals happier for longer with no obstacles to keep
+them from living their best life.
+
+4. For each case in startAdventure (in GameEnvironment),
+   add implementation as method of GameEnvironment.

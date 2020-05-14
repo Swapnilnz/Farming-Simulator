@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class Farm {
 	private String farmType;
 	private int farmMoney = 100;
-	int sheepCount = 0;
-	int cowCount = 0;
-	int pigCount = 0;
-	int chickenCount = 0;
+	private int sheepCount = 0;
+	private int cowCount = 0;
+	private int pigCount = 0;
+	private int chickenCount = 0;
 	private double growthRate;
 	private ArrayList<Animal> animalList = new ArrayList<Animal>();
 	
@@ -174,12 +174,7 @@ public class Farm {
 		// TODO Auto-generated method stub
 		SwampFarm farm = new SwampFarm();
 		farm.addChickenToFarm();
-		farm.addCowToFarm();
-		farm.addPigToFarm();
-		farm.addPigToFarm();
-		farm.addPigToFarm();
-		farm.addPigToFarm();
-		farm.addPigToFarm();
+
 		farm.addPigToFarm();
 		farm.addChickenToFarm();
 		farm.displayAnimalCounts();
