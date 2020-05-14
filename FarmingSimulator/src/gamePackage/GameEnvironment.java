@@ -7,14 +7,75 @@ public class GameEnvironment {
 	protected Farm farm;
 	protected String farmName;
 	public static String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	public int numActions = 2;
+	public int numActions;
 	public boolean gameFinished = false;
+	public boolean adventureRunning = false;
 	
 	
-	public void getFarmer(GameEnvironment game) {
-		UI UI = new UI(game);
-		String farmerName = UI.inputFarmerName();
-		int farmerAge = UI.inputFarmerAge();
+
+		
+	public void viewFarmStatus(GameEnvironment game) {
+		
+	}
+	
+	public void startAdventure(GameEnvironment game) {
+		UI numInput = new UI();
+		String nonActions = "What would you like to do?\n"
+				+ "1. View your farm's crops and animals\n"
+				+ "2. View farm money\n"
+				+ "3. Visit the County Tool Store\n"
+				+ "4. Visit the County Crop Store\n"
+				+ "5. Visit the County Animal Store\n"
+				+ "6. Move on to the next day";
+		String actions = "------------------------\n"
+				+ "Or, using an action, you can:\n"
+				+ "7. Tend to crops to speed up their growth\n"
+				+ "8. Feed farm animals to make them healthier and happier\n"
+				+ "9. Play with farm animal to make them happer\n"
+				+ "10. Harvest your fully grown crops for some extra cash\n"
+				+ "11. Tend to your farm land to keep your animals happy\n";
+		numInput.inputStartAdventure(game);
+		numActions = 2;
+		while (numActions > 0) {
+			UI UI = new UI();
+			int chosenAction = UI.inputChooseAction(game);
+			switch(chosenAction) {
+				case 1:
+					// View your farm's crops and animals
+					break;
+				case 2:
+					// View farm money
+					break;
+				case 3:
+					// Visit tool store
+					break;
+				case 4:
+					// Visit crop store
+				case 5:
+					// Visit animal store
+				case 6:
+					// Move onto next day
+				case 7:
+					// Tend to crops, speed up growth
+				case 8:
+					// Feed animals to make healthier and happier
+				case 9:
+					// Play with animals to make happier
+				case 10:
+					// Harvest fully grown crops for cash
+				case 11:
+					// Tend to your farm land to increas paddocks and keep animals happy
+					
+			}
+			
+			
+		}
+	}
+	
+public void getFarmer(GameEnvironment game) {
+		UI UI = new UI();
+		String farmerName = UI.inputFarmerName(game);
+		int farmerAge = UI.inputFarmerAge(game);
 		farmer = new Farmer(farmerName, farmerAge);
 	}
 	
@@ -45,17 +106,23 @@ public class GameEnvironment {
 			return false;
 		}
 	}
-		
-public static void main(String[] args) {
+
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		GameEnvironment game = new GameEnvironment();
-		UI UI = new UI(game);
+		UI UI = new UI();
 		game.getFarmer(game);
-		UI.inputNumDays();
-		UI.inputChooseFarm();
-		UI.inputFarmName();
-		// implement startAdventure
+		UI.inputNumDays(game);
+		UI.inputChooseFarm(game);
+		UI.inputFarmName(game);
+		game.startAdventure(game);
+		
+		System.out.println(game.numActions);
+		System.out.println(game.farmer);
+		System.out.println(game.farm.getFarmType());
+
+
 	}
 
 /**
