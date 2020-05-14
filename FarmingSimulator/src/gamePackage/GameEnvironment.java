@@ -7,69 +7,83 @@ public class GameEnvironment {
 	protected Farm farm;
 	protected String farmName;
 	public static String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	public int numActions;
+	public int numActions = 2;
 	public boolean gameFinished = false;
 	public boolean adventureRunning = false;
 	
-	
-
 		
-	public void viewFarmStatus(GameEnvironment game) {
-		
+	public void viewFarm(GameEnvironment game) {
+		// View time left until crop harvest, animal happiness
+		UI UI = new UI();
+		UI.showCrops(game.farm);
+		UI.showAnimals(game.farm);
 	}
 	
-	public void startAdventure(GameEnvironment game) {
-		UI numInput = new UI();
-		String nonActions = "What would you like to do?\n"
-				+ "1. View your farm's crops and animals\n"
-				+ "2. View farm money\n"
-				+ "3. Visit the County Tool Store\n"
-				+ "4. Visit the County Crop Store\n"
-				+ "5. Visit the County Animal Store\n"
-				+ "6. Move on to the next day";
-		String actions = "------------------------\n"
-				+ "Or, using an action, you can:\n"
-				+ "7. Tend to crops to speed up their growth\n"
-				+ "8. Feed farm animals to make them healthier and happier\n"
-				+ "9. Play with farm animal to make them happer\n"
-				+ "10. Harvest your fully grown crops for some extra cash\n"
-				+ "11. Tend to your farm land to keep your animals happy\n";
-		numInput.inputStartAdventure(game);
-		numActions = 2;
-		while (numActions > 0) {
+	public void runDay(GameEnvironment game) {
+		boolean exitLoop = false;
+		while ((numActions >= 0) && (exitLoop != true)){
 			UI UI = new UI();
-			int chosenAction = UI.inputChooseAction(game);
+			int chosenAction;
+			if (numActions > 0) {
+				chosenAction = UI.inputChooseAction(game, true);
+			} else {
+				chosenAction = UI.inputChooseAction(game, false);
+			}
 			switch(chosenAction) {
 				case 1:
 					// View your farm's crops and animals
+					viewFarm(game);
 					break;
 				case 2:
-					// View farm money
+					// View farm money (status)
 					break;
 				case 3:
 					// Visit tool store
 					break;
 				case 4:
 					// Visit crop store
+					break;
 				case 5:
 					// Visit animal store
+					break;
 				case 6:
 					// Move onto next day
+					exitLoop = true;
+					break;
 				case 7:
 					// Tend to crops, speed up growth
+					numActions -= 1;
+					break;
 				case 8:
 					// Feed animals to make healthier and happier
+					numActions -= 1;
+					break;
 				case 9:
 					// Play with animals to make happier
+					numActions -= 1;
+					break;
 				case 10:
 					// Harvest fully grown crops for cash
+					numActions -= 1;
+					break;
 				case 11:
-					// Tend to your farm land to increas paddocks and keep animals happ
+					// Tend to your farm land to increas paddocks and keep animals happy
+					numActions -= 1;
+					break;
+
 					
 			}
-			
-			
 		}
+	}
+	
+	public void startAdventure(GameEnvironment game) {
+		UI startInput = new UI();
+		startInput.inputStartAdventure(game);
+		while (numDays > 0) {
+			runDay(game);
+		}
+		// implement endAdventure()
+		
 	}
 	
 public void getFarmer(GameEnvironment game) {
@@ -118,9 +132,6 @@ public void getFarmer(GameEnvironment game) {
 		UI.inputFarmName(game);
 		game.startAdventure(game);
 		
-		System.out.println(game.numActions);
-		System.out.println(game.farmer);
-		System.out.println(game.farm.getFarmType());
 
 
 	}
