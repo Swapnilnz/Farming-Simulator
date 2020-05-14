@@ -1,5 +1,6 @@
 package gamePackage;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -77,7 +78,7 @@ public class UI {
 			try {
 				Scanner input = new Scanner(System.in);
 				int tempNum = input.nextInt();
-				if ((tempNum <= 10) && (tempNum >= 5)) {
+				if ((tempNum <= 15) && (tempNum >= 5)) {
 					numFound = true;
 					game.numDays = tempNum;
 					
@@ -177,7 +178,7 @@ public class UI {
 	public void inputStartAdventure(GameEnvironment game) {
 		System.out.println("Awesome! Would you like to start your adventure? (Y/N)");
 		Scanner input = new Scanner(System.in);
-		String[] choices = new String[]{"Yes", "y", "Y"};
+		String[] choices = new String[]{"Yes", "y", "Y", "yes"};
 		List<String> list = Arrays.asList(choices);
 		boolean valid = false;
 		String tempAns = input.nextLine();
@@ -186,6 +187,7 @@ public class UI {
 			if (list.contains(tempAns)) {
 				valid = true;
 				game.adventureRunning = true;
+				
 			} else {
 				System.out.println("Okay, I'll wait until you're ready!\n"
 						+ "Try again whenever you are ready.");
@@ -195,7 +197,12 @@ public class UI {
 		}
 	}
 	
-	public int inputChooseAction(GameEnvironment game) {
+	/**
+	 * Choose an action for the day
+	 * @param withActions
+	 * @return int of action chosen
+	 */
+	public int inputChooseAction(GameEnvironment game, boolean withActions) {
 		System.out.println("Welcome to Farming Simulator");
 		String nonActions = "What would you like to do?\n"
 				+ "1. View your farm's crops and animals\n"
@@ -212,7 +219,9 @@ public class UI {
 				+ "10. Harvest your fully grown crops for some extra cash\n"
 				+ "11. Tend to your farm land to keep your animals happy\n";
 		System.out.println(nonActions);
-		System.out.println(actions);
+		if (withActions) {
+			System.out.println(actions);
+		}
 		Scanner input = new Scanner(System.in);
 		String tempNum = input.nextLine();
 		int finalNum = 0;
@@ -222,12 +231,24 @@ public class UI {
 			try {
 				int newNum = Integer.parseInt(tempNum);
 				if ((newNum <= 11) && (newNum >= 1)) {
-					valid = true;
-					finalNum = newNum;
+					if (withActions) {
+						valid = true;
+						finalNum = newNum;
+					} else {
+						if (newNum <= 6) {
+							valid = true;
+							finalNum = newNum;
+						} else {
+							System.out.println("Sorry, that is not a valid choice, please enter a number between 1 and 6");
+							tempNum = input.nextLine();
+						}
+					}
+
 				} else {
 					System.out.println("Sorry, that is not a valid choice, please enter a number between 1 and 11");
 					tempNum = input.nextLine();
 				}
+				
 			} catch (Exception e) {
 				System.out.println("Sorry, that is not a valid choice, please enter a number between 1 and 11");
 				tempNum = input.nextLine();
@@ -238,5 +259,41 @@ public class UI {
 		return finalNum;
 		
 	}
+
+	/**
+	 * Print cropList stats
+	 * @param farm
+	 */
+	public void showCrops(Farm farm) {
+		ArrayList<Crop> cropList = farm.cropList;
+		System.out.println("-------------------------------");
+		for (int i = 0; i < cropList.size(); i++) {
+			Crop curCrop = cropList.get(i);
+			System.out.println(curCrop.getCropType() + ": " + String.valueOf(curCrop.getDaysTillHarvest()) +
+					" days till harvest\n");
+		}
+		System.out.println("-------------------------------");
+
+	
+	}
+	
+	/**
+	 * Print animalList stats
+	 * @param farm
+	 */
+	public void showAnimals(Farm farm) {
+		ArrayList<Animal> animalList = farm.animalList;
+		System.out.println("-------------------------------");
+
+		for (int i = 0; i < animalList.size(); i++) {
+			Animal curAnimal = animalList.get(i);
+			System.out.println(curAnimal.getAnimalType() + ": " + "has happiness level " + 
+			String.valueOf(curAnimal.getHappiness()) + "\n");
+		}
+		System.out.println("-------------------------------");
+
+
+	}
+	
 
 }
