@@ -64,7 +64,7 @@ public class GameEnvironment {
 				case 10:
 					// Harvest fully grown crops for cash
 				case 11:
-					// Tend to your farm land to increas paddocks and keep animals happy
+					// Tend to your farm land to increas paddocks and keep animals happ
 					
 			}
 			
