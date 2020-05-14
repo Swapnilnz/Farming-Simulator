@@ -17,7 +17,7 @@ public class Farm {
 	 */
 	public boolean chickenOnFarm() {
 		for (Animal animal: animalList) {
-			if (animal instanceof Sheep) {
+			if (animal instanceof Chicken) {
 				return true;
 			} 
 		} 
