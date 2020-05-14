@@ -9,8 +9,11 @@ amount of time until they can be harvested.
 - the days pass by quickly with the busy farming life!
 (c) Crops can be tend
 
-5. Tend to the farm land.
-(a) Tending to the farm’s land keeps the farm tidy and well maintained.
+3. Tend to the farm land. (Method in GameEnvironment)
+(a) Tending to the farmâ€™s land keeps the farm tidy and well maintained.
 (b) Keeping the farm well maintained allows for more crops to be grown,
 and keeps the animals happier for longer with no obstacles to keep
 them from living their best life.
+
+4. For each case in startAdventure (in GameEnvironment),
+   add implementation as method of GameEnvironment.
