@@ -21,34 +21,34 @@ public class Crop {
 
 		cropType = crop;
 		switch (cropType) {
-			case "grass":
+			case "Grass":
 				purchasePrice = -1; sellPrice = -1;
-				daysTillHarvest = 1; cropAmount = 0;
+				daysTillHarvest = 1; cropAmount = 1;
 				break;
 			
-			case "maize":
+			case "Maize":
 				purchasePrice = -1; sellPrice = -1;
-				daysTillHarvest = 2; cropAmount = 0;
+				daysTillHarvest = 2; cropAmount = 1;
 				break;
 				
-			case "fodderBeet":
+			case "FodderBeet":
 				purchasePrice = -1; sellPrice = -1;
-				daysTillHarvest = 3; cropAmount = 0;
+				daysTillHarvest = 3; cropAmount = 1;
 				break;
 				
-			case "potato":
+			case "Potato":
 				purchasePrice = 7; sellPrice = 5;
-				daysTillHarvest = 4; cropAmount = 0;
+				daysTillHarvest = 4; cropAmount = 1;
 				break;
 				
-			case "carrot":
+			case "Carrot":
 				purchasePrice = 10; sellPrice = 7;
-				daysTillHarvest = 3; cropAmount = 0;
+				daysTillHarvest = 3; cropAmount = 1;
 				break;
 				
-			case "apple":
+			case "Apple":
 				purchasePrice = 6; sellPrice = 4;
-				daysTillHarvest = 2; cropAmount = 0;
+				daysTillHarvest = 2; cropAmount = 1;
 				break;
 
 		}
