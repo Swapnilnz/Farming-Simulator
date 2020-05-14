@@ -4,13 +4,21 @@ import java.util.ArrayList;
 
 public class Farm {
 	private String farmType;
-	private int farmMoney = 100;
-	private int sheepCount = 0;
-	private int cowCount = 0;
-	private int pigCount = 0;
-	private int chickenCount = 0;
-	private double growthRate;
-	private ArrayList<Animal> animalList = new ArrayList<Animal>();
+	public int farmMoney = 100;
+	public int sheepCount = 0;
+	public int cowCount = 0;
+	public int pigCount = 0;
+	public int chickenCount = 0;
+	public double growthRate;
+	public ArrayList<Animal> animalList;
+	public ArrayList<Crop> cropList;
+	
+	public Farm(String farmType, double growthRate) {
+		this.farmType = farmType;
+		this.growthRate = growthRate;
+		animalList = new ArrayList<Animal>();
+		cropList = new ArrayList<Crop>();
+	}
 	
 	/*
 	 * Adds animal to list if instance of Class Animal
@@ -33,7 +41,7 @@ public class Farm {
 		return false;
 	}
 	
-		public boolean pigOnFarm() {
+	public boolean pigOnFarm() {
 		for (Animal animal: animalList) {
 			if (animal instanceof Pig) {
 				return true;
@@ -130,11 +138,6 @@ public class Farm {
 		System.out.printf("Number of Chicken on Farm %s\n", this.chickenCount);
 	}
 
-	public Farm(String farmType, double growthRate) {
-		this.farmType = farmType;
-		this.growthRate = growthRate;
-	}
-	
 	public void decreaseFarmMoney(int money) {
 		this.farmMoney -= money;
 	}
@@ -170,16 +173,9 @@ public class Farm {
 		return this.growthRate;
 	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		SwampFarm farm = new SwampFarm();
-		farm.addChickenToFarm();
-
-		farm.addPigToFarm();
-		farm.addChickenToFarm();
-		farm.displayAnimalCounts();
-		System.out.println(farm.chickenOnFarm());
-
+	public void addToCropList(Crop newCrop) {
+		cropList.add(newCrop);
 	}
-
+	
 }
+
