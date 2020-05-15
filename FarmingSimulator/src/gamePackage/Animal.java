@@ -18,6 +18,18 @@ public class Animal {
 	
 	}
 	
+	public void increaseHappiness() {
+		if (this.happiness < 1) {
+			this.happiness += 0.05;
+		}
+	}
+	
+	public void decreaseHappiness() {
+		if (this.happiness > 0) {
+			this.happiness -= 0.05;
+		}
+	}
+	
 	public double getHappiness() {
 		return this.happiness;
 	}
@@ -26,14 +38,21 @@ public class Animal {
 		return this.weight;
 	}
 	
+	public void setAnimalType(String animalType) {
+		this.animalType = animalType;
+	}
+
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+
+	public void setHappiness(double happiness) {
+		this.happiness = happiness;
+	}
+
 	public String getAnimalType() {
 		return this.animalType;
 	}
 	
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
 }
