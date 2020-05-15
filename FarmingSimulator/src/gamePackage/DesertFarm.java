@@ -7,7 +7,7 @@ public class DesertFarm extends Farm {
 	}
 	
 	public DesertFarm() {
-		super("Desert Farm", 0.5);
+		super("Desert Farm", 1);
 	}
 
 }

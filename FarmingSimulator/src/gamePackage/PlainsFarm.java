@@ -7,7 +7,7 @@ public class PlainsFarm extends Farm {
 	}
 	
 	public PlainsFarm() {
-		super("Plains Farm", 4.0);
+		super("Plains Farm", 2);
 	}
 
 }
