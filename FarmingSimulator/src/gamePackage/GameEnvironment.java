@@ -18,6 +18,11 @@ public class GameEnvironment {
 		UI.showCrops(game.farm);
 		UI.showAnimals(game.farm);
 	}
+
+	public void viewFarmMoney(GameEnvironment game) {
+		UI UI = new UI();
+		UI.showFarmMoney(game.farm);
+	}
 	
 	public void runDay(GameEnvironment game) {
 		boolean exitLoop = false;
@@ -36,6 +41,7 @@ public class GameEnvironment {
 					break;
 				case 2:
 					// View farm money (status)
+					viewFarmMoney(game);
 					break;
 				case 3:
 					// Visit tool store
