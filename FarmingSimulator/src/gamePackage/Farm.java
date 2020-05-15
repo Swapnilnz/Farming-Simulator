@@ -177,5 +177,9 @@ public class Farm {
 		cropList.add(newCrop);
 	}
 	
+	public boolean hasMoney() {
+		return this.getFarmMoney() > 0;
+	}
+	
 }
 
