@@ -1,5 +1,7 @@
 package gamePackage;
 
+import java.util.HashMap;
+
 /**
  * 
  * @author Swapnil B, Reed E
@@ -15,10 +17,13 @@ public class Crop {
 	protected int daysTillHarvest;
 	protected int cropAmount;
 	protected String cropType;
+	public HashMap<String, Integer> cropDic;
 
 	
 	public Crop(String crop) {
-
+		cropDic = new HashMap<String, Integer>();
+		cropDic.put("Avocado", 8); cropDic.put("Corn", 6); cropDic.put("Wheat", 4); 
+		cropDic.put("Potato", 4); cropDic.put("Carrot", 3); cropDic.put("Apple", 2); 
 		cropType = crop;
 		switch (cropType) {
 			case "Avocado":
@@ -95,13 +100,30 @@ public class Crop {
 	}
 	
 	
-	
-	public void water() {
-		//TBI
+	public void tendTo(GameEnvironment game) {
+		// Decrease timeTillHarvest by 2, or 4 if user bought watering can
+		boolean contains = game.farm.itemList.contains("Watering Can");
+		if (contains) {
+			if (this.daysTillHarvest >= 4) {
+				this.daysTillHarvest -= 4;
+			} else {
+				this.daysTillHarvest = 0;
+			}
+		} else {
+			if (this.daysTillHarvest >= 2) {
+				this.daysTillHarvest -= 2;
+			} else {
+				this.daysTillHarvest = 0;
+			}
+		}
 	}
 	
-	public void harvest() {
-		//TBI
+	public void harvest(GameEnvironment game) {
+		// Refresh days till harvest, add money
+		this.daysTillHarvest = cropDic.get(this.cropType);
+		int farmMoney = game.farm.getFarmMoney();
+		game.farm.setFarmMoney(farmMoney + this.sellPrice);
+		
 	}
 	
 }

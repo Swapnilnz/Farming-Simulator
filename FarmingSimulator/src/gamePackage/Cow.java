@@ -17,6 +17,6 @@ public class Cow extends Animal{
 	}
 	
 	public void milk(GameEnvironment game) {
-		game.farm.increaseFarmMoney(8);
+		game.farm.increaseFarmMoney(15);
 	}
 }

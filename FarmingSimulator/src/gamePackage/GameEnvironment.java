@@ -10,7 +10,6 @@ public class GameEnvironment {
 	public int numActions;
 	public boolean gameFinished = false;
 	public boolean adventureRunning = false;
-	public boolean hasAnimalStatue = false;
 	
 	public GameEnvironment() {
 		numActions = 2;
@@ -34,6 +33,10 @@ public class GameEnvironment {
 		UI.showFarmMoney(game.getFarm());
 	}
 	
+	/**
+	 * Visit Tom's Tool Market and purches various utility items
+	 * @param game
+	 */
 	public void visitToolMarket(GameEnvironment game) {
 		UI UI = new UI();
 		ToolMarket toolMarket = new ToolMarket();
@@ -62,8 +65,8 @@ public class GameEnvironment {
 					toolMarket.buyWateringCan(game);
 					break;
 				case 6:
-					// Quad Bike
-					toolMarket.buyQuadBike(game);
+					// Teleportation Pad
+					toolMarket.buyTeleportationPad(game);
 					break;
 				case 7:
 					// Exit
@@ -74,15 +77,26 @@ public class GameEnvironment {
 		}
 	}
 	
+	/**
+	 * Visit crop market to buy crops
+	 * @param game
+	 */
 	public void visitCropMarket(GameEnvironment game) {
 		UI UI = new UI();
 		CropMarket cropMarket = new CropMarket(game);
 		
 	}
 	
+	/**
+	 * Plays one day, with either 2 or more actiosn
+	 * @param game
+	 */
 	public void runDay(GameEnvironment game) {
 		boolean exitLoop = false;
 		int numActions = game.getNumActions();
+		
+		System.out.println(numActions);
+		
 		while ((numActions >= 0) && (exitLoop != true)){
 			UI UI = new UI();
 			int chosenAction;
@@ -145,19 +159,35 @@ public class GameEnvironment {
 		UI startInput = new UI();
 		startInput.inputStartAdventure(game);
 		while (game.getNumDays() > 0) {
-			if (!hasAnimalStatue) {
+			if (!(game.farm.itemList.contains("Animal Statue"))) {
 				// Decrease animal happiness
+				for (int i=0; i < game.farm.animalList.size(); i++) {
+					game.farm.animalList.get(i).decreaseHappiness();
+				}
 			}
 			// Decrease all days till harvest
 			runDay(game);
-			// Add money
+			// Add money (Milk Master; Shear Master) TO DO: Normal
+			
+			if (game.farm.itemList.contains("Milk Master")) {
+				for (Animal animal: game.farm.animalList) {
+					if (animal instanceof Cow) {
+						((Cow) animal).milk(game);
+					} else if (animal instanceof Sheep) {
+						if (game.farm.itemList.contains("Shear Master")) {
+							((Sheep) animal).shear(game);
+						}
+					}
+				}
+			}
+			
 			game.numDays--;
 		}
 		// implement endAdventure()
 		
 	}
 	
-public void getFarmer(GameEnvironment game) {
+	public void getFarmer(GameEnvironment game) {
 		UI UI = new UI();
 		String farmerName = UI.inputFarmerName(game);
 		int farmerAge = UI.inputFarmerAge(game);
@@ -193,7 +223,6 @@ public void getFarmer(GameEnvironment game) {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		GameEnvironment game = new GameEnvironment();
 		UI UI = new UI();
@@ -203,6 +232,7 @@ public void getFarmer(GameEnvironment game) {
 		UI.inputFarmName(game);
 		game.startAdventure(game);
 		
+
 
 
 	}

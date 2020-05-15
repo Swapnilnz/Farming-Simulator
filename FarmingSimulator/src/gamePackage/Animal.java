@@ -14,19 +14,23 @@ public class Animal {
 	public Animal(String animalType, int weight, double happiness) {
 		this.animalType = animalType;
 		this.weight = weight;
-		this.happiness= happiness;
+		this.happiness = happiness;
 	
 	}
 	
 	public void increaseHappiness() {
-		if (this.happiness < 1) {
-			this.happiness += 0.05;
+		if (this.happiness < 0.8) {
+			this.happiness += 0.2;
+		} else {
+			this.happiness = 1;
 		}
 	}
 	
 	public void decreaseHappiness() {
-		if (this.happiness > 0) {
-			this.happiness -= 0.05;
+		if (this.happiness > 0.2) {
+			this.happiness -= 0.2;
+		} else {
+			this.happiness = 0;
 		}
 	}
 	

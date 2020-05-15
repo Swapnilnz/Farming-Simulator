@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class Farm {
 	private String farmType;
-	public int farmMoney = 100;
+	public int farmMoney;
 	public int sheepCount = 0;
 	public int cowCount = 0;
 	public int pigCount = 0;
@@ -19,6 +19,7 @@ public class Farm {
 	public Farm(String farmType, int growthRate) {
 		this.farmType = farmType;
 		this.growthRate = growthRate;
+		farmMoney = 50;
 		animalList = new ArrayList<Animal>();
 		cropList = new ArrayList<Crop>();
 		cropInventory = new HashMap<String, Integer>();

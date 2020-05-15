@@ -315,7 +315,7 @@ public class UI {
 				+ "3. Milk Master - Automates milking of cows\n"
 				+ "4. Shear Master - Automates shearing of sheep\n"
 				+ "5. Watering Can - Reduces time till harvest of all crops further when tending to crops\n"
-				+ "6. Quad Bike - Increase number of actions per day to 3 instead of 2\n"
+				+ "6. Teleportation Pad - Increase number of actions per day by 1\n"
 				+ "------ Or press 7 to exit ------");
 		Scanner input = new Scanner(System.in);
 		String tempNum = input.nextLine();
