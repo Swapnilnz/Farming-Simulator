@@ -1,6 +1,7 @@
 package gamePackage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Farm {
 	private String farmType;
@@ -12,12 +13,16 @@ public class Farm {
 	public double growthRate;
 	public ArrayList<Animal> animalList;
 	public ArrayList<Crop> cropList;
+	public HashMap<String, Integer> cropInventory;
 	
 	public Farm(String farmType, double growthRate) {
 		this.farmType = farmType;
 		this.growthRate = growthRate;
 		animalList = new ArrayList<Animal>();
 		cropList = new ArrayList<Crop>();
+		cropInventory = new HashMap<String, Integer>();
+		cropInventory.put("Avocado", 0); cropInventory.put("Corn", 0); cropInventory.put("Wheat", 0);
+		cropInventory.put("Potato", 0); cropInventory.put("Carrot", 0); cropInventory.put("Apple", 0);
 	}
 	
 	/*
