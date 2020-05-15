@@ -21,23 +21,23 @@ public class Crop {
 
 		cropType = crop;
 		switch (cropType) {
-			case "Grass":
-				purchasePrice = -1; sellPrice = -1;
-				daysTillHarvest = 1; cropAmount = 1;
+			case "Avocado":
+				purchasePrice = 8; sellPrice = 64;
+				daysTillHarvest = 8; cropAmount = 1;
 				break;
 			
-			case "Maize":
-				purchasePrice = -1; sellPrice = -1;
-				daysTillHarvest = 2; cropAmount = 1;
+			case "Corn":
+				purchasePrice = 5; sellPrice = 30;
+				daysTillHarvest = 6; cropAmount = 1;
 				break;
 				
-			case "FodderBeet":
-				purchasePrice = -1; sellPrice = -1;
-				daysTillHarvest = 3; cropAmount = 1;
+			case "Wheat":
+				purchasePrice = 4; sellPrice = 16;
+				daysTillHarvest = 4; cropAmount = 1;
 				break;
 				
 			case "Potato":
-				purchasePrice = 7; sellPrice = 5;
+				purchasePrice = 7; sellPrice = 28;
 				daysTillHarvest = 4; cropAmount = 1;
 				break;
 				
