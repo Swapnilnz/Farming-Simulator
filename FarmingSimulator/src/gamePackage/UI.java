@@ -84,7 +84,6 @@ public class UI {
 					
 				} else {
 					System.out.println("Please enter a number between 5 and 15!\nTry again:");
-					tempNum = input.nextInt();
 
 				}
 			} catch (Exception e) {
@@ -295,5 +294,10 @@ public class UI {
 
 	}
 	
+	public void showFarmMoney(Farm farm) {
+		System.out.println("-------------------------------");
+		System.out.println("Your farm currently has $" + farm.getFarmMoney());
+		System.out.println("-------------------------------");
 
+	}
 }
