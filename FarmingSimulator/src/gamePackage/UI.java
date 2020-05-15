@@ -287,17 +287,62 @@ public class UI {
 		for (int i = 0; i < animalList.size(); i++) {
 			Animal curAnimal = animalList.get(i);
 			System.out.println(curAnimal.getAnimalType() + ": " + "has happiness level " + 
-			String.valueOf(curAnimal.getHappiness()) + "\n");
+			String.valueOf(curAnimal.getHappiness() * 10) + "\n");
 		}
 		System.out.println("-------------------------------");
 
 
 	}
 	
+	/**
+	 * Shows the farm's money
+	 * @param farm
+	 */
 	public void showFarmMoney(Farm farm) {
 		System.out.println("-------------------------------");
 		System.out.println("Your farm currently has $" + farm.getFarmMoney());
 		System.out.println("-------------------------------");
 
+	}
+
+	public int toolMarket(Farm farm, ToolMarket toolMarket) {
+		System.out.println("--------------------------------");
+		System.out.println("  Welcome to Tom's Tool Market");
+		System.out.println("--------------------------------");
+		System.out.println("What would you like to purchase?\n"
+				+ "1. Harvester - Automates one crop harvesting at the end of the day\n"
+				+ "2. Chance Crystal - Increase the chance of random events happening to you (good...and bad)\n"
+				+ "3. Milk Master - Automates milking of cows\n"
+				+ "4. Shear Master - Automates shearing of sheep\n"
+				+ "5. Watering Can - Reduces time till harvest of all crops further when tending to crops\n"
+				+ "6. Quad Bike - Increase number of actions per day to 3 instead of 2\n"
+				+ "------ Or press 7 to exit ------");
+		Scanner input = new Scanner(System.in);
+		String tempNum = input.nextLine();
+		int finalNum = 0;
+		boolean valid = false;
+
+		while (valid == false) {
+			try {
+				int newNum = Integer.parseInt(tempNum);
+				if ((newNum <= 11) && (newNum >= 1)) {
+						valid = true;
+						finalNum = newNum;
+
+				} else {
+					System.out.println("Sorry, that is not a valid choice, please enter a number between 1 and 7");
+					tempNum = input.nextLine();
+				}
+				
+			} catch (Exception e) {
+				System.out.println("Sorry, that is not a valid choice, please enter a number between 1 and 7");
+				tempNum = input.nextLine();
+			}
+
+
+		}
+		return finalNum;
+		
+		
 	}
 }
