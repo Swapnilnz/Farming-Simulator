@@ -3,11 +3,19 @@ package gamePackage;
 public class ToolMarket {
 	private int harvesterPrice = 15;
 	private int wateringCanPrice = 15;
-	private int chanceCrystalPrice = 18;
+	private int animalStatuePrice = 18;
 	private int milkMasterPrice = 20;
 	private int shearMasterPrice = 20;
 	private int quadBikePrice = 20;
 	
+	public ToolMarket() {
+		harvesterPrice = 30;
+		wateringCanPrice = 30;
+		animalStatuePrice = 40;
+		milkMasterPrice = 40;
+		shearMasterPrice = 40;
+		quadBikePrice = 50;
+	}
 	public int getHarvesterPrice() {
 		return harvesterPrice;
 	}
@@ -24,12 +32,12 @@ public class ToolMarket {
 		wateringCanPrice = newPrice;
 	}
 	
-	public int getChanceCrystalPrice() {
-		return chanceCrystalPrice;
+	public int getAnimalStatuePrice() {
+		return animalStatuePrice;
 	}
 	
-	public void setChanceCrystalPrice(int newPrice) {
-		chanceCrystalPrice = newPrice;
+	public void setAnimalStatuePrice(int newPrice) {
+		animalStatuePrice = newPrice;
 	}
 	
 	public int getMilkMasterPrice() {
@@ -64,8 +72,8 @@ public class ToolMarket {
 		// Add watering can, remove money
 	}
 	
-	public void buyChanceCrystal() {
-		// Add chance crystal, remove money
+	public void buyAnimalStatue() {
+		// Add animalStatue, remove money
 	}
 	
 	public void buyMilkMaster() {
