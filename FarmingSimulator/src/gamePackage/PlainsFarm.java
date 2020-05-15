@@ -2,12 +2,12 @@ package gamePackage;
 
 public class PlainsFarm extends Farm {
 	
-	public PlainsFarm(String farmType, double growthRate) {
+	public PlainsFarm(String farmType, int growthRate) {
 		super(farmType, growthRate);
 	}
 	
 	public PlainsFarm() {
-		super("Plains Farm", 4.0);
+		super("Plains Farm", 2);
 	}
 
 }

@@ -15,5 +15,9 @@ public class Sheep extends Animal {
 	public Sheep() {
 		super("Sheep", 60, 0.8);
 	}
+	
+	public void shear(GameEnvironment game) {
+		game.farm.increaseFarmMoney(8);
+	}
 
 }

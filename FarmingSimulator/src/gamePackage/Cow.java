@@ -16,5 +16,7 @@ public class Cow extends Animal{
 		super("Cow", 500, 0.8);
 	}
 	
-
+	public void milk(GameEnvironment game) {
+		game.farm.increaseFarmMoney(15);
+	}
 }

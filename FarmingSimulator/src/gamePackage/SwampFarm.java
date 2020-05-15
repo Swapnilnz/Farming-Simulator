@@ -7,7 +7,7 @@ public class SwampFarm extends Farm {
 	}
 	
 	public SwampFarm() {
-		super("Swamp Farm", 2.0);
+		super("Swamp Farm", 1);
 	}
 
 }

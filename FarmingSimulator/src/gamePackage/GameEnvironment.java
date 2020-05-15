@@ -7,25 +7,96 @@ public class GameEnvironment {
 	protected Farm farm;
 	protected String farmName;
 	public static String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	public int numActions = 2;
+	public int numActions;
 	public boolean gameFinished = false;
 	public boolean adventureRunning = false;
 	
-		
-	public void viewFarm(GameEnvironment game) {
-		// View time left until crop harvest, animal happiness
-		UI UI = new UI();
-		UI.showCrops(game.farm);
-		UI.showAnimals(game.farm);
-	}
-
-	public void viewFarmMoney(GameEnvironment game) {
-		UI UI = new UI();
-		UI.showFarmMoney(game.farm);
+	public GameEnvironment() {
+		numActions = 2;
 	}
 	
+	/**
+	 * View time left until crop harvest, animal happiness
+	 * @param game
+	 */
+	public void viewFarm(GameEnvironment game) {
+		UI UI = new UI();
+		UI.showCrops(game.getFarm());
+		UI.showAnimals(game.getFarm());
+	}
+    /**
+     * View the farm's money
+     * @param game
+     */
+	public void viewFarmMoney(GameEnvironment game) {
+		UI UI = new UI();
+		UI.showFarmMoney(game.getFarm());
+	}
+	
+	/**
+	 * Visit Tom's Tool Market and purches various utility items
+	 * @param game
+	 */
+	public void visitToolMarket(GameEnvironment game) {
+		UI UI = new UI();
+		ToolMarket toolMarket = new ToolMarket();
+		boolean done = false;
+		while (!done) {
+			int inputNum = UI.toolMarket(game.getFarm(), toolMarket);
+			switch(inputNum) {
+				case 1:
+					// Harvester
+					toolMarket.buyHarvester(game);
+					break;
+				case 2:
+					// Animal Statue
+					toolMarket.buyAnimalStatue(game);
+					break;
+				case 3:
+					// Milk Master
+					toolMarket.buyMilkMaster(game);
+					break;
+				case 4:
+					// Shear Master
+					toolMarket.buyShearMaster(game);
+					break;
+				case 5:
+					// Watering Can 
+					toolMarket.buyWateringCan(game);
+					break;
+				case 6:
+					// Teleportation Pad
+					toolMarket.buyTeleportationPad(game);
+					break;
+				case 7:
+					// Exit
+					done = true;
+					break;
+			}
+						
+		}
+	}
+	
+	/**
+	 * Visit crop market to buy crops
+	 * @param game
+	 */
+	public void visitCropMarket(GameEnvironment game) {
+		UI UI = new UI();
+		CropMarket cropMarket = new CropMarket(game);
+		
+	}
+	
+	/**
+	 * Plays one day, with either 2 or more actiosn
+	 * @param game
+	 */
 	public void runDay(GameEnvironment game) {
 		boolean exitLoop = false;
+		int numActions = game.getNumActions();
+		
+		System.out.println(numActions);
+		
 		while ((numActions >= 0) && (exitLoop != true)){
 			UI UI = new UI();
 			int chosenAction;
@@ -44,20 +115,22 @@ public class GameEnvironment {
 					viewFarmMoney(game);
 					break;
 				case 3:
-					// Visit tool store
+					// Visit tool market
+					visitToolMarket(game);
 					break;
 				case 4:
-					// Visit crop store
+					// Visit crop market
+					visitCropMarket(game);
 					break;
 				case 5:
-					// Visit animal store
+					// Visit animal market
 					break;
 				case 6:
 					// Move onto next day
 					exitLoop = true;
 					break;
 				case 7:
-					// Tend to crops, speed up growth
+					// Tend to crops, speed up growth, remember watering can
 					numActions -= 1;
 					break;
 				case 8:
@@ -85,14 +158,36 @@ public class GameEnvironment {
 	public void startAdventure(GameEnvironment game) {
 		UI startInput = new UI();
 		startInput.inputStartAdventure(game);
-		while (numDays > 0) {
+		while (game.getNumDays() > 0) {
+			if (!(game.farm.itemList.contains("Animal Statue"))) {
+				// Decrease animal happiness
+				for (int i=0; i < game.farm.animalList.size(); i++) {
+					game.farm.animalList.get(i).decreaseHappiness();
+				}
+			}
+			// Decrease all days till harvest
 			runDay(game);
+			// Add money (Milk Master; Shear Master) TO DO: Normal
+			
+			if (game.farm.itemList.contains("Milk Master")) {
+				for (Animal animal: game.farm.animalList) {
+					if (animal instanceof Cow) {
+						((Cow) animal).milk(game);
+					} else if (animal instanceof Sheep) {
+						if (game.farm.itemList.contains("Shear Master")) {
+							((Sheep) animal).shear(game);
+						}
+					}
+				}
+			}
+			
+			game.numDays--;
 		}
 		// implement endAdventure()
 		
 	}
 	
-public void getFarmer(GameEnvironment game) {
+	public void getFarmer(GameEnvironment game) {
 		UI UI = new UI();
 		String farmerName = UI.inputFarmerName(game);
 		int farmerAge = UI.inputFarmerAge(game);
@@ -128,7 +223,6 @@ public void getFarmer(GameEnvironment game) {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		GameEnvironment game = new GameEnvironment();
 		UI UI = new UI();
@@ -138,6 +232,7 @@ public void getFarmer(GameEnvironment game) {
 		UI.inputFarmName(game);
 		game.startAdventure(game);
 		
+
 
 
 	}

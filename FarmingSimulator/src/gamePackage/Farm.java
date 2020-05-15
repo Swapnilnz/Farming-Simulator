@@ -1,23 +1,31 @@
 package gamePackage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Farm {
 	private String farmType;
-	public int farmMoney = 100;
+	public int farmMoney;
 	public int sheepCount = 0;
 	public int cowCount = 0;
 	public int pigCount = 0;
 	public int chickenCount = 0;
-	public double growthRate;
+	public int growthRate;
 	public ArrayList<Animal> animalList;
 	public ArrayList<Crop> cropList;
+	public HashMap<String, Integer> cropInventory;
+	public ArrayList<String> itemList;
 	
-	public Farm(String farmType, double growthRate) {
+	public Farm(String farmType, int growthRate) {
 		this.farmType = farmType;
 		this.growthRate = growthRate;
+		farmMoney = 50;
 		animalList = new ArrayList<Animal>();
 		cropList = new ArrayList<Crop>();
+		cropInventory = new HashMap<String, Integer>();
+		itemList = new ArrayList<String>();
+		cropInventory.put("Avocado", 0); cropInventory.put("Corn", 0); cropInventory.put("Wheat", 0);
+		cropInventory.put("Potato", 0); cropInventory.put("Carrot", 0); cropInventory.put("Apple", 0);
 	}
 	
 	/*
@@ -157,7 +165,7 @@ public class Farm {
 		this.farmMoney = farmMoney;
 	}
 
-	public void setGrowthRate(double growthRate) {
+	public void setGrowthRate(int growthRate) {
 		this.growthRate = growthRate;
 	}
 
@@ -175,7 +183,15 @@ public class Farm {
 
 	public void addToCropList(Crop newCrop) {
 		cropList.add(newCrop);
+		cropInventory.put(newCrop.getCropType(), cropInventory.get(newCrop.getCropType() + 1));
 	}
 	
+	public boolean hasMoney() {
+		return this.getFarmMoney() > 0;
+	}
+	
+	public void addToItemList(String item) {
+		itemList.add(item);
+	}
 }
 

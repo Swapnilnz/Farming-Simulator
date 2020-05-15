@@ -3,13 +3,21 @@ package gamePackage;
 public class CropMarket {
 	
 	public int playerMoney;
-	private int potatoSellPrice = 5;
-	private int potatoPurchasePrice = 7;
-	private int carrotSellPrice = 7;
-	private int carrotPurchasePrice = 10;
-	private int appleSellPrice = 4;
-	private int applePurchasePrice = 6;
+	private int potatoSellPrice;
+	private int potatoPurchasePrice;
+	private int carrotSellPrice;
+	private int carrotPurchasePrice;
+	private int appleSellPrice;
+	private int applePurchasePrice;
 	
+	public CropMarket(GameEnvironment game) {
+		potatoSellPrice = 5;
+		potatoPurchasePrice = 7;
+		carrotSellPrice = 7;
+		carrotPurchasePrice = 10;
+		appleSellPrice = 4;
+		applePurchasePrice = 6;
+	}
 	public void buyPotato(int amount) {
 		int totalPurchasePrice = amount * potatoPurchasePrice;
 		// Subtract from player money, add potatoes to farm
