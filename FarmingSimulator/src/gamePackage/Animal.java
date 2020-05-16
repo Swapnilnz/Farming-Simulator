@@ -7,17 +7,35 @@ package gamePackage;
  */
 
 public class Animal {
-	private String animalType;
-	private int weight;
-	private int happiness;
+	public String animalType;
+	public int weight;
+	public int happiness;
+	public int health;
 	
-	public Animal(String animalType, int weight, int happiness) {
+	public Animal(String animalType, int weight, int happiness, int health) {
 		this.animalType = animalType;
 		this.weight = weight;
 		this.happiness = happiness;
+		this.health = health;
 	
 	}
 	
+	public void increaseHealth() {
+		if (this.health < 75) {
+			this.health += 25;
+		} else {
+			this.setHealth(100);
+		}
+	}
+
+
+	public void decreaseHealth() {
+		if (this.health > 20) {
+			this.health -= 20;
+		} else {
+			this.setHealth(0);
+		}
+	}
 
 	public void increaseHappiness() {
 		if (this.happiness < 80) {
@@ -31,7 +49,7 @@ public class Animal {
 		if (this.happiness > 20) {
 			this.happiness -= 20;
 		} else {
-			this.happiness = 0;
+			this.setHappiness(0);
 		}
 	}
 	
@@ -59,5 +77,18 @@ public class Animal {
 		return this.animalType;
 	}
 	
+	/**
+	 * @return the health
+	 */
+	public int getHealth() {
+		return health;
+	}
+
+	/**
+	 * @param health the health to set
+	 */
+	public void setHealth(int health) {
+		this.health = health;
+	}
 	
 }

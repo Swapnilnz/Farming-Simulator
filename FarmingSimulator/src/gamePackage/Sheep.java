@@ -8,12 +8,12 @@ package gamePackage;
 
 public class Sheep extends Animal {
 	// Constructor for Sheep
-	public Sheep(String AnimalType, int weight, int happiness) {
-		super(AnimalType, weight, happiness);
+	public Sheep(String AnimalType, int weight, int happiness, int health) {
+		super(AnimalType, weight, happiness, health);
 	}
 	
 	public Sheep() {
-		super("Sheep", 60, 80);
+		super("Sheep", 60, 80, 50);
 	}
 	
 	public void shear(GameEnvironment game) {

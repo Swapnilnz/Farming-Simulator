@@ -30,13 +30,6 @@ public class ToolMarket {
 			game.farm.farmMoney -= harvesterPrice;
 			System.out.println("Tom says: \nThanks for the purchase pal");
 
-			if (game.farm.cropList.size() > 0) {
-				Random rnd = new Random();
-				int rand = rnd.nextInt(game.farm.cropList.size());
-				game.farm.cropList.get(rand).harvest(game);
-			}
-					
-			
 		} else {
 			System.out.println("Tom says:\nSorry, you can't afford that, come back when you're not poor.");
 		}

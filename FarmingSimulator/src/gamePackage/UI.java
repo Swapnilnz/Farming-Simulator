@@ -157,12 +157,12 @@ public class UI {
 		boolean nameFound = false;
 		while (nameFound == false) {
 			if ((tempName.length() <= 20) && (tempName.length() > 0)) {
-				game.farmName = tempName;
-				System.out.println("Good choice! Your farm's name is now '" + game.farmName + "'.");
+				game.farm.farmName = tempName;
+				System.out.println("Good choice! Your farm's name is now '" + game.farm.farmName + "'.");
 				nameFound = true;
 			} else if (tempName.length() == 0) {
-				game.farmName = game.farmer.name + "'s Farm";
-				System.out.println("Okay! Your farm's name is " + game.farmName + "'.");
+				game.farm.farmName = game.farmer.name + "'s Farm";
+				System.out.println("Okay! Your farm's name is " + game.farm.farmName + "'.");
 				nameFound = true;
 			} else {
 				System.out.println("Sorry! Your name is too long, please try to keep it within 20 characters.");
@@ -214,7 +214,7 @@ public class UI {
 		String actions = "------------------------\n"
 				+ "Or, using an action, you can:\n"
 				+ "7. Tend to crops to speed up their growth\n"
-				+ "8. Feed farm animals to make them healthier and happier\n"
+				+ "8. Feed farm animals to make them healthier\n"
 				+ "9. Play with farm animal to make them happier\n"
 				+ "10. Harvest your fully grown crops for some extra cash\n"
 				+ "11. Tend to your farm land to keep your animals happy\n";
@@ -524,7 +524,11 @@ public class UI {
 	}
 
 	
-	
+	public void displayEndAdventure(GameEnvironment game) {
+		System.out.println("----" + game.farm.getFarmName() + "Farm----");
+		System.out.println("Your game lasted" + game.gameDuration + "days...");
+		System.out.println("Over this time, you made $" + (game.farm.farmMoney - game.farm.staticFarmMoney));
+	}
 	
 }
 
