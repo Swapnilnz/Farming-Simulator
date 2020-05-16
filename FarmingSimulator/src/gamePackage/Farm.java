@@ -15,11 +15,17 @@ public class Farm {
 	public ArrayList<Crop> cropList;
 	public HashMap<String, Integer> cropInventory;
 	public ArrayList<String> itemList;
+	public int animalFeed;
+	public boolean maintained = false;
+	public String farmName;
+	public int staticFarmMoney = 50;
+
 	
 	public Farm(String farmType, int growthRate) {
 		this.farmType = farmType;
 		this.growthRate = growthRate;
-		farmMoney = 50;
+		farmMoney = staticFarmMoney;
+		animalFeed= 0;
 		animalList = new ArrayList<Animal>();
 		cropList = new ArrayList<Crop>();
 		cropInventory = new HashMap<String, Integer>();
@@ -27,6 +33,8 @@ public class Farm {
 		cropInventory.put("Avocado", 0); cropInventory.put("Corn", 0); cropInventory.put("Wheat", 0);
 		cropInventory.put("Potato", 0); cropInventory.put("Carrot", 0); cropInventory.put("Apple", 0);
 	}
+	
+	
 	
 	/*
 	 * Adds animal to list if instance of Class Animal
@@ -192,6 +200,138 @@ public class Farm {
 	
 	public void addToItemList(String item) {
 		itemList.add(item);
+	}
+
+
+
+	public int getSheepCount() {
+		return sheepCount;
+	}
+
+
+
+	public void setSheepCount(int sheepCount) {
+		this.sheepCount = sheepCount;
+	}
+
+
+
+	public int getCowCount() {
+		return cowCount;
+	}
+
+
+
+	public void setCowCount(int cowCount) {
+		this.cowCount = cowCount;
+	}
+
+
+
+	public int getPigCount() {
+		return pigCount;
+	}
+
+
+
+	public void setPigCount(int pigCount) {
+		this.pigCount = pigCount;
+	}
+
+
+
+	public int getChickenCount() {
+		return chickenCount;
+	}
+
+
+
+	public void setChickenCount(int chickenCount) {
+		this.chickenCount = chickenCount;
+	}
+
+
+
+	public ArrayList<Animal> getAnimalList() {
+		return animalList;
+	}
+
+
+
+	public void setAnimalList(ArrayList<Animal> animalList) {
+		this.animalList = animalList;
+	}
+
+
+
+	public ArrayList<Crop> getCropList() {
+		return cropList;
+	}
+
+
+
+	public void setCropList(ArrayList<Crop> cropList) {
+		this.cropList = cropList;
+	}
+
+
+
+	public HashMap<String, Integer> getCropInventory() {
+		return cropInventory;
+	}
+
+
+
+	public void setCropInventory(HashMap<String, Integer> cropInventory) {
+		this.cropInventory = cropInventory;
+	}
+
+
+
+	public ArrayList<String> getItemList() {
+		return itemList;
+	}
+
+
+
+	public void setItemList(ArrayList<String> itemList) {
+		this.itemList = itemList;
+	}
+
+
+
+	public int getAnimalFeed() {
+		return animalFeed;
+	}
+
+
+
+	public void setAnimalFeed(int animalFeed) {
+		this.animalFeed = animalFeed;
+	}
+
+
+
+	public boolean isMaintained() {
+		return maintained;
+	}
+
+
+
+	public void setMaintained(boolean maintained) {
+		this.maintained = maintained;
+	}
+
+
+
+	public String getFarmName() {
+		return farmName;
+	}
+
+
+
+	public void setFarmName(String farmName) {
+		this.farmName = farmName;
 	}
 }
 

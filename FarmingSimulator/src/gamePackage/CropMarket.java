@@ -1,53 +1,131 @@
 package gamePackage;
 
+import java.util.HashMap;
+
 public class CropMarket {
 	
-	public int playerMoney;
-	private int potatoSellPrice;
-	private int potatoPurchasePrice;
-	private int carrotSellPrice;
-	private int carrotPurchasePrice;
-	private int appleSellPrice;
-	private int applePurchasePrice;
+	HashMap<String, Integer> cropPurchaseDic;
 	
-	public CropMarket(GameEnvironment game) {
-		potatoSellPrice = 5;
-		potatoPurchasePrice = 7;
-		carrotSellPrice = 7;
-		carrotPurchasePrice = 10;
-		appleSellPrice = 4;
-		applePurchasePrice = 6;
-	}
-	public void buyPotato(int amount) {
-		int totalPurchasePrice = amount * potatoPurchasePrice;
-		// Subtract from player money, add potatoes to farm
+	public CropMarket() {
+		cropPurchaseDic = new HashMap<String, Integer>();
+		cropPurchaseDic.put("Avocado", 8); cropPurchaseDic.put("Corn", 5); cropPurchaseDic.put("Wheat", 4);
+		cropPurchaseDic.put("Potato", 7); cropPurchaseDic.put("Carrot", 10); cropPurchaseDic.put("Apple", 6);
 	}
 	
-	public void sellPotato(int amount) {
-		int totalSellPrice = amount * potatoSellPrice;
-		// Add to player money, remove potatoes from farm
-		
+	public void buyAvocado(GameEnvironment game) {
+		UI UI = new UI();
+		int amount = UI.buyAmount(game);
+		int totalPurchasePrice = amount * cropPurchaseDic.get("Avocado");
+		int curMoney = game.farm.getFarmMoney();
+		if (totalPurchasePrice > curMoney) {
+			System.out.println("Sorry, you don't have enough money to buy these honey...");
+		} else {
+			game.farm.farmMoney -= totalPurchasePrice;
+			int ogNum = game.farm.cropInventory.get("Avocado");
+			game.farm.cropInventory.put("Avocado", ogNum + amount);
+			System.out.println("Thanks for your purchase");
+			for (int i = 0; i < amount; i++) {
+				Crop newCrop = new Crop("Avocado");
+				game.farm.cropList.add(newCrop);
+			}
+		}
+
 	}
 	
-	public void buyCarrot(int amount) {
-		int totalPurchasePrice = amount * carrotPurchasePrice;
-		// Subtract from player money, add carrots to farm
+	public void buyCorn(GameEnvironment game) {
+		UI UI = new UI();
+		int amount = UI.buyAmount(game);
+		int totalPurchasePrice = amount * cropPurchaseDic.get("Corn");
+		int curMoney = game.farm.getFarmMoney();
+		if (totalPurchasePrice > curMoney) {
+			System.out.println("Sorry, you don't have enough money to buy these honey...");
+		} else {
+			game.farm.farmMoney -= totalPurchasePrice;
+			int ogNum = game.farm.cropInventory.get("Corn");
+			game.farm.cropInventory.put("Corn", ogNum + amount);
+			System.out.println("Thanks for your purchase");
+			for (int i = 0; i < amount; i++) {
+				Crop newCrop = new Crop("Corn");
+				game.farm.cropList.add(newCrop);
+			}
+		}
 	}
 	
-	public void sellCarrot(int amount) {
-		int totalSellPrice = amount * carrotSellPrice;
-		// Add to player money, remove carrots from farm
-		
-	}
-	 
-	public void buyApple(int amount) {
-		int totalPurchasePrice = amount * applePurchasePrice;
-		// Subtract from player money, add apples to farm
+	public void buyWheat(GameEnvironment game) {
+		UI UI = new UI();
+		int amount = UI.buyAmount(game);
+		int totalPurchasePrice = amount * cropPurchaseDic.get("Wheat");
+		int curMoney = game.farm.getFarmMoney();
+		if (totalPurchasePrice > curMoney) {
+			System.out.println("Sorry, you don't have enough money to buy these honey...");
+		} else {
+			game.farm.farmMoney -= totalPurchasePrice;
+			int ogNum = game.farm.cropInventory.get("Wheat");
+			game.farm.cropInventory.put("Wheat", ogNum + amount);
+			System.out.println("Thanks for your purchase");
+			for (int i = 0; i < amount; i++) {
+				Crop newCrop = new Crop("Wheat");
+				game.farm.cropList.add(newCrop);
+			}
+		}
 	}
 	
-	public void sellApple(int amount) {
-		int totalSellPrice = amount * appleSellPrice;
-		// Add to player money, remove carrots from farm
-		
+	public void buyPotato(GameEnvironment game) {
+		UI UI = new UI();
+		int amount = UI.buyAmount(game);
+		int totalPurchasePrice = amount * cropPurchaseDic.get("Potato");
+		int curMoney = game.farm.getFarmMoney();
+		if (totalPurchasePrice > curMoney) {
+			System.out.println("Sorry, you don't have enough money to buy these honey...");
+		} else {
+			game.farm.farmMoney -= totalPurchasePrice;
+			int ogNum = game.farm.cropInventory.get("Potato");
+			game.farm.cropInventory.put("Potato", ogNum + amount);
+			System.out.println("Thanks for your purchase");
+			for (int i = 0; i < amount; i++) {
+				Crop newCrop = new Crop("Potato");
+				game.farm.cropList.add(newCrop);
+			}
+		}
 	}
+	
+	public void buyCarrot(GameEnvironment game) {
+		UI UI = new UI();
+		int amount = UI.buyAmount(game);
+		int totalPurchasePrice = amount * cropPurchaseDic.get("Carrot");
+		int curMoney = game.farm.getFarmMoney();
+		if (totalPurchasePrice > curMoney) {
+			System.out.println("Sorry, you don't have enough money to buy these honey...");
+		} else {
+			game.farm.farmMoney -= totalPurchasePrice;
+			int ogNum = game.farm.cropInventory.get("Carrot");
+			game.farm.cropInventory.put("Carrot", ogNum + amount);
+			System.out.println("Thanks for your purchase");
+			for (int i = 0; i < amount; i++) {
+				Crop newCrop = new Crop("Carrot");
+				game.farm.cropList.add(newCrop);
+			}
+		}
+	}
+	
+	public void buyApple(GameEnvironment game) {
+		UI UI = new UI();
+		int amount = UI.buyAmount(game);
+		int totalPurchasePrice = amount * cropPurchaseDic.get("Apple");
+		int curMoney = game.farm.getFarmMoney();
+		if (totalPurchasePrice > curMoney) {
+			System.out.println("Sorry, you don't have enough money to buy these honey...");
+		} else {
+			game.farm.farmMoney -= totalPurchasePrice;
+			int ogNum = game.farm.cropInventory.get("Apple");
+			game.farm.cropInventory.put("Apple", ogNum + amount);
+			System.out.println("Thanks for your purchase");
+			for (int i = 0; i < amount; i++) {
+				Crop newCrop = new Crop("Apple");
+				game.farm.cropList.add(newCrop);
+			}
+		}
+	}
+	
+
 }
