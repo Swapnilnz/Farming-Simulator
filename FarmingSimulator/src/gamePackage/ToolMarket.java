@@ -26,6 +26,7 @@ public class ToolMarket {
 		if (farmMoney >= harvesterPrice) {
 			game.farm.addToItemList("Harvester");
 			game.farm.farmMoney -= harvesterPrice;
+			System.out.println("Tom says: \nThanks for the purchase pal");
 
 			if (game.farm.cropList.size() > 0) {
 				Random rnd = new Random();
@@ -46,7 +47,7 @@ public class ToolMarket {
 			game.farm.addToItemList("Watering Can");
 			game.farm.farmMoney -= wateringCanPrice;
 
-			System.out.println("Tom says: \nThanks for the purcahse pal");
+			System.out.println("Tom says: \nThanks for the purchase pal");
 		} else {
 			System.out.println("Tom says:\nSorry, you can't afford that, come back when you're not poor.");
 		}
@@ -59,7 +60,7 @@ public class ToolMarket {
 			game.farm.addToItemList("Animal Statue");
 			game.farm.farmMoney -= animalStatuePrice;
 
-			System.out.println("Tom says: \nThanks for the purcahse pal");
+			System.out.println("Tom says: \nThanks for the purchase pal");
 			
 
 		} else {
@@ -74,7 +75,7 @@ public class ToolMarket {
 			game.farm.addToItemList("Milk Master");
 			game.farm.farmMoney -= milkMasterPrice;
 
-			System.out.println("Tom says: \nThanks for the purcahse pal");
+			System.out.println("Tom says: \nThanks for the purchase pal");
 			
 
 		} else {
@@ -89,7 +90,7 @@ public class ToolMarket {
 			game.farm.addToItemList("Shear Master");
 			game.farm.farmMoney -= shearMasterPrice;
 
-			System.out.println("Tom says: \nThanks for the purcahse pal");
+			System.out.println("Tom says: \nThanks for the purchase pal");
 
 		} else {
 			System.out.println("Tom says:\nSorry, you can't afford that, come back when you're not poor.");
@@ -102,7 +103,7 @@ public class ToolMarket {
 		if (farmMoney >= teleportationPadPrice) {
 			game.farm.addToItemList("Teleportation Pad");
 			game.farm.farmMoney -= teleportationPadPrice;
-			System.out.println("Tom says: \nThanks for the purcahse pal");
+			System.out.println("Tom says: \nThanks for the purchase pal\nYou now have $");
 			game.setNumActions(game.getNumActions() + 1);
 		} else {
 			System.out.println("Tom says:\nSorry, you can't afford that, come back when you're not poor.");

@@ -287,7 +287,7 @@ public class UI {
 		for (int i = 0; i < animalList.size(); i++) {
 			Animal curAnimal = animalList.get(i);
 			System.out.println(curAnimal.getAnimalType() + ": " + "has happiness level " + 
-			String.valueOf(curAnimal.getHappiness() * 10) + "\n");
+			"%" + String.valueOf(curAnimal.getHappiness()) + "\n");
 		}
 		System.out.println("-------------------------------");
 
@@ -309,6 +309,7 @@ public class UI {
 		System.out.println("--------------------------------");
 		System.out.println("  Welcome to Tom's Tool Market");
 		System.out.println("--------------------------------");
+		System.out.println("You have $" + Integer.toString(farm.getFarmMoney()));
 		System.out.println("What would you like to purchase?\n"
 				+ "1. Harvester - Automates one crop harvesting at the end of the day\n"
 				+ "2. Chance Crystal - Increase the chance of random events happening to you (good...and bad)\n"
@@ -325,7 +326,7 @@ public class UI {
 		while (valid == false) {
 			try {
 				int newNum = Integer.parseInt(tempNum);
-				if ((newNum <= 11) && (newNum >= 1)) {
+				if ((newNum <= 7) && (newNum >= 1)) {
 						valid = true;
 						finalNum = newNum;
 
@@ -341,8 +342,128 @@ public class UI {
 
 
 		}
+		
 		return finalNum;
-		
-		
 	}
+	
+	public int cropMarket(Farm farm, CropMarket cropMarket) {
+		System.out.println("--------------------------------");
+		System.out.println("  Welcome to Cassie's Crop Market");
+		System.out.println("--------------------------------");
+		System.out.println("You have $" + Integer.toString(farm.getFarmMoney()));
+		System.out.println("What would you like to purchase?\n"
+				+ "1. Avocado ($8 Each)\n"
+				+ "2. Corn ($5 Each)\n"
+				+ "3. Wheat ($4 Each)\n"
+				+ "4. Potato ($7 Each)\n"
+				+ "5. Carrot ($10 Each)\n"
+				+ "6. Apple ($6 Each)\n"
+				+ "------ Or press 7 to exit ------");
+		Scanner input = new Scanner(System.in);
+		String tempNum = input.nextLine();
+		int finalNum = 0;
+		boolean valid = false;
+
+		while (!valid) {
+			try {
+				int newNum = Integer.parseInt(tempNum);
+				if ((newNum <= 7) && (newNum >= 1)) {
+						valid = true;
+						finalNum = newNum;
+
+				} else {
+					System.out.println("Sorry, that is not a valid choice, please enter a number between 1 and 7");
+					tempNum = input.nextLine();
+				}
+				
+			} catch (Exception e) {
+				System.out.println("Sorry, that is not a valid choice, please enter a number between 1 and 7");
+				tempNum = input.nextLine();
+			}
+
+
+		}
+		
+		return finalNum;
+	}
+
+	public int animalMarket(Farm farm, AnimalMarket animalMarket) {
+		System.out.println("--------------------------------");
+		System.out.println("  Welcome to Andy's Animal Market");
+		System.out.println("--------------------------------");
+		System.out.println("You have $" + Integer.toString(farm.getFarmMoney()));
+		System.out.println("What would you like to purchase?\n"
+				+ "1. Cow ($10 Each)\n"
+				+ "2. Pig ($8 Each)\n"
+				+ "3. Chicken ($5 Each)\n"
+				+ "4. Sheep ($9 Each)\n"
+				+ "------ Or press 5 to exit ------");
+		Scanner input = new Scanner(System.in);
+		String tempNum = input.nextLine();
+		int finalNum = 0;
+		boolean valid = false;
+
+		while (!valid) {
+			try {
+				int newNum = Integer.parseInt(tempNum);
+				if ((newNum <= 5) && (newNum >= 1)) {
+						valid = true;
+						finalNum = newNum;
+
+				} else {
+					System.out.println("Sorry, that is not a valid choice, please enter a number between 1 and 5");
+					tempNum = input.nextLine();
+				}
+				
+			} catch (Exception e) {
+				System.out.println("Sorry, that is not a valid choice, please enter a number between 1 and 5");
+				tempNum = input.nextLine();
+			}
+
+
+		}
+		
+		return finalNum;
+	}
+	
+	public int buyAmount(GameEnvironment game) {
+		System.out.println("How many would you like to buy?");
+		System.out.println("You have $" + Integer.toString(game.farm.getFarmMoney()));
+		Scanner input = new Scanner(System.in);
+		String tempNum = input.nextLine();
+		int finalNum = 0;
+		boolean valid = false;
+
+		while (!valid) {
+			try {
+				int newNum = Integer.parseInt(tempNum);
+				if (newNum >= 0) {
+						valid = true;
+						finalNum = newNum;
+
+				} else {
+					System.out.println("Sorry, that is not a valid choice, please enter a number above,\n"
+							+ "Or you can enter 0 to exit");
+					tempNum = input.nextLine();
+				}
+				
+			} catch (Exception e) {
+				System.out.println("Sorry, that is not a valid choice, please enter a number above,\n"
+						+ "Or you can enter 0 to exit");
+				tempNum = input.nextLine();
+			}
+
+
+		}
+		
+		return finalNum;
+	}
+
 }
+
+
+
+
+
+
+

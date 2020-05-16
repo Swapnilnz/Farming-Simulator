@@ -83,20 +83,82 @@ public class GameEnvironment {
 	 */
 	public void visitCropMarket(GameEnvironment game) {
 		UI UI = new UI();
-		CropMarket cropMarket = new CropMarket(game);
-		
+		CropMarket cropMarket = new CropMarket();
+		boolean done = false;
+		while (!done) {
+			int inputNum = UI.cropMarket(game.getFarm(), cropMarket);
+			switch(inputNum) {
+				case 1:
+					// Avocado
+					cropMarket.buyAvocado(game);
+					break;
+				case 2:
+					// Corn
+					cropMarket.buyCorn(game);
+					break;
+				case 3:
+					// Wheat
+					cropMarket.buyWheat(game);
+					break;
+				case 4:
+					// Potato
+					cropMarket.buyPotato(game);
+					break;
+				case 5:
+					// Carrot
+					cropMarket.buyCarrot(game);
+					break;
+				case 6:
+					// Apple
+					cropMarket.buyApple(game);
+					break;
+				case 7:
+					// Exit
+					done = true;
+					break;
+			}
+						
+		}
+	}
+	
+	public void visitAnimalMarket(GameEnvironment game) {
+		UI UI = new UI();
+		AnimalMarket animalMarket = new AnimalMarket();
+		boolean done = false;
+		while (!done) {
+			int inputNum = UI.animalMarket(game.getFarm(), animalMarket);
+			switch(inputNum) {
+				case 1:
+					// Cow
+					animalMarket.buyCow(game);
+					break;
+				case 2:
+					// Pig
+					animalMarket.buyPig(game);
+					break;
+				case 3:
+					// Chicken
+					animalMarket.buyChicken(game);
+					break;
+				case 4:
+					// Sheep
+					animalMarket.buySheep(game);
+					break;
+				case 5:
+					// exit
+					done = true;
+					break;
+			}
+		}
 	}
 	
 	/**
-	 * Plays one day, with either 2 or more actiosn
+	 * Plays one day, with 2 or more actiosn
 	 * @param game
 	 */
 	public void runDay(GameEnvironment game) {
 		boolean exitLoop = false;
-		int numActions = game.getNumActions();
-		
-		System.out.println(numActions);
-		
+		int numActions = game.getNumActions();		
 		while ((numActions >= 0) && (exitLoop != true)){
 			UI UI = new UI();
 			int chosenAction;
@@ -124,6 +186,7 @@ public class GameEnvironment {
 					break;
 				case 5:
 					// Visit animal market
+					visitAnimalMarket(game);
 					break;
 				case 6:
 					// Move onto next day

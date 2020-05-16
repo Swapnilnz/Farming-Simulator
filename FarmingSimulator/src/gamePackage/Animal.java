@@ -9,9 +9,9 @@ package gamePackage;
 public class Animal {
 	private String animalType;
 	private int weight;
-	private double happiness;
+	private int happiness;
 	
-	public Animal(String animalType, int weight, double happiness) {
+	public Animal(String animalType, int weight, int happiness) {
 		this.animalType = animalType;
 		this.weight = weight;
 		this.happiness = happiness;
@@ -19,16 +19,16 @@ public class Animal {
 	}
 	
 	public void increaseHappiness() {
-		if (this.happiness < 0.8) {
-			this.happiness += 0.2;
+		if (this.happiness < 80) {
+			this.happiness += 20;
 		} else {
-			this.happiness = 1;
+			this.happiness = 100;
 		}
 	}
 	
 	public void decreaseHappiness() {
-		if (this.happiness > 0.2) {
-			this.happiness -= 0.2;
+		if (this.happiness > 20) {
+			this.happiness -= 20;
 		} else {
 			this.happiness = 0;
 		}
@@ -50,7 +50,7 @@ public class Animal {
 		this.weight = weight;
 	}
 
-	public void setHappiness(double happiness) {
+	public void setHappiness(int happiness) {
 		this.happiness = happiness;
 	}
 
