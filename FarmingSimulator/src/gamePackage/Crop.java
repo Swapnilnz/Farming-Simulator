@@ -47,12 +47,12 @@ public class Crop {
 				break;
 				
 			case "Carrot":
-				purchasePrice = 10; sellPrice = 7;
+				purchasePrice = 10; sellPrice = 30;
 				daysTillHarvest = 3; cropAmount = 1;
 				break;
 				
 			case "Apple":
-				purchasePrice = 6; sellPrice = 4;
+				purchasePrice = 6; sellPrice = 12;
 				daysTillHarvest = 2; cropAmount = 1;
 				break;
 

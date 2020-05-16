@@ -1,5 +1,6 @@
 package gamePackage;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -244,11 +245,15 @@ public class GameEnvironment {
 	 * @param game
 	 */
 	public void harvestCrops(GameEnvironment game) {
+		ArrayList<Crop> tempCropList = null;
 		for (Crop crop : game.farm.cropList) {
 			if (crop.getDaysTillHarvest() == 0) {
 				game.farm.farmMoney += crop.getSellPrice();
-				game.farm.cropList.remove(crop);
+			} else {
+				tempCropList.add(crop);
 			}
+		game.farm.cropList = tempCropList;
+
 		}
 	}
 	
