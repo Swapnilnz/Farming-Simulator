@@ -2,6 +2,7 @@ package gamePackage;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -305,6 +306,12 @@ public class UI {
 
 	}
 
+	/** 
+	 * visit tool market, choose buy option
+	 * @param farm
+	 * @param toolMarket
+	 * @return
+	 */
 	public int toolMarket(Farm farm, ToolMarket toolMarket) {
 		System.out.println("--------------------------------");
 		System.out.println("  Welcome to Tom's Tool Market");
@@ -317,7 +324,8 @@ public class UI {
 				+ "4. Shear Master - Automates shearing of sheep\n"
 				+ "5. Watering Can - Reduces time till harvest of all crops further when tending to crops\n"
 				+ "6. Teleportation Pad - Increase number of actions per day by 1\n"
-				+ "------ Or press 7 to exit ------");
+				+ "7. Animal Feed - Used to feed animals to increase their happiness\n"
+				+ "------ Or press 8 to exit ------");
 		Scanner input = new Scanner(System.in);
 		String tempNum = input.nextLine();
 		int finalNum = 0;
@@ -326,17 +334,17 @@ public class UI {
 		while (valid == false) {
 			try {
 				int newNum = Integer.parseInt(tempNum);
-				if ((newNum <= 7) && (newNum >= 1)) {
+				if ((newNum <= 8) && (newNum >= 1)) {
 						valid = true;
 						finalNum = newNum;
 
 				} else {
-					System.out.println("Sorry, that is not a valid choice, please enter a number between 1 and 7");
+					System.out.println("Sorry, that is not a valid choice, please enter a number between 1 and 8");
 					tempNum = input.nextLine();
 				}
 				
 			} catch (Exception e) {
-				System.out.println("Sorry, that is not a valid choice, please enter a number between 1 and 7");
+				System.out.println("Sorry, that is not a valid choice, please enter a number between 1 and 8");
 				tempNum = input.nextLine();
 			}
 
@@ -346,6 +354,12 @@ public class UI {
 		return finalNum;
 	}
 	
+	/**
+	 * visit crop market, choose buy option
+	 * @param farm
+	 * @param cropMarket
+	 * @return
+	 */
 	public int cropMarket(Farm farm, CropMarket cropMarket) {
 		System.out.println("--------------------------------");
 		System.out.println("  Welcome to Cassie's Crop Market");
@@ -387,6 +401,12 @@ public class UI {
 		return finalNum;
 	}
 
+	/**
+	 * visit animal market, choose buy option
+	 * @param farm
+	 * @param animalMarket
+	 * @return
+	 */
 	public int animalMarket(Farm farm, AnimalMarket animalMarket) {
 		System.out.println("--------------------------------");
 		System.out.println("  Welcome to Andy's Animal Market");
@@ -426,6 +446,11 @@ public class UI {
 		return finalNum;
 	}
 	
+	/**
+	 * choose buy amount for animals and crops
+	 * @param game
+	 * @return
+	 */
 	public int buyAmount(GameEnvironment game) {
 		System.out.println("How many would you like to buy?");
 		System.out.println("You have $" + Integer.toString(game.farm.getFarmMoney()));
@@ -459,6 +484,48 @@ public class UI {
 		return finalNum;
 	}
 
+	/**
+	 * Choose which crop to tend to, or exit
+	 * @param game
+	 * @return
+	 */
+	public String chooseTendToCrop(GameEnvironment game) {
+		HashMap<String, Integer> inventory = game.farm.cropInventory;
+		System.out.println("Which crop would you like to tend to?\n"
+				+ "Avocado (You have: " + inventory.get("Avocado") + ")\n"
+				+ "Corn (You have: " + inventory.get("Corn") + ")\n"
+				+ "Wheat (You have: " + inventory.get("Wheat") + ")\n"
+				+ "Potato (You have: " + inventory.get("Potato") + ")\n"
+				+ "Carrot (You have: " + inventory.get("Carrot") + ")\n"
+				+ "Apple (You have: " + inventory.get("Apple") + ")\n"
+				+ "------ Or type 'exit' to exit ------");
+		
+		Scanner input = new Scanner(System.in);
+		String finalInput = "";
+		boolean valid = false;
+		String tempInput = input.nextLine();
+		while (!valid) {
+			if (tempInput.equals("exit")) {
+				valid = true;
+				finalInput = "exit";
+			}
+			else if (inventory.containsKey(tempInput)) {
+					valid = true;
+					finalInput = tempInput;
+
+			} else {
+				System.out.println("Sorry, that is not a valid choice, please enter a crop or 'exit'");
+				tempInput = input.nextLine();
+			}
+				
+		}
+		
+		return finalInput;
+	}
+
+	
+	
+	
 }
 
 

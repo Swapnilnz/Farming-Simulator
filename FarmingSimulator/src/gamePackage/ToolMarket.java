@@ -8,6 +8,7 @@ public class ToolMarket {
 	private int milkMasterPrice;
 	private int shearMasterPrice;
 	private int teleportationPadPrice;
+	private int animalFeedPrice;
 	
 	public ToolMarket() {
 		harvesterPrice = 30;
@@ -16,6 +17,7 @@ public class ToolMarket {
 		milkMasterPrice = 40;
 		shearMasterPrice = 40;
 		teleportationPadPrice = 100;
+		animalFeedPrice = 20;
 		
 	}
 	
@@ -103,13 +105,24 @@ public class ToolMarket {
 		if (farmMoney >= teleportationPadPrice) {
 			game.farm.addToItemList("Teleportation Pad");
 			game.farm.farmMoney -= teleportationPadPrice;
-			System.out.println("Tom says: \nThanks for the purchase pal\nYou now have $");
+			System.out.println("Tom says: \nThanks for the purchase pal");
 			game.setNumActions(game.getNumActions() + 1);
 		} else {
 			System.out.println("Tom says:\nSorry, you can't afford that, come back when you're not poor.");
 		}
 	}
 
+	public void buyAnimalFeed(GameEnvironment game) {
+		// Add animal feed, remove money
+		int farmMoney = game.farm.getFarmMoney();
+		if (farmMoney >= animalFeedPrice) {
+			game.farm.animalFeed += 1;
+			game.farm.farmMoney -= animalFeedPrice;
+			System.out.println("Tom says: \nThanks for the purchase pal");
+		} else {
+			System.out.println("Tom says:\nSorry, you can't afford that, come back when you're not poor.");
+		}
+	}
 	
 	public int getHarvesterPrice() {
 		return harvesterPrice;

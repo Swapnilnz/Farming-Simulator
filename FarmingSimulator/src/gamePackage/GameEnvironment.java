@@ -1,5 +1,7 @@
 package gamePackage;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class GameEnvironment {
 	protected int numDays;
@@ -69,6 +71,10 @@ public class GameEnvironment {
 					toolMarket.buyTeleportationPad(game);
 					break;
 				case 7:
+					// Animal Feed
+					toolMarket.buyAnimalFeed(game);
+					break;
+				case 8:
 					// Exit
 					done = true;
 					break;
@@ -121,6 +127,10 @@ public class GameEnvironment {
 		}
 	}
 	
+	/** 
+	 * Visit Andy's animal market to buy animals
+	 * @param game
+	 */
 	public void visitAnimalMarket(GameEnvironment game) {
 		UI UI = new UI();
 		AnimalMarket animalMarket = new AnimalMarket();
@@ -149,6 +159,68 @@ public class GameEnvironment {
 					done = true;
 					break;
 			}
+		}
+	}
+	
+	/**
+	 * Tend to one type of crop on the farm
+	 * @param game
+	 */
+	public void tendToCrops(GameEnvironment game) {
+		UI UI = new UI();
+		boolean chosen = false;
+		HashMap<String, Integer> inventory = game.farm.cropInventory;
+		String exitValue = "exit";
+		while (!chosen) {
+			String crop = UI.chooseTendToCrop(game);
+			if (crop.equals(exitValue)) {
+				chosen = true;
+			} else if (inventory.get(crop) > 0) {
+
+				chosen = true;
+				for (Crop tempCrop : game.farm.cropList) {
+					String comparedCrop = tempCrop.getCropType();
+
+					if (comparedCrop.equals(crop)) {
+
+						boolean contains = game.farm.itemList.contains("Watering Can");
+						int ogDays = tempCrop.getDaysTillHarvest();
+						if (contains) {
+							if (ogDays >= 4) {
+								tempCrop.setDaysTillHarvest(ogDays - 4);
+
+							} else {
+								tempCrop.setDaysTillHarvest(0);
+							}
+						} else {
+							if (ogDays >= 2) {
+								tempCrop.setDaysTillHarvest(ogDays - 2);
+							} else {
+								tempCrop.setDaysTillHarvest(0);
+							}
+						}
+					}
+				}
+			} else {
+				System.out.println("Sorry, you can't tend to a crop you don't have!");
+
+			}
+		}
+
+	}
+	
+	/**
+	 * Feed animals to make them happier
+	 * @param game
+	 */
+	public void feedAnimals(GameEnvironment game) {
+		if (game.farm.animalFeed > 0) {
+			for (Animal animal : game.farm.animalList) {
+				animal.increaseHappiness();
+			}
+			game.farm.animalFeed -= 1;
+		} else {
+			System.out.println("Sorry, you don't have any animal feed to do this!");
 		}
 	}
 	
@@ -194,10 +266,12 @@ public class GameEnvironment {
 					break;
 				case 7:
 					// Tend to crops, speed up growth, remember watering can
+					tendToCrops(game);
 					numActions -= 1;
 					break;
 				case 8:
 					// Feed animals to make healthier and happier
+					feedAnimals(game);
 					numActions -= 1;
 					break;
 				case 9:
@@ -294,6 +368,7 @@ public class GameEnvironment {
 		UI.inputChooseFarm(game);
 		UI.inputFarmName(game);
 		game.startAdventure(game);
+		System.out.println(game.farm.cropList.get(1).getDaysTillHarvest());
 		
 
 

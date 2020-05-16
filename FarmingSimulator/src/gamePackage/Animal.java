@@ -18,11 +18,12 @@ public class Animal {
 	
 	}
 	
+
 	public void increaseHappiness() {
 		if (this.happiness < 80) {
 			this.happiness += 20;
 		} else {
-			this.happiness = 100;
+			this.setHappiness(100);
 		}
 	}
 	

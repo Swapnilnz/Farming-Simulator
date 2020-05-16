@@ -15,11 +15,13 @@ public class Farm {
 	public ArrayList<Crop> cropList;
 	public HashMap<String, Integer> cropInventory;
 	public ArrayList<String> itemList;
+	public int animalFeed;
 	
 	public Farm(String farmType, int growthRate) {
 		this.farmType = farmType;
 		this.growthRate = growthRate;
 		farmMoney = 50;
+		animalFeed= 0;
 		animalList = new ArrayList<Animal>();
 		cropList = new ArrayList<Crop>();
 		cropInventory = new HashMap<String, Integer>();
@@ -27,6 +29,8 @@ public class Farm {
 		cropInventory.put("Avocado", 0); cropInventory.put("Corn", 0); cropInventory.put("Wheat", 0);
 		cropInventory.put("Potato", 0); cropInventory.put("Carrot", 0); cropInventory.put("Apple", 0);
 	}
+	
+	
 	
 	/*
 	 * Adds animal to list if instance of Class Animal
