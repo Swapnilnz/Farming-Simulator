@@ -247,8 +247,9 @@ public class GameEnvironment {
 		for (Crop crop : game.farm.cropList) {
 			if (crop.getDaysTillHarvest() == 0) {
 				game.farm.farmMoney += crop.getSellPrice();
-				game.farm.cropList.remove(crop);
 			}
+			game.farm.cropList.remove(crop);
+
 		}
 	}
 	
@@ -499,7 +500,6 @@ public class GameEnvironment {
 		UI.inputChooseFarm(game);
 		UI.inputFarmName(game);
 		game.startAdventure(game);
-		System.out.println(game.farm.cropList.get(1).getDaysTillHarvest());
 		
 
 
