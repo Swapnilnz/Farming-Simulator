@@ -1,5 +1,4 @@
 package gamePackage;
-import java.util.Random;
 
 public class ToolMarket {
 	private int harvesterPrice;
@@ -11,13 +10,13 @@ public class ToolMarket {
 	private int animalFeedPrice;
 	
 	public ToolMarket() {
-		harvesterPrice = 30;
-		wateringCanPrice = 30;
-		animalStatuePrice = 40;
-		milkMasterPrice = 40;
-		shearMasterPrice = 40;
+		harvesterPrice = 50;
+		wateringCanPrice = 50;
+		animalStatuePrice = 60;
+		milkMasterPrice = 60;
+		shearMasterPrice = 60;
 		teleportationPadPrice = 100;
-		animalFeedPrice = 20;
+		animalFeedPrice = 5;
 		
 	}
 	
@@ -163,5 +162,15 @@ public class ToolMarket {
 	
 	public void setTeleportationPadPrice(int newPrice) {
 		teleportationPadPrice = newPrice;
+	}
+
+
+	public int getAnimalFeedPrice() {
+		return animalFeedPrice;
+	}
+
+
+	public void setAnimalFeedPrice(int animalFeedPrice) {
+		this.animalFeedPrice = animalFeedPrice;
 	}
 }

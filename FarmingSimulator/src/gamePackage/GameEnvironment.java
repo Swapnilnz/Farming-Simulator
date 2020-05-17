@@ -245,7 +245,7 @@ public class GameEnvironment {
 	 * @param game
 	 */
 	public void harvestCrops(GameEnvironment game) {
-		ArrayList<Crop> tempCropList = null;
+		ArrayList<Crop> tempCropList = new ArrayList<Crop>();
 		for (Crop crop : game.farm.cropList) {
 			if (crop.getDaysTillHarvest() == 0) {
 				game.farm.farmMoney += crop.getSellPrice();
@@ -391,7 +391,9 @@ public class GameEnvironment {
 		game.farm.farmMoney += moneyToAdd;
 		// Decrease all days till harvest by 1 
 		for (Crop crop : game.farm.cropList) {
-			crop.daysTillHarvest -= 1;
+			if (crop.getDaysTillHarvest() > 0) {
+				crop.daysTillHarvest -= 1;
+			}
 		}
 		// Decrease animal happiness if farm is not maintained and doesn't have animal statue
 		boolean containsStatue = game.farm.itemList.contains("Animal Statue");
@@ -405,7 +407,7 @@ public class GameEnvironment {
 	}
 	
 	/**
-	 * Calculates final score: (money + happinessAv + healthinessAv) / duration
+	 * Calculates final score: (money * happinessAv * healthinessAv) / duration
 	 * @param game
 	 * @return score
 	 */
@@ -427,7 +429,7 @@ public class GameEnvironment {
 			happinessAv = Math.round(happinessSum / aLSize);
 			healthinessAv = Math.round(healthinessSum / aLSize);
 		}
-		score = Math.round((money + happinessAv + healthinessAv) / duration);
+		score = Math.round(((money + 1) * (happinessAv + 1) * (healthinessAv + 1)) / duration);
 		
 		return score;
 
@@ -439,8 +441,8 @@ public class GameEnvironment {
 		int score = calculateScore(game);
 		// Print Score
 		System.out.println("------------------------------------------");
-		System.out.println("------------- Your score was -------------");
-		System.out.println("  -------------" + score + "-------------");
+		System.out.println("Your score was");
+		System.out.println(score);
 		System.out.println("------------------------------------------");
 
 		
@@ -456,8 +458,6 @@ public class GameEnvironment {
 			game.numDays--;
 			game.gameDuration++;
 		}
-		// implement endAdventure()
-		endAdventure(game);
 	}
 	
 	public void getFarmer(GameEnvironment game) {
@@ -504,7 +504,8 @@ public class GameEnvironment {
 		UI.inputChooseFarm(game);
 		UI.inputFarmName(game);
 		game.startAdventure(game);
-		System.out.println(game.farm.cropList.get(1).getDaysTillHarvest());
+		game.endAdventure(game);
+
 		
 
 

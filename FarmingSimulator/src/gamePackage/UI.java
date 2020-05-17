@@ -288,7 +288,8 @@ public class UI {
 		for (int i = 0; i < animalList.size(); i++) {
 			Animal curAnimal = animalList.get(i);
 			System.out.println(curAnimal.getAnimalType() + ": " + "has happiness level " + 
-			"%" + String.valueOf(curAnimal.getHappiness()) + "\n");
+			String.valueOf((int)curAnimal.getHappiness()) + "%, and healthiness level "
+					+ String.valueOf((int)curAnimal.getHealth()) + "%");
 		}
 		System.out.println("-------------------------------");
 
@@ -318,13 +319,13 @@ public class UI {
 		System.out.println("--------------------------------");
 		System.out.println("You have $" + Integer.toString(farm.getFarmMoney()));
 		System.out.println("What would you like to purchase?\n"
-				+ "1. Harvester - Automates one crop harvesting at the end of the day\n"
-				+ "2. Chance Crystal - Increase the chance of random events happening to you (good...and bad)\n"
-				+ "3. Milk Master - Automates milking of cows\n"
-				+ "4. Shear Master - Automates shearing of sheep\n"
-				+ "5. Watering Can - Reduces time till harvest of all crops further when tending to crops\n"
-				+ "6. Teleportation Pad - Increase number of actions per day by 1\n"
-				+ "7. Animal Feed - Used to feed animals to increase their happiness\n"
+				+ "1. Harvester $" + (toolMarket.getHarvesterPrice()) +  " - Automates one crop harvesting at the end of the day\n"
+				+ "2. Animal Statue $" + (toolMarket.getAnimalStatuePrice()) +  " - Animals don't lose happiness overnight\n"
+				+ "3. Milk Master $" + (toolMarket.getMilkMasterPrice()) +  " - Automates milking of cows\n"
+				+ "4. Shear Master $" + (toolMarket.getShearMasterPrice()) +  " - Automates shearing of sheep\n"
+				+ "5. Watering Can $" + (toolMarket.getWateringCanPrice()) +  " - Reduces time till harvest of all crops further when tending to crops\n"
+				+ "6. Teleportation Pad $" + (toolMarket.getTeleportationPadPrice()) +  " - Increase number of actions per day by 1\n"
+				+ "7. Animal Feed $" + (toolMarket.getAnimalFeedPrice()) +  " - Used to feed animals to increase their happiness\n"
 				+ "------ Or press 8 to exit ------");
 		Scanner input = new Scanner(System.in);
 		String tempNum = input.nextLine();
@@ -525,8 +526,8 @@ public class UI {
 
 	
 	public void displayEndAdventure(GameEnvironment game) {
-		System.out.println("----" + game.farm.getFarmName() + "Farm----");
-		System.out.println("Your game lasted" + game.gameDuration + "days...");
+		System.out.println("-------- " + game.farm.getFarmName() + " Farm --------");
+		System.out.println("Your game lasted " + game.gameDuration + " days...");
 		System.out.println("Over this time, you made $" + (game.farm.farmMoney - game.farm.staticFarmMoney));
 	}
 	
