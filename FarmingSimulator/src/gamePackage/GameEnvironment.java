@@ -4,15 +4,41 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+/**
+ * Main class of the game, contains methods for every main action able to be performed by the farmer
+ * as well as initialising all the other classes required
+ * @author Swapnil Bhagat, Reed Earl
+ *
+ */
 public class GameEnvironment {
+	/**
+	 * (Integer) Number of days the player has chosen to play the game (5-15), counts DOWN
+	 */
 	protected int numDays;
+	/**
+	 * (Integer) Number of days the player has chosen to play the game (5-15), counts UP
+	 */
 	public int gameDuration;
+	/**
+	 * Object farmer, contains farmer name and age (maybe avatar)
+	 */
 	protected Farmer farmer;
+	/**
+	 * Object Farm, is the player's farm, used to house all farm attributes
+	 */
 	protected Farm farm;
+	/**
+	 * Static String alphabet, used for validifying farmer name
+	 */
 	public static String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	/**
+	 * (Integer) Number of actions the player has, may increase and indecrease
+	 */
 	public int numActions;
+	/**
+	 * (Boolean) Simple true/false value on whether the game is finished or not
+	 */
 	public boolean gameFinished = false;
-	public boolean adventureRunning = false;
 	
 	public GameEnvironment() {
 		numActions = 2;
@@ -94,30 +120,31 @@ public class GameEnvironment {
 		boolean done = false;
 		while (!done) {
 			int inputNum = UI.cropMarket(game.getFarm(), cropMarket);
+			int amount;
 			switch(inputNum) {
 				case 1:
 					// Avocado
-					cropMarket.buyAvocado(game);
+					amount = UI.buyAmount(game); cropMarket.buyAvocado(game, amount);
 					break;
 				case 2:
 					// Corn
-					cropMarket.buyCorn(game);
+					amount = UI.buyAmount(game); cropMarket.buyCorn(game, amount);
 					break;
 				case 3:
 					// Wheat
-					cropMarket.buyWheat(game);
+					amount = UI.buyAmount(game); cropMarket.buyWheat(game, amount);
 					break;
 				case 4:
 					// Potato
-					cropMarket.buyPotato(game);
+					amount = UI.buyAmount(game); cropMarket.buyPotato(game, amount);
 					break;
 				case 5:
 					// Carrot
-					cropMarket.buyCarrot(game);
+					amount = UI.buyAmount(game); cropMarket.buyCarrot(game, amount);
 					break;
 				case 6:
 					// Apple
-					cropMarket.buyApple(game);
+					amount = UI.buyAmount(game); cropMarket.buyApple(game, amount);
 					break;
 				case 7:
 					// Exit
@@ -138,22 +165,27 @@ public class GameEnvironment {
 		boolean done = false;
 		while (!done) {
 			int inputNum = UI.animalMarket(game.getFarm(), animalMarket);
+
 			switch(inputNum) {
 				case 1:
 					// Cow
-					animalMarket.buyCow(game);
+					int amount = UI.buyAmount(game);
+					animalMarket.buyCow(game, amount);
 					break;
 				case 2:
 					// Pig
-					animalMarket.buyPig(game);
+					amount = UI.buyAmount(game);
+					animalMarket.buyPig(game, amount);
 					break;
 				case 3:
 					// Chicken
-					animalMarket.buyChicken(game);
+					amount = UI.buyAmount(game);
+					animalMarket.buyChicken(game, amount);
 					break;
 				case 4:
 					// Sheep
-					animalMarket.buySheep(game);
+					amount = UI.buyAmount(game);
+					animalMarket.buySheep(game, amount);
 					break;
 				case 5:
 					// exit
@@ -391,8 +423,8 @@ public class GameEnvironment {
 		game.farm.farmMoney += moneyToAdd;
 		// Decrease all days till harvest by 1 
 		for (Crop crop : game.farm.cropList) {
-			if (crop.getDaysTillHarvest() > 0) {
-				crop.daysTillHarvest -= 1;
+			if (crop.getDaysTillHarvest() > game.farm.getGrowthRate()) {
+				crop.daysTillHarvest -= game.farm.getGrowthRate();
 			}
 		}
 		// Decrease animal happiness if farm is not maintained and doesn't have animal statue

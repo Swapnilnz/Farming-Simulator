@@ -1,11 +1,26 @@
 package gamePackage;
 
 public class AnimalMarket {
+	/**
+	 * Cow price
+	 */
 	private int cowPrice;
+	/** 
+	 * Pig price
+	 */
 	private int pigPrice;
+	/** 
+	 * Chicken price
+	 */
 	private int chickenPrice;
+	/** 
+	 * Sheep price
+	 */
 	private int sheepPrice;
 	
+	/**
+	 * Construcer; sets animal prices
+	 */
 	public AnimalMarket() {
 		cowPrice = 10;
 		pigPrice = 8;
@@ -13,10 +28,12 @@ public class AnimalMarket {
 		sheepPrice = 9;
 	}
 	
-	public void buyCow(GameEnvironment game) {
+	/**
+	 * Buy cow or cause error if not enough money
+	 * @param game
+	 */
+	public void buyCow(GameEnvironment game, int amount) {
 		// Add cow, remove money
-		UI UI = new UI();
-		int amount = UI.buyAmount(game);
 		int totalPurchasePrice = amount * cowPrice;
 		
 		int curMoney = game.farm.getFarmMoney();
@@ -32,10 +49,13 @@ public class AnimalMarket {
 		}
 	}
 	
-	public void buyPig(GameEnvironment game) {
+	/**
+	 * Buy pig or cause error if not enough money
+	 * @param game
+	 * @param amount
+	 */
+	public void buyPig(GameEnvironment game, int amount) {
 		// Add pig, remove money
-		UI UI = new UI();
-		int amount = UI.buyAmount(game);
 		int totalPurchasePrice = amount * pigPrice;
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
@@ -50,10 +70,13 @@ public class AnimalMarket {
 		}
 	}
 	
-	public void buyChicken(GameEnvironment game) {
+	/**
+	 * Buy chicken or cause error if not enough money
+	 * @param game
+	 * @param amount
+	 */
+	public void buyChicken(GameEnvironment game, int amount) {
 		// Add chicken, remove money
-		UI UI = new UI();
-		int amount = UI.buyAmount(game);
 		int totalPurchasePrice = amount * chickenPrice;
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
@@ -68,10 +91,13 @@ public class AnimalMarket {
 		}
 	}
 	
-	public void buySheep(GameEnvironment game) {
+	/**
+	 * Buy sheep or cause error if not enough money
+	 * @param game
+	 * @param amount
+	 */
+	public void buySheep(GameEnvironment game, int amount) {
 		// Add sheep, remove money
-		UI UI = new UI();
-		int amount = UI.buyAmount(game);
 		int totalPurchasePrice = amount * sheepPrice;
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {

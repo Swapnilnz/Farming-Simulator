@@ -6,6 +6,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Temporary UI class for command line implementation
+ * @author Swapnil Bhagat, Reed Earl
+ *
+ */
 public class UI {
 	
 	public UI() {
@@ -186,7 +191,6 @@ public class UI {
 
 			if (list.contains(tempAns)) {
 				valid = true;
-				game.adventureRunning = true;
 				
 			} else {
 				System.out.println("Okay, I'll wait until you're ready!\n"
@@ -524,7 +528,10 @@ public class UI {
 		return finalInput;
 	}
 
-	
+	/**
+	 * Displays how long the game lasted and money made
+	 * @param game
+	 */
 	public void displayEndAdventure(GameEnvironment game) {
 		System.out.println("-------- " + game.farm.getFarmName() + " Farm --------");
 		System.out.println("Your game lasted " + game.gameDuration + " days...");

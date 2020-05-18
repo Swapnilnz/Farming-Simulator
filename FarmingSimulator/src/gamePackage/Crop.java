@@ -12,14 +12,33 @@ import java.util.HashMap;
 
 public class Crop {
 	
+	/**
+	 * Crop purchase price
+	 */
 	public int purchasePrice;
+	/**
+	 * Crop sell price
+	 */
 	public int sellPrice;
+	/**
+	 * Days till the crop can be harvested
+	 */
 	public int daysTillHarvest;
-	public int cropAmount;
+
+	/**
+	 * Type of crop
+	 */
 	public String cropType;
+	
+	/**
+	 * Reference dictionary for some crop attributes
+	 */
 	public HashMap<String, Integer> cropDic;
 
-	
+	/**
+	 * Constructer; uses switch statement to set the type of crop and its respective attributes
+	 * @param crop
+	 */
 	public Crop(String crop) {
 		cropDic = new HashMap<String, Integer>();
 		cropDic.put("Avocado", 8); cropDic.put("Corn", 6); cropDic.put("Wheat", 4); 
@@ -28,86 +47,116 @@ public class Crop {
 		switch (cropType) {
 			case "Avocado":
 				purchasePrice = 8; sellPrice = 64;
-				daysTillHarvest = 8; cropAmount = 1;
+				daysTillHarvest = 8;
 				break;
 			
 			case "Corn":
 				purchasePrice = 5; sellPrice = 30;
-				daysTillHarvest = 6; cropAmount = 1;
+				daysTillHarvest = 6;
 				break;
 				
 			case "Wheat":
 				purchasePrice = 4; sellPrice = 16;
-				daysTillHarvest = 4; cropAmount = 1;
+				daysTillHarvest = 4;
 				break;
 				
 			case "Potato":
 				purchasePrice = 7; sellPrice = 28;
-				daysTillHarvest = 4; cropAmount = 1;
+				daysTillHarvest = 4;
 				break;
 				
 			case "Carrot":
 				purchasePrice = 10; sellPrice = 30;
-				daysTillHarvest = 3; cropAmount = 1;
+				daysTillHarvest = 3;
 				break;
 				
 			case "Apple":
 				purchasePrice = 6; sellPrice = 12;
-				daysTillHarvest = 2; cropAmount = 1;
+				daysTillHarvest = 2;
 				break;
 
 		}
 	}
 	
-	public int getPurchasePrice() {
-		return purchasePrice;
-	}
-	
-	public void setPurchasePrice(int newPrice) {
-		purchasePrice = newPrice;
-	}
-	
-	public int getSellPrice() {
-		return sellPrice;
-	}
-	
-	public void setSellPrice(int newPrice) {
-		sellPrice = newPrice;
-	}
-	
-	public int getDaysTillHarvest() {
-		return daysTillHarvest;
-	}
-	
-	public void setDaysTillHarvest(int newDays) {
-		daysTillHarvest = newDays;
-	}
-	
-	public int getCropAmount() {
-		return cropAmount;
-	}
-	
-	public void setCropAmount(int newCropAmount) {
-		cropAmount = newCropAmount;
-	}
-	
-	public String getCropType() {
-		return cropType;
-	}
-	
-	public void setCropType(String newCropType) {
-		cropType = newCropType;
-	}
-	
-	
-
-	
+	/**
+	 * Harvest this crop object by simply adding money required
+	 * Deletion of crop is done in GameEnvironment class
+	 * @param game
+	 */
 	public void harvest(GameEnvironment game) {
-		// Refresh days till harvest, add money
-		this.daysTillHarvest = cropDic.get(this.cropType);
 		int farmMoney = game.farm.getFarmMoney();
 		game.farm.setFarmMoney(farmMoney + this.sellPrice);
 		
+	}
+
+	/**
+	 * @return the purchasePrice
+	 */
+	public int getPurchasePrice() {
+		return purchasePrice;
+	}
+
+	/**
+	 * @param purchasePrice the purchasePrice to set
+	 */
+	public void setPurchasePrice(int purchasePrice) {
+		this.purchasePrice = purchasePrice;
+	}
+
+	/**
+	 * @return the sellPrice
+	 */
+	public int getSellPrice() {
+		return sellPrice;
+	}
+
+	/**
+	 * @param sellPrice the sellPrice to set
+	 */
+	public void setSellPrice(int sellPrice) {
+		this.sellPrice = sellPrice;
+	}
+
+	/**
+	 * @return the daysTillHarvest
+	 */
+	public int getDaysTillHarvest() {
+		return daysTillHarvest;
+	}
+
+	/**
+	 * @param daysTillHarvest the daysTillHarvest to set
+	 */
+	public void setDaysTillHarvest(int daysTillHarvest) {
+		this.daysTillHarvest = daysTillHarvest;
+	}
+
+	/**
+	 * @return the cropType
+	 */
+	public String getCropType() {
+		return cropType;
+	}
+
+	/**
+	 * @param cropType the cropType to set
+	 */
+	public void setCropType(String cropType) {
+		this.cropType = cropType;
+	}
+
+	/**
+	 * @return the cropDic
+	 */
+	public HashMap<String, Integer> getCropDic() {
+		return cropDic;
+	}
+
+	/**
+	 * @param cropDic the cropDic to set
+	 */
+	public void setCropDic(HashMap<String, Integer> cropDic) {
+		this.cropDic = cropDic;
 	}
 	
 }

@@ -4,20 +4,30 @@ import java.util.HashMap;
 
 public class CropMarket {
 	
+	/**
+	 * Dictionary of crops to their purchase price
+	 */
 	HashMap<String, Integer> cropPurchaseDic;
 	
+	/**
+	 * Constructer; initialises the crop purchase dictionary
+	 */
 	public CropMarket() {
 		cropPurchaseDic = new HashMap<String, Integer>();
 		cropPurchaseDic.put("Avocado", 8); cropPurchaseDic.put("Corn", 5); cropPurchaseDic.put("Wheat", 4);
 		cropPurchaseDic.put("Potato", 7); cropPurchaseDic.put("Carrot", 10); cropPurchaseDic.put("Apple", 6);
 	}
 	
-	public void buyAvocado(GameEnvironment game) {
-		UI UI = new UI();
-		int amount = UI.buyAmount(game);
+	/**
+	 * Buy avocado or error if not enough money
+	 * @param game
+	 * @param amount
+	 */
+	public void buyAvocado(GameEnvironment game, int amount) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Avocado");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
+			// Error
 			System.out.println("Sorry, you don't have enough money to buy these honey...");
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
@@ -32,12 +42,16 @@ public class CropMarket {
 
 	}
 	
-	public void buyCorn(GameEnvironment game) {
-		UI UI = new UI();
-		int amount = UI.buyAmount(game);
+	/**
+	 * Buy corn or error if not enough money
+	 * @param game
+	 * @param amount
+	 */
+	public void buyCorn(GameEnvironment game, int amount) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Corn");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
+			// Error
 			System.out.println("Sorry, you don't have enough money to buy these honey...");
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
@@ -51,12 +65,16 @@ public class CropMarket {
 		}
 	}
 	
-	public void buyWheat(GameEnvironment game) {
-		UI UI = new UI();
-		int amount = UI.buyAmount(game);
+	/**
+	 * Buy wheat or error if not enough money
+	 * @param game
+	 * @param amount
+	 */
+	public void buyWheat(GameEnvironment game, int amount) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Wheat");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
+			// Error
 			System.out.println("Sorry, you don't have enough money to buy these honey...");
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
@@ -70,12 +88,16 @@ public class CropMarket {
 		}
 	}
 	
-	public void buyPotato(GameEnvironment game) {
-		UI UI = new UI();
-		int amount = UI.buyAmount(game);
+	/**
+	 * Buy potato or error if not enough money
+	 * @param game
+	 * @param amount
+	 */
+	public void buyPotato(GameEnvironment game, int amount) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Potato");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
+			// Error
 			System.out.println("Sorry, you don't have enough money to buy these honey...");
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
@@ -89,12 +111,16 @@ public class CropMarket {
 		}
 	}
 	
-	public void buyCarrot(GameEnvironment game) {
-		UI UI = new UI();
-		int amount = UI.buyAmount(game);
+	/**
+	 * Buy carrot or error if not enough money
+	 * @param game
+	 * @param amount
+	 */
+	public void buyCarrot(GameEnvironment game, int amount) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Carrot");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
+			// Error
 			System.out.println("Sorry, you don't have enough money to buy these honey...");
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
@@ -108,12 +134,16 @@ public class CropMarket {
 		}
 	}
 	
-	public void buyApple(GameEnvironment game) {
-		UI UI = new UI();
-		int amount = UI.buyAmount(game);
+	/**
+	 * Buy apple or error if not enough money
+	 * @param game
+	 * @param amount
+	 */
+	public void buyApple(GameEnvironment game, int amount) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Apple");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
+			// Error
 			System.out.println("Sorry, you don't have enough money to buy these honey...");
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;

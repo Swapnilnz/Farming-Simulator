@@ -1,10 +1,21 @@
 package gamePackage;
 
 public class Farmer {
+	/**
+	 * Farmer name
+	 */
 	protected String name;
+	/**
+	 * farmer age
+	 */
 	protected int age;
 	// Avatar?
 	
+	/**
+	 * Constructer, initialises farmer age and name
+	 * @param inputName
+	 * @param farmerAge
+	 */
 	public Farmer(String inputName, int farmerAge) {
 		name = inputName;
 		age = farmerAge;
