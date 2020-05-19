@@ -211,7 +211,7 @@ class UI {
 	/**
 	 * Choose an action for the day
 	 * @param game game
-	 * @param withActions
+	 * @param withActions boolean if actions need to be displayed or not
 	 * @return int of action chosen
 	 */
 	int inputChooseAction(GameEnvironment game, boolean withActions) {
