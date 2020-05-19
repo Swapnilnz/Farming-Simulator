@@ -2,6 +2,11 @@ package gamePackage;
 
 import java.util.HashMap;
 
+/**
+ * Crop Market; where crops (Avocado, Corn, Wheat, Potato, Apple, Carrot) are bought
+ * @author Swapnil Bhagat, Reed Earl
+ *
+ */
 class CropMarket {
 	
 	/**

@@ -1,5 +1,10 @@
 package gamePackage;
 
+/**
+ * Farmer object, simple as it contains only farmer name and age
+ * @author Swapnil Bhagat, Reed Earl
+ *
+ */
 class Farmer {
 	/**
 	 * Farmer name

@@ -1,5 +1,10 @@
 package gamePackage;
 
+/**
+ * Animal Market; cows, chicken, sheep, and pig are bought here
+ * @author Swapnil Bhagat, Reed Earl
+ *
+ */
 class AnimalMarket {
 	/**
 	 * Cow price

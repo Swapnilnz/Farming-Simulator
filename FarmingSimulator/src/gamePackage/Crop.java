@@ -9,7 +9,6 @@ import java.util.HashMap;
  * Thus crop attributes are initialised through "crop". Has usual getters and setters for attributes
  * purchasePrice, sellPrice, daysTillHarvest, cropAmount, cropType.
  */
-
 class Crop {
 	
 	/**

@@ -1,5 +1,10 @@
 package gamePackage;
 
+/**
+ * Desert farm; extends Farm
+ * @author Swapnil Bhagat, Reed Earl
+ *
+ */
 class DesertFarm extends Farm {
 	
 	/**
