@@ -40,6 +40,9 @@ class GameEnvironment {
 	 */
 	private boolean gameFinished = false;
 	
+	/**
+	 * Constructer; sets starting number of actions
+	 */
 	public GameEnvironment() {
 		numActions = 2;
 	}
@@ -317,7 +320,7 @@ class GameEnvironment {
 					// View your farm's crops and animals
 					viewFarm(game);
 					break;
-				case 2:
+				case 2: 
 					// View farm money (status)
 					viewFarmMoney(game);
 					break;
