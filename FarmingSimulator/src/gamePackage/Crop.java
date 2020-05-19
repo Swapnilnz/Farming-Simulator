@@ -10,36 +10,36 @@ import java.util.HashMap;
  * purchasePrice, sellPrice, daysTillHarvest, cropAmount, cropType.
  */
 
-public class Crop {
+class Crop {
 	
 	/**
 	 * Crop purchase price
 	 */
-	public int purchasePrice;
+	private int purchasePrice;
 	/**
 	 * Crop sell price
 	 */
-	public int sellPrice;
+	private int sellPrice;
 	/**
 	 * Days till the crop can be harvested
 	 */
-	public int daysTillHarvest;
+	int daysTillHarvest;
 
 	/**
 	 * Type of crop
 	 */
-	public String cropType;
+	private String cropType;
 	
 	/**
 	 * Reference dictionary for some crop attributes
 	 */
-	public HashMap<String, Integer> cropDic;
+	private HashMap<String, Integer> cropDic;
 
 	/**
 	 * Constructer; uses switch statement to set the type of crop and its respective attributes
-	 * @param crop
+	 * @param crop input crop
 	 */
-	public Crop(String crop) {
+	Crop(String crop) {
 		cropDic = new HashMap<String, Integer>();
 		cropDic.put("Avocado", 8); cropDic.put("Corn", 6); cropDic.put("Wheat", 4); 
 		cropDic.put("Potato", 4); cropDic.put("Carrot", 3); cropDic.put("Apple", 2); 
@@ -81,9 +81,9 @@ public class Crop {
 	/**
 	 * Harvest this crop object by simply adding money required
 	 * Deletion of crop is done in GameEnvironment class
-	 * @param game
+	 * @param game game
 	 */
-	public void harvest(GameEnvironment game) {
+	void harvest(GameEnvironment game) {
 		int farmMoney = game.farm.getFarmMoney();
 		game.farm.setFarmMoney(farmMoney + this.sellPrice);
 		

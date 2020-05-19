@@ -11,7 +11,7 @@ import java.util.Scanner;
  * @author Swapnil Bhagat, Reed Earl
  *
  */
-public class UI {
+class UI {
 	
 	public UI() {
 	}
@@ -19,7 +19,7 @@ public class UI {
 	/**
 	 * Procedure that gets the farmers name through cmd input; follows given guidelines of 3-15 length alphabetic String
 	 */
-	public String inputFarmerName(GameEnvironment game) {
+	String inputFarmerName(GameEnvironment game) {
 		Scanner input = new Scanner(System.in);
 		String finalName = "";
 		System.out.println("Hello aspiring farmer! What is your name? ");
@@ -49,7 +49,7 @@ public class UI {
 	/**
 	 * Procedure that gets the farmers age through cmd input; follows given guidelines num between 0-100
 	 */
-	public int inputFarmerAge(GameEnvironment game) {
+	int inputFarmerAge(GameEnvironment game) {
 		System.out.println("What is your age?");
 		int finalAge = 21;
 		boolean numFound = false;
@@ -77,7 +77,7 @@ public class UI {
 	/**
 	 * Procedure that gets the number of days the farmer would like to play (between 5 and 15)
 	 */
-	public void inputNumDays(GameEnvironment game) {
+	void inputNumDays(GameEnvironment game) {
 		System.out.println("How long would you like your farming adventure to last?\nYou can choose between 5 and 15 days!");
 		boolean numFound = false;
 		while (numFound == false) {
@@ -104,7 +104,7 @@ public class UI {
 	 * Procedure that lets the farmer choose their farm out of the four: Desert, Mountain, Plains, or Swamp
 	 * This is done through user cmd input of a number from 1 to 4.
 	 */
-	public void inputChooseFarm(GameEnvironment game) {
+	void inputChooseFarm(GameEnvironment game) {
 		System.out.println("Awesome! Now, you have to make a big decision...\n"
 				+ "Which type of farm would you like to begin your journey with?\n"
 				+ "Each type has its own pros and cons...So choose carefully.\n"
@@ -153,7 +153,7 @@ public class UI {
 	 * Gets farm name by input from user and updates class attribute farmName.
 	 * Given name must be <= 20 characters long.
 	 */
-	public void inputFarmName(GameEnvironment game) {
+	void inputFarmName(GameEnvironment game) {
 		System.out.println("You have chosen a " + game.getFarm().getFarmType()
 				+ "\nIt is time to choose a name for your farm.\n"
 				+ "Type below:");
@@ -180,7 +180,7 @@ public class UI {
 	/**
 	 * Asks if user wants to start playing
 	 */
-	public void inputStartAdventure(GameEnvironment game) {
+	void inputStartAdventure(GameEnvironment game) {
 		System.out.println("Awesome! Would you like to start your adventure? (Y/N)");
 		Scanner input = new Scanner(System.in);
 		String[] choices = new String[]{"Yes", "y", "Y", "yes"};
@@ -206,7 +206,7 @@ public class UI {
 	 * @param withActions
 	 * @return int of action chosen
 	 */
-	public int inputChooseAction(GameEnvironment game, boolean withActions) {
+	int inputChooseAction(GameEnvironment game, boolean withActions) {
 		System.out.println("Welcome to Farming Simulator");
 		String nonActions = "What would you like to do?\n"
 				+ "1. View your farm's crops and animals\n"
@@ -266,9 +266,8 @@ public class UI {
 
 	/**
 	 * Print cropList stats
-	 * @param farm
 	 */
-	public void showCrops(Farm farm) {
+	void showCrops(Farm farm) {
 		ArrayList<Crop> cropList = farm.cropList;
 		System.out.println("-------------------------------");
 		for (int i = 0; i < cropList.size(); i++) {
@@ -283,9 +282,8 @@ public class UI {
 	
 	/**
 	 * Print animalList stats
-	 * @param farm
 	 */
-	public void showAnimals(Farm farm) {
+	void showAnimals(Farm farm) {
 		ArrayList<Animal> animalList = farm.animalList;
 		System.out.println("-------------------------------");
 
@@ -302,7 +300,6 @@ public class UI {
 	
 	/**
 	 * Shows the farm's money
-	 * @param farm
 	 */
 	public void showFarmMoney(Farm farm) {
 		System.out.println("-------------------------------");
@@ -313,9 +310,7 @@ public class UI {
 
 	/** 
 	 * visit tool market, choose buy option
-	 * @param farm
-	 * @param toolMarket
-	 * @return
+	 * @return buy option
 	 */
 	public int toolMarket(Farm farm, ToolMarket toolMarket) {
 		System.out.println("--------------------------------");
@@ -361,9 +356,7 @@ public class UI {
 	
 	/**
 	 * visit crop market, choose buy option
-	 * @param farm
-	 * @param cropMarket
-	 * @return
+	 * @return buy option
 	 */
 	public int cropMarket(Farm farm, CropMarket cropMarket) {
 		System.out.println("--------------------------------");
@@ -407,10 +400,8 @@ public class UI {
 	}
 
 	/**
-	 * visit animal market, choose buy option
-	 * @param farm
-	 * @param animalMarket
-	 * @return
+	 * Visit animal market, choose buy option
+	 * @return buy option
 	 */
 	public int animalMarket(Farm farm, AnimalMarket animalMarket) {
 		System.out.println("--------------------------------");
@@ -452,9 +443,8 @@ public class UI {
 	}
 	
 	/**
-	 * choose buy amount for animals and crops
-	 * @param game
-	 * @return
+	 * Choose buy amount for animals and crops
+	 * @return buy amount
 	 */
 	public int buyAmount(GameEnvironment game) {
 		System.out.println("How many would you like to buy?");
@@ -491,8 +481,7 @@ public class UI {
 
 	/**
 	 * Choose which crop to tend to, or exit
-	 * @param game
-	 * @return
+	 * @return crop
 	 */
 	public String chooseTendToCrop(GameEnvironment game) {
 		HashMap<String, Integer> inventory = game.farm.cropInventory;
@@ -530,7 +519,6 @@ public class UI {
 
 	/**
 	 * Displays how long the game lasted and money made
-	 * @param game
 	 */
 	public void displayEndAdventure(GameEnvironment game) {
 		System.out.println("-------- " + game.farm.getFarmName() + " Farm --------");

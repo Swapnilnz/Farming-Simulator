@@ -5,25 +5,12 @@ package gamePackage;
  * @author Swapnil Bhagat, Reed Earl
  *
  */
-public class Cow extends Animal{
+class Cow extends Animal{
+	
+	
 	
 	/**
 	 * Constructor for cow, uses superclass to initialise variables
-	 * @param AnimalType
-	 * @param weight
-	 * @param happiness
-	 * @param health
-	 */
-	public Cow(String AnimalType, int weight, int happiness, int health) {
-		super(AnimalType, weight, happiness, health);
-	}
-	
-	/**
-	 * Constructor for cow, uses superclass to initialise variables
-	 * @param AnimalType
-	 * @param weight
-	 * @param happiness
-	 * @param health
 	 */
 	public Cow() {
 		super("Cow", 500, 80, 50);
@@ -31,7 +18,7 @@ public class Cow extends Animal{
 	
 	/**
 	 * Milks cow, adds money to farm money
-	 * @param game
+	 * @param game game
 	 */
 	public void milk(GameEnvironment game) {
 		game.farm.increaseFarmMoney(5);

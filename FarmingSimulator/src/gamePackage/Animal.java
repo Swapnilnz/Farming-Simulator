@@ -7,30 +7,30 @@ package gamePackage;
  *
  */
 
-public class Animal {
+class Animal {
 	/**
 	 * Type of animal
 	 */
-	public String animalType;
+	private String animalType;
 	/**
 	 * int animal weight
 	 */
-	public int weight;
+	private int weight;
 	/**
 	 * int animal happiness
 	 */
-	public int happiness;
+	private int happiness;
 	/**
 	 * int animal health
 	 */
-	public int health;
+	private int health;
 	
 	/**
 	 * Constructer, used for initialising class attributes
-	 * @param animalType
-	 * @param weight
-	 * @param happiness
-	 * @param health
+	 * @param animalType animal type
+	 * @param weight starting weight
+	 * @param happiness starting happiness
+	 * @param health starting health
 	 */
 	public Animal(String animalType, int weight, int happiness, int health) {
 		this.animalType = animalType;

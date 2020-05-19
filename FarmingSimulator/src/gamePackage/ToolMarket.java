@@ -5,7 +5,7 @@ package gamePackage;
  * @author Swapnil Bhagat, Reed Earl
  *
  */
-public class ToolMarket {
+class ToolMarket {
 	/**
 	 * Int harvester price
 	 */
@@ -51,9 +51,9 @@ public class ToolMarket {
 	
 	/**
 	 * Buy harvester; adds harvester to farm's item list, removes money
-	 * @param game
+	 * @param game game
 	 */
-	public void buyHarvester(GameEnvironment game) {
+	void buyHarvester(GameEnvironment game) {
 		// Add harvester, remove money
 		int farmMoney = game.farm.getFarmMoney();
 		if (farmMoney >= harvesterPrice) {
@@ -70,7 +70,7 @@ public class ToolMarket {
 	 * Buy watering can; adds watering can to farm's item list, removes money
 	 * @param game
 	 */
-	public void buyWateringCan(GameEnvironment game) {
+	void buyWateringCan(GameEnvironment game) {
 		// Add watering can, remove money
 		int farmMoney = game.farm.getFarmMoney();
 		if (farmMoney >= wateringCanPrice) {
@@ -85,9 +85,9 @@ public class ToolMarket {
 	
 	/**
 	 * Buy animal statue; adds animal statue to farm's item list, removes money
-	 * @param game
+	 * @param game game
 	 */
-	public void buyAnimalStatue(GameEnvironment game) {
+	void buyAnimalStatue(GameEnvironment game) {
 		// Add animalStatue, remove money
 		int farmMoney = game.farm.getFarmMoney();
 		if (farmMoney >= animalStatuePrice) {
@@ -104,9 +104,9 @@ public class ToolMarket {
 	
 	/**
 	 * Buy milk master; adds milk master to farm's item list, removes money
-	 * @param game
+	 * @param game game
 	 */
-	public void buyMilkMaster(GameEnvironment game) {
+	void buyMilkMaster(GameEnvironment game) {
 		// Add milk master, remove money
 		int farmMoney = game.farm.getFarmMoney();
 		if (farmMoney >= milkMasterPrice) {
@@ -123,9 +123,9 @@ public class ToolMarket {
 	
 	/**
 	 * Buy shear master; adds shear master to farm's item list, removes money
-	 * @param game
+	 * @param game game
 	 */
-	public void buyShearMaster(GameEnvironment game) {
+	void buyShearMaster(GameEnvironment game) {
 		// Add shear master, remove money
 		int farmMoney = game.farm.getFarmMoney();
 		if (farmMoney >= shearMasterPrice) {
@@ -141,9 +141,9 @@ public class ToolMarket {
 	
 	/**
 	 * Buy tele pad; adds tele pad to farm's item list, removes money
-	 * @param game
+	 * @param game game
 	 */
-	public void buyTeleportationPad(GameEnvironment game) {
+	void buyTeleportationPad(GameEnvironment game) {
 		// Add teleportation pad, remove money
 		int farmMoney = game.farm.getFarmMoney();
 		if (farmMoney >= teleportationPadPrice) {
@@ -158,9 +158,9 @@ public class ToolMarket {
 
 	/**
 	 * Buy animal feed; adds animal feed to farm's item list, removes money
-	 * @param game
+	 * @param game game
 	 */
-	public void buyAnimalFeed(GameEnvironment game) {
+	void buyAnimalFeed(GameEnvironment game) {
 		// Add animal feed, remove money
 		int farmMoney = game.farm.getFarmMoney();
 		if (farmMoney >= animalFeedPrice) {

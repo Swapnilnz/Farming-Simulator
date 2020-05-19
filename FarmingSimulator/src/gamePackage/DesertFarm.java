@@ -1,11 +1,10 @@
 package gamePackage;
 
-public class DesertFarm extends Farm {
+class DesertFarm extends Farm {
 	
-	public DesertFarm(String farmType, int growthRate) {
-		super(farmType, growthRate);
-	}
-	
+	/**
+	 * Constructer, uses superclass to initialise farm
+	 */
 	public DesertFarm() {
 		super("Desert Farm", 1);
 	}

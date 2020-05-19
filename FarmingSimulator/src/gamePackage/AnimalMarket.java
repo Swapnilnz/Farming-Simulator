@@ -1,6 +1,6 @@
 package gamePackage;
 
-public class AnimalMarket {
+class AnimalMarket {
 	/**
 	 * Cow price
 	 */
@@ -19,7 +19,7 @@ public class AnimalMarket {
 	private int sheepPrice;
 	
 	/**
-	 * Construcer; sets animal prices
+	 * Constructer; sets animal prices
 	 */
 	public AnimalMarket() {
 		cowPrice = 10;
@@ -30,9 +30,10 @@ public class AnimalMarket {
 	
 	/**
 	 * Buy cow or cause error if not enough money
-	 * @param game
+	 * @param game game
+	 * @param amount amount
 	 */
-	public void buyCow(GameEnvironment game, int amount) {
+	void buyCow(GameEnvironment game, int amount) {
 		// Add cow, remove money
 		int totalPurchasePrice = amount * cowPrice;
 		
@@ -51,10 +52,10 @@ public class AnimalMarket {
 	
 	/**
 	 * Buy pig or cause error if not enough money
-	 * @param game
-	 * @param amount
+	 * @param game game
+	 * @param amount amount
 	 */
-	public void buyPig(GameEnvironment game, int amount) {
+	void buyPig(GameEnvironment game, int amount) {
 		// Add pig, remove money
 		int totalPurchasePrice = amount * pigPrice;
 		int curMoney = game.farm.getFarmMoney();
@@ -72,10 +73,10 @@ public class AnimalMarket {
 	
 	/**
 	 * Buy chicken or cause error if not enough money
-	 * @param game
-	 * @param amount
+	 * @param game game
+	 * @param amount amount
 	 */
-	public void buyChicken(GameEnvironment game, int amount) {
+	void buyChicken(GameEnvironment game, int amount) {
 		// Add chicken, remove money
 		int totalPurchasePrice = amount * chickenPrice;
 		int curMoney = game.farm.getFarmMoney();
@@ -93,10 +94,10 @@ public class AnimalMarket {
 	
 	/**
 	 * Buy sheep or cause error if not enough money
-	 * @param game
-	 * @param amount
+	 * @param game game
+	 * @param amount amount
 	 */
-	public void buySheep(GameEnvironment game, int amount) {
+	void buySheep(GameEnvironment game, int amount) {
 		// Add sheep, remove money
 		int totalPurchasePrice = amount * sheepPrice;
 		int curMoney = game.farm.getFarmMoney();

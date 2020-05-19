@@ -1,6 +1,6 @@
 package gamePackage;
 
-public class Farmer {
+class Farmer {
 	/**
 	 * Farmer name
 	 */
@@ -8,15 +8,15 @@ public class Farmer {
 	/**
 	 * farmer age
 	 */
-	protected int age;
+	private int age;
 	// Avatar?
 	
 	/**
 	 * Constructer, initialises farmer age and name
-	 * @param inputName
-	 * @param farmerAge
+	 * @param inputName farmer name
+	 * @param farmerAge farmer age
 	 */
-	public Farmer(String inputName, int farmerAge) {
+	Farmer(String inputName, int farmerAge) {
 		name = inputName;
 		age = farmerAge;
 	}

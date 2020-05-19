@@ -9,11 +9,11 @@ import java.util.Random;
  */
 public class RandomEvent {
 	private Random rnd;
-	public int chanceValue = 50;
+	public int chanceValue = 25;
 	private boolean occurs = false;
 	public String event = "None";
 	
-	public RandomEvent() {
+	public RandomEvent(GameEnvironment game) {
 		rnd = new Random();
 		int temp = (int) (Math.random() * 10);
 		if (temp >= chanceValue) {
@@ -47,6 +47,17 @@ public class RandomEvent {
 			
 		}
 		return result;
+	}
+	
+	/**
+	 * The sun gods have blessed the player, all crops are now harvestable
+	 * @param game game
+	 */
+	public void sunGodsBlessing(GameEnvironment game) {
+		System.out.println("The Sun God has blessed your farm, all your crops are now harvestable!");
+		for (Crop crop: game.farm.getCropList()) {
+			crop.setDaysTillHarvest(0);
+		}
 	}
 
 	/**

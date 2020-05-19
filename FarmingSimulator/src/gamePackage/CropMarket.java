@@ -2,12 +2,12 @@ package gamePackage;
 
 import java.util.HashMap;
 
-public class CropMarket {
+class CropMarket {
 	
 	/**
 	 * Dictionary of crops to their purchase price
 	 */
-	HashMap<String, Integer> cropPurchaseDic;
+	private HashMap<String, Integer> cropPurchaseDic;
 	
 	/**
 	 * Constructer; initialises the crop purchase dictionary
@@ -20,10 +20,10 @@ public class CropMarket {
 	
 	/**
 	 * Buy avocado or error if not enough money
-	 * @param game
-	 * @param amount
+	 * @param game game
+	 * @param amount amount to buy
 	 */
-	public void buyAvocado(GameEnvironment game, int amount) {
+	void buyAvocado(GameEnvironment game, int amount) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Avocado");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
@@ -44,10 +44,10 @@ public class CropMarket {
 	
 	/**
 	 * Buy corn or error if not enough money
-	 * @param game
-	 * @param amount
+	 * @param game game 
+	 * @param amount amount to buy
 	 */
-	public void buyCorn(GameEnvironment game, int amount) {
+	void buyCorn(GameEnvironment game, int amount) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Corn");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
@@ -67,10 +67,10 @@ public class CropMarket {
 	
 	/**
 	 * Buy wheat or error if not enough money
-	 * @param game
-	 * @param amount
+	 * @param game game 
+	 * @param amount amount to buy
 	 */
-	public void buyWheat(GameEnvironment game, int amount) {
+	void buyWheat(GameEnvironment game, int amount) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Wheat");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
@@ -90,10 +90,10 @@ public class CropMarket {
 	
 	/**
 	 * Buy potato or error if not enough money
-	 * @param game
-	 * @param amount
+	 * @param game game
+	 * @param amount amount to buy
 	 */
-	public void buyPotato(GameEnvironment game, int amount) {
+	void buyPotato(GameEnvironment game, int amount) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Potato");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
@@ -113,10 +113,10 @@ public class CropMarket {
 	
 	/**
 	 * Buy carrot or error if not enough money
-	 * @param game
-	 * @param amount
+	 * @param game game 
+	 * @param amount amount to buy
 	 */
-	public void buyCarrot(GameEnvironment game, int amount) {
+	void buyCarrot(GameEnvironment game, int amount) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Carrot");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
@@ -136,10 +136,10 @@ public class CropMarket {
 	
 	/**
 	 * Buy apple or error if not enough money
-	 * @param game
-	 * @param amount
+	 * @param game game 
+	 * @param amount amount to buy
 	 */
-	public void buyApple(GameEnvironment game, int amount) {
+	void buyApple(GameEnvironment game, int amount) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Apple");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {

@@ -8,7 +8,7 @@ import java.util.HashMap;
  * @author Swapnil Bhagat, Reed Earl
  *
  */
-public class Farm {
+class Farm {
 	/**
 	 * Type of farm (Desert, Mountain, Plains, Swamp)
 	 */
@@ -16,66 +16,66 @@ public class Farm {
 	/**
 	 * Contains farm money
 	 */
-	public int farmMoney;
+	int farmMoney;
 	/**
 	 * Number of sheep on the farm
 	 */
-	public int sheepCount = 0;
+	private int sheepCount = 0;
 	/**
 	 * Number of cow on the farm
 	 */
-	public int cowCount = 0;
+	private int cowCount = 0;
 	/**
 	 * Number of pigs
 	 */
-	public int pigCount = 0;
+	private int pigCount = 0;
 	/**
 	 * Number of chickens
 	 */
-	public int chickenCount = 0;
+	private int chickenCount = 0;
 	/**
 	 * Growthrate of the farm (usually 1)
 	 */
-	public int growthRate;
+	private int growthRate;
 	/**
 	 * Array list of animals
 	 */
-	public ArrayList<Animal> animalList;
+	ArrayList<Animal> animalList;
 	/**
 	 * Array list of crops
 	 */
-	public ArrayList<Crop> cropList;
+	ArrayList<Crop> cropList;
 	/**
 	 * Dictionary that holds count of each crop
 	 */
-	public HashMap<String, Integer> cropInventory;
+	HashMap<String, Integer> cropInventory;
 	/**
 	 * Array list of items on the farm
 	 */
-	public ArrayList<String> itemList;
+	ArrayList<String> itemList;
 	/**
 	 * Number of animal feed available
 	 */
-	public int animalFeed;
+	int animalFeed;
 	/**
 	 * Simple boolean for if the farm is/is not maintained
 	 */
-	public boolean maintained = false;
+	private boolean maintained = false;
 	/**
 	 * Holds the farm's name
 	 */
-	public String farmName;
+	String farmName;
 	/**
 	 * Money that the player starts with
 	 */
-	public int staticFarmMoney = 50;
+	int staticFarmMoney = 50;
 
 	/**
 	 * Constructer; initialises crop inventory, item list, crop list, animal feed, farm money
-	 * @param farmType
-	 * @param growthRate
+	 * @param farmType type of farm
+	 * @param growthRate growth rate of farm
 	 */
-	public Farm(String farmType, int growthRate) {
+	Farm(String farmType, int growthRate) {
 		this.farmType = farmType;
 		this.growthRate = growthRate;
 		farmMoney = staticFarmMoney;
@@ -90,98 +90,54 @@ public class Farm {
 	
 	/**
 	 * Add item to item list
-	 * @param item
+	 * @param item item to add
 	 */
-	public void addToItemList(String item) {
+	void addToItemList(String item) {
 		itemList.add(item);
 	}
 	/**
 	 * Adds chicken to farm	
 	 */
-	public void addChickenToFarm() {
+	void addChickenToFarm() {
 		Chicken chick = new Chicken();
 		this.animalList.add(chick);
 		this.chickenCount++;
 	}
 
-	/*
-	 * remove chicken if chicken is on farm.
-	 */
-	public void removeChicken() {
-		for (Animal animal: animalList) {
-			if (animal instanceof Chicken) {
-				this.animalList.remove(animal);
-				this.chickenCount--;
-				break;
-			}
-		}
-	}
+	
 	
 	/**
 	 * Adds cow to farm	
 	 */
-	public void addCowToFarm() {
+	void addCowToFarm() {
 		Cow cow = new Cow();
 		this.animalList.add(cow);
 		this.cowCount++;
 	}
 	
-	/*	
-	 * remove cow if cow is on farm.
-	 */
-	public void removeCow() {
-		for (Animal animal: animalList) {
-			if (animal instanceof Cow) {
-				this.animalList.remove(animal);
-				this.cowCount--;
-				break;
-			}
-		}
-	}
+	
 	
 	/**
 	 * Adds sheep to farm	
 	 */
-	public void addSheepToFarm() {
+	void addSheepToFarm() {
 		Sheep sheep = new Sheep();
 		this.animalList.add(sheep);
 		this.sheepCount++;
 	}
 
-	/*
-	 * remove sheep if sheep is on farm.
-	 */
-	public void removeSheep() {
-		for (Animal animal: animalList) {
-			if (animal instanceof Sheep) {
-				this.animalList.remove(animal);
-				this.sheepCount--;
-				break;
-			}
-		}
-	}
+	
 	
 	/**
 	 * Adds pig to farm	
 	 */
-	public void addPigToFarm() {
+	void addPigToFarm() {
 		Pig pig = new Pig();
 		this.animalList.add(pig);
 		this.pigCount++;
 	}
 		
-	/*
-	 * remove pig if pig is on farm.
-	 */
-	public void removePig() {
-		for (Animal animal: animalList) {
-			if (animal instanceof Pig) {
-				this.animalList.remove(animal);
-				this.pigCount--;
-				break;
-			}
-		}
-	}
+	
 	
 
 	/**
@@ -196,17 +152,17 @@ public class Farm {
 
 	/**
 	 * Decrease farm money
-	 * @param money
+	 * @param money money to decrease by
 	 */
-	public void decreaseFarmMoney(int money) {
+	void decreaseFarmMoney(int money) {
 		this.farmMoney -= money;
 	}
 	
 	/**
 	 * Increase farm money
-	 * @param money
+	 * @param money money to increase by
 	 */
-	public void increaseFarmMoney(int money) {
+	void increaseFarmMoney(int money) {
 		this.farmMoney += money;
 	}
 

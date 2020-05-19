@@ -10,7 +10,7 @@ import java.util.Random;
  * @author Swapnil Bhagat, Reed Earl
  *
  */
-public class GameEnvironment {
+class GameEnvironment {
 	/**
 	 * (Integer) Number of days the player has chosen to play the game (5-15), counts DOWN
 	 */
@@ -18,7 +18,7 @@ public class GameEnvironment {
 	/**
 	 * (Integer) Number of days the player has chosen to play the game (5-15), counts UP
 	 */
-	public int gameDuration;
+	int gameDuration;
 	/**
 	 * Object farmer, contains farmer name and age (maybe avatar)
 	 */
@@ -30,15 +30,15 @@ public class GameEnvironment {
 	/**
 	 * Static String alphabet, used for validifying farmer name
 	 */
-	public static String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	private static String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	/**
 	 * (Integer) Number of actions the player has, may increase and indecrease
 	 */
-	public int numActions;
+	private int numActions;
 	/**
 	 * (Boolean) Simple true/false value on whether the game is finished or not
 	 */
-	public boolean gameFinished = false;
+	private boolean gameFinished = false;
 	
 	public GameEnvironment() {
 		numActions = 2;
@@ -46,27 +46,27 @@ public class GameEnvironment {
 	
 	/**
 	 * View time left until crop harvest, animal happiness
-	 * @param game
+	 * @param game game
 	 */
-	public void viewFarm(GameEnvironment game) {
+	private void viewFarm(GameEnvironment game) {
 		UI UI = new UI();
 		UI.showCrops(game.getFarm());
 		UI.showAnimals(game.getFarm());
 	}
     /**
      * View the farm's money
-     * @param game
+     * @param game game
      */
-	public void viewFarmMoney(GameEnvironment game) {
+	private void viewFarmMoney(GameEnvironment game) {
 		UI UI = new UI();
 		UI.showFarmMoney(game.getFarm());
 	}
 	
 	/**
 	 * Visit Tom's Tool Market and purches various utility items
-	 * @param game
+	 * @param game game 
 	 */
-	public void visitToolMarket(GameEnvironment game) {
+	private void visitToolMarket(GameEnvironment game) {
 		UI UI = new UI();
 		ToolMarket toolMarket = new ToolMarket();
 		boolean done = false;
@@ -112,9 +112,9 @@ public class GameEnvironment {
 	
 	/**
 	 * Visit crop market to buy crops
-	 * @param game
+	 * @param game game
 	 */
-	public void visitCropMarket(GameEnvironment game) {
+	private void visitCropMarket(GameEnvironment game) {
 		UI UI = new UI();
 		CropMarket cropMarket = new CropMarket();
 		boolean done = false;
@@ -157,9 +157,9 @@ public class GameEnvironment {
 	
 	/** 
 	 * Visit Andy's animal market to buy animals
-	 * @param game
+	 * @param game game 
 	 */
-	public void visitAnimalMarket(GameEnvironment game) {
+	private void visitAnimalMarket(GameEnvironment game) {
 		UI UI = new UI();
 		AnimalMarket animalMarket = new AnimalMarket();
 		boolean done = false;
@@ -197,9 +197,9 @@ public class GameEnvironment {
 	
 	/**
 	 * Tend to one type of crop on the farm
-	 * @param game
+	 * @param game game
 	 */
-	public void tendToCrops(GameEnvironment game) {
+	private void tendToCrops(GameEnvironment game) {
 		UI UI = new UI();
 		boolean chosen = false;
 		HashMap<String, Integer> inventory = game.farm.cropInventory;
@@ -244,9 +244,9 @@ public class GameEnvironment {
 	
 	/**
 	 * Feed animals to make them healthier
-	 * @param game
+	 * @param game game 
 	 */
-	public void feedAnimals(GameEnvironment game) {
+	private void feedAnimals(GameEnvironment game) {
 		if (game.farm.animalFeed > 0) {
 			for (Animal animal : game.farm.animalList) {
 				animal.increaseHealth();
@@ -259,9 +259,9 @@ public class GameEnvironment {
 	
 	/**
 	 * Play with animals to make them happier, or error if no animals
-	 * @param game
+	 * @param game game 
 	 */
-	public void playWithAnimals(GameEnvironment game) {
+	private void playWithAnimals(GameEnvironment game) {
 		if (game.farm.animalList.size() > 0) {
 			for (Animal animal : game.farm.animalList) {
 				animal.increaseHappiness();
@@ -274,9 +274,9 @@ public class GameEnvironment {
 	/**
 	 * Harvest harvestable crops (days till harvest == 0) and remove them from cropList
 	 * Adds required money
-	 * @param game
+	 * @param game game 
 	 */
-	public void harvestCrops(GameEnvironment game) {
+	private void harvestCrops(GameEnvironment game) {
 		ArrayList<Crop> tempCropList = new ArrayList<Crop>();
 		for (Crop crop : game.farm.cropList) {
 			if (crop.getDaysTillHarvest() == 0) {
@@ -291,17 +291,17 @@ public class GameEnvironment {
 	
 	/**
 	 * Simple method that sets the farm's maintenance attribute to true
-	 * @param game
+	 * @param game game
 	 */
-	public void tendToFarmLand(GameEnvironment game) {
+	private void tendToFarmLand(GameEnvironment game) {
 		game.farm.setMaintained(true);
 	}
 	
 	/**
 	 * Plays one day, with 2 or more actions
-	 * @param game
+	 * @param game game
 	 */
-	public void runDay(GameEnvironment game) {
+	private void runDay(GameEnvironment game) {
 		boolean exitLoop = false;
 		int numActions = game.getNumActions();		
 		while ((numActions >= 0) && (exitLoop != true)){
@@ -370,11 +370,11 @@ public class GameEnvironment {
 	}
 	
 	/**
-	 * gets total money based on animal happiness/healthiness
-	 * @param game
-	 * @return
+	 * Returns total money based on animal happiness/healthiness
+	 * @param game game
+	 * @return int total money
 	 */
-	public int getTotalMoney(GameEnvironment game) {
+	private int getTotalMoney(GameEnvironment game) {
 		int totalMoney = 0;
 		int happinessSum = 0;
 		int healthinessSum = 0;
@@ -393,9 +393,9 @@ public class GameEnvironment {
 	
 	/**
 	 * Does end of day calculations to add money, harvest if necessary etc
-	 * @param game
+	 * @param game game
 	 */
-	public void endDay(GameEnvironment game) {
+	private void endDay(GameEnvironment game) {
 		// Add money (Milk Master; Shear Master; Harvester) TO DO: Normal
 		if (game.farm.itemList.contains("Milk Master")) {
 			for (Animal animal: game.farm.animalList) {
@@ -436,14 +436,18 @@ public class GameEnvironment {
 				
 			}
 		}
+		// Decrease animal healthiness per day
+		for (Animal animal: farm.animalList) {
+			animal.decreaseHealth();
+		}
 	}
 	
 	/**
 	 * Calculates final score: (money * happinessAv * healthinessAv) / duration
-	 * @param game
-	 * @return score
+	 * @param game game
+	 * @return score game score
 	 */
-	public int calculateScore(GameEnvironment game) {
+	private int calculateScore(GameEnvironment game) {
 		int money = game.farm.getFarmMoney();
 		int duration = game.gameDuration;
 		int score = 0;
@@ -466,7 +470,12 @@ public class GameEnvironment {
 		return score;
 
 	}
-	public void endAdventure(GameEnvironment game) {
+	
+	/**
+	 * End the adventure as days have run out
+	 * @param game game
+	 */
+	private void endAdventure(GameEnvironment game) {
 		// Display farm's name, game's duration, profit
 		UI UI = new UI();
 		UI.displayEndAdventure(game);
@@ -480,7 +489,11 @@ public class GameEnvironment {
 		
 	}
 	
-	public void startAdventure(GameEnvironment game) {
+	/**
+	 * Start the adventure as set up is done
+	 * @param game game
+	 */
+	private void startAdventure(GameEnvironment game) {
 		UI startInput = new UI();
 		startInput.inputStartAdventure(game);
 		while (game.getNumDays() > 0) {
@@ -492,7 +505,11 @@ public class GameEnvironment {
 		}
 	}
 	
-	public void getFarmer(GameEnvironment game) {
+	/**
+	 * Get farmer name and age
+	 * @param game game
+	 */
+	private void getFarmer(GameEnvironment game) {
 		UI UI = new UI();
 		String farmerName = UI.inputFarmerName(game);
 		int farmerAge = UI.inputFarmerAge(game);
@@ -504,7 +521,7 @@ public class GameEnvironment {
 	 * @param name, name to check
 	 * @return boolean if valid (true) or not (false)
 	 */
-	public boolean farmerNameChecker(String name) {
+	boolean farmerNameChecker(String name) {
 		// Checks between 3-15 chars
 		boolean acceptableLength = false;
 		if ((name.length() >= 3) && (name.length() <= 15)) {
@@ -526,7 +543,11 @@ public class GameEnvironment {
 			return false;
 		}
 	}
-
+	
+	/**
+	 * Main method; used to start and end game
+	 * @param args no args needed
+	 */
 	public static void main(String[] args) {
 
 		GameEnvironment game = new GameEnvironment();
@@ -537,10 +558,6 @@ public class GameEnvironment {
 		UI.inputFarmName(game);
 		game.startAdventure(game);
 		game.endAdventure(game);
-
-		
-
-
 
 	}
 

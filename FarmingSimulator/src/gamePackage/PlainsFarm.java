@@ -5,22 +5,13 @@ package gamePackage;
  * @author Swapnil
  *
  */
-public class PlainsFarm extends Farm {
-	
-	/**
-	 * Constructer, uses superclass to initialise farm variables
-	 * @param farmType
-	 * @param growthRate
-	 */
-	public PlainsFarm(String farmType, int growthRate) {
-		super(farmType, growthRate);
-	}
+class PlainsFarm extends Farm {
 	
 	/**
 	 * Constructer, uses superclass to initialise farm variables
 	 */
 	public PlainsFarm() {
-		super("Plains Farm", 2);
+		super("Plains Farm", 3);
 	}
 
 }
