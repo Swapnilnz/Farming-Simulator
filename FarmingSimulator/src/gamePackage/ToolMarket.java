@@ -68,7 +68,7 @@ class ToolMarket {
 	
 	/**
 	 * Buy watering can; adds watering can to farm's item list, removes money
-	 * @param game
+	 * @param game game
 	 */
 	void buyWateringCan(GameEnvironment game) {
 		// Add watering can, remove money
