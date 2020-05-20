@@ -51,7 +51,7 @@ class GameEnvironment {
 	 * View time left until crop harvest, animal happiness
 	 * @param game game
 	 */
-	private void viewFarm(GameEnvironment game) {
+	void viewFarm(GameEnvironment game) {
 		UI UI = new UI();
 		UI.showCrops(game.getFarm());
 		UI.showAnimals(game.getFarm());
@@ -60,7 +60,7 @@ class GameEnvironment {
      * View the farm's money
      * @param game game
      */
-	private void viewFarmMoney(GameEnvironment game) {
+	void viewFarmMoney(GameEnvironment game) {
 		UI UI = new UI();
 		UI.showFarmMoney(game.getFarm());
 	}
@@ -206,10 +206,9 @@ class GameEnvironment {
 		UI UI = new UI();
 		boolean chosen = false;
 		HashMap<String, Integer> inventory = game.farm.cropInventory;
-		String exitValue = "exit";
 		while (!chosen) {
 			String crop = UI.chooseTendToCrop(game);
-			if (crop.equals(exitValue)) {
+			if (crop.equals("exit")) {
 				chosen = true;
 			} else if (inventory.get(crop) > 0) {
 
@@ -249,7 +248,7 @@ class GameEnvironment {
 	 * Feed animals to make them healthier
 	 * @param game game 
 	 */
-	private void feedAnimals(GameEnvironment game) {
+	void feedAnimals(GameEnvironment game) {
 		if (game.farm.animalFeed > 0) {
 			for (Animal animal : game.farm.animalList) {
 				animal.increaseHealth();
@@ -264,7 +263,7 @@ class GameEnvironment {
 	 * Play with animals to make them happier, or error if no animals
 	 * @param game game 
 	 */
-	private void playWithAnimals(GameEnvironment game) {
+	void playWithAnimals(GameEnvironment game) {
 		if (game.farm.animalList.size() > 0) {
 			for (Animal animal : game.farm.animalList) {
 				animal.increaseHappiness();
@@ -279,7 +278,7 @@ class GameEnvironment {
 	 * Adds required money
 	 * @param game game 
 	 */
-	private void harvestCrops(GameEnvironment game) {
+	void harvestCrops(GameEnvironment game) {
 		ArrayList<Crop> tempCropList = new ArrayList<Crop>();
 		for (Crop crop : game.farm.cropList) {
 			if (crop.getDaysTillHarvest() == 0) {
@@ -296,7 +295,7 @@ class GameEnvironment {
 	 * Simple method that sets the farm's maintenance attribute to true
 	 * @param game game
 	 */
-	private void tendToFarmLand(GameEnvironment game) {
+	void tendToFarmLand(GameEnvironment game) {
 		game.farm.setMaintained(true);
 	}
 	
@@ -377,7 +376,7 @@ class GameEnvironment {
 	 * @param game game
 	 * @return int total money
 	 */
-	private int getTotalMoney(GameEnvironment game) {
+	int getTotalMoney(GameEnvironment game) {
 		int totalMoney = 0;
 		int happinessSum = 0;
 		int healthinessSum = 0;
@@ -398,7 +397,7 @@ class GameEnvironment {
 	 * Does end of day calculations to add money, harvest if necessary etc
 	 * @param game game
 	 */
-	private void endDay(GameEnvironment game) {
+	void endDay(GameEnvironment game) {
 		// Add money (Milk Master; Shear Master; Harvester) TO DO: Normal
 		if (game.farm.itemList.contains("Milk Master")) {
 			for (Animal animal: game.farm.animalList) {
@@ -450,7 +449,7 @@ class GameEnvironment {
 	 * @param game game
 	 * @return score game score
 	 */
-	private int calculateScore(GameEnvironment game) {
+	int calculateScore(GameEnvironment game) {
 		int money = game.farm.getFarmMoney();
 		int duration = game.gameDuration;
 		int score = 0;

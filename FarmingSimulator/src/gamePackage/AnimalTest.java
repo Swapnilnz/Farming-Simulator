@@ -47,20 +47,24 @@ class AnimalTest {
 		assertEquals((int)200, (int)item.getWeight());
 		assertEquals((double)80, (int)item.getHappiness());
 	} 
+	
 	/**
 	 * Tests cow attributes
 	 */
+	@Test
 	void testAnimalCow() {
 		Cow item = new Cow();
 		assertEquals((String)"Cow", (String)item.getAnimalType());
 		assertEquals((int)500, (int)item.getWeight());
-		assertEquals((int)80, (int)item.getHappiness());
+		assertEquals((int)60, (int)item.getHappiness());
 	}
+	
 	/*
 	 * Want to check it decreases the correct amount each iteration.
 	 * - and that it doesn't go lower than 0
 	 */
-	void testAnimalMoneyDecreases() {
+	@Test
+	void testAnimalHappinessDecreases() {
 		Chicken item = new Chicken();
 		item.decreaseHappiness();
 		item.decreaseHappiness();
@@ -70,11 +74,13 @@ class AnimalTest {
 		}
 		assertEquals((int)0, (int)item.getHappiness());
 	}
+	
 	/*
 	 * Want to check it increases the correct amount each iteration.
 	 * - and that it doesn't go above 100
 	 */
-	void testAnimalMoneyIncreases() {
+	@Test
+	void testAnimalHappinessIncreases() {
 		Chicken item = new Chicken();
 		item.increaseHappiness();
 		assertEquals((int)100, (int)item.getHappiness());
@@ -85,6 +91,35 @@ class AnimalTest {
 		}
 		assertEquals((int)100, (int)item.getHappiness());
 	}
-		
 	
+	/**
+	 * Test health decreases, shouldn't go below 0
+	 */
+	@Test
+	void testAnimalHealthinessDecreases() {
+		Chicken item = new Chicken();
+		item.decreaseHealth();
+		item.decreaseHealth();
+		assertEquals((int)10, (int)item.getHealth());
+		for (int i=0; i<100; i++) {
+			item.decreaseHealth();
+		}
+		assertEquals((int)0, (int)item.getHealth());
+	}
+
+	/**
+	 * Test health increases, shouldn't be above 100
+	 */
+	@Test
+	void testAnimalHealthinessIncreases() {
+		Chicken item = new Chicken();
+		item.increaseHealth();
+		assertEquals((int)75, (int)item.getHealth());
+		item.increaseHealth();
+		assertEquals((int)100, (int)item.getHealth());
+		for (int i=0; i<100; i++) {
+			item.increaseHealth();
+		}
+		assertEquals((int)100, (int)item.getHealth());
+	}
 }

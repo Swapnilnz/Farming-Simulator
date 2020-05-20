@@ -13,7 +13,7 @@ class Cow extends Animal{
 	 * Constructor for cow, uses superclass to initialise variables
 	 */
 	public Cow() {
-		super("Cow", 500, 80, 50);
+		super("Cow", 500, 60, 50);
 	}
 	
 	/**

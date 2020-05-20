@@ -33,7 +33,7 @@ class CropMarket {
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
 			// Error
-			System.out.println("Sorry, you don't have enough money to buy these honey...");
+			System.out.println("Sorry, you don't have enough money to buy these...");
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
 			int ogNum = game.farm.cropInventory.get("Avocado");
@@ -57,7 +57,7 @@ class CropMarket {
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
 			// Error
-			System.out.println("Sorry, you don't have enough money to buy these honey...");
+			System.out.println("Sorry, you don't have enough money to buy these...");
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
 			int ogNum = game.farm.cropInventory.get("Corn");
@@ -80,7 +80,7 @@ class CropMarket {
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
 			// Error
-			System.out.println("Sorry, you don't have enough money to buy these honey...");
+			System.out.println("Sorry, you don't have enough money to buy these...");
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
 			int ogNum = game.farm.cropInventory.get("Wheat");
@@ -103,7 +103,7 @@ class CropMarket {
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
 			// Error
-			System.out.println("Sorry, you don't have enough money to buy these honey...");
+			System.out.println("Sorry, you don't have enough money to buy these...");
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
 			int ogNum = game.farm.cropInventory.get("Potato");
@@ -126,7 +126,7 @@ class CropMarket {
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
 			// Error
-			System.out.println("Sorry, you don't have enough money to buy these honey...");
+			System.out.println("Sorry, you don't have enough money to buy these...");
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
 			int ogNum = game.farm.cropInventory.get("Carrot");
@@ -149,7 +149,7 @@ class CropMarket {
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
 			// Error
-			System.out.println("Sorry, you don't have enough money to buy these honey...");
+			System.out.println("Sorry, you don't have enough money to buy these...");
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
 			int ogNum = game.farm.cropInventory.get("Apple");
