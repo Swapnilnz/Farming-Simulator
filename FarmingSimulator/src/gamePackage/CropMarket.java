@@ -40,7 +40,7 @@ class CropMarket {
 			game.farm.cropInventory.put("Avocado", ogNum + amount);
 			System.out.println("Thanks for your purchase");
 			for (int i = 0; i < amount; i++) {
-				Crop newCrop = new Crop("Avocado");
+				Crop newCrop = new Crop("Avocado", ogNum + i);
 				game.farm.cropList.add(newCrop);
 			}
 		}
@@ -64,7 +64,7 @@ class CropMarket {
 			game.farm.cropInventory.put("Corn", ogNum + amount);
 			System.out.println("Thanks for your purchase");
 			for (int i = 0; i < amount; i++) {
-				Crop newCrop = new Crop("Corn");
+				Crop newCrop = new Crop("Corn", ogNum + i);
 				game.farm.cropList.add(newCrop);
 			}
 		}
@@ -87,7 +87,7 @@ class CropMarket {
 			game.farm.cropInventory.put("Wheat", ogNum + amount);
 			System.out.println("Thanks for your purchase");
 			for (int i = 0; i < amount; i++) {
-				Crop newCrop = new Crop("Wheat");
+				Crop newCrop = new Crop("Wheat", ogNum + i);
 				game.farm.cropList.add(newCrop);
 			}
 		}
@@ -110,7 +110,7 @@ class CropMarket {
 			game.farm.cropInventory.put("Potato", ogNum + amount);
 			System.out.println("Thanks for your purchase");
 			for (int i = 0; i < amount; i++) {
-				Crop newCrop = new Crop("Potato");
+				Crop newCrop = new Crop("Potato", ogNum + i);
 				game.farm.cropList.add(newCrop);
 			}
 		}
@@ -133,7 +133,7 @@ class CropMarket {
 			game.farm.cropInventory.put("Carrot", ogNum + amount);
 			System.out.println("Thanks for your purchase");
 			for (int i = 0; i < amount; i++) {
-				Crop newCrop = new Crop("Carrot");
+				Crop newCrop = new Crop("Carrot", ogNum + i);
 				game.farm.cropList.add(newCrop);
 			}
 		}
@@ -156,9 +156,11 @@ class CropMarket {
 			game.farm.cropInventory.put("Apple", ogNum + amount);
 			System.out.println("Thanks for your purchase");
 			for (int i = 0; i < amount; i++) {
-				Crop newCrop = new Crop("Apple");
+				Crop newCrop = new Crop("Apple", ogNum + i);
 				game.farm.cropList.add(newCrop);
 			}
+
+
 		}
 	}
 	

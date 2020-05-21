@@ -49,16 +49,14 @@ class GameEnvironment {
 	
 	/**
 	 * View time left until crop harvest, animal happiness
-	 * @param game game
 	 */
 	void viewFarm() {
-		UI UI = new UI();
-		UI.showCrops(this.getFarm());
-		UI.showAnimals(this.getFarm());
+		// Using GUI
+		
+
 	}
     /**
      * View the farm's money
-     * @param game game
      */
 	void viewFarmMoney() {
 		UI UI = new UI();
@@ -67,7 +65,6 @@ class GameEnvironment {
 	
 	/**
 	 * Visit Tom's Tool Market and purches various utility items
-	 * @param game game 
 	 */
 	private void visitToolMarket() {
 		UI UI = new UI();
@@ -115,7 +112,6 @@ class GameEnvironment {
 	
 	/**
 	 * Visit crop market to buy crops
-	 * @param game game
 	 */
 	private void visitCropMarket() {
 		UI UI = new UI();
@@ -160,7 +156,6 @@ class GameEnvironment {
 	
 	/** 
 	 * Visit Andy's animal market to buy animals
-	 * @param game game 
 	 */
 	private void visitAnimalMarket() {
 		UI UI = new UI();
@@ -200,7 +195,6 @@ class GameEnvironment {
 	
 	/**
 	 * Tend to one type of crop on the farm
-	 * @param game game
 	 */
 	private void tendToCrops() {
 		UI UI = new UI();
@@ -246,7 +240,6 @@ class GameEnvironment {
 	
 	/**
 	 * Feed animals to make them healthier
-	 * @param game game 
 	 */
 	void feedAnimals() {
 		if (this.farm.animalFeed > 0) {
@@ -261,7 +254,6 @@ class GameEnvironment {
 	
 	/**
 	 * Play with animals to make them happier, or error if no animals
-	 * @param game game 
 	 */
 	void playWithAnimals() {
 		if (this.farm.animalList.size() > 0) {
@@ -276,7 +268,6 @@ class GameEnvironment {
 	/**
 	 * Harvest harvestable crops (days till harvest == 0) and remove them from cropList
 	 * Adds required money
-	 * @param game game 
 	 */
 	void harvestCrops() {
 		ArrayList<Crop> tempCropList = new ArrayList<Crop>();
@@ -293,7 +284,6 @@ class GameEnvironment {
 	
 	/**
 	 * Simple method that sets the farm's maintenance attribute to true
-	 * @param game game
 	 */
 	void tendToFarmLand() {
 		this.farm.setMaintained(true);
@@ -301,7 +291,6 @@ class GameEnvironment {
 	
 	/**
 	 * Plays one day, with 2 or more actions
-	 * @param game game
 	 */
 	private void runDay() {
 		boolean exitLoop = false;
@@ -373,7 +362,6 @@ class GameEnvironment {
 	
 	/**
 	 * Returns total money based on animal happiness/healthiness
-	 * @param game game
 	 * @return int total money
 	 */
 	int getTotalMoney() {
@@ -395,7 +383,6 @@ class GameEnvironment {
 	
 	/**
 	 * Does end of day calculations to add money, harvest if necessary etc
-	 * @param game game
 	 */
 	void endDay() {
 		// Add money (Milk Master; Shear Master; Harvester) TO DO: Normal
@@ -446,7 +433,6 @@ class GameEnvironment {
 	
 	/**
 	 * Calculates final score: (money * happinessAv * healthinessAv) / duration
-	 * @param game game
 	 * @return score game score
 	 */
 	int calculateScore() {
@@ -475,7 +461,6 @@ class GameEnvironment {
 	
 	/**
 	 * End the adventure as days have run out
-	 * @param game game
 	 */
 	private void endAdventure() {
 		// Display farm's name, game's duration, profit
@@ -493,7 +478,6 @@ class GameEnvironment {
 	
 	/**
 	 * Start the adventure as set up is done
-	 * @param game game
 	 */
 	private void startAdventure() {
 		UI startInput = new UI();
@@ -509,7 +493,6 @@ class GameEnvironment {
 	
 	/**
 	 * Get farmer name and age
-	 * @param game game
 	 */
 	private void getFarmerStats() {
 		UI UI = new UI();
@@ -548,7 +531,6 @@ class GameEnvironment {
 	
 	/**
 	 * Lunch main screen
-	 * @param game game
 	 */
 	public void launchMainsScreen() {
 		MainScreen mainWindow = new MainScreen(this);

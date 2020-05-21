@@ -26,18 +26,28 @@ class Animal {
 	private int health;
 	
 	/**
+	 * animal number
+	 */
+	private int animalNum;
+	
+	/**
 	 * Constructer, used for initialising class attributes
 	 * @param animalType animal type
 	 * @param weight starting weight
 	 * @param happiness starting happiness
 	 * @param health starting health
 	 */
-	public Animal(String animalType, int weight, int happiness, int health) {
+	public Animal(String animalType, int weight, int happiness, int health, int num) {
 		this.animalType = animalType;
 		this.weight = weight;
 		this.happiness = happiness;
 		this.health = health;
+		this.animalNum = num;
 	
+	}
+	
+	public String toString() {
+		return animalType + " " + animalNum;
 	}
 	
 	/**

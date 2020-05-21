@@ -13,8 +13,8 @@ class Chicken extends Animal {
 	/**
 	 * Constructer; gets attributes from parent Animal
 	 */
-	public Chicken() {
-		super("Chicken", 5, 70, 50);
+	public Chicken(int num) {
+		super("Chicken", 5, 70, 50, num);
 	}
 	
 }

@@ -26,7 +26,7 @@ class CropTest {
 
 	@Test
 	void avocadoTest() {
-		Crop avocado = new Crop("Avocado");
+		Crop avocado = new Crop("Avocado", 1);
 		assertEquals(8, avocado.getPurchasePrice());
 		assertEquals(64, avocado.getSellPrice());
 		assertEquals(8, avocado.getDaysTillHarvest());
@@ -42,7 +42,7 @@ class CropTest {
 	
 	@Test
 	void cornTest() {
-		Crop corn = new Crop("Corn");
+		Crop corn = new Crop("Corn", 1);
 		assertEquals(5, corn.getPurchasePrice());
 		assertEquals(30, corn.getSellPrice());
 		assertEquals(6, corn.getDaysTillHarvest());
@@ -58,7 +58,7 @@ class CropTest {
 	
 	@Test
 	void wheatTest() {
-		Crop wheat = new Crop("Wheat");
+		Crop wheat = new Crop("Wheat", 1);
 		assertEquals(4, wheat.getPurchasePrice());
 		assertEquals(16, wheat.getSellPrice());
 		assertEquals(4, wheat.getDaysTillHarvest());
@@ -74,7 +74,7 @@ class CropTest {
 	
 	@Test
 	void potatoTest() {
-		Crop potato = new Crop("Potato");
+		Crop potato = new Crop("Potato", 1);
 		assertEquals(7, potato.getPurchasePrice());
 		assertEquals(28, potato.getSellPrice());
 		assertEquals(4, potato.getDaysTillHarvest());
@@ -90,7 +90,7 @@ class CropTest {
 	
 	@Test
 	void carrotTest() {
-		Crop carrot = new Crop("Carrot");
+		Crop carrot = new Crop("Carrot", 1);
 		assertEquals(10, carrot.getPurchasePrice());
 		assertEquals(30, carrot.getSellPrice());
 		assertEquals(3, carrot.getDaysTillHarvest());
@@ -106,7 +106,7 @@ class CropTest {
 	
 	@Test
 	void appleTest() {
-		Crop apple = new Crop("Apple");
+		Crop apple = new Crop("Apple", 1);
 		assertEquals(6, apple.getPurchasePrice());
 		assertEquals(12, apple.getSellPrice());
 		assertEquals(2, apple.getDaysTillHarvest());

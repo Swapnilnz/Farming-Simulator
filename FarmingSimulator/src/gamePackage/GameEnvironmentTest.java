@@ -31,29 +31,29 @@ class GameEnvironmentTest {
 
 	@Test
 	void feedAnimals() {
-		Cow cow = new Cow();
+		Cow cow = new Cow(1);
 		game.farm.animalList.add(cow);
 		game.farm.setAnimalFeed(5);
-		game.feedAnimals(game);
+		game.feedAnimals();
 		assertEquals(75, cow.getHealth());
 		
 	}
 	
 	@Test
 	void playWithAnimalsTest() {
-		Cow cow = new Cow();
+		Cow cow = new Cow(1);
 		game.farm.animalList.add(cow);
-		game.playWithAnimals(game);
+		game.playWithAnimals();
 		assertEquals(90, cow.getHappiness());
 		
 	}
 	
 	@Test
 	void harvestCropsTest() {
-		Crop avocado = new Crop("Avocado");
+		Crop avocado = new Crop("Avocado", 1);
 		avocado.setDaysTillHarvest(0);
 		farm.cropList.add(avocado);
-		game.harvestCrops(game);
+		game.harvestCrops();
 		assertEquals(114, farm.getFarmMoney());
 		assertEquals(0, farm.cropList.size());
 	}
@@ -61,26 +61,26 @@ class GameEnvironmentTest {
 	@Test
 	void tendToFarmLandTest() {
 		assertEquals(false, farm.isMaintained());
-		game.tendToFarmLand(game);
+		game.tendToFarmLand();
 		assertEquals(true, farm.isMaintained());
 	}
 	
 	@Test
 	void getTotalMoneyTest() {
 		farm.addCowToFarm();
-		assertEquals(55, game.getTotalMoney(game));
+		assertEquals(55, game.getTotalMoney());
 	}
 	
 	@Test
 	void endDayTest() {
 		farm.addCowToFarm();
 		farm.addSheepToFarm();
-		Crop avo = new Crop("Avocado");
+		Crop avo = new Crop("Avocado", 1);
 		farm.cropList.add(avo);
 		farm.addToItemList("Milk Master");
 		farm.addToItemList("Shear Master");
 		farm.addToItemList("Harvester");
-		game.endDay(game);
+		game.endDay();
 		assertEquals(187, farm.getFarmMoney());
 		assertEquals(40, farm.animalList.get(0).getHappiness());
 		assertEquals(30, farm.animalList.get(0).getHealth());
@@ -90,7 +90,7 @@ class GameEnvironmentTest {
 	void calculateScoreTest() {
 		farm.addCowToFarm();
 		game.gameDuration = 5;
-		assertEquals(31732, game.calculateScore(game));
+		assertEquals(31732, game.calculateScore());
 		
 	}
 }

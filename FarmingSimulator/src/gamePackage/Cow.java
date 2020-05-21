@@ -12,8 +12,8 @@ class Cow extends Animal{
 	/**
 	 * Constructor for cow, uses superclass to initialise variables
 	 */
-	public Cow() {
-		super("Cow", 500, 60, 50);
+	public Cow(int num) {
+		super("Cow", 500, 60, 50, num);
 	}
 	
 	/**

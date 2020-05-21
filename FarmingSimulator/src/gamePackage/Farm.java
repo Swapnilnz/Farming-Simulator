@@ -95,35 +95,36 @@ class Farm {
 	void addToItemList(String item) {
 		itemList.add(item);
 	}
+	
 	/**
 	 * Adds chicken to farm	
 	 */
 	void addChickenToFarm() {
-		Chicken chick = new Chicken();
-		this.animalList.add(chick);
 		this.chickenCount++;
+		Chicken chick = new Chicken(this.getChickenCount());
+		this.animalList.add(chick);
+
+
 	}
 
-	
-	
 	/**
 	 * Adds cow to farm	
 	 */
 	void addCowToFarm() {
-		Cow cow = new Cow();
-		this.animalList.add(cow);
 		this.cowCount++;
+
+		Cow cow = new Cow(this.getCowCount());
+		this.animalList.add(cow);
 	}
-	
-	
 	
 	/**
 	 * Adds sheep to farm	
 	 */
 	void addSheepToFarm() {
-		Sheep sheep = new Sheep();
-		this.animalList.add(sheep);
 		this.sheepCount++;
+
+		Sheep sheep = new Sheep(this.getSheepCount());
+		this.animalList.add(sheep);
 	}
 
 	
@@ -132,9 +133,9 @@ class Farm {
 	 * Adds pig to farm	
 	 */
 	void addPigToFarm() {
-		Pig pig = new Pig();
-		this.animalList.add(pig);
 		this.pigCount++;
+		Pig pig = new Pig(this.getPigCount());
+		this.animalList.add(pig);
 	}
 		
 	

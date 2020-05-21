@@ -20,7 +20,7 @@ class AnimalTest {
 	 */
 	@Test
 	void testAnimalChicken() {
-		Chicken item = new Chicken();
+		Chicken item = new Chicken(1);
 		assertEquals((String)"Chicken", (String)item.getAnimalType());
 		assertEquals((int)5, (int)item.getWeight());
 		assertEquals((int)70, (int)item.getHappiness());
@@ -31,7 +31,7 @@ class AnimalTest {
 	 */
 	@Test
 	void testAnimalSheep() {
-		Sheep item = new Sheep();
+		Sheep item = new Sheep(1);
 		assertEquals((String)"Sheep", (String)item.getAnimalType());
 		assertEquals((int)60, (int)item.getWeight());
 		assertEquals((int)80, (int)item.getHappiness());
@@ -42,7 +42,7 @@ class AnimalTest {
 	 */
 	@Test
 	void testAnimalPig() {
-		Pig item = new Pig();
+		Pig item = new Pig(1);
 		assertEquals((String)"Pig", (String)item.getAnimalType());
 		assertEquals((int)200, (int)item.getWeight());
 		assertEquals((double)80, (int)item.getHappiness());
@@ -53,7 +53,7 @@ class AnimalTest {
 	 */
 	@Test
 	void testAnimalCow() {
-		Cow item = new Cow();
+		Cow item = new Cow(1);
 		assertEquals((String)"Cow", (String)item.getAnimalType());
 		assertEquals((int)500, (int)item.getWeight());
 		assertEquals((int)60, (int)item.getHappiness());
@@ -65,7 +65,7 @@ class AnimalTest {
 	 */
 	@Test
 	void testAnimalHappinessDecreases() {
-		Chicken item = new Chicken();
+		Chicken item = new Chicken(1);
 		item.decreaseHappiness();
 		item.decreaseHappiness();
 		assertEquals((int)30, (int)item.getHappiness());
@@ -81,7 +81,7 @@ class AnimalTest {
 	 */
 	@Test
 	void testAnimalHappinessIncreases() {
-		Chicken item = new Chicken();
+		Chicken item = new Chicken(1);
 		item.increaseHappiness();
 		assertEquals((int)100, (int)item.getHappiness());
 		item.increaseHappiness();
@@ -97,7 +97,7 @@ class AnimalTest {
 	 */
 	@Test
 	void testAnimalHealthinessDecreases() {
-		Chicken item = new Chicken();
+		Chicken item = new Chicken(1);
 		item.decreaseHealth();
 		item.decreaseHealth();
 		assertEquals((int)10, (int)item.getHealth());
@@ -112,7 +112,7 @@ class AnimalTest {
 	 */
 	@Test
 	void testAnimalHealthinessIncreases() {
-		Chicken item = new Chicken();
+		Chicken item = new Chicken(1);
 		item.increaseHealth();
 		assertEquals((int)75, (int)item.getHealth());
 		item.increaseHealth();

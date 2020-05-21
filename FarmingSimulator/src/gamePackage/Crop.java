@@ -29,15 +29,21 @@ class Crop {
 	private String cropType;
 	
 	/**
-	 * Reference dictionary for some crop attributes
+	 * Reference dictionary for some crop og days till harvest
 	 */
 	private HashMap<String, Integer> cropDic;
+	
+	/**
+	 * Specific version of the crop e.g. Avocado 2
+	 */
+	private int cropNumber;
 
 	/**
 	 * Constructer; uses switch statement to set the type of crop and its respective attributes
 	 * @param crop input crop
 	 */
-	Crop(String crop) {
+	Crop(String crop, int incomingCropNumber) {
+		cropNumber = incomingCropNumber;
 		cropDic = new HashMap<String, Integer>();
 		cropDic.put("Avocado", 8); cropDic.put("Corn", 6); cropDic.put("Wheat", 4); 
 		cropDic.put("Potato", 4); cropDic.put("Carrot", 3); cropDic.put("Apple", 2); 
@@ -74,6 +80,11 @@ class Crop {
 				break;
 
 		}
+	}
+	
+	public String toString() {
+		String toReturn = cropType + " " + cropNumber;
+		return toReturn;
 	}
 	
 	/**

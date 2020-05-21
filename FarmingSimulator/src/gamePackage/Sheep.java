@@ -12,8 +12,8 @@ class Sheep extends Animal {
 	/**
 	 * Constructer, initialises sheep's type, weight, happiness, health using superclass Animal
 	 */
-	public Sheep() {
-		super("Sheep", 60, 80, 50);
+	public Sheep(int num) {
+		super("Sheep", 60, 80, 50, num);
 	}
 	
 	/**
