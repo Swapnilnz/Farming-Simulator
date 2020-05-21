@@ -577,7 +577,7 @@ class GameEnvironment {
 	}
 
 /**
- * @return the numDays
+ * @return the num of days
  */
 public int getNumDays() {
 	return numDays;
