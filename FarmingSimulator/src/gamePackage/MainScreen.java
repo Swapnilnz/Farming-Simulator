@@ -55,7 +55,7 @@ public class MainScreen {
 		window.setBackground(Color.WHITE);
 		window.getContentPane().setBackground(Color.WHITE);
 		window.setTitle("Main Screen");
-		window.setBounds(100, 100, 737, 518);
+		window.setBounds(100, 100, 736, 518);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setLayout(null);
 
