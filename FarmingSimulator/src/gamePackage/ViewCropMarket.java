@@ -18,6 +18,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class ViewCropMarket extends JDialog {
 
@@ -26,18 +27,14 @@ public class ViewCropMarket extends JDialog {
 	private int amount;
 	private boolean valid;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
 
-	}
 
 	/**
 	 * Create the dialog.
 	 */
 	public ViewCropMarket(GameEnvironment game, JFrame window, CropMarket cropMarket) {
 		super(window, "Cassie's Crop Market", true);
+		setResizable(false);
 		setBounds(100, 100, 450, 344);
 		getContentPane().setLayout(null);
 		{
@@ -229,6 +226,7 @@ public class ViewCropMarket extends JDialog {
 		// Button/error label to enter and check amount
 		{
 			JLabel error = new JLabel("");
+			error.setHorizontalAlignment(SwingConstants.CENTER);
 			error.setBounds(10, 168, 163, 20);
 			getContentPane().add(error);
 			

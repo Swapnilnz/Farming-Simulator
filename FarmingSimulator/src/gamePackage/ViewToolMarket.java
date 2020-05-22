@@ -16,18 +16,13 @@ import java.awt.event.ActionEvent;
 
 public class ViewToolMarket extends JDialog {
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-
-	}
 
 	/**
 	 * Create the dialog.
 	 */
 	public ViewToolMarket(GameEnvironment game, JFrame window, ToolMarket toolMarket) {
 		super(window, "Tom's Tool Market", true);
+		setResizable(false);
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
 		{

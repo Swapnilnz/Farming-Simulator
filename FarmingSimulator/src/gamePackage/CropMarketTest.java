@@ -2,6 +2,8 @@ package gamePackage;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import javax.swing.JFrame;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,6 +12,7 @@ class CropMarketTest {
 	GameEnvironment game;
 	Farm farm;
 	CropMarket market;
+	JFrame window;
 	
 	@BeforeEach
 	public void init() {
@@ -17,11 +20,12 @@ class CropMarketTest {
 		farm = new Farm("Swamp", 1);
 		game.farm = farm;
 		market = new CropMarket();
+		window = new JFrame();
 	}
 
 	@Test
 	void buyAvocadoTest() {
-		market.buyAvocado(game, 1);
+		market.buyAvocado(game, 1, window);
 		assertEquals(42, farm.getFarmMoney());
 		assertEquals(1, farm.cropInventory.get("Avocado"));
 		int count = 0;
@@ -35,7 +39,7 @@ class CropMarketTest {
 	
 	@Test
 	void buyCornTest() {
-		market.buyCorn(game, 1);
+		market.buyCorn(game, 1, window);
 		assertEquals(45, farm.getFarmMoney());
 		assertEquals(1, farm.cropInventory.get("Corn"));
 		int count = 0;
@@ -49,7 +53,7 @@ class CropMarketTest {
 	
 	@Test
 	void buyWheatTest() {
-		market.buyWheat(game, 1);
+		market.buyWheat(game, 1, window);
 		assertEquals(46, farm.getFarmMoney());
 		assertEquals(1, farm.cropInventory.get("Wheat"));
 		int count = 0;
@@ -63,7 +67,7 @@ class CropMarketTest {
 	
 	@Test
 	void buyPotatoTest() {
-		market.buyPotato(game, 1);
+		market.buyPotato(game, 1, window);
 		assertEquals(43, farm.getFarmMoney());
 		assertEquals(1, farm.cropInventory.get("Potato"));
 		int count = 0;
@@ -77,7 +81,7 @@ class CropMarketTest {
 	
 	@Test
 	void buyCarrotTest() {
-		market.buyCarrot(game, 1);
+		market.buyCarrot(game, 1, window);
 		assertEquals(40, farm.getFarmMoney());
 		assertEquals(1, farm.cropInventory.get("Carrot"));
 		int count = 0;
@@ -91,7 +95,7 @@ class CropMarketTest {
 	
 	@Test
 	void buyAppleTest() {
-		market.buyApple(game, 1);
+		market.buyApple(game, 1, window);
 		assertEquals(44, farm.getFarmMoney());
 		assertEquals(1, farm.cropInventory.get("Apple"));
 		int count = 0;

@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import javax.swing.SwingConstants;
 
 public class ViewAnimalMarket extends JDialog {
 	private JTextField textField;
@@ -26,17 +27,14 @@ public class ViewAnimalMarket extends JDialog {
 	private JTextField textAmount;
 	private JLabel money;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-	}
+
 
 	/**
 	 * Create the dialog.
 	 */
 	public ViewAnimalMarket(GameEnvironment game, JFrame window, AnimalMarket animalMarket) {
 		super(window, "Andy's Animal Market", true);
+		setResizable(false);
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
 		{
@@ -80,6 +78,7 @@ public class ViewAnimalMarket extends JDialog {
 		
 		// Button/error label to enter and check amount
 		JLabel error = new JLabel("");
+		error.setHorizontalAlignment(SwingConstants.CENTER);
 		error.setBounds(20, 186, 163, 20);
 		getContentPane().add(error);
 					
@@ -116,7 +115,7 @@ public class ViewAnimalMarket extends JDialog {
 		getContentPane().add(button_1);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(250, 99, 128, 107);
+		panel.setBounds(250, 99, 128, 128);
 		getContentPane().add(panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[]{0, 0};

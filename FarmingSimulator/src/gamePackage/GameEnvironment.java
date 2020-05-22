@@ -103,74 +103,115 @@ class GameEnvironment {
 	}
 	
 	/**
-	 * Tend to one type of crop on the farm
+	 * Move on to next day
 	 */
-	private void tendToCrops() {
-		UI UI = new UI();
-		boolean chosen = false;
-		HashMap<String, Integer> inventory = this.farm.cropInventory;
-		while (!chosen) {
-			String crop = UI.chooseTendToCrop(this);
-			if (crop.equals("exit")) {
-				chosen = true;
-			} else if (inventory.get(crop) > 0) {
+	void nextDay(JFrame window, boolean yes) {
 
-				chosen = true;
-				for (Crop tempCrop : this.farm.cropList) {
-					String comparedCrop = tempCrop.getCropType();
+		if ((this.getNumActions() > 0) && !(yes)) {
+			PopUp error = new PopUp(this, window, "You still have actions left, are you sure?");
+			error.setVisible(true);
+		} else {
+			endDay();
+			numDays--;
+			gameDuration++;
+			if (numDays > 0) {
 
-					if (comparedCrop.equals(crop)) {
+				runDay();
+			} else {
+				// IMPLEMENT END GAME
+				window.dispose();
+				EndGameScreen endGameScreen = new EndGameScreen(this);
+				endGameScreen.setVisible(true);
+			}
+		}
+	}
+	
+	/**
+	 * Tend to one type of crop on the farm, has window and crop parameters
+	 * Used only by the Error class
+	 */
+	void tendToCrops(JFrame window, String crop) {
+		if (farm.cropInventory.get(crop) > 0) {
 
-						boolean contains = this.farm.itemList.contains("Watering Can");
-						int ogDays = tempCrop.getDaysTillHarvest();
-						if (contains) {
-							if (ogDays >= 4) {
-								tempCrop.setDaysTillHarvest(ogDays - 4);
+			for (Crop tempCrop : this.farm.cropList) {
+				String comparedCrop = tempCrop.getCropType();
 
-							} else {
-								tempCrop.setDaysTillHarvest(0);
-							}
+				if (comparedCrop.equals(crop)) {
+
+					boolean contains = this.farm.itemList.contains("Watering Can");
+					int ogDays = tempCrop.getDaysTillHarvest();
+					if (contains) {
+						if (ogDays >= 4) {
+							tempCrop.setDaysTillHarvest(ogDays - 4);
+
 						} else {
-							if (ogDays >= 2) {
-								tempCrop.setDaysTillHarvest(ogDays - 2);
-							} else {
-								tempCrop.setDaysTillHarvest(0);
-							}
+							tempCrop.setDaysTillHarvest(0);
+						}
+					} else {
+						if (ogDays >= 2) {
+							tempCrop.setDaysTillHarvest(ogDays - 2);
+						} else {
+							tempCrop.setDaysTillHarvest(0);
 						}
 					}
 				}
-			} else {
-				System.out.println("Sorry, you can't tend to a crop you don't have!");
-
 			}
+			this.setNumActions(this.getNumActions() - 1);
+			PopUp popup = new PopUp(this, window, "You tended to your farm, making them grow faster!");
+			popup.setVisible(true);
+		} else {
+			// Error
+			PopUp error = new PopUp(this, window, "Sorry, you can't tend to a crop you don't have!");
+			error.setVisible(true);
+
 		}
+	}
+	
+	/**
+	 * Tend to one type of crop on the farm, has only window parameter
+	 */
+	void tendToCrops(JFrame window) {
+		ViewTendToCrops view = new ViewTendToCrops(this, window);
+		view.setVisible(true);
 
 	}
 	
 	/**
 	 * Feed animals to make them healthier
 	 */
-	void feedAnimals() {
+	void feedAnimals(JFrame window) {
 		if (this.farm.animalFeed > 0) {
 			for (Animal animal : this.farm.animalList) {
 				animal.increaseHealth();
 			}
 			this.farm.animalFeed -= 1;
+			this.setNumActions(this.getNumActions() - 1);
+			PopUp popup = new PopUp(this, window, "You fed your animals, making them healthier!");
+			popup.setVisible(true);
+
+
 		} else {
-			System.out.println("Sorry, you don't have any animal feed to do this!");
+			PopUp error = new PopUp(this, window, "Sorry, you don't have any animal feed to do this!");
+			error.setVisible(true);
 		}
 	}
 	
 	/**
 	 * Play with animals to make them happier, or error if no animals
 	 */
-	void playWithAnimals() {
+	void playWithAnimals(JFrame window) {
 		if (this.farm.animalList.size() > 0) {
 			for (Animal animal : this.farm.animalList) {
 				animal.increaseHappiness();
 			}
+			this.setNumActions(this.getNumActions() - 1);
+			PopUp popup = new PopUp(this, window, "You played with your animals, making them happier!");
+			popup.setVisible(true);
+			
 		} else {
-			System.out.println("Sorry, you don't have any animals to play with!");
+			// Error
+			PopUp error = new PopUp(this, window, "Sorry, you don't have any animals to play with!");
+			error.setVisible(true);		
 		}
 	}
 	
@@ -178,7 +219,7 @@ class GameEnvironment {
 	 * Harvest harvestable crops (days till harvest == 0) and remove them from cropList
 	 * Adds required money
 	 */
-	void harvestCrops() {
+	void harvestCrops(JFrame window) {
 		ArrayList<Crop> tempCropList = new ArrayList<Crop>();
 		for (Crop crop : this.farm.cropList) {
 			if (crop.getDaysTillHarvest() == 0) {
@@ -186,24 +227,38 @@ class GameEnvironment {
 			} else {
 				tempCropList.add(crop);
 			}
-		this.farm.cropList = tempCropList;
-
 		}
+		if (tempCropList.size() == this.farm.cropList.size()) {
+			// Error, no crops harvestable
+			PopUp error = new PopUp(this, window, "Sorry, you don't have any harvestable crops!");
+			error.setVisible(true);	
+		} else {
+			this.farm.cropList = tempCropList;
+			this.setNumActions(this.getNumActions() - 1);
+			PopUp popup = new PopUp(this, window, "Payday! You harvested your crops!");
+			popup.setVisible(true);
+		}
+
+		
 	}
 	
 	/**
 	 * Simple method that sets the farm's maintenance attribute to true
 	 */
-	void tendToFarmLand() {
+	void tendToFarmLand(JFrame window) {
 		this.farm.setMaintained(true);
+		this.setNumActions(this.getNumActions() - 1);
+		PopUp popup = new PopUp(this, window, "You tended to your farm land! Your animals are happier!");
+		popup.setVisible(true);
+		
 	}
 	
 	/**
 	 * Plays one day, with 2 or more actions
 	 */
 	private void runDay() {
-		this.actions = this.getNumActions() + farm.getTelePadCount();		
-		mainScreen.setActions(actions);
+		this.actions = 2 + farm.getTelePadCount();		
+		this.setNumActions(actions);
 	}
 	
 	/**
@@ -226,6 +281,7 @@ class GameEnvironment {
 		}
 		return totalMoney;
 	}
+	
 	
 	/**
 	 * Does end of day calculations to add money, harvest if necessary etc
@@ -305,36 +361,12 @@ class GameEnvironment {
 		return score;
 
 	}
-	
-	/**
-	 * End the adventure as days have run out
-	 */
-	private void endAdventure() {
-		// Display farm's name, game's duration, profit
-		UI UI = new UI();
-		UI.displayEndAdventure(this);
-		int score = calculateScore();
-		// Print Score
-		System.out.println("------------------------------------------");
-		System.out.println("Your score was");
-		System.out.println(score);
-		System.out.println("------------------------------------------");
-
 		
-	}
-	
 	/**
 	 * Start the adventure as set up is done
 	 */
 	private void startAdventure() {
 		launchMainScreen();
-		while (this.getNumDays() > 0) {
-			runDay();
-			// Happens at the end of the day
-			endDay();
-			this.numDays--;
-			this.gameDuration++;
-		}
 	}
 	
 	/**
@@ -400,79 +432,94 @@ class GameEnvironment {
 		UI.inputChooseFarm(game);
 		UI.inputFarmName(game);
 		game.startAdventure();
-		game.endAdventure();
 
 	}
 
-/**
- * @return the num of days
- */
-public int getNumDays() {
-	return numDays;
-}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	/**
+	 * @return the num of days
+	 */
+	public int getNumDays() {
+		return numDays;
+	}
+	
+	/**
+	 * @param numDays the numDays to set
+	 */
+	public void setNumDays(int numDays) {
+		this.numDays = numDays;
+	}
+	
+	/**
+	 * @return the farm
+	 */
+	public Farm getFarm() {
+		return farm;
+	}
+	
+	/**
+	 * @param farm the farm to set
+	 */
+	public void setFarm(Farm farm) {
+		this.farm = farm;
+	}
+	
+	
+	/**
+	 * @return the numActions
+	 */
+	public int getNumActions() {
+		return numActions;
+	}
+	
+	/**
+	 * @param numActions the numActions to set
+	 */
+	public void setNumActions(int numActions) {
+		this.numActions = numActions;
+	}
+	
+	/**
+	 * @return the gameFinished
+	 */
+	public boolean isGameFinished() {
+		return gameFinished;
+	}
+	
+	/**
+	 * @param gameFinished the gameFinished to set
+	 */
+	public void setGameFinished(boolean gameFinished) {
+		this.gameFinished = gameFinished;
+	}
+	
+	/**
+	 * @return the farmer
+	 */
+	public Farmer getFarmer() {
+		return farmer;
+	}
+												
+	/**
+	 * @param farmer the farmer to set
+	 */
+	public void setFarmer(Farmer farmer) {
+		this.farmer = farmer;
+	}
 
-/**
- * @param numDays the numDays to set
- */
-public void setNumDays(int numDays) {
-	this.numDays = numDays;
-}
+	/**
+	 * @return the gameDuration
+	 */
+	public int getGameDuration() {
+		return gameDuration;
+	}
 
-/**
- * @return the farm
- */
-public Farm getFarm() {
-	return farm;
-}
-
-/**
- * @param farm the farm to set
- */
-public void setFarm(Farm farm) {
-	this.farm = farm;
-}
-
-
-/**
- * @return the numActions
- */
-public int getNumActions() {
-	return numActions;
-}
-
-/**
- * @param numActions the numActions to set
- */
-public void setNumActions(int numActions) {
-	this.numActions = numActions;
-}
-
-/**
- * @return the gameFinished
- */
-public boolean isGameFinished() {
-	return gameFinished;
-}
-
-/**
- * @param gameFinished the gameFinished to set
- */
-public void setGameFinished(boolean gameFinished) {
-	this.gameFinished = gameFinished;
-}
-
-/**
- * @return the farmer
- */
-public Farmer getFarmer() {
-	return farmer;
-}
-
-/**
- * @param farmer the farmer to set
- */
-public void setFarmer(Farmer farmer) {
-	this.farmer = farmer;
-}
+	/**
+	 * @param gameDuration the gameDuration to set
+	 */
+	public void setGameDuration(int gameDuration) {
+		this.gameDuration = gameDuration;
+	}
 
 }

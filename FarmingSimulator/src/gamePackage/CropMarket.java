@@ -40,7 +40,7 @@ class CropMarket {
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
 			// Error
-			NotEnoughMoney error = new NotEnoughMoney(window);
+			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 			error.setVisible(true);
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
@@ -64,7 +64,7 @@ class CropMarket {
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
 			// Error
-			NotEnoughMoney error = new NotEnoughMoney(window);
+			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 			error.setVisible(true);
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
@@ -87,7 +87,7 @@ class CropMarket {
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
 			// Error
-			NotEnoughMoney error = new NotEnoughMoney(window);
+			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 			error.setVisible(true);
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
@@ -110,7 +110,7 @@ class CropMarket {
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
 			// Error
-			NotEnoughMoney error = new NotEnoughMoney(window);
+			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 			error.setVisible(true);
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
@@ -133,7 +133,7 @@ class CropMarket {
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
 			// Error
-			NotEnoughMoney error = new NotEnoughMoney(window);
+			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 			error.setVisible(true);
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
@@ -156,7 +156,7 @@ class CropMarket {
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
 			// Error
-			NotEnoughMoney error = new NotEnoughMoney(window);
+			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 			error.setVisible(true);
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
@@ -181,7 +181,7 @@ class CropMarket {
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
 			// Error
-			NotEnoughMoney error = new NotEnoughMoney(window);
+			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 			error.setVisible(true);
 		} else {
 			game.farm.animalFeed += amount;

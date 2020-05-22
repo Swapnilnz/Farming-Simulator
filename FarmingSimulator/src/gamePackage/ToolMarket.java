@@ -58,7 +58,7 @@ class ToolMarket {
 			game.farm.addToItemList("Harvester");
 			game.farm.farmMoney -= harvesterPrice;
 		} else {
-			NotEnoughMoney error = new NotEnoughMoney(window);
+			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 			error.setVisible(true);
 		}
 	}
@@ -74,7 +74,7 @@ class ToolMarket {
 			game.farm.addToItemList("Watering Can");
 			game.farm.farmMoney -= wateringCanPrice;
 		} else {
-			NotEnoughMoney error = new NotEnoughMoney(window);
+			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 			error.setVisible(true);
 		}
 	}
@@ -90,7 +90,7 @@ class ToolMarket {
 			game.farm.addToItemList("Animal Statue");
 			game.farm.farmMoney -= animalStatuePrice;
 		} else {
-			NotEnoughMoney error = new NotEnoughMoney(window);
+			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 			error.setVisible(true);
 		}	
 	}
@@ -106,7 +106,7 @@ class ToolMarket {
 			game.farm.addToItemList("Milk Master");
 			game.farm.farmMoney -= milkMasterPrice;
 		} else {
-			NotEnoughMoney error = new NotEnoughMoney(window);
+			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 			error.setVisible(true);
 		}
 	}
@@ -122,7 +122,7 @@ class ToolMarket {
 			game.farm.addToItemList("Shear Master");
 			game.farm.farmMoney -= shearMasterPrice;
 		} else {
-			NotEnoughMoney error = new NotEnoughMoney(window);
+			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 			error.setVisible(true);
 		}
 	}
@@ -139,7 +139,7 @@ class ToolMarket {
 			game.farm.farmMoney -= teleportationPadPrice;
 			game.farm.telePadCount += 1;
 		} else {
-			NotEnoughMoney error = new NotEnoughMoney(window);
+			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 			error.setVisible(true);
 		}
 	}

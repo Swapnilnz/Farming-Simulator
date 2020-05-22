@@ -35,6 +35,7 @@ public class ViewFarmMoney extends JDialog {
 		getContentPane().setLayout(null);
 		
 		JTextPane txtpnYourFarmCurrently = new JTextPane();
+		txtpnYourFarmCurrently.setEditable(false);
 		txtpnYourFarmCurrently.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		txtpnYourFarmCurrently.setText("Your farm currently has");
 		txtpnYourFarmCurrently.setBounds(110, 51, 216, 31);

@@ -2,6 +2,8 @@ package gamePackage;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import javax.swing.JFrame;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,12 +11,14 @@ class GameEnvironmentTest {
 	
 	private GameEnvironment game;
 	Farm farm;
+	JFrame window;
 
 	@BeforeEach
 	public void init() {
 		game = new GameEnvironment();
 		farm = new Farm("Mountain", 1);
 		game.farm = farm;
+		
 		
 	}
 	
@@ -34,7 +38,7 @@ class GameEnvironmentTest {
 		Cow cow = new Cow(1);
 		game.farm.animalList.add(cow);
 		game.farm.setAnimalFeed(5);
-		game.feedAnimals();
+		game.feedAnimals(window);
 		assertEquals(75, cow.getHealth());
 		
 	}
@@ -43,7 +47,7 @@ class GameEnvironmentTest {
 	void playWithAnimalsTest() {
 		Cow cow = new Cow(1);
 		game.farm.animalList.add(cow);
-		game.playWithAnimals();
+		game.playWithAnimals(window);
 		assertEquals(90, cow.getHappiness());
 		
 	}
@@ -53,7 +57,7 @@ class GameEnvironmentTest {
 		Crop avocado = new Crop("Avocado", 1);
 		avocado.setDaysTillHarvest(0);
 		farm.cropList.add(avocado);
-		game.harvestCrops();
+		game.harvestCrops(window);
 		assertEquals(114, farm.getFarmMoney());
 		assertEquals(0, farm.cropList.size());
 	}
@@ -61,7 +65,7 @@ class GameEnvironmentTest {
 	@Test
 	void tendToFarmLandTest() {
 		assertEquals(false, farm.isMaintained());
-		game.tendToFarmLand();
+		game.tendToFarmLand(window);
 		assertEquals(true, farm.isMaintained());
 	}
 	
@@ -81,7 +85,7 @@ class GameEnvironmentTest {
 		farm.addToItemList("Shear Master");
 		farm.addToItemList("Harvester");
 		game.endDay();
-		assertEquals(187, farm.getFarmMoney());
+		assertEquals(184, farm.getFarmMoney());
 		assertEquals(40, farm.animalList.get(0).getHappiness());
 		assertEquals(30, farm.animalList.get(0).getHealth());
 	}

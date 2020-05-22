@@ -41,12 +41,14 @@ public class ViewFarm extends JDialog {
 		getContentPane().setLayout(null);
 		
 		JTextPane txtpnViewCrop = new JTextPane();
+		txtpnViewCrop.setEditable(false);
 		txtpnViewCrop.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		txtpnViewCrop.setText("View Crop");
 		txtpnViewCrop.setBounds(61, 23, 80, 26);
 		getContentPane().add(txtpnViewCrop);
 		
 		JTextPane txtpnViewAnimal = new JTextPane();
+		txtpnViewAnimal.setEditable(false);
 		txtpnViewAnimal.setText("View Animal");
 		txtpnViewAnimal.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		txtpnViewAnimal.setBounds(284, 23, 96, 26);
