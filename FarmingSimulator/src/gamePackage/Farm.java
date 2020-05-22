@@ -69,6 +69,10 @@ class Farm {
 	 * Money that the player starts with
 	 */
 	int staticFarmMoney = 50;
+	/**
+	 * Number of tele pads
+	 */
+	int telePadCount;
 
 	/**
 	 * Constructer; initialises crop inventory, item list, crop list, animal feed, farm money
@@ -406,6 +410,20 @@ class Farm {
 	 */
 	public void setStaticFarmMoney(int staticFarmMoney) {
 		this.staticFarmMoney = staticFarmMoney;
+	}
+
+	/**
+	 * @return the telePadCount
+	 */
+	public int getTelePadCount() {
+		return telePadCount;
+	}
+
+	/**
+	 * @param telePadCount the telePadCount to set
+	 */
+	public void setTelePadCount(int telePadCount) {
+		this.telePadCount = telePadCount;
 	}
 	
 	

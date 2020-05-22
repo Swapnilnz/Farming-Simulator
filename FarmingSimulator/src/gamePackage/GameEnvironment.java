@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+import javax.swing.JFrame;
+
 /**
  * Main class of the game, contains methods for every main action able to be performed by the farmer
  * as well as initialising all the other classes required
@@ -32,13 +34,21 @@ class GameEnvironment {
 	 */
 	private static String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	/**
-	 * (Integer) Number of actions the player has, may increase and indecrease
+	 * (Integer) Static number of actions the player has
 	 */
-	private int numActions;
+	private static int numActions = 2;
+	/**
+	 * Mutable number of actions a player has
+	 */
+	private int actions;
 	/**
 	 * (Boolean) Simple true/false value on whether the game is finished or not
 	 */
 	private boolean gameFinished = false;
+	/**
+	 * Main Screen GUI
+	 */
+	private MainScreen mainScreen;
 	
 	/**
 	 * Constructer; sets starting number of actions
@@ -50,147 +60,46 @@ class GameEnvironment {
 	/**
 	 * View time left until crop harvest, animal happiness
 	 */
-	void viewFarm() {
+	void viewFarm(JFrame window) {
 		// Using GUI
-		
+		ViewFarm viewFarm = new ViewFarm(this, window);
+		viewFarm.setVisible(true);
 
 	}
     /**
      * View the farm's money
      */
-	void viewFarmMoney() {
-		UI UI = new UI();
-		UI.showFarmMoney(this.getFarm());
+	void viewFarmMoney(JFrame window) {
+		ViewFarmMoney viewFarmMoney = new ViewFarmMoney(this, window);
+		viewFarmMoney.setVisible(true);
+
 	}
 	
 	/**
 	 * Visit Tom's Tool Market and purches various utility items
 	 */
-	private void visitToolMarket() {
-		UI UI = new UI();
+	void visitToolMarket(JFrame window) {
 		ToolMarket toolMarket = new ToolMarket();
-		boolean done = false;
-		while (!done) {
-			int inputNum = UI.toolMarket(this.getFarm(), toolMarket);
-			switch(inputNum) {
-				case 1:
-					// Harvester
-					toolMarket.buyHarvester(this);
-					break;
-				case 2:
-					// Animal Statue
-					toolMarket.buyAnimalStatue(this);
-					break;
-				case 3:
-					// Milk Master
-					toolMarket.buyMilkMaster(this);
-					break;
-				case 4:
-					// Shear Master
-					toolMarket.buyShearMaster(this);
-					break;
-				case 5:
-					// Watering Can 
-					toolMarket.buyWateringCan(this);
-					break;
-				case 6:
-					// Teleportation Pad
-					toolMarket.buyTeleportationPad(this);
-					break;
-				case 7:
-					// Animal Feed
-					toolMarket.buyAnimalFeed(this);
-					break;
-				case 8:
-					// Exit
-					done = true;
-					break;
-			}
-						
-		}
+		ViewToolMarket viewToolMarket = new ViewToolMarket(this, window, toolMarket);
+		viewToolMarket.setVisible(true);
 	}
 	
 	/**
 	 * Visit crop market to buy crops
 	 */
-	private void visitCropMarket() {
-		UI UI = new UI();
+	void visitCropMarket(JFrame window) {
 		CropMarket cropMarket = new CropMarket();
-		boolean done = false;
-		while (!done) {
-			int inputNum = UI.cropMarket(this.getFarm(), cropMarket);
-			int amount;
-			switch(inputNum) {
-				case 1:
-					// Avocado
-					amount = UI.buyAmount(this); cropMarket.buyAvocado(this, amount);
-					break;
-				case 2:
-					// Corn
-					amount = UI.buyAmount(this); cropMarket.buyCorn(this, amount);
-					break;
-				case 3:
-					// Wheat
-					amount = UI.buyAmount(this); cropMarket.buyWheat(this, amount);
-					break;
-				case 4:
-					// Potato
-					amount = UI.buyAmount(this); cropMarket.buyPotato(this, amount);
-					break;
-				case 5:
-					// Carrot
-					amount = UI.buyAmount(this); cropMarket.buyCarrot(this, amount);
-					break;
-				case 6:
-					// Apple
-					amount = UI.buyAmount(this); cropMarket.buyApple(this, amount);
-					break;
-				case 7:
-					// Exit
-					done = true;
-					break;
-			}
-						
-		}
+		ViewCropMarket viewCropMarket = new ViewCropMarket(this, window, cropMarket);
+		viewCropMarket.setVisible(true);
 	}
 	
 	/** 
 	 * Visit Andy's animal market to buy animals
 	 */
-	private void visitAnimalMarket() {
-		UI UI = new UI();
+	void visitAnimalMarket(JFrame window) {
 		AnimalMarket animalMarket = new AnimalMarket();
-		boolean done = false;
-		while (!done) {
-			int inputNum = UI.animalMarket(this.getFarm(), animalMarket);
-
-			switch(inputNum) {
-				case 1:
-					// Cow
-					int amount = UI.buyAmount(this);
-					animalMarket.buyCow(this, amount);
-					break;
-				case 2:
-					// Pig
-					amount = UI.buyAmount(this);
-					animalMarket.buyPig(this, amount);
-					break;
-				case 3:
-					// Chicken
-					amount = UI.buyAmount(this);
-					animalMarket.buyChicken(this, amount);
-					break;
-				case 4:
-					// Sheep
-					amount = UI.buyAmount(this);
-					animalMarket.buySheep(this, amount);
-					break;
-				case 5:
-					// exit
-					done = true;
-					break;
-			}
-		}
+		ViewAnimalMarket viewAnimalMarket = new ViewAnimalMarket(this, window, animalMarket);
+		viewAnimalMarket.setVisible(true);
 	}
 	
 	/**
@@ -293,71 +202,8 @@ class GameEnvironment {
 	 * Plays one day, with 2 or more actions
 	 */
 	private void runDay() {
-		boolean exitLoop = false;
-		int numActions = this.getNumActions();		
-		while ((numActions >= 0) && (exitLoop != true)){
-			UI UI = new UI();
-			int chosenAction;
-			if (numActions > 0) {
-				chosenAction = UI.inputChooseAction(this, true);
-			} else {
-				chosenAction = UI.inputChooseAction(this, false);
-			}
-			switch(chosenAction) {
-				case 1:
-					// View your farm's crops and animals
-					viewFarm();
-					break;
-				case 2: 
-					// View farm money (status)
-					viewFarmMoney();
-					break;
-				case 3:
-					// Visit tool market
-					visitToolMarket();
-					break;
-				case 4:
-					// Visit crop market
-					visitCropMarket();
-					break;
-				case 5:
-					// Visit animal market
-					visitAnimalMarket();
-					break;
-				case 6:
-					// Move onto next day
-					this.farm.setMaintained(false);
-					exitLoop = true;
-					break;
-				case 7:
-					// Tend to crops, speed up growth, remember watering can
-					tendToCrops();
-					numActions -= 1;
-					break;
-				case 8:
-					// Feed animals to make healthier and happier
-					feedAnimals();
-					numActions -= 1;
-					break;
-				case 9:
-					// Play with animals to make happier
-					playWithAnimals();
-					numActions -= 1;
-					break;
-				case 10:
-					// Harvest fully grown crops for cash
-					harvestCrops();
-					numActions -= 1;
-					break;
-				case 11:
-					// Tend to your farm land to keep animals happy
-					tendToFarmLand();
-					numActions -= 1;
-					break;
-
-					
-			}
-		}
+		this.actions = this.getNumActions() + farm.getTelePadCount();		
+		mainScreen.setActions(actions);
 	}
 	
 	/**
@@ -385,7 +231,7 @@ class GameEnvironment {
 	 * Does end of day calculations to add money, harvest if necessary etc
 	 */
 	void endDay() {
-		// Add money (Milk Master; Shear Master; Harvester) TO DO: Normal
+		// Add money (Milk Master; Shear Master; Harvester)
 		if (this.farm.itemList.contains("Milk Master")) {
 			for (Animal animal: this.farm.animalList) {
 				if (animal instanceof Cow) {
@@ -425,6 +271,7 @@ class GameEnvironment {
 				
 			}
 		}
+		farm.setMaintained(false);
 		// Decrease animal healthiness per day
 		for (Animal animal: farm.animalList) {
 			animal.decreaseHealth();
@@ -480,8 +327,7 @@ class GameEnvironment {
 	 * Start the adventure as set up is done
 	 */
 	private void startAdventure() {
-		UI startInput = new UI();
-		startInput.inputStartAdventure(this);
+		launchMainScreen();
 		while (this.getNumDays() > 0) {
 			runDay();
 			// Happens at the end of the day
@@ -530,10 +376,10 @@ class GameEnvironment {
 	}
 	
 	/**
-	 * Lunch main screen
+	 * Launch main screen
 	 */
-	public void launchMainsScreen() {
-		MainScreen mainWindow = new MainScreen(this);
+	public void launchMainScreen() {
+		mainScreen = new MainScreen(this);
 	}
 	
 	public void closeMainScreen(MainScreen mainWindow) {

@@ -64,11 +64,5 @@ class ToolMarketTest {
 		assertEquals(3, game.getNumActions());
 	}
 	
-	@Test 
-	void buyAnimalFeedTest() {
-		market.buyAnimalFeed(game);
-		assertEquals(495, farm.getFarmMoney());
-		assertEquals(1, farm.getAnimalFeed());
-	}
 
 }

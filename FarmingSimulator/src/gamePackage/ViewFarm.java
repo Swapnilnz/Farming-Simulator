@@ -52,6 +52,8 @@ public class ViewFarm extends JDialog {
 		txtpnViewAnimal.setBounds(284, 23, 96, 26);
 		getContentPane().add(txtpnViewAnimal);
 		
+		
+		
 		// Exit
 		JButton exitButton = new JButton("Exit");
 		exitButton.addActionListener(new ActionListener() {

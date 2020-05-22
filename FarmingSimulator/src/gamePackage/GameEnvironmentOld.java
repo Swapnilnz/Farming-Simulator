@@ -98,10 +98,6 @@
 //					toolMarket.buyTeleportationPad(this);
 //					break;
 //				case 7:
-//					// Animal Feed
-//					toolMarket.buyAnimalFeed(this);
-//					break;
-//				case 8:
 //					// Exit
 //					done = true;
 //					break;
@@ -146,6 +142,9 @@
 //					amount = UI.buyAmount(this); cropMarket.buyApple(this, amount);
 //					break;
 //				case 7:
+//					// Animal Feed
+//					cropMarket.buyAnimalFeed(this);
+//				case 8:
 //					// Exit
 //					done = true;
 //					break;

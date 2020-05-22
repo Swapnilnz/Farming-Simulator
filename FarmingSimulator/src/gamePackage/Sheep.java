@@ -21,7 +21,7 @@ class Sheep extends Animal {
 	 * @param game game
 	 */
 	void shear(GameEnvironment game) {
-		game.farm.increaseFarmMoney(8);
+		game.farm.increaseFarmMoney(5);
 	}
 
 }

@@ -337,8 +337,7 @@ class UI {
 				+ "4. Shear Master $" + (toolMarket.getShearMasterPrice()) +  " - Automates shearing of sheep\n"
 				+ "5. Watering Can $" + (toolMarket.getWateringCanPrice()) +  " - Reduces time till harvest of all crops further when tending to crops\n"
 				+ "6. Teleportation Pad $" + (toolMarket.getTeleportationPadPrice()) +  " - Increase number of actions per day by 1\n"
-				+ "7. Animal Feed $" + (toolMarket.getAnimalFeedPrice()) +  " - Used to feed animals to increase their happiness\n"
-				+ "------ Or press 8 to exit ------");
+				+ "------ Or press 7 to exit ------");
 		Scanner input = new Scanner(System.in);
 		String tempNum = input.nextLine();
 		int finalNum = 0;
@@ -347,7 +346,7 @@ class UI {
 		while (valid == false) {
 			try {
 				int newNum = Integer.parseInt(tempNum);
-				if ((newNum <= 8) && (newNum >= 1)) {
+				if ((newNum <= 7) && (newNum >= 1)) {
 						valid = true;
 						finalNum = newNum;
 
@@ -385,7 +384,8 @@ class UI {
 				+ "4. Potato ($7 Each)\n"
 				+ "5. Carrot ($10 Each)\n"
 				+ "6. Apple ($6 Each)\n"
-				+ "------ Or press 7 to exit ------");
+				+ "7. Animal Feed ($5 Each)\n"
+				+ "------ Or press 8 to exit ------");
 		Scanner input = new Scanner(System.in);
 		String tempNum = input.nextLine();
 		int finalNum = 0;
@@ -394,7 +394,7 @@ class UI {
 		while (!valid) {
 			try {
 				int newNum = Integer.parseInt(tempNum);
-				if ((newNum <= 7) && (newNum >= 1)) {
+				if ((newNum <= 8) && (newNum >= 1)) {
 						valid = true;
 						finalNum = newNum;
 

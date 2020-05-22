@@ -1,5 +1,7 @@
 package gamePackage;
 
+import javax.swing.JFrame;
+
 /**
  * Animal Market; cows, chicken, sheep, and pig are bought here
  * @author Swapnil Bhagat, Reed Earl
@@ -38,16 +40,16 @@ class AnimalMarket {
 	 * @param game game
 	 * @param amount amount
 	 */
-	void buyCow(GameEnvironment game, int amount) {
+	void buyCow(GameEnvironment game, int amount, JFrame window) {
 		// Add cow, remove money
 		int totalPurchasePrice = amount * cowPrice;
-		
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
-			System.out.println("Sorry mate, you don't have enough cash for that.");
+			// Error
+			NotEnoughMoney error = new NotEnoughMoney(window);
+			error.setVisible(true);
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
-			System.out.println("Thanks for your purchase");
 			for (int i = 0; i < amount; i++) {
 				game.farm.addCowToFarm();
 				
@@ -60,15 +62,14 @@ class AnimalMarket {
 	 * @param game game
 	 * @param amount amount
 	 */
-	void buyPig(GameEnvironment game, int amount) {
+	void buyPig(GameEnvironment game, int amount, JFrame window) {
 		// Add pig, remove money
 		int totalPurchasePrice = amount * pigPrice;
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
-			System.out.println("Sorry mate, you don't have enough cash for that.");
+			// Error
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
-			System.out.println("Thanks for your purchase");
 			for (int i = 0; i < amount; i++) {
 				game.farm.addPigToFarm();
 				
@@ -81,15 +82,14 @@ class AnimalMarket {
 	 * @param game game
 	 * @param amount amount
 	 */
-	void buyChicken(GameEnvironment game, int amount) {
+	void buyChicken(GameEnvironment game, int amount, JFrame window) {
 		// Add chicken, remove money
 		int totalPurchasePrice = amount * chickenPrice;
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
-			System.out.println("Sorry mate, you don't have enough cash for that.");
+			// Error
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
-			System.out.println("Thanks for your purchase");
 			for (int i = 0; i < amount; i++) {
 				game.farm.addChickenToFarm();
 				
@@ -102,15 +102,14 @@ class AnimalMarket {
 	 * @param game game
 	 * @param amount amount
 	 */
-	void buySheep(GameEnvironment game, int amount) {
+	void buySheep(GameEnvironment game, int amount, JFrame window) {
 		// Add sheep, remove money
 		int totalPurchasePrice = amount * sheepPrice;
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
-			System.out.println("Sorry mate, you don't have enough cash for that.");
+			// Error
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
-			System.out.println("Thanks for your purchase");
 			for (int i = 0; i < amount; i++) {
 				game.farm.addSheepToFarm();
 				
