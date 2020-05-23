@@ -12,6 +12,9 @@ import java.awt.Cursor;
 import javax.swing.JLabel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.border.BevelBorder;
+import javax.swing.SwingConstants;
+import java.awt.Font;
 
 public class MainScreen {
 
@@ -63,7 +66,10 @@ public class MainScreen {
 		
 		// View crops and animals
 		JButton btnViewCropsAndAnimals = new JButton("View crops and animals");
-		btnViewCropsAndAnimals.setBounds(258, 45, 210, 23);
+		btnViewCropsAndAnimals.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnViewCropsAndAnimals.setIcon(new ImageIcon(MainScreen.class.getResource("/images/mainScreenButtons.png")));
+		btnViewCropsAndAnimals.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
+		btnViewCropsAndAnimals.setBounds(10, 214, 210, 23);
 		window.getContentPane().add(btnViewCropsAndAnimals);
 		btnViewCropsAndAnimals.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -74,7 +80,10 @@ public class MainScreen {
 		
 		// View farm money
 		JButton btnViewFarmMoney = new JButton("View farm money");
-		btnViewFarmMoney.setBounds(258, 11, 210, 23);
+		btnViewFarmMoney.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnViewFarmMoney.setIcon(new ImageIcon(MainScreen.class.getResource("/images/mainScreenButtons.png")));
+		btnViewFarmMoney.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
+		btnViewFarmMoney.setBounds(10, 248, 210, 23);
 		window.getContentPane().add(btnViewFarmMoney);
 		btnViewFarmMoney.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -85,6 +94,9 @@ public class MainScreen {
 		
 		// Visit Tool Market
 		JButton btnVisitToolMarket = new JButton("Visit Tom's Tool Market");
+		btnVisitToolMarket.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnVisitToolMarket.setIcon(new ImageIcon(MainScreen.class.getResource("/images/mainScreenButtons.png")));
+		btnVisitToolMarket.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
 		btnVisitToolMarket.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				game.visitToolMarket(window);
@@ -95,6 +107,9 @@ public class MainScreen {
 		
 		// Visit Crop Market
 		JButton btnVisitCassiesCrop = new JButton("Visit Cassie's Crop Market");
+		btnVisitCassiesCrop.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnVisitCassiesCrop.setIcon(new ImageIcon(MainScreen.class.getResource("/images/mainScreenButtons.png")));
+		btnVisitCassiesCrop.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
 		btnVisitCassiesCrop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				game.visitCropMarket(window);
@@ -105,6 +120,9 @@ public class MainScreen {
 		
 		// Visit Animal Market
 		JButton btnVisitAndysAnimal = new JButton("Visit Andy's Animal Market");
+		btnVisitAndysAnimal.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnVisitAndysAnimal.setIcon(new ImageIcon(MainScreen.class.getResource("/images/mainScreenButtons.png")));
+		btnVisitAndysAnimal.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
 		btnVisitAndysAnimal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				game.visitAnimalMarket(window);
@@ -115,6 +133,9 @@ public class MainScreen {
 		
 		// Move on to next day
 		JButton btnMoveOntoNext = new JButton("Move on to next day");
+		btnMoveOntoNext.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnMoveOntoNext.setIcon(new ImageIcon(MainScreen.class.getResource("/images/mainScreenButtons.png")));
+		btnMoveOntoNext.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
 		btnMoveOntoNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				game.nextDay(window, false);
@@ -125,6 +146,9 @@ public class MainScreen {
 		
 		// Tend to crops
 		JButton btnTendToCrops = new JButton("Tend to your crops");
+		btnTendToCrops.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnTendToCrops.setIcon(new ImageIcon(MainScreen.class.getResource("/images/mainScreenButtons.png")));
+		btnTendToCrops.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
 		btnTendToCrops.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				game.tendToCrops(window);
@@ -135,6 +159,9 @@ public class MainScreen {
 		
 		// Feed animals
 		JButton btnFeedYourAnimals = new JButton("Feed your animals");
+		btnFeedYourAnimals.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnFeedYourAnimals.setIcon(new ImageIcon(MainScreen.class.getResource("/images/mainScreenButtons.png")));
+		btnFeedYourAnimals.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
 		btnFeedYourAnimals.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				game.feedAnimals(window);
@@ -146,6 +173,9 @@ public class MainScreen {
 		
 		// Play with animals
 		JButton btnPlayWithAnimals = new JButton("Play with animals");
+		btnPlayWithAnimals.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnPlayWithAnimals.setIcon(new ImageIcon(MainScreen.class.getResource("/images/mainScreenButtons.png")));
+		btnPlayWithAnimals.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
 		btnPlayWithAnimals.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				game.playWithAnimals(window);
@@ -158,6 +188,9 @@ public class MainScreen {
 		
 		// Harvest Crops
 		JButton btnHarvestCrops = new JButton("Harvest crops");
+		btnHarvestCrops.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnHarvestCrops.setIcon(new ImageIcon(MainScreen.class.getResource("/images/mainScreenButtons.png")));
+		btnHarvestCrops.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
 		btnHarvestCrops.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				game.harvestCrops(window);
@@ -169,6 +202,9 @@ public class MainScreen {
 		
 		// Tend to farm land
 		JButton btnTendToFarmland = new JButton("Tend to farm land");
+		btnTendToFarmland.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnTendToFarmland.setIcon(new ImageIcon(MainScreen.class.getResource("/images/mainScreenButtons.png")));
+		btnTendToFarmland.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
 		btnTendToFarmland.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				game.tendToFarmLand(window);
@@ -177,6 +213,20 @@ public class MainScreen {
 		btnTendToFarmland.setToolTipText("");
 		btnTendToFarmland.setBounds(10, 445, 210, 23);
 		window.getContentPane().add(btnTendToFarmland);
+		
+		JLabel farmName = new JLabel(game.farm.getFarmName());
+		farmName.setForeground(new Color(102, 51, 0));
+		farmName.setHorizontalTextPosition(SwingConstants.CENTER);
+		farmName.setBackground(new Color(255, 255, 255));
+		farmName.setHorizontalAlignment(SwingConstants.CENTER);
+		farmName.setFont(new Font("Ravie", Font.PLAIN, 20));
+		farmName.setBounds(456, 35, 210, 104);
+		window.getContentPane().add(farmName);
+		
+		JLabel sign = new JLabel("");
+		sign.setIcon(new ImageIcon(MainScreen.class.getResource("/images/sign.png")));
+		sign.setBounds(432, 11, 250, 206);
+		window.getContentPane().add(sign);
 		
 		JLabel background = new JLabel("");
 		background.setIcon(new ImageIcon(MainScreen.class.getResource("/images/farm_background.gif")));

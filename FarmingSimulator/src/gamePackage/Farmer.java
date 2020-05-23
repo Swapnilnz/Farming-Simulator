@@ -9,7 +9,7 @@ class Farmer {
 	/**
 	 * Farmer name
 	 */
-	private String name;
+	String name;
 	/**
 	 * farmer age
 	 */

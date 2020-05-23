@@ -72,7 +72,7 @@ public class StartGameScreen {
 		 */
 		
 		JSpinner spinnerGameLength = new JSpinner();
-		spinnerGameLength.setModel(new SpinnerNumberModel(18, 18, 40, 1));
+		spinnerGameLength.setModel(new SpinnerNumberModel(5, 5, 15, 1));
 		spinnerGameLength.setBounds(338, 103, 65, 34);
 		frmFarmSimulatorStart.getContentPane().add(spinnerGameLength);
 		
@@ -85,7 +85,7 @@ public class StartGameScreen {
 		 * Set Farmers age and message requesting to set.
 		 */
 		JSpinner farmersAge = new JSpinner();
-		farmersAge.setModel(new SpinnerNumberModel(5, 5, 15, 1));
+		farmersAge.setModel(new SpinnerNumberModel(18, 0, 100, 1));
 		farmersAge.setBounds(169, 151, 65, 34);
 		frmFarmSimulatorStart.getContentPane().add(farmersAge);
 		
@@ -99,7 +99,7 @@ public class StartGameScreen {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(169, 215, 89, 23);
+		btnNewButton.setBounds(169, 227, 115, 23);
 		frmFarmSimulatorStart.getContentPane().add(btnNewButton);
 	}
 }

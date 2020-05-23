@@ -14,6 +14,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import javax.swing.border.BevelBorder;
+import java.awt.Color;
+import javax.swing.border.LineBorder;
 
 public class ViewFarmMoney extends JDialog {
 
@@ -31,25 +36,40 @@ public class ViewFarmMoney extends JDialog {
 	 */
 	public ViewFarmMoney(GameEnvironment game, JFrame window) {
 		super(window, "View Farm Money", true);
-		setBounds(100, 100, 450, 300);
+		setResizable(false);
+		setBounds(100, 100, 450, 224);
 		getContentPane().setLayout(null);
 		
 		JTextPane txtpnYourFarmCurrently = new JTextPane();
+		txtpnYourFarmCurrently.setBackground(new Color(233, 150, 122));
+		txtpnYourFarmCurrently.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		txtpnYourFarmCurrently.setEditable(false);
 		txtpnYourFarmCurrently.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		txtpnYourFarmCurrently.setText("Your farm currently has");
-		txtpnYourFarmCurrently.setBounds(110, 51, 216, 31);
+		txtpnYourFarmCurrently.setBounds(111, 27, 223, 31);
 		getContentPane().add(txtpnYourFarmCurrently);
 	
 		
 		JLabel lblMoney = new JLabel("$" + game.farm.getFarmMoney());
+		lblMoney.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
+		lblMoney.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMoney.setIcon(new ImageIcon(ViewFarmMoney.class.getResource("/images/button.jpg")));
+		lblMoney.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblMoney.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblMoney.setBounds(197, 93, 64, 37);
+		lblMoney.setBounds(190, 69, 64, 37);
 		getContentPane().add(lblMoney);
 		
 		JButton exitButton = new JButton("Exit");
-		exitButton.setBounds(335, 227, 89, 23);
+		exitButton.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
+		exitButton.setIcon(new ImageIcon(ViewFarmMoney.class.getResource("/images/button.jpg")));
+		exitButton.setHorizontalTextPosition(SwingConstants.CENTER);
+		exitButton.setBounds(335, 151, 89, 23);
 		getContentPane().add(exitButton);
+		
+		JLabel background = new JLabel("");
+		background.setIcon(new ImageIcon(ViewFarmMoney.class.getResource("/images/grassBackground.png")));
+		background.setBounds(0, 0, 444, 195);
+		getContentPane().add(background);
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

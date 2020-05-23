@@ -13,6 +13,12 @@ import javax.swing.JTextPane;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.border.BevelBorder;
+import java.awt.Color;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 public class ViewTendToCrops extends JDialog {
 
@@ -27,10 +33,12 @@ public class ViewTendToCrops extends JDialog {
 		getContentPane().setLayout(null);
 		
 		JTextPane txtpnWhichCropWould = new JTextPane();
+		txtpnWhichCropWould.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
+		txtpnWhichCropWould.setBackground(new Color(233, 150, 122));
 		txtpnWhichCropWould.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtpnWhichCropWould.setEditable(false);
 		txtpnWhichCropWould.setText("Which crop would you like to tend to?");
-		txtpnWhichCropWould.setBounds(10, 9, 251, 33);
+		txtpnWhichCropWould.setBounds(27, 20, 237, 22);
 		getContentPane().add(txtpnWhichCropWould);
 		
 		// Make combo box of crops
@@ -44,6 +52,9 @@ public class ViewTendToCrops extends JDialog {
 		
 		// Choose crop
 		JButton btnEnter = new JButton("Enter");
+		btnEnter.setIcon(new ImageIcon(ViewTendToCrops.class.getResource("/images/button.jpg")));
+		btnEnter.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnEnter.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
 		btnEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (game.getNumActions() > 0) {
@@ -61,6 +72,9 @@ public class ViewTendToCrops extends JDialog {
 		
 		// Exit
 		JButton exit = new JButton("Exit");
+		exit.setIcon(new ImageIcon(ViewTendToCrops.class.getResource("/images/button.jpg")));
+		exit.setHorizontalTextPosition(SwingConstants.CENTER);
+		exit.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
 		exit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -68,6 +82,11 @@ public class ViewTendToCrops extends JDialog {
 		});
 		exit.setBounds(175, 154, 89, 23);
 		getContentPane().add(exit);
+		
+		JLabel background = new JLabel("");
+		background.setIcon(new ImageIcon(ViewTendToCrops.class.getResource("/images/tendToCropsBackground.png")));
+		background.setBounds(0, 0, 284, 191);
+		getContentPane().add(background);
 	}
 
 }

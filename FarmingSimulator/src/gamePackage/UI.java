@@ -167,7 +167,7 @@ class UI {
 		String tempName = input.nextLine();
 		boolean nameFound = false;
 		while (nameFound == false) {
-			if ((tempName.length() <= 20) && (tempName.length() > 0)) {
+			if ((tempName.length() <= 15) && (tempName.length() > 0)) {
 				game.farm.farmName = tempName;
 				System.out.println("Good choice! Your farm's name is now '" + game.farm.farmName + "'.");
 				nameFound = true;
@@ -176,7 +176,7 @@ class UI {
 				System.out.println("Okay! Your farm's name is " + game.farm.farmName + "'.");
 				nameFound = true;
 			} else {
-				System.out.println("Sorry! Your name is too long, please try to keep it within 20 characters.");
+				System.out.println("Sorry! Your name is too long, please try to keep it within 10 characters.");
 				tempName = input.nextLine();
 			}
 		}

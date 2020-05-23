@@ -119,7 +119,7 @@ class GameEnvironment {
 				runDay();
 			} else {
 				// IMPLEMENT END GAME
-				window.dispose();
+				this.closeMainScreen(mainScreen);
 				EndGameScreen endGameScreen = new EndGameScreen(this);
 				endGameScreen.setVisible(true);
 			}
@@ -442,10 +442,13 @@ class GameEnvironment {
 		mainScreen = new MainScreen(this);
 	}
 	
+	/**
+	 * Close the main screen
+	 * @param mainWindow
+	 */
 	public void closeMainScreen(MainScreen mainWindow) {
 		mainWindow.closeWindow();
 	}
-	
 	
 	/**
 	 * Main method; used to start and end game
