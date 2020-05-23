@@ -9,7 +9,7 @@ class Farmer {
 	/**
 	 * Farmer name
 	 */
-	protected String name;
+	private String name;
 	/**
 	 * farmer age
 	 */
