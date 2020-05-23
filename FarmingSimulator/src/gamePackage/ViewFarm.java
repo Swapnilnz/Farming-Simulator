@@ -69,10 +69,10 @@ public class ViewFarm extends JDialog {
 		
 		
 		// Days till harvest
-		JLabel lblNewLabel = new JLabel("Days till harvest:");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel.setBounds(22, 117, 119, 26);
-		getContentPane().add(lblNewLabel);
+		JLabel lblDaysTill = new JLabel("Days till harvest:");
+		lblDaysTill.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblDaysTill.setBounds(22, 117, 119, 26);
+		getContentPane().add(lblDaysTill);
 
 		JLabel lblDaysTillHarvest = new JLabel("");
 		lblDaysTillHarvest.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -80,10 +80,10 @@ public class ViewFarm extends JDialog {
 		getContentPane().add(lblDaysTillHarvest);
 		
 		// Days grown
-		JLabel lblDaysGown = new JLabel("Days grown:");
-		lblDaysGown.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblDaysGown.setBounds(22, 154, 119, 26);
-		getContentPane().add(lblDaysGown);
+		JLabel lblDaysG = new JLabel("Days grown:");
+		lblDaysG.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblDaysG.setBounds(22, 154, 119, 26);
+		getContentPane().add(lblDaysG);
 		
 		JLabel lblDaysGrown = new JLabel("");
 		lblDaysGrown.setFont(new Font("Tahoma", Font.PLAIN, 14));

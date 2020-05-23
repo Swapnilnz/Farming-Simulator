@@ -123,14 +123,14 @@ public class ViewAnimalMarket extends JDialog {
 				
 
 		
-		JButton button_1 = new JButton("Exit");
-		button_1.addActionListener(new ActionListener() {
+		JButton exitButton = new JButton("Exit");
+		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
 		});
-		button_1.setBounds(350, 260, 89, 23);
-		getContentPane().add(button_1);
+		exitButton.setBounds(350, 260, 89, 23);
+		getContentPane().add(exitButton);
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(250, 99, 128, 128);

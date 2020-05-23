@@ -55,10 +55,10 @@ public class ViewCropMarket extends JDialog {
 		}
 		
 		// Show Money
-		JLabel lblNewLabel = new JLabel("You currently have $");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblNewLabel.setBounds(24, 267, 128, 23);
-		getContentPane().add(lblNewLabel);
+		JLabel lblYouCurrentlyHave = new JLabel("You currently have $");
+		lblYouCurrentlyHave.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblYouCurrentlyHave.setBounds(24, 267, 128, 23);
+		getContentPane().add(lblYouCurrentlyHave);
 		
 		JLabel money = new JLabel(Integer.toString(game.farm.getFarmMoney()));
 		money.setFont(new Font("Tahoma", Font.PLAIN, 12));

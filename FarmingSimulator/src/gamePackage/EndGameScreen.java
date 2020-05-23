@@ -24,24 +24,24 @@ public class EndGameScreen extends JDialog {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
 		
-		JTextPane txtpnYouFinishedThe = new JTextPane();
-		txtpnYouFinishedThe.setEditable(false);
-		txtpnYouFinishedThe.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txtpnYouFinishedThe.setText("You finished the game!");
-		txtpnYouFinishedThe.setBounds(93, 24, 263, 37);
-		getContentPane().add(txtpnYouFinishedThe);
+		JTextPane finishedGame = new JTextPane();
+		finishedGame.setEditable(false);
+		finishedGame.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		finishedGame.setText("You finished the game!");
+		finishedGame.setBounds(93, 24, 263, 37);
+		getContentPane().add(finishedGame);
 		
-		JLabel lblNewLabel = new JLabel("Farm name: " + game.farm.getFarmName());
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel.setBounds(0, 72, 444, 37);
-		getContentPane().add(lblNewLabel);
+		JLabel farmName = new JLabel("Farm name: " + game.farm.getFarmName());
+		farmName.setHorizontalAlignment(SwingConstants.CENTER);
+		farmName.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		farmName.setBounds(0, 72, 444, 37);
+		getContentPane().add(farmName);
 		
-		JLabel label = new JLabel("Game duration: " + game.getGameDuration() + " days");
-		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		label.setBounds(0, 107, 444, 37);
-		getContentPane().add(label);
+		JLabel gameDuration = new JLabel("Game duration: " + game.getGameDuration() + " days");
+		gameDuration.setHorizontalAlignment(SwingConstants.CENTER);
+		gameDuration.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		gameDuration.setBounds(0, 107, 444, 37);
+		getContentPane().add(gameDuration);
 		
 		JLabel label_1 = new JLabel("Over this time, you made $" + (game.farm.farmMoney - game.farm.staticFarmMoney));
 		label_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -53,11 +53,11 @@ public class EndGameScreen extends JDialog {
 		lblNewLabel_1.setBounds(2, 181, 444, 14);
 		getContentPane().add(lblNewLabel_1);
 		
-		JLabel label_3 = new JLabel("Your score was: " + game.calculateScore());
-		label_3.setHorizontalAlignment(SwingConstants.CENTER);
-		label_3.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		label_3.setBounds(0, 202, 444, 37);
-		getContentPane().add(label_3);
+		JLabel scoreLabel = new JLabel("Your score was: " + game.calculateScore());
+		scoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		scoreLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		scoreLabel.setBounds(0, 202, 444, 37);
+		getContentPane().add(scoreLabel);
 		
 		JLabel label_2 = new JLabel("--------------------------------------------------------------------------------------------------------------");
 		label_2.setBounds(0, 246, 444, 14);
