@@ -53,14 +53,21 @@ class ToolMarket {
 	 */
 	void buyHarvester(GameEnvironment game, JFrame window) {
 		// Add harvester, remove money
-		int farmMoney = game.farm.getFarmMoney();
-		if (farmMoney >= harvesterPrice) {
-			game.farm.addToItemList("Harvester");
-			game.farm.farmMoney -= harvesterPrice;
-		} else {
-			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
+		if (game.farm.itemList.contains("Harvester")) {
+			// Error, already have one
+			PopUp error = new PopUp(game, window, "You already have a Harvester!");
 			error.setVisible(true);
+		} else {
+			int farmMoney = game.farm.getFarmMoney();
+			if (farmMoney >= harvesterPrice) {
+				game.farm.addToItemList("Harvester");
+				game.farm.farmMoney -= harvesterPrice;
+			} else {
+				PopUp error = new PopUp(game, window, "You don't have enough money for that!");
+				error.setVisible(true);
+			}
 		}
+		
 	}
 	
 	/**
@@ -69,13 +76,19 @@ class ToolMarket {
 	 */
 	void buyWateringCan(GameEnvironment game, JFrame window) {
 		// Add watering can, remove money
-		int farmMoney = game.farm.getFarmMoney();
-		if (farmMoney >= wateringCanPrice) {
-			game.farm.addToItemList("Watering Can");
-			game.farm.farmMoney -= wateringCanPrice;
-		} else {
-			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
+		if (game.farm.itemList.contains("Watering Can")) {
+			// Error, already have one
+			PopUp error = new PopUp(game, window, "You already have an Ultimate Watering Can!");
 			error.setVisible(true);
+		} else {
+			int farmMoney = game.farm.getFarmMoney();
+			if (farmMoney >= wateringCanPrice) {
+				game.farm.addToItemList("Watering Can");
+				game.farm.farmMoney -= wateringCanPrice;
+			} else {
+				PopUp error = new PopUp(game, window, "You don't have enough money for that!");
+				error.setVisible(true);
+			}
 		}
 	}
 	
@@ -85,14 +98,21 @@ class ToolMarket {
 	 */
 	void buyAnimalStatue(GameEnvironment game, JFrame window) {
 		// Add animalStatue, remove money
-		int farmMoney = game.farm.getFarmMoney();
-		if (farmMoney >= animalStatuePrice) {
-			game.farm.addToItemList("Animal Statue");
-			game.farm.farmMoney -= animalStatuePrice;
-		} else {
-			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
+		if (game.farm.itemList.contains("Animal Statue")) {
+			// Error, already have one
+			PopUp error = new PopUp(game, window, "You already have an Animal Statue!");
 			error.setVisible(true);
-		}	
+		} else {
+			int farmMoney = game.farm.getFarmMoney();
+			if (farmMoney >= animalStatuePrice) {
+				game.farm.addToItemList("Animal Statue");
+				game.farm.farmMoney -= animalStatuePrice;
+			} else {
+				PopUp error = new PopUp(game, window, "You don't have enough money for that!");
+				error.setVisible(true);
+			}
+		}
+		
 	}
 	
 	/**
@@ -101,13 +121,19 @@ class ToolMarket {
 	 */
 	void buyMilkMaster(GameEnvironment game, JFrame window) {
 		// Add milk master, remove money
-		int farmMoney = game.farm.getFarmMoney();
-		if (farmMoney >= milkMasterPrice) {
-			game.farm.addToItemList("Milk Master");
-			game.farm.farmMoney -= milkMasterPrice;
-		} else {
-			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
+		if (game.farm.itemList.contains("Milk Master")) {
+			// Error, already have one
+			PopUp error = new PopUp(game, window, "You already have a Milk Master!");
 			error.setVisible(true);
+		} else {
+			int farmMoney = game.farm.getFarmMoney();
+			if (farmMoney >= milkMasterPrice) {
+				game.farm.addToItemList("Milk Master");
+				game.farm.farmMoney -= milkMasterPrice;
+			} else {
+				PopUp error = new PopUp(game, window, "You don't have enough money for that!");
+				error.setVisible(true);
+			}
 		}
 	}
 	
@@ -117,13 +143,19 @@ class ToolMarket {
 	 */
 	void buyShearMaster(GameEnvironment game, JFrame window) {
 		// Add shear master, remove money
-		int farmMoney = game.farm.getFarmMoney();
-		if (farmMoney >= shearMasterPrice) {
-			game.farm.addToItemList("Shear Master");
-			game.farm.farmMoney -= shearMasterPrice;
-		} else {
-			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
+		if (game.farm.itemList.contains("Shear Master")) {
+			// Error, already have one
+			PopUp error = new PopUp(game, window, "You already have an Shear Master!");
 			error.setVisible(true);
+		} else {
+			int farmMoney = game.farm.getFarmMoney();
+			if (farmMoney >= shearMasterPrice) {
+				game.farm.addToItemList("Shear Master");
+				game.farm.farmMoney -= shearMasterPrice;
+			} else {
+				PopUp error = new PopUp(game, window, "You don't have enough money for that!");
+				error.setVisible(true);
+			}
 		}
 	}
 	

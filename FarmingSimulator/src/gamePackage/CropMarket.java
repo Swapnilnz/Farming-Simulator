@@ -14,7 +14,7 @@ class CropMarket {
 	/**
 	 * Dictionary of crops to their purchase price
 	 */
-	private HashMap<String, Integer> cropPurchaseDic;
+	HashMap<String, Integer> cropPurchaseDic;
 	/**
 	 * int animal feed price
 	 */

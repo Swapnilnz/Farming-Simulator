@@ -34,8 +34,7 @@ public class ViewAnimalMarket extends JDialog {
 	 */
 	public ViewAnimalMarket(GameEnvironment game, JFrame window, AnimalMarket animalMarket) {
 		super(window, "Andy's Animal Market", true);
-		setResizable(false);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 501, 333);
 		getContentPane().setLayout(null);
 		{
 			JTextPane txtpnWelcomeToAndys = new JTextPane();
@@ -48,12 +47,12 @@ public class ViewAnimalMarket extends JDialog {
 		
 		JLabel label = new JLabel("You currently have $");
 		label.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		label.setBounds(250, 53, 128, 23);
+		label.setBounds(43, 215, 128, 23);
 		getContentPane().add(label);
 		
 		money = new JLabel(Integer.toString(game.farm.getFarmMoney()));
 		money.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		money.setBounds(370, 53, 29, 23);
+		money.setBounds(164, 215, 29, 23);
 		getContentPane().add(money);
 		
 		JTextPane textPane = new JTextPane();
@@ -75,6 +74,25 @@ public class ViewAnimalMarket extends JDialog {
 		textAmount.setBounds(72, 121, 64, 20);
 		getContentPane().add(textAmount);
 		
+		JLabel youHave = new JLabel("You have: ");
+		youHave.setBounds(393, 77, 64, 14);
+		getContentPane().add(youHave);
+		
+		JLabel cowCount = new JLabel(Integer.toString(game.farm.getCowCount()));
+		cowCount.setBounds(388, 100, 69, 23);
+		getContentPane().add(cowCount);
+		
+		JLabel pigCount = new JLabel(Integer.toString(game.farm.getPigCount()));
+		pigCount.setBounds(388, 131, 69, 23);
+		getContentPane().add(pigCount);
+		
+		JLabel chickenCount = new JLabel(Integer.toString(game.farm.getChickenCount()));
+		chickenCount.setBounds(388, 161, 69, 23);
+		getContentPane().add(chickenCount);
+		
+		JLabel sheepCount = new JLabel(Integer.toString(game.farm.getSheepCount()));
+		sheepCount.setBounds(388, 192, 69, 23);
+		getContentPane().add(sheepCount);
 		
 		// Button/error label to enter and check amount
 		JLabel error = new JLabel("");
@@ -111,7 +129,7 @@ public class ViewAnimalMarket extends JDialog {
 				dispose();
 			}
 		});
-		button_1.setBounds(335, 227, 89, 23);
+		button_1.setBounds(350, 260, 89, 23);
 		getContentPane().add(button_1);
 		
 		JPanel panel = new JPanel();
@@ -131,6 +149,7 @@ public class ViewAnimalMarket extends JDialog {
 				if (valid) {
 					animalMarket.buyCow(game, amount, window);
 					money.setText(Integer.toString(game.farm.getFarmMoney()));
+					cowCount.setText(Integer.toString(game.farm.getCowCount()));
 				}
 			}
 		});
@@ -148,6 +167,7 @@ public class ViewAnimalMarket extends JDialog {
 				if (valid) {
 					animalMarket.buyPig(game, amount, window);
 					money.setText(Integer.toString(game.farm.getFarmMoney()));
+					pigCount.setText(Integer.toString(game.farm.getPigCount()));
 				}
 			}
 		});
@@ -165,6 +185,7 @@ public class ViewAnimalMarket extends JDialog {
 				if (valid) {
 					animalMarket.buyChicken(game, amount, window);
 					money.setText(Integer.toString(game.farm.getFarmMoney()));
+					chickenCount.setText(Integer.toString(game.farm.getChickenCount()));
 				}
 			}
 		});
@@ -182,6 +203,7 @@ public class ViewAnimalMarket extends JDialog {
 				if (valid) {
 					animalMarket.buySheep(game, amount, window);
 					money.setText(Integer.toString(game.farm.getFarmMoney()));
+					sheepCount.setText(Integer.toString(game.farm.getSheepCount()));
 				}
 			}
 		});
@@ -190,6 +212,8 @@ public class ViewAnimalMarket extends JDialog {
 		gbc_buySheep.gridx = 0;
 		gbc_buySheep.gridy = 3;
 		panel.add(buySheep, gbc_buySheep);
+		
+
 
 
 	}

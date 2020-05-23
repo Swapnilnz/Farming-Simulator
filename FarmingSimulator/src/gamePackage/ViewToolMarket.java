@@ -13,6 +13,7 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 public class ViewToolMarket extends JDialog {
 
@@ -22,8 +23,7 @@ public class ViewToolMarket extends JDialog {
 	 */
 	public ViewToolMarket(GameEnvironment game, JFrame window, ToolMarket toolMarket) {
 		super(window, "Tom's Tool Market", true);
-		setResizable(false);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 468, 393);
 		getContentPane().setLayout(null);
 		{
 			JTextPane txtpnWelcomeToToms = new JTextPane();
@@ -41,6 +41,37 @@ public class ViewToolMarket extends JDialog {
 			txtpnWhatWouldYou.setBounds(10, 57, 183, 23);
 			getContentPane().add(txtpnWhatWouldYou);
 		}
+
+		
+		JLabel harvesterCount = new JLabel("Not Owned");
+		harvesterCount.setHorizontalAlignment(SwingConstants.CENTER);
+		harvesterCount.setBounds(21, 147, 183, 14);
+		getContentPane().add(harvesterCount);
+		
+		JLabel animalStatueCount = new JLabel("Not Owned");
+		animalStatueCount.setHorizontalAlignment(SwingConstants.CENTER);
+		animalStatueCount.setBounds(230, 147, 183, 14);
+		getContentPane().add(animalStatueCount);
+		
+		JLabel canCount = new JLabel("Not Owned");
+		canCount.setHorizontalAlignment(SwingConstants.CENTER);
+		canCount.setBounds(21, 229, 183, 14);
+		getContentPane().add(canCount);
+		
+		JLabel milkCount = new JLabel("Not Owned");
+		milkCount.setHorizontalAlignment(SwingConstants.CENTER);
+		milkCount.setBounds(230, 229, 183, 14);
+		getContentPane().add(milkCount);
+		
+		JLabel telePadCount = new JLabel("Not Owned");
+		telePadCount.setHorizontalAlignment(SwingConstants.CENTER);
+		telePadCount.setBounds(21, 324, 183, 14);
+		getContentPane().add(telePadCount);
+		
+		JLabel shearCount = new JLabel("Not Owned");
+		shearCount.setHorizontalAlignment(SwingConstants.CENTER);
+		shearCount.setBounds(230, 324, 183, 14);
+		getContentPane().add(shearCount);
 		
 		// Show Money
 		JLabel lblNewLabel = new JLabel("You currently have $");
@@ -59,11 +90,13 @@ public class ViewToolMarket extends JDialog {
 				public void actionPerformed(ActionEvent e) {
 					toolMarket.buyHarvester(game, window);
 					money.setText(Integer.toString(game.farm.getFarmMoney()));
-					
+					if (game.farm.getItemList().contains("Harvester")) {
+						harvesterCount.setText("Owned");
+					}
 				}
 			});
 			btnBuyHarvester.setToolTipText("Harvests one random crop at the end of the day");
-			btnBuyHarvester.setBounds(21, 116, 183, 23);
+			btnBuyHarvester.setBounds(21, 125, 183, 23);
 			getContentPane().add(btnBuyHarvester);
 		}
 		{
@@ -73,11 +106,14 @@ public class ViewToolMarket extends JDialog {
 				public void actionPerformed(ActionEvent e) {
 					toolMarket.buyAnimalStatue(game, window);
 					money.setText(Integer.toString(game.farm.getFarmMoney()));
+					if (game.farm.getItemList().contains("Animal Statue")) {
+						animalStatueCount.setText("Owned");
+					}
 
 				}
 			});
 			btnBuyAnimalStatue.setToolTipText("Animals will see that they are worshipped and will not lose happiness at the end of the day");
-			btnBuyAnimalStatue.setBounds(230, 116, 183, 23);
+			btnBuyAnimalStatue.setBounds(230, 125, 183, 23);
 			getContentPane().add(btnBuyAnimalStatue);
 		}
 		{
@@ -87,11 +123,13 @@ public class ViewToolMarket extends JDialog {
 				public void actionPerformed(ActionEvent e) {
 					toolMarket.buyMilkMaster(game, window);
 					money.setText(Integer.toString(game.farm.getFarmMoney()));
-
+					if (game.farm.getItemList().contains("Milk Master")) {
+						milkCount.setText("Owned");
+					}
 				}
 			});
 			btnBuyMilkMaster.setToolTipText("Automates milking of cows on farm ($5 per cow)");
-			btnBuyMilkMaster.setBounds(230, 173, 183, 23);
+			btnBuyMilkMaster.setBounds(230, 208, 183, 23);
 			getContentPane().add(btnBuyMilkMaster);
 		}
 		{
@@ -101,11 +139,13 @@ public class ViewToolMarket extends JDialog {
 				public void actionPerformed(ActionEvent e) {
 					toolMarket.buyShearMaster(game, window);
 					money.setText(Integer.toString(game.farm.getFarmMoney()));
-
+					if (game.farm.getItemList().contains("Shear Master")) {
+						shearCount.setText("Owned");
+					}
 				}
 			});
 			btnBuyShearMaster.setToolTipText("Automates shearing of sheep ($5 per sheep)");
-			btnBuyShearMaster.setBounds(230, 227, 183, 23);
+			btnBuyShearMaster.setBounds(230, 301, 183, 23);
 			getContentPane().add(btnBuyShearMaster);
 		}
 		{
@@ -116,10 +156,12 @@ public class ViewToolMarket extends JDialog {
 				public void actionPerformed(ActionEvent e) {
 					toolMarket.buyWateringCan(game, window);
 					money.setText(Integer.toString(game.farm.getFarmMoney()));
-
+					if (game.farm.getItemList().contains("Watering Can")) {
+						canCount.setText("Owned");
+					}
 				}
 			});
-			btnBuyWateringCan.setBounds(21, 173, 183, 23);
+			btnBuyWateringCan.setBounds(21, 208, 183, 23);
 			getContentPane().add(btnBuyWateringCan);
 		}
 		{
@@ -129,11 +171,13 @@ public class ViewToolMarket extends JDialog {
 				public void actionPerformed(ActionEvent e) {
 					toolMarket.buyTeleportationPad(game, window);
 					money.setText(Integer.toString(game.farm.getFarmMoney()));
-
+					if (game.farm.getTelePadCount() > 0) {
+						harvesterCount.setText(game.farm.getTelePadCount() + " Owned");
+					}
 				}
 			});
 			btnBuyTeleportationPad.setToolTipText("You can now teleport around our farm! (One extra action per day)");
-			btnBuyTeleportationPad.setBounds(21, 227, 183, 23);
+			btnBuyTeleportationPad.setBounds(21, 301, 183, 23);
 			getContentPane().add(btnBuyTeleportationPad);
 		}
 		
@@ -147,5 +191,4 @@ public class ViewToolMarket extends JDialog {
 		});
 		
 	}
-
 }
