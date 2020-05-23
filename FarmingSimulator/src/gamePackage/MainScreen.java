@@ -63,7 +63,7 @@ public class MainScreen {
 		
 		// View crops and animals
 		JButton btnViewCropsAndAnimals = new JButton("View crops and animals");
-		btnViewCropsAndAnimals.setBounds(258, 58, 210, 23);
+		btnViewCropsAndAnimals.setBounds(258, 45, 210, 23);
 		window.getContentPane().add(btnViewCropsAndAnimals);
 		btnViewCropsAndAnimals.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -74,7 +74,7 @@ public class MainScreen {
 		
 		// View farm money
 		JButton btnViewFarmMoney = new JButton("View farm money");
-		btnViewFarmMoney.setBounds(258, 24, 210, 23);
+		btnViewFarmMoney.setBounds(258, 11, 210, 23);
 		window.getContentPane().add(btnViewFarmMoney);
 		btnViewFarmMoney.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -90,7 +90,7 @@ public class MainScreen {
 				game.visitToolMarket(window);
 			}
 		});
-		btnVisitToolMarket.setBounds(10, 24, 210, 23);
+		btnVisitToolMarket.setBounds(10, 11, 210, 23);
 		window.getContentPane().add(btnVisitToolMarket);
 		
 		// Visit Crop Market
@@ -100,7 +100,7 @@ public class MainScreen {
 				game.visitCropMarket(window);
 			}
 		});
-		btnVisitCassiesCrop.setBounds(10, 60, 210, 23);
+		btnVisitCassiesCrop.setBounds(10, 47, 210, 23);
 		window.getContentPane().add(btnVisitCassiesCrop);
 		
 		// Visit Animal Market
@@ -110,7 +110,7 @@ public class MainScreen {
 				game.visitAnimalMarket(window);
 			}
 		});
-		btnVisitAndysAnimal.setBounds(10, 94, 210, 23);
+		btnVisitAndysAnimal.setBounds(10, 81, 210, 23);
 		window.getContentPane().add(btnVisitAndysAnimal);
 		
 		// Move on to next day
