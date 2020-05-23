@@ -51,6 +51,7 @@ public class MainScreen {
 	 */
 	private void initialize() {
 		window = new JFrame();
+		window.setResizable(false);
 		window.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		window.setBackground(Color.WHITE);
 		window.getContentPane().setBackground(Color.WHITE);

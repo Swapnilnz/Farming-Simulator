@@ -19,6 +19,7 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import java.awt.Dimension;
 
 public class ViewCropMarket extends JDialog {
 
@@ -34,8 +35,7 @@ public class ViewCropMarket extends JDialog {
 	 */
 	public ViewCropMarket(GameEnvironment game, JFrame window, CropMarket cropMarket) {
 		super(window, "Cassie's Crop Market", true);
-		setResizable(false);
-		setBounds(100, 100, 450, 344);
+		setBounds(100, 100, 540, 344);
 		getContentPane().setLayout(null);
 		{
 			JTextPane txtpnWelcomeToToms = new JTextPane();
@@ -57,28 +57,122 @@ public class ViewCropMarket extends JDialog {
 		// Show Money
 		JLabel lblNewLabel = new JLabel("You currently have $");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblNewLabel.setBounds(256, 44, 128, 23);
+		lblNewLabel.setBounds(24, 257, 128, 23);
 		getContentPane().add(lblNewLabel);
 		
 		JLabel money = new JLabel(Integer.toString(game.farm.getFarmMoney()));
 		money.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		money.setBounds(376, 44, 29, 23);
+		money.setBounds(144, 257, 29, 23);
 		getContentPane().add(money);
 		{
-			JPanel panel = new JPanel();
-			panel.setBounds(232, 69, 173, 225);
-			getContentPane().add(panel);
-			GridBagLayout gbl_panel = new GridBagLayout();
-			gbl_panel.columnWidths = new int[]{291, 0};
-			gbl_panel.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
-			gbl_panel.columnWeights = new double[]{1.0, Double.MIN_VALUE};
-			gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-			panel.setLayout(gbl_panel);
+			JPanel buyPanel = new JPanel();
+			buyPanel.setBounds(232, 80, 173, 225);
+			getContentPane().add(buyPanel);
+			GridBagLayout gbl_buyPanel = new GridBagLayout();
+			gbl_buyPanel.columnWidths = new int[]{291, 0};
+			gbl_buyPanel.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
+			gbl_buyPanel.columnWeights = new double[]{1.0, Double.MIN_VALUE};
+			gbl_buyPanel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+			buyPanel.setLayout(gbl_buyPanel);
 			
 			textAmount = new JTextField();
 			textAmount.setBounds(59, 110, 64, 20);
 			getContentPane().add(textAmount);
 			textAmount.setColumns(10);
+			
+			
+			JPanel countPanel = new JPanel();
+			countPanel.setBounds(417, 80, 97, 225);
+			getContentPane().add(countPanel);
+			GridBagLayout gbl_countPanel = new GridBagLayout();
+			gbl_countPanel.columnWidths = new int[]{291, 0};
+			gbl_countPanel.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
+			gbl_countPanel.columnWeights = new double[]{1.0, Double.MIN_VALUE};
+			gbl_countPanel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+			countPanel.setLayout(gbl_countPanel);
+				
+			JLabel avocadoCount = new JLabel(Integer.toString(game.farm.cropInventory.get("Avocado")));
+			avocadoCount.setMinimumSize(new Dimension(46, 23));
+			avocadoCount.setMaximumSize(new Dimension(46, 23));
+			GridBagConstraints gbc_avocadoCount = new GridBagConstraints();
+			gbc_avocadoCount.insets = new Insets(0, 0, 5, 0);
+			gbc_avocadoCount.gridx = 0;
+			gbc_avocadoCount.gridy = 0;
+			countPanel.add(avocadoCount, gbc_avocadoCount);
+		
+		
+			JLabel cornCount = new JLabel(Integer.toString(game.farm.cropInventory.get("Corn")));
+			cornCount.setMinimumSize(new Dimension(46, 23));
+			cornCount.setMaximumSize(new Dimension(46, 23));
+			cornCount.setPreferredSize(new Dimension(46, 23));
+			GridBagConstraints gbc_cornCount = new GridBagConstraints();
+			gbc_cornCount.insets = new Insets(0, 0, 5, 0);
+			gbc_cornCount.gridx = 0;
+			gbc_cornCount.gridy = 1;
+			countPanel.add(cornCount, gbc_cornCount);
+		
+		
+			JLabel wheatCount = new JLabel(Integer.toString(game.farm.cropInventory.get("Wheat")));
+			wheatCount.setMinimumSize(new Dimension(46, 23));
+			wheatCount.setMaximumSize(new Dimension(46, 23));
+			wheatCount.setPreferredSize(new Dimension(46, 23));
+			GridBagConstraints gbc_wheatCount = new GridBagConstraints();
+			gbc_wheatCount.insets = new Insets(0, 0, 5, 0);
+			gbc_wheatCount.gridx = 0;
+			gbc_wheatCount.gridy = 2;
+			countPanel.add(wheatCount, gbc_wheatCount);
+		
+		
+			JLabel potatoCount = new JLabel(Integer.toString(game.farm.cropInventory.get("Potato")));
+			potatoCount.setMinimumSize(new Dimension(46, 23));
+			potatoCount.setMaximumSize(new Dimension(46, 23));
+			potatoCount.setPreferredSize(new Dimension(46, 23));
+			GridBagConstraints gbc_potatoCount = new GridBagConstraints();
+			gbc_potatoCount.insets = new Insets(0, 0, 5, 0);
+			gbc_potatoCount.gridx = 0;
+			gbc_potatoCount.gridy = 3;
+			countPanel.add(potatoCount, gbc_potatoCount);
+		
+		
+			JLabel carrotCount = new JLabel(Integer.toString(game.farm.cropInventory.get("Carrot")));
+			carrotCount.setMinimumSize(new Dimension(46, 23));
+			carrotCount.setMaximumSize(new Dimension(46, 23));
+			carrotCount.setPreferredSize(new Dimension(46, 23));
+			GridBagConstraints gbc_carrotCount = new GridBagConstraints();
+			gbc_carrotCount.insets = new Insets(0, 0, 5, 0);
+			gbc_carrotCount.gridx = 0;
+			gbc_carrotCount.gridy = 4;
+			countPanel.add(carrotCount, gbc_carrotCount);
+		
+		
+			JLabel appleCount = new JLabel(Integer.toString(game.farm.cropInventory.get("Apple")));
+			appleCount.setMinimumSize(new Dimension(46, 23));
+			appleCount.setMaximumSize(new Dimension(46, 23));
+			appleCount.setPreferredSize(new Dimension(46, 23));
+			GridBagConstraints gbc_appleCount = new GridBagConstraints();
+			gbc_appleCount.insets = new Insets(0, 0, 5, 0);
+			gbc_appleCount.gridx = 0;
+			gbc_appleCount.gridy = 5;
+			countPanel.add(appleCount, gbc_appleCount);
+		
+		
+			JLabel animalFeedCount = new JLabel(Integer.toString(game.farm.getAnimalFeed()));
+			animalFeedCount.setMinimumSize(new Dimension(46, 23));
+			animalFeedCount.setMaximumSize(new Dimension(46, 23));
+			animalFeedCount.setPreferredSize(new Dimension(46, 23));
+			GridBagConstraints gbc_animalFeedCount = new GridBagConstraints();
+			gbc_animalFeedCount.insets = new Insets(0, 0, 5, 0);
+			gbc_animalFeedCount.gridx = 0;
+			gbc_animalFeedCount.gridy = 6;
+			countPanel.add(animalFeedCount, gbc_animalFeedCount);
+		
+			
+			{
+				JLabel youHave = new JLabel("You have:");
+				youHave.setHorizontalAlignment(SwingConstants.CENTER);
+				youHave.setBounds(417, 58, 97, 23);
+				getContentPane().add(youHave);
+			}
 			
 			{
 				// Buy avocado
@@ -88,7 +182,7 @@ public class ViewCropMarket extends JDialog {
 						if (valid) {
 							cropMarket.buyAvocado(game, amount, window);
 							money.setText(Integer.toString(game.farm.getFarmMoney()));
-
+							avocadoCount.setText(Integer.toString(game.farm.cropInventory.get("Avocado")));
 						}
 					}
 				});
@@ -97,7 +191,7 @@ public class ViewCropMarket extends JDialog {
 				gbc_buyAvocado.insets = new Insets(0, 0, 5, 0);
 				gbc_buyAvocado.gridx = 0;
 				gbc_buyAvocado.gridy = 0;
-				panel.add(buyAvocado, gbc_buyAvocado);
+				buyPanel.add(buyAvocado, gbc_buyAvocado);
 			}
 			{
 				// Buy corn
@@ -107,6 +201,7 @@ public class ViewCropMarket extends JDialog {
 						if (valid) {
 							cropMarket.buyCorn(game, amount, window);
 							money.setText(Integer.toString(game.farm.getFarmMoney()));
+							cornCount.setText(Integer.toString(game.farm.cropInventory.get("Corn")));
 
 						}
 					}
@@ -116,7 +211,7 @@ public class ViewCropMarket extends JDialog {
 				gbc_buyCorn.insets = new Insets(0, 0, 5, 0);
 				gbc_buyCorn.gridx = 0;
 				gbc_buyCorn.gridy = 1;
-				panel.add(buyCorn, gbc_buyCorn);
+				buyPanel.add(buyCorn, gbc_buyCorn);
 			}
 			{
 				// Buy wheat
@@ -126,6 +221,7 @@ public class ViewCropMarket extends JDialog {
 						if (valid) {
 							cropMarket.buyWheat(game, amount, window);
 							money.setText(Integer.toString(game.farm.getFarmMoney()));
+							wheatCount.setText(Integer.toString(game.farm.cropInventory.get("Wheat")));
 
 						}
 					}
@@ -135,7 +231,7 @@ public class ViewCropMarket extends JDialog {
 				gbc_buyWheat.insets = new Insets(0, 0, 5, 0);
 				gbc_buyWheat.gridx = 0;
 				gbc_buyWheat.gridy = 2;
-				panel.add(buyWheat, gbc_buyWheat);
+				buyPanel.add(buyWheat, gbc_buyWheat);
 			}
 			{
 				// Buy potato
@@ -145,6 +241,8 @@ public class ViewCropMarket extends JDialog {
 						if (valid) {
 							cropMarket.buyPotato(game, amount, window);
 							money.setText(Integer.toString(game.farm.getFarmMoney()));
+							potatoCount.setText(Integer.toString(game.farm.cropInventory.get("Potato")));
+
 
 						}
 					}
@@ -154,7 +252,7 @@ public class ViewCropMarket extends JDialog {
 				gbc_buyPotato.insets = new Insets(0, 0, 5, 0);
 				gbc_buyPotato.gridx = 0;
 				gbc_buyPotato.gridy = 3;
-				panel.add(buyPotato, gbc_buyPotato);
+				buyPanel.add(buyPotato, gbc_buyPotato);
 			}
 			{
 				// Buy carrot
@@ -164,6 +262,8 @@ public class ViewCropMarket extends JDialog {
 						if (valid) {
 							cropMarket.buyCarrot(game, amount, window);
 							money.setText(Integer.toString(game.farm.getFarmMoney()));
+							carrotCount.setText(Integer.toString(game.farm.cropInventory.get("Carrot")));
+
 
 						}
 					}
@@ -173,7 +273,7 @@ public class ViewCropMarket extends JDialog {
 				gbc_buyCarrot.insets = new Insets(0, 0, 5, 0);
 				gbc_buyCarrot.gridx = 0;
 				gbc_buyCarrot.gridy = 4;
-				panel.add(buyCarrot, gbc_buyCarrot);
+				buyPanel.add(buyCarrot, gbc_buyCarrot);
 			}
 			{
 				// Buy apple
@@ -183,6 +283,7 @@ public class ViewCropMarket extends JDialog {
 						if (valid) {
 							cropMarket.buyApple(game, amount, window);
 							money.setText(Integer.toString(game.farm.getFarmMoney()));
+							appleCount.setText(Integer.toString(game.farm.cropInventory.get("Apple")));
 
 						}
 					}
@@ -192,7 +293,7 @@ public class ViewCropMarket extends JDialog {
 				gbc_buyApple.insets = new Insets(0, 0, 5, 0);
 				gbc_buyApple.gridx = 0;
 				gbc_buyApple.gridy = 5;
-				panel.add(buyApple, gbc_buyApple);
+				buyPanel.add(buyApple, gbc_buyApple);
 			}
 			{
 				// Buy animal feed
@@ -202,6 +303,8 @@ public class ViewCropMarket extends JDialog {
 						if (valid) {
 							cropMarket.buyAnimalFeed(game, amount, window);
 							money.setText(Integer.toString(game.farm.getFarmMoney()));
+							animalFeedCount.setText(Integer.toString(game.farm.getAnimalFeed()));
+
 
 						}
 					}
@@ -211,7 +314,7 @@ public class ViewCropMarket extends JDialog {
 				gbc_buyAnimalFeed.insets = new Insets(0, 0, 5, 0);
 				gbc_buyAnimalFeed.gridx = 0;
 				gbc_buyAnimalFeed.gridy = 6;
-				panel.add(buyAnimalFeed, gbc_buyAnimalFeed);
+				buyPanel.add(buyAnimalFeed, gbc_buyAnimalFeed);
 			}
 		}
 		{
@@ -255,6 +358,7 @@ public class ViewCropMarket extends JDialog {
 		JButton exitButton = new JButton("Exit");
 		exitButton.setBounds(43, 213, 97, 23);
 		getContentPane().add(exitButton);
+		
 		
 				
 		

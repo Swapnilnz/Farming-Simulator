@@ -180,39 +180,53 @@ class GameEnvironment {
 	 * Feed animals to make them healthier
 	 */
 	void feedAnimals(JFrame window) {
-		if (this.farm.animalFeed > 0) {
-			for (Animal animal : this.farm.animalList) {
-				animal.increaseHealth();
+		if (this.getNumActions() > 0) {
+			if (this.farm.animalFeed > 0) {
+				for (Animal animal : this.farm.animalList) {
+					animal.increaseHealth();
+				}
+				this.farm.animalFeed -= 1;
+				this.setNumActions(this.getNumActions() - 1);
+				PopUp popup = new PopUp(this, window, "You fed your animals, making them healthier!");
+				popup.setVisible(true);
+
+
+			} else {
+				PopUp error = new PopUp(this, window, "Sorry, you don't have any animal feed to do this!");
+				error.setVisible(true);
 			}
-			this.farm.animalFeed -= 1;
-			this.setNumActions(this.getNumActions() - 1);
-			PopUp popup = new PopUp(this, window, "You fed your animals, making them healthier!");
-			popup.setVisible(true);
-
-
 		} else {
-			PopUp error = new PopUp(this, window, "Sorry, you don't have any animal feed to do this!");
-			error.setVisible(true);
-		}
+			// No actions left
+			PopUp error = new PopUp(this, window, "Sorry, you don't have any actions left!");
+			error.setVisible(true);		
+			}
+
 	}
 	
 	/**
 	 * Play with animals to make them happier, or error if no animals
 	 */
 	void playWithAnimals(JFrame window) {
-		if (this.farm.animalList.size() > 0) {
-			for (Animal animal : this.farm.animalList) {
-				animal.increaseHappiness();
+		if (this.getNumActions() > 0) {
+			if (this.farm.animalList.size() > 0) {
+				for (Animal animal : this.farm.animalList) {
+					animal.increaseHappiness();
+				}
+				this.setNumActions(this.getNumActions() - 1);
+				PopUp popup = new PopUp(this, window, "You played with your animals, making them happier!");
+				popup.setVisible(true);
+				
+			} else {
+				// Error
+				PopUp error = new PopUp(this, window, "Sorry, you don't have any animals to play with!");
+				error.setVisible(true);		
 			}
-			this.setNumActions(this.getNumActions() - 1);
-			PopUp popup = new PopUp(this, window, "You played with your animals, making them happier!");
-			popup.setVisible(true);
-			
 		} else {
-			// Error
-			PopUp error = new PopUp(this, window, "Sorry, you don't have any animals to play with!");
+			// No actions left
+			PopUp error = new PopUp(this, window, "Sorry, you don't have any actions left!");
 			error.setVisible(true);		
 		}
+
 	}
 	
 	/**
@@ -220,23 +234,30 @@ class GameEnvironment {
 	 * Adds required money
 	 */
 	void harvestCrops(JFrame window) {
-		ArrayList<Crop> tempCropList = new ArrayList<Crop>();
-		for (Crop crop : this.farm.cropList) {
-			if (crop.getDaysTillHarvest() == 0) {
-				this.farm.farmMoney += crop.getSellPrice();
-			} else {
-				tempCropList.add(crop);
+		if (this.getNumActions() > 0) {
+			ArrayList<Crop> tempCropList = new ArrayList<Crop>();
+			for (Crop crop : this.farm.cropList) {
+				if (crop.getDaysTillHarvest() == 0) {
+					this.farm.farmMoney += crop.getSellPrice();
+				} else {
+					tempCropList.add(crop);
+				}
 			}
-		}
-		if (tempCropList.size() == this.farm.cropList.size()) {
-			// Error, no crops harvestable
-			PopUp error = new PopUp(this, window, "Sorry, you don't have any harvestable crops!");
-			error.setVisible(true);	
+			if (tempCropList.size() == this.farm.cropList.size()) {
+				// Error, no crops harvestable
+				PopUp error = new PopUp(this, window, "Sorry, you don't have any harvestable crops!");
+				error.setVisible(true);	
+			} else {
+				this.farm.cropList = tempCropList;
+				this.setNumActions(this.getNumActions() - 1);
+				PopUp popup = new PopUp(this, window, "Payday! You harvested your crops!");
+				popup.setVisible(true);
+			}
+
 		} else {
-			this.farm.cropList = tempCropList;
-			this.setNumActions(this.getNumActions() - 1);
-			PopUp popup = new PopUp(this, window, "Payday! You harvested your crops!");
-			popup.setVisible(true);
+			// No actions left
+			PopUp error = new PopUp(this, window, "Sorry, you don't have any actions left!");
+			error.setVisible(true);		
 		}
 
 		
@@ -246,10 +267,17 @@ class GameEnvironment {
 	 * Simple method that sets the farm's maintenance attribute to true
 	 */
 	void tendToFarmLand(JFrame window) {
-		this.farm.setMaintained(true);
-		this.setNumActions(this.getNumActions() - 1);
-		PopUp popup = new PopUp(this, window, "You tended to your farm land! Your animals are happier!");
-		popup.setVisible(true);
+		if (this.getNumActions() > 0) {
+			this.farm.setMaintained(true);
+			this.setNumActions(this.getNumActions() - 1);
+			PopUp popup = new PopUp(this, window, "You tended to your farm land! Your animals are happier!");
+			popup.setVisible(true);
+		} else {
+			// No actions left
+			PopUp error = new PopUp(this, window, "Sorry, you don't have any actions left!");
+			error.setVisible(true);	
+		}
+
 		
 	}
 	

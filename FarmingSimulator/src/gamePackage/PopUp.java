@@ -32,7 +32,7 @@ public class PopUp extends JDialog {
 		{
 			JLabel errorMessage_1 = new JLabel(errorMessage);
 			errorMessage_1.setHorizontalAlignment(SwingConstants.CENTER);
-			errorMessage_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
+			errorMessage_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 			errorMessage_1.setBounds(10, 11, 433, 57);
 			getContentPane().add(errorMessage_1);
 			
