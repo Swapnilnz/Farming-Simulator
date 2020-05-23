@@ -49,6 +49,10 @@ class GameEnvironment {
 	 * Main Screen GUI
 	 */
 	private MainScreen mainScreen;
+	/**
+	 * Setup screen GUI
+	 */
+	private StartGameScreen setupScreen;
 	
 	/**
 	 * Constructer; sets starting number of actions
@@ -312,7 +316,7 @@ class GameEnvironment {
 	
 	
 	/**
-	 * Does end of day calculations to add money, harvest if necessary etc
+	 * Does end of day calculations to add money, harvest if necessary 
 	 */
 	void endDay() {
 		// Add money (Milk Master; Shear Master; Harvester)
@@ -394,16 +398,13 @@ class GameEnvironment {
 	 * Start the adventure as set up is done
 	 */
 	private void startAdventure() {
-		launchMainScreen();
+		launchSetupScreen();
 	}
 	
 	/**
 	 * Get farmer name and age
 	 */
-	private void getFarmerStats() {
-		UI UI = new UI();
-		String farmerName = UI.inputFarmerName(this);
-		int farmerAge = UI.inputFarmerAge(this);
+	void getFarmerStats(String farmerName, int farmerAge) {
 		farmer = new Farmer(farmerName, farmerAge);
 	}
 	
@@ -450,6 +451,22 @@ class GameEnvironment {
 		mainWindow.closeWindow();
 	}
 	
+	/** 
+	 * Launch set up screen
+	 */
+	public void launchSetupScreen() {
+		setupScreen = new StartGameScreen(this);
+	}
+	
+	/**
+	 * Close set up screen
+	 */
+	
+	public void closeSetupScreen(StartGameScreen setupWindow) {
+		setupWindow.closeWindow();
+		this.launchMainScreen();
+
+	}
 	/**
 	 * Main method; used to start and end game
 	 * @param args no args needed
@@ -457,11 +474,6 @@ class GameEnvironment {
 	public static void main(String[] args) {
 
 		GameEnvironment game = new GameEnvironment();
-		UI UI = new UI();
-		game.getFarmerStats();
-		UI.inputNumDays(game);
-		UI.inputChooseFarm(game);
-		UI.inputFarmName(game);
 		game.startAdventure();
 
 	}
