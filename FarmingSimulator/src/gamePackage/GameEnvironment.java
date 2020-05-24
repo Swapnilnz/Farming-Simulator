@@ -71,6 +71,10 @@ public class GameEnvironment {
 	public GameEnvironment() {
 		numActions = 2;
 	}
+	/**
+	 * Variable used for testing purposes
+	 */
+	public boolean test;
 	
 	/**
 	 * View time left until crop harvest, animal happiness
@@ -80,7 +84,7 @@ public class GameEnvironment {
 		// Using GUI
 		ViewFarm viewFarm = new ViewFarm(this, window);
 		viewFarm.setVisible(true);
-
+		test = true;
 	}
     /**
      * View the farm's money
@@ -89,6 +93,7 @@ public class GameEnvironment {
 	public void viewFarmMoney(JFrame window) {
 		ViewFarmMoney viewFarmMoney = new ViewFarmMoney(this, window);
 		viewFarmMoney.setVisible(true);
+		test = true;
 
 	}
 	
@@ -100,6 +105,8 @@ public class GameEnvironment {
 		ToolMarket toolMarket = new ToolMarket();
 		ViewToolMarket viewToolMarket = new ViewToolMarket(this, window, toolMarket);
 		viewToolMarket.setVisible(true);
+		test = true;
+
 	}
 	
 	/**
@@ -110,6 +117,8 @@ public class GameEnvironment {
 		CropMarket cropMarket = new CropMarket();
 		ViewCropMarket viewCropMarket = new ViewCropMarket(this, window, cropMarket);
 		viewCropMarket.setVisible(true);
+		test = true;
+
 	}
 	
 	/** 
@@ -125,7 +134,7 @@ public class GameEnvironment {
 	/**
 	 * Move on to next day
 	 * @param window main game window
-	 * @param givenWarning boolean for if warning has been given (warning is given if num actions > 0)
+	 * @param givenWarning boolean for if warning has been given (warning is given if num actions greater than 0)
 	 */
 	public void nextDay(JFrame window, boolean givenWarning) {
 

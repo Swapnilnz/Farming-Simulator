@@ -34,6 +34,10 @@ public class ToolMarket {
 	 * int tele pad price
 	 */
 	private int teleportationPadPrice;
+	/**
+	 * Variable for testing purposes
+	 */
+	public boolean test;
 
 	
 	/**
@@ -60,6 +64,7 @@ public class ToolMarket {
 			// Error, already have one
 			PopUp error = new PopUp(game, window, "You already have a Harvester!");
 			error.setVisible(true);
+			test = true;
 		} else {
 			int farmMoney = game.farm.getFarmMoney();
 			if (farmMoney >= harvesterPrice) {
@@ -68,6 +73,8 @@ public class ToolMarket {
 			} else {
 				PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 				error.setVisible(true);
+				test = true;
+
 			}
 		}
 		
@@ -84,6 +91,8 @@ public class ToolMarket {
 			// Error, already have one
 			PopUp error = new PopUp(game, window, "You already have an Ultimate Watering Can!");
 			error.setVisible(true);
+			test = true;
+
 		} else {
 			int farmMoney = game.farm.getFarmMoney();
 			if (farmMoney >= wateringCanPrice) {
@@ -92,6 +101,8 @@ public class ToolMarket {
 			} else {
 				PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 				error.setVisible(true);
+				test = true;
+
 			}
 		}
 	}
@@ -107,6 +118,8 @@ public class ToolMarket {
 			// Error, already have one
 			PopUp error = new PopUp(game, window, "You already have an Animal Statue!");
 			error.setVisible(true);
+			test = true;
+
 		} else {
 			int farmMoney = game.farm.getFarmMoney();
 			if (farmMoney >= animalStatuePrice) {
@@ -115,6 +128,8 @@ public class ToolMarket {
 			} else {
 				PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 				error.setVisible(true);
+				test = true;
+
 			}
 		}
 		
@@ -131,6 +146,8 @@ public class ToolMarket {
 			// Error, already have one
 			PopUp error = new PopUp(game, window, "You already have a Milk Master!");
 			error.setVisible(true);
+			test = true;
+
 		} else {
 			int farmMoney = game.farm.getFarmMoney();
 			if (farmMoney >= milkMasterPrice) {
@@ -139,6 +156,8 @@ public class ToolMarket {
 			} else {
 				PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 				error.setVisible(true);
+				test = true;
+
 			}
 		}
 	}
@@ -154,6 +173,8 @@ public class ToolMarket {
 			// Error, already have one
 			PopUp error = new PopUp(game, window, "You already have an Shear Master!");
 			error.setVisible(true);
+			test = true;
+
 		} else {
 			int farmMoney = game.farm.getFarmMoney();
 			if (farmMoney >= shearMasterPrice) {
@@ -162,6 +183,8 @@ public class ToolMarket {
 			} else {
 				PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 				error.setVisible(true);
+				test = true;
+
 			}
 		}
 	}
@@ -181,6 +204,8 @@ public class ToolMarket {
 		} else {
 			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 			error.setVisible(true);
+			test = true;
+
 		}
 	}
 

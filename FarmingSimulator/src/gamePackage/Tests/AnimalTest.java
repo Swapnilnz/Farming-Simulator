@@ -25,6 +25,7 @@ class AnimalTest {
 		assertEquals((String)"Chicken", (String)item.getAnimalType());
 		assertEquals((int)5, (int)item.getWeight());
 		assertEquals((int)70, (int)item.getHappiness());
+		assertTrue("Chicken 1".equals(item.toString()));
 	}
 	
 	/**
@@ -32,10 +33,12 @@ class AnimalTest {
 	 */
 	@Test
 	void testAnimalSheep() {
-		Sheep item = new Sheep(1);
+		Sheep item = new Sheep(4);
 		assertEquals((String)"Sheep", (String)item.getAnimalType());
 		assertEquals((int)300, (int)item.getWeight());
 		assertEquals((int)80, (int)item.getHappiness());
+		assertTrue("Sheep 4".equals(item.toString()));
+
 	}
 	
 	/**
@@ -43,10 +46,12 @@ class AnimalTest {
 	 */
 	@Test
 	void testAnimalPig() {
-		Pig item = new Pig(1);
+		Pig item = new Pig(2);
 		assertEquals((String)"Pig", (String)item.getAnimalType());
 		assertEquals((int)200, (int)item.getWeight());
 		assertEquals((double)80, (int)item.getHappiness());
+		assertTrue("Pig 2".equals(item.toString()));
+
 	} 
 	
 	/**
@@ -58,6 +63,8 @@ class AnimalTest {
 		assertEquals((String)"Cow", (String)item.getAnimalType());
 		assertEquals((int)500, (int)item.getWeight());
 		assertEquals((int)60, (int)item.getHappiness());
+		assertTrue("Cow 1".equals(item.toString()));
+
 	}
 	
 	/*

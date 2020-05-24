@@ -14,6 +14,7 @@ public class Cow extends Animal{
 	 * Weight: 500
 	 * Happiness: 60
 	 * Health: 50
+	 * @param num allocated number for cow
 	 */
 	public Cow(int num) {
 		super("Cow", 500, 60, 50, num);

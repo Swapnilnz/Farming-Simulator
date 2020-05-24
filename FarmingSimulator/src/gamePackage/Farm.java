@@ -78,6 +78,7 @@ public class Farm {
 	 * Constructer; initialises crop inventory, item list, crop list, animal feed, farm money
 	 * @param farmType type of farm
 	 * @param growthRate growth rate of farm
+	 * @param startingMoney money the farm starts with
 	 */
 	Farm(String farmType, int growthRate, int startingMoney) {
 		staticFarmMoney = startingMoney;

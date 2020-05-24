@@ -24,6 +24,7 @@ public class EndGameScreen extends JDialog {
 
 	/**
 	 * Create the end game screen
+	 * @param game main game
 	 */
 	public EndGameScreen(GameEnvironment game) {
 		setResizable(false);

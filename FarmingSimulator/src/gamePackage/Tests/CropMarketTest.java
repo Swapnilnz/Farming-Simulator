@@ -46,6 +46,8 @@ class CropMarketTest {
 			}
 		}
 		assertEquals(1, count);
+		market.buyAvocado(game, 50000, window);
+		assertTrue(market.test);
 	}
 	
 	@Test
@@ -60,6 +62,8 @@ class CropMarketTest {
 			}
 		}
 		assertEquals(1, count);
+		market.buyCorn(game, 50000, window);
+		assertTrue(market.test);
 	}
 	
 	@Test
@@ -74,6 +78,8 @@ class CropMarketTest {
 			}
 		}
 		assertEquals(1, count);
+		market.buyWheat(game, 50000, window);
+		assertTrue(market.test);
 	}
 	
 	@Test
@@ -88,6 +94,8 @@ class CropMarketTest {
 			}
 		}
 		assertEquals(1, count);
+		market.buyPotato(game, 50000, window);
+		assertTrue(market.test);
 	}
 	
 	@Test
@@ -102,6 +110,8 @@ class CropMarketTest {
 			}
 		}
 		assertEquals(1, count);
+		market.buyCarrot(game, 50000, window);
+		assertTrue(market.test);
 	}
 	
 	@Test
@@ -116,6 +126,17 @@ class CropMarketTest {
 			}
 		}
 		assertEquals(1, count);
+		market.buyApple(game, 50000, window);
+		assertTrue(market.test);
+	}
+	
+	@Test
+	void buyAnimalFeed() {
+		market.buyAnimalFeed(game, 1, window);
+		assertEquals(45, farm.getFarmMoney());
+		assertEquals(1, farm.getAnimalFeed());
+		market.buyAnimalFeed(game, 50000, window);
+		assertTrue(market.test);
 	}
 
 }

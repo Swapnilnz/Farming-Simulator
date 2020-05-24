@@ -36,6 +36,7 @@ public class Animal {
 	 * @param weight starting weight
 	 * @param happiness starting happiness
 	 * @param health starting health
+	 * @param num allocated number of animal
 	 */
 	public Animal(String animalType, int weight, int happiness, int health, int num) {
 		this.animalType = animalType;

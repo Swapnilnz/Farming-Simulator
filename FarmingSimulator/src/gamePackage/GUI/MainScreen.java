@@ -33,7 +33,6 @@ public class MainScreen {
 	/**
 	 * Create the main screen
 	 * @param incomingGame game to update
-	 * @wbp.parser.entryPoint
 	 */
 	public MainScreen(GameEnvironment incomingGame) {
 		game = incomingGame;

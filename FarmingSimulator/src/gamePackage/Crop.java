@@ -3,10 +3,10 @@ package gamePackage;
 import java.util.HashMap;
 
 /**
- * @author Swapnil Bhagat, Reed Earl
  * Class Crop takes a String "crop" (e.g. "grass") that specified the crop to be created.
  * Thus crop attributes are initialised through "crop". Has usual getters and setters for attributes
  * purchasePrice, sellPrice, daysTillHarvest, cropAmount, cropType.
+ * @author Swapnil Bhagat, Reed Earl
  */
 public class Crop {
 	

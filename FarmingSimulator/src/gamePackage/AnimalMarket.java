@@ -26,6 +26,10 @@ public class AnimalMarket {
 	 * Sheep price
 	 */
 	int sheepPrice;
+	/**
+	 * Variable for testing
+	 */
+	public boolean test;
 	
 	/**
 	 * Constructer; sets animal prices
@@ -51,6 +55,7 @@ public class AnimalMarket {
 			// Error
 			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 			error.setVisible(true);
+			test = true;
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
 			for (int i = 0; i < amount; i++) {
@@ -74,6 +79,8 @@ public class AnimalMarket {
 			// Error
 			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 			error.setVisible(true);
+			test = true;
+
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
 			for (int i = 0; i < amount; i++) {
@@ -97,6 +104,8 @@ public class AnimalMarket {
 			// Error
 			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 			error.setVisible(true);
+			test = true;
+
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
 			for (int i = 0; i < amount; i++) {
@@ -120,6 +129,8 @@ public class AnimalMarket {
 			// Error
 			PopUp error = new PopUp(game, window, "You don't have enough money for that!");
 			error.setVisible(true);
+			test = true;
+
 		} else {
 			game.farm.farmMoney -= totalPurchasePrice;
 			for (int i = 0; i < amount; i++) {

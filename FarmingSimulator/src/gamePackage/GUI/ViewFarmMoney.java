@@ -27,6 +27,8 @@ public class ViewFarmMoney extends JDialog {
 	
 	/**
 	 * Create the dialog.
+	 * @param game main game
+	 * @param window main window
 	 */
 	public ViewFarmMoney(GameEnvironment game, JFrame window) {
 		super(window, "View Farm Money", true);

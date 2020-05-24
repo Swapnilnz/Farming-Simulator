@@ -15,6 +15,7 @@ public class Chicken extends Animal {
 	 * Weight: 5
 	 * Happiness: 70
 	 * Health: 50
+	 * @param num allocated number for chicken
 	 */
 	public Chicken(int num) {
 		super("Chicken", 5, 70, 50, num);

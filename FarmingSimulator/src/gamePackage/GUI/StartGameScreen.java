@@ -64,6 +64,7 @@ public class StartGameScreen {
 
 	/**
 	 * Create the setup screen
+	 * @param incomingGame main game
 	 */
 	public StartGameScreen(GameEnvironment incomingGame) {
 		game = incomingGame;

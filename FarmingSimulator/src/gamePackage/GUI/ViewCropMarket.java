@@ -59,7 +59,7 @@ public class ViewCropMarket extends JDialog {
 	 * Create the crop market
 	 * @param game main game
 	 * @param window main window
-	 * @param animalMarket crop market instance
+	 * @param cropMarket crop market instance
 	 */
 	public ViewCropMarket(GameEnvironment game, JFrame window, CropMarket cropMarket) {
 		super(window, "Cassie's Crop Market", true);
