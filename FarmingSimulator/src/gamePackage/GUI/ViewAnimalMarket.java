@@ -200,7 +200,7 @@ public class ViewAnimalMarket extends JDialog {
 		});
 		
 		// Buy Pig
-		JButton buyPig = new JButton("Buy Pig ($" + animalMarket.getCowPrice() + ")");
+		JButton buyPig = new JButton("Buy Pig ($" + animalMarket.getPigPrice() + ")");
 		buyPig.setBackground(new Color(210, 180, 140));
 		buyPig.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		buyPig.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -223,7 +223,7 @@ public class ViewAnimalMarket extends JDialog {
 		});
 		
 		// Buy Chicken
-		JButton buyChicken = new JButton("Buy Chicken ($" + animalMarket.getCowPrice() + ")");
+		JButton buyChicken = new JButton("Buy Chicken ($" + animalMarket.getChickenPrice() + ")");
 		buyChicken.setBackground(new Color(210, 180, 140));
 		buyChicken.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		buyChicken.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -246,7 +246,7 @@ public class ViewAnimalMarket extends JDialog {
 		});
 		
 		// Buy Sheep
-		JButton buySheep = new JButton("Buy Sheep ($" + animalMarket.getCowPrice() + ")");
+		JButton buySheep = new JButton("Buy Sheep ($" + animalMarket.getSheepPrice() + ")");
 		buySheep.setBackground(new Color(210, 180, 140));
 		buySheep.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		buySheep.setHorizontalTextPosition(SwingConstants.CENTER);
