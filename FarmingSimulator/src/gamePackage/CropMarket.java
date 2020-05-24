@@ -54,7 +54,7 @@ public class CropMarket {
 			int ogNum = game.farm.cropInventory.get("Avocado");
 			game.farm.cropInventory.put("Avocado", ogNum + amount);
 			for (int i = 0; i < amount; i++) {
-				Crop newCrop = new Crop("Avocado", ogNum + i);
+				Crop newCrop = new Crop("Avocado", ogNum + i + 1);
 				game.farm.cropList.add(newCrop);
 			}
 		}
@@ -81,7 +81,7 @@ public class CropMarket {
 			int ogNum = game.farm.cropInventory.get("Corn");
 			game.farm.cropInventory.put("Corn", ogNum + amount);
 			for (int i = 0; i < amount; i++) {
-				Crop newCrop = new Crop("Corn", ogNum + i);
+				Crop newCrop = new Crop("Corn", ogNum + i + 1);
 				game.farm.cropList.add(newCrop);
 			}
 		}
@@ -107,7 +107,7 @@ public class CropMarket {
 			int ogNum = game.farm.cropInventory.get("Wheat");
 			game.farm.cropInventory.put("Wheat", ogNum + amount);
 			for (int i = 0; i < amount; i++) {
-				Crop newCrop = new Crop("Wheat", ogNum + i);
+				Crop newCrop = new Crop("Wheat", ogNum + i + 1);
 				game.farm.cropList.add(newCrop);
 			}
 		}
@@ -133,7 +133,7 @@ public class CropMarket {
 			int ogNum = game.farm.cropInventory.get("Potato");
 			game.farm.cropInventory.put("Potato", ogNum + amount);
 			for (int i = 0; i < amount; i++) {
-				Crop newCrop = new Crop("Potato", ogNum + i);
+				Crop newCrop = new Crop("Potato", ogNum + i + 1);
 				game.farm.cropList.add(newCrop);
 			}
 		}
@@ -159,7 +159,7 @@ public class CropMarket {
 			int ogNum = game.farm.cropInventory.get("Carrot");
 			game.farm.cropInventory.put("Carrot", ogNum + amount);
 			for (int i = 0; i < amount; i++) {
-				Crop newCrop = new Crop("Carrot", ogNum + i);
+				Crop newCrop = new Crop("Carrot", ogNum + i + 1);
 				game.farm.cropList.add(newCrop);
 			}
 		}
@@ -185,7 +185,7 @@ public class CropMarket {
 			int ogNum = game.farm.cropInventory.get("Apple");
 			game.farm.cropInventory.put("Apple", ogNum + amount);
 			for (int i = 0; i < amount; i++) {
-				Crop newCrop = new Crop("Apple", ogNum + i);
+				Crop newCrop = new Crop("Apple", ogNum + i + 1);
 				game.farm.cropList.add(newCrop);
 			}
 
