@@ -77,12 +77,13 @@ public class StartGameScreen {
 	 */
 	private void initialize() {
 		window = new JFrame();
+		window.setResizable(false);
 		window.setTitle("Farm Simulator Start Menu");
 		window.setBounds(100, 100, 722, 302);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setLayout(null);
 		
-		JLabel farmTypeTip = new JLabel("Different farms have different starting money and growth rates");
+		JLabel farmTypeTip = new JLabel("Farms have different starting money and growth rates");
 		farmTypeTip.setIcon(new ImageIcon(StartGameScreen.class.getResource("/images/bigButton.png")));
 		farmTypeTip.setHorizontalTextPosition(SwingConstants.CENTER);
 		farmTypeTip.setHorizontalAlignment(SwingConstants.CENTER);
@@ -91,12 +92,12 @@ public class StartGameScreen {
 		window.getContentPane().add(farmTypeTip);
 		
 		// Hint for num characters
-		JLabel hint1 = new JLabel("(3 - 15 Characters)");
+		JLabel hint1 = new JLabel("(3 - 15 Characters, alphabetic, no symbols)");
 		hint1.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		hint1.setHorizontalTextPosition(SwingConstants.CENTER);
-		hint1.setIcon(new ImageIcon(StartGameScreen.class.getResource("/images/button.jpg")));
+		hint1.setIcon(new ImageIcon(StartGameScreen.class.getResource("/images/bigButton.png")));
 		hint1.setHorizontalAlignment(SwingConstants.CENTER);
-		hint1.setBounds(10, 52, 115, 14);
+		hint1.setBounds(10, 52, 314, 14);
 		window.getContentPane().add(hint1);
 		
 		// Farmer name label
@@ -131,12 +132,12 @@ public class StartGameScreen {
 		window.getContentPane().add(theFarmType);
 		
 		// Hint for num chars
-		JLabel hint2 = new JLabel("(3 - 15 Characters)");
+		JLabel hint2 = new JLabel("(3 - 15 Characters, alphabetic, no symbols)");
 		hint2.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
-		hint2.setIcon(new ImageIcon(StartGameScreen.class.getResource("/images/button.jpg")));
+		hint2.setIcon(new ImageIcon(StartGameScreen.class.getResource("/images/bigButton.png")));
 		hint2.setHorizontalTextPosition(SwingConstants.CENTER);
 		hint2.setHorizontalAlignment(SwingConstants.CENTER);
-		hint2.setBounds(362, 130, 115, 14);
+		hint2.setBounds(362, 130, 322, 14);
 		window.getContentPane().add(hint2);
 		
 		// Farm name label
