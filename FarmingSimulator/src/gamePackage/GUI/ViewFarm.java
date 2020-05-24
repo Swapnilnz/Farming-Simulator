@@ -1,4 +1,4 @@
-package gamePackage;
+package gamePackage.GUI;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -13,6 +13,10 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
+
+import gamePackage.Animal;
+import gamePackage.Crop;
+import gamePackage.GameEnvironment;
 
 /**
  * View the farm crops and animals

@@ -1,4 +1,4 @@
-package gamePackage;
+package gamePackage.GUI;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -14,6 +14,8 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
+
+import gamePackage.GameEnvironment;
 
 /**
  * View farm money

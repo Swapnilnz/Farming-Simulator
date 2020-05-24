@@ -2,6 +2,8 @@ package gamePackage;
 
 import javax.swing.JFrame;
 
+import gamePackage.GUI.PopUp;
+
 /**
  * Contains all methods associated with buying items from the tool market
  * @author Swapnil Bhagat, Reed Earl

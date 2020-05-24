@@ -1,4 +1,4 @@
-package gamePackage;
+package gamePackage.GUI;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -16,6 +16,9 @@ import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
+
+import gamePackage.CropMarket;
+import gamePackage.GameEnvironment;
 
 /**
  * Crop market GUI dialog
@@ -206,7 +209,7 @@ public class ViewCropMarket extends JDialog {
 			
 			{
 				// Buy avocado
-				JButton buyAvocado = new JButton("Buy Avocado ($" + cropMarket.cropPurchaseDic.get("Avocado") + ")");
+				JButton buyAvocado = new JButton("Buy Avocado ($" + cropMarket.getCropPurchaseDic().get("Avocado") + ")");
 				buyAvocado.setBackground(new Color(210, 180, 140));
 				buyAvocado.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 				buyAvocado.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -229,7 +232,7 @@ public class ViewCropMarket extends JDialog {
 			}
 			{
 				// Buy corn
-				JButton buyCorn = new JButton("Buy Corn ($" + cropMarket.cropPurchaseDic.get("Corn") + ")");
+				JButton buyCorn = new JButton("Buy Corn ($" + cropMarket.getCropPurchaseDic().get("Corn") + ")");
 				buyCorn.setBackground(new Color(210, 180, 140));
 				buyCorn.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 				buyCorn.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -252,7 +255,7 @@ public class ViewCropMarket extends JDialog {
 			}
 			{
 				// Buy wheat
-				JButton buyWheat = new JButton("Buy Wheat ($" + cropMarket.cropPurchaseDic.get("Wheat") + ")");
+				JButton buyWheat = new JButton("Buy Wheat ($" + cropMarket.getCropPurchaseDic().get("Wheat") + ")");
 				buyWheat.setBackground(new Color(210, 180, 140));
 				buyWheat.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 				buyWheat.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -274,7 +277,7 @@ public class ViewCropMarket extends JDialog {
 			}
 			{
 				// Buy potato
-				JButton buyPotato = new JButton("Buy Potato ($" + cropMarket.cropPurchaseDic.get("Potato") + ")");
+				JButton buyPotato = new JButton("Buy Potato ($" + cropMarket.getCropPurchaseDic().get("Potato") + ")");
 				buyPotato.setBackground(new Color(210, 180, 140));
 				buyPotato.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 				buyPotato.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -295,7 +298,7 @@ public class ViewCropMarket extends JDialog {
 			}
 			{
 				// Buy carrot
-				JButton buyCarrot = new JButton("Buy Carrot ($" + cropMarket.cropPurchaseDic.get("Carrot") + ")");
+				JButton buyCarrot = new JButton("Buy Carrot ($" + cropMarket.getCropPurchaseDic().get("Carrot") + ")");
 				buyCarrot.setBackground(new Color(210, 180, 140));
 				buyCarrot.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 				buyCarrot.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -317,7 +320,7 @@ public class ViewCropMarket extends JDialog {
 			}
 			{
 				// Buy apple
-				JButton buyApple = new JButton("Buy Apple ($" + cropMarket.cropPurchaseDic.get("Apple") + ")");
+				JButton buyApple = new JButton("Buy Apple ($" + cropMarket.getCropPurchaseDic().get("Apple") + ")");
 				buyApple.setBackground(new Color(210, 180, 140));
 				buyApple.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 				buyApple.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -338,7 +341,7 @@ public class ViewCropMarket extends JDialog {
 			}
 			{
 				// Buy animal feed
-				JButton buyAnimalFeed = new JButton("Buy Animal Feed ($" + cropMarket.cropPurchaseDic.get("Animal Feed") + ")");
+				JButton buyAnimalFeed = new JButton("Buy Animal Feed ($" + cropMarket.getCropPurchaseDic().get("Animal Feed") + ")");
 				buyAnimalFeed.setBackground(new Color(210, 180, 140));
 				buyAnimalFeed.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 				buyAnimalFeed.setHorizontalTextPosition(SwingConstants.CENTER);

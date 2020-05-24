@@ -1,4 +1,4 @@
-package gamePackage;
+package gamePackage.GUI;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -11,6 +11,8 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
+
+import gamePackage.GameEnvironment;
 
 /**
  * Main screen of the game, hub for all actions

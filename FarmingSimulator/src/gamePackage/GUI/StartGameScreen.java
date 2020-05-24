@@ -1,4 +1,4 @@
-package gamePackage;
+package gamePackage.GUI;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,6 +14,13 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
+
+import gamePackage.DesertFarm;
+import gamePackage.GameEnvironment;
+import gamePackage.MountainFarm;
+import gamePackage.PlainsFarm;
+import gamePackage.SwampFarm;
+
 import java.awt.Color;
 
 /**

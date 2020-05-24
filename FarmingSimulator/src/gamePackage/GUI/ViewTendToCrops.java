@@ -1,4 +1,4 @@
-package gamePackage;
+package gamePackage.GUI;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -13,6 +13,8 @@ import javax.swing.ImageIcon;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+
+import gamePackage.GameEnvironment;
 
 /**
  * Choose which crop to tend to

@@ -2,6 +2,8 @@ package gamePackage;
 
 import javax.swing.JFrame;
 
+import gamePackage.GUI.PopUp;
+
 /**
  * Animal Market; cows, chicken, sheep, and pig are bought here
  * @author Swapnil Bhagat, Reed Earl

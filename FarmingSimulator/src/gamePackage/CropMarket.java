@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 import javax.swing.JFrame;
 
+import gamePackage.GUI.PopUp;
+
 /**
  * Crop Market; where crops (Avocado, Corn, Wheat, Potato, Apple, Carrot) are bought
  * @author Swapnil Bhagat, Reed Earl
@@ -14,15 +16,15 @@ public class CropMarket {
 	/**
 	 * Dictionary of crops to their purchase price
 	 */
-	HashMap<String, Integer> cropPurchaseDic;
+	private HashMap<String, Integer> cropPurchaseDic;
 	
 	/**
 	 * Constructer; initialises the crop purchase dictionary
 	 */
 	public CropMarket() {
-		cropPurchaseDic = new HashMap<String, Integer>();
-		cropPurchaseDic.put("Avocado", 8); cropPurchaseDic.put("Corn", 5); cropPurchaseDic.put("Wheat", 4);
-		cropPurchaseDic.put("Potato", 7); cropPurchaseDic.put("Carrot", 10); cropPurchaseDic.put("Apple", 6); cropPurchaseDic.put("Animal Feed", 5);
+		setCropPurchaseDic(new HashMap<String, Integer>());
+		getCropPurchaseDic().put("Avocado", 8); getCropPurchaseDic().put("Corn", 5); getCropPurchaseDic().put("Wheat", 4);
+		getCropPurchaseDic().put("Potato", 7); getCropPurchaseDic().put("Carrot", 10); getCropPurchaseDic().put("Apple", 6); getCropPurchaseDic().put("Animal Feed", 5);
 	}
 	
 	/**
@@ -32,7 +34,7 @@ public class CropMarket {
 	 * @param window main screen window
 	 */
 	public void buyAvocado(GameEnvironment game, int amount, JFrame window) {
-		int totalPurchasePrice = amount * cropPurchaseDic.get("Avocado");
+		int totalPurchasePrice = amount * getCropPurchaseDic().get("Avocado");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
 			// Error
@@ -57,7 +59,7 @@ public class CropMarket {
 	 * @param window main screen window
 	 */
 	public void buyCorn(GameEnvironment game, int amount, JFrame window) {
-		int totalPurchasePrice = amount * cropPurchaseDic.get("Corn");
+		int totalPurchasePrice = amount * getCropPurchaseDic().get("Corn");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
 			// Error
@@ -81,7 +83,7 @@ public class CropMarket {
 	 * @param window main screen window
 	 */
 	public void buyWheat(GameEnvironment game, int amount, JFrame window) {
-		int totalPurchasePrice = amount * cropPurchaseDic.get("Wheat");
+		int totalPurchasePrice = amount * getCropPurchaseDic().get("Wheat");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
 			// Error
@@ -105,7 +107,7 @@ public class CropMarket {
 	 * @param window main screen window
 	 */
 	public void buyPotato(GameEnvironment game, int amount, JFrame window) {
-		int totalPurchasePrice = amount * cropPurchaseDic.get("Potato");
+		int totalPurchasePrice = amount * getCropPurchaseDic().get("Potato");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
 			// Error
@@ -129,7 +131,7 @@ public class CropMarket {
 	 * @param window main screen window
 	 */
 	public void buyCarrot(GameEnvironment game, int amount, JFrame window) {
-		int totalPurchasePrice = amount * cropPurchaseDic.get("Carrot");
+		int totalPurchasePrice = amount * getCropPurchaseDic().get("Carrot");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
 			// Error
@@ -153,7 +155,7 @@ public class CropMarket {
 	 * @param window main screen window
 	 */
 	public void buyApple(GameEnvironment game, int amount, JFrame window) {
-		int totalPurchasePrice = amount * cropPurchaseDic.get("Apple");
+		int totalPurchasePrice = amount * getCropPurchaseDic().get("Apple");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
 			// Error
@@ -178,9 +180,9 @@ public class CropMarket {
 	 * @param amount amount to buy
 	 * @param window main screen window
 	 */
-	void buyAnimalFeed(GameEnvironment game, int amount, JFrame window) {
+	public void buyAnimalFeed(GameEnvironment game, int amount, JFrame window) {
 		// Add animal feed, remove money
-		int totalPurchasePrice = amount * cropPurchaseDic.get("Animal Feed");
+		int totalPurchasePrice = amount * getCropPurchaseDic().get("Animal Feed");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
 			// Error
@@ -190,6 +192,20 @@ public class CropMarket {
 			game.farm.animalFeed += amount;
 			game.farm.farmMoney -= totalPurchasePrice;
 		}
+	}
+
+	/**
+	 * @return the cropPurchaseDic
+	 */
+	public HashMap<String, Integer> getCropPurchaseDic() {
+		return cropPurchaseDic;
+	}
+
+	/**
+	 * @param cropPurchaseDic the cropPurchaseDic to set
+	 */
+	public void setCropPurchaseDic(HashMap<String, Integer> cropPurchaseDic) {
+		this.cropPurchaseDic = cropPurchaseDic;
 	}
 	
 	

@@ -1,4 +1,4 @@
-package gamePackage;
+package gamePackage.GUI;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -7,6 +7,9 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
+
+import gamePackage.GameEnvironment;
+
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -72,7 +75,7 @@ public class EndGameScreen extends JDialog {
 		getContentPane().add(gameDuration);
 		
 		// Money earnt
-		JLabel label_1 = new JLabel("Over this time, you made $" + (game.farm.farmMoney - game.farm.staticFarmMoney));
+		JLabel label_1 = new JLabel("Over this time, you made $" + (game.farm.getStaticFarmMoney() - game.farm.getStaticFarmMoney()));
 		label_1.setBorder(new LineBorder(new Color(139, 69, 19), 2, true));
 		label_1.setIcon(new ImageIcon(EndGameScreen.class.getResource("/images/bigButton.png")));
 		label_1.setHorizontalTextPosition(SwingConstants.CENTER);

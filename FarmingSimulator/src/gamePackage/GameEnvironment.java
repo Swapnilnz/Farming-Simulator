@@ -6,6 +6,17 @@ import java.util.Random;
 
 import javax.swing.JFrame;
 
+import gamePackage.GUI.EndGameScreen;
+import gamePackage.GUI.MainScreen;
+import gamePackage.GUI.PopUp;
+import gamePackage.GUI.StartGameScreen;
+import gamePackage.GUI.ViewAnimalMarket;
+import gamePackage.GUI.ViewCropMarket;
+import gamePackage.GUI.ViewFarm;
+import gamePackage.GUI.ViewFarmMoney;
+import gamePackage.GUI.ViewTendToCrops;
+import gamePackage.GUI.ViewToolMarket;
+
 /**
  * Main class of the game, contains methods for every main action able to be performed by the farmer
  * as well as initialising all the other classes required
@@ -65,7 +76,7 @@ public class GameEnvironment {
 	 * View time left until crop harvest, animal happiness
 	 * @param window main game window
 	 */
-	void viewFarm(JFrame window) {
+	public void viewFarm(JFrame window) {
 		// Using GUI
 		ViewFarm viewFarm = new ViewFarm(this, window);
 		viewFarm.setVisible(true);
@@ -75,7 +86,7 @@ public class GameEnvironment {
      * View the farm's money
      * @param window main game window
      */
-	void viewFarmMoney(JFrame window) {
+	public void viewFarmMoney(JFrame window) {
 		ViewFarmMoney viewFarmMoney = new ViewFarmMoney(this, window);
 		viewFarmMoney.setVisible(true);
 
@@ -85,7 +96,7 @@ public class GameEnvironment {
 	 * Visit Tom's Tool Market and purches various utility items
 	 * @param window main game window
 	 */
-	void visitToolMarket(JFrame window) {
+	public void visitToolMarket(JFrame window) {
 		ToolMarket toolMarket = new ToolMarket();
 		ViewToolMarket viewToolMarket = new ViewToolMarket(this, window, toolMarket);
 		viewToolMarket.setVisible(true);
@@ -95,7 +106,7 @@ public class GameEnvironment {
 	 * Visit crop market to buy crops
 	 * @param window main game window
 	 */
-	void visitCropMarket(JFrame window) {
+	public void visitCropMarket(JFrame window) {
 		CropMarket cropMarket = new CropMarket();
 		ViewCropMarket viewCropMarket = new ViewCropMarket(this, window, cropMarket);
 		viewCropMarket.setVisible(true);
@@ -105,7 +116,7 @@ public class GameEnvironment {
 	 * Visit Andy's animal market to buy animals
 	 * @param window main game window
 	 */
-	void visitAnimalMarket(JFrame window) {
+	public void visitAnimalMarket(JFrame window) {
 		AnimalMarket animalMarket = new AnimalMarket();
 		ViewAnimalMarket viewAnimalMarket = new ViewAnimalMarket(this, window, animalMarket);
 		viewAnimalMarket.setVisible(true);
@@ -143,7 +154,7 @@ public class GameEnvironment {
 	 * @param window main game window
 	 * @param crop crop to tend to, decreases its days till harvest
 	 */
-	void tendToCrops(JFrame window, String crop) {
+	public void tendToCrops(JFrame window, String crop) {
 		if (farm.cropInventory.get(crop) > 0) {
 
 			for (Crop tempCrop : this.farm.cropList) {
@@ -184,7 +195,7 @@ public class GameEnvironment {
 	 * Tend to one type of crop on the farm, has only window parameter
 	 * @param window main game window
 	 */
-	void tendToCrops(JFrame window) {
+	public void tendToCrops(JFrame window) {
 		ViewTendToCrops view = new ViewTendToCrops(this, window);
 		view.setVisible(true);
 
@@ -422,7 +433,7 @@ public class GameEnvironment {
 	 * @param farmerName string of farmer name to set
 	 * @param farmerAge int of farmer age to set
 	 */
-	void setFarmerStats(String farmerName, int farmerAge) {
+	public void setFarmerStats(String farmerName, int farmerAge) {
 		farmer = new Farmer(farmerName, farmerAge);
 	}
 	
