@@ -14,6 +14,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
 
 public class StartGameScreen {
 
@@ -54,23 +57,37 @@ public class StartGameScreen {
 	private void initialize() {
 		window = new JFrame();
 		window.setTitle("Farm Simulator Start Menu");
-		window.setBounds(100, 100, 450, 360);
+		window.setBounds(100, 100, 722, 302);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setLayout(null);
 		
+		JLabel lblNewLabel_2 = new JLabel("(3 - 15 Characters)");
+		lblNewLabel_2.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
+		lblNewLabel_2.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblNewLabel_2.setIcon(new ImageIcon(StartGameScreen.class.getResource("/images/button.jpg")));
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setBounds(10, 52, 115, 14);
+		window.getContentPane().add(lblNewLabel_2);
+		
 		JLabel lblNewLabel = new JLabel("Farmer Name:");
+		lblNewLabel.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
+		lblNewLabel.setIcon(new ImageIcon(StartGameScreen.class.getResource("/images/setupButton.png")));
+		lblNewLabel.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel.setBounds(10, 11, 115, 34);
+		lblNewLabel.setBounds(10, 14, 115, 34);
 		window.getContentPane().add(lblNewLabel);
 		
 		nameTextField = new JTextField();
-		nameTextField.setBounds(141, 11, 183, 34);
+		nameTextField.setBounds(141, 14, 183, 34);
 		window.getContentPane().add(nameTextField);
 		nameTextField.setColumns(10);
 		
 		JLabel lblSelectFarmType = new JLabel("Select Farm Type:");
+		lblSelectFarmType.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
+		lblSelectFarmType.setIcon(new ImageIcon(StartGameScreen.class.getResource("/images/setupbutton2.png")));
+		lblSelectFarmType.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblSelectFarmType.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblSelectFarmType.setBounds(10, 56, 134, 34);
+		lblSelectFarmType.setBounds(397, 14, 136, 34);
 		window.getContentPane().add(lblSelectFarmType);
 		
 		/*
@@ -79,30 +96,31 @@ public class StartGameScreen {
 		JComboBox<String> theFarmType = new JComboBox<String>();
 		theFarmType.setFont(new Font("Tahoma", Font.BOLD, 11));
 		theFarmType.setModel(new DefaultComboBoxModel<String>(new String[] {"Swamp Farm", "Desert Farm", "Plains Farm", "Mountain Farm"}));
-		theFarmType.setBounds(169, 56, 128, 34);
+		theFarmType.setBounds(543, 14, 128, 34);
 		window.getContentPane().add(theFarmType);
-		
-		JLabel lblNewLabel_2 = new JLabel("(3 - 15 Characters)");
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setBounds(10, 37, 115, 14);
-		window.getContentPane().add(lblNewLabel_2);
 		
 		/**
 		 * Farm name
 		 */
-		JLabel lblFarmName = new JLabel("Farm Name:");
-		lblFarmName.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblFarmName.setBounds(10, 201, 115, 34);
-		window.getContentPane().add(lblFarmName);
 		
 		JLabel label_1 = new JLabel("(3 - 15 Characters)");
+		label_1.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
+		label_1.setIcon(new ImageIcon(StartGameScreen.class.getResource("/images/button.jpg")));
+		label_1.setHorizontalTextPosition(SwingConstants.CENTER);
 		label_1.setHorizontalAlignment(SwingConstants.CENTER);
-		label_1.setBounds(10, 227, 115, 14);
+		label_1.setBounds(362, 114, 115, 14);
 		window.getContentPane().add(label_1);
+		JLabel lblFarmName = new JLabel("Farm Name:");
+		lblFarmName.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
+		lblFarmName.setIcon(new ImageIcon(StartGameScreen.class.getResource("/images/setupButton.png")));
+		lblFarmName.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblFarmName.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblFarmName.setBounds(362, 76, 115, 34);
+		window.getContentPane().add(lblFarmName);
 		
 		farmTextField = new JTextField();
 		farmTextField.setColumns(10);
-		farmTextField.setBounds(141, 201, 183, 34);
+		farmTextField.setBounds(488, 76, 183, 34);
 		window.getContentPane().add(farmTextField);
 		
 		/*
@@ -111,12 +129,15 @@ public class StartGameScreen {
 		
 		JSpinner spinnerGameLength = new JSpinner();
 		spinnerGameLength.setModel(new SpinnerNumberModel(5, 5, 15, 1));
-		spinnerGameLength.setBounds(338, 103, 65, 34);
+		spinnerGameLength.setBounds(505, 150, 65, 34);
 		window.getContentPane().add(spinnerGameLength);
 		
 		JLabel lblNewLabel_1 = new JLabel("How long would you like your farming adventure to last?");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_1.setBounds(10, 101, 327, 39);
+		lblNewLabel_1.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
+		lblNewLabel_1.setIcon(new ImageIcon(StartGameScreen.class.getResource("/images/bigButton.png")));
+		lblNewLabel_1.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1.setBounds(53, 150, 442, 34);
 		window.getContentPane().add(lblNewLabel_1);
 		
 		/*
@@ -124,17 +145,23 @@ public class StartGameScreen {
 		 */
 		JSpinner farmersAge = new JSpinner();
 		farmersAge.setModel(new SpinnerNumberModel(0, 0, 100, 1));
-		farmersAge.setBounds(169, 153, 65, 34);
+		farmersAge.setBounds(244, 76, 65, 34);
 		window.getContentPane().add(farmersAge);
 		
 		JLabel lblWhatIsYour = new JLabel("What is your farmers age?");
-		lblWhatIsYour.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblWhatIsYour.setBounds(10, 151, 162, 39);
+		lblWhatIsYour.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
+		lblWhatIsYour.setIcon(new ImageIcon(StartGameScreen.class.getResource("/images/button.jpg")));
+		lblWhatIsYour.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblWhatIsYour.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblWhatIsYour.setBounds(32, 76, 202, 34);
 		window.getContentPane().add(lblWhatIsYour);
 		/*
 		 * Start game button checks if game variables are set then starts game! 
 		 */
-		JButton btnNewButton = new JButton("Start Game");
+		JButton btnNewButton = new JButton("Start Game!");
+		btnNewButton.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
+		btnNewButton.setBackground(new Color(210, 180, 140));
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if ((game.farmerNameChecker(nameTextField.getText())) && (game.farmerNameChecker(farmTextField.getText()))) {
@@ -154,7 +181,7 @@ public class StartGameScreen {
 					}
 					game.farm.setFarmName(farmTextField.getText());
 					game.farm.setFarmName(farmTextField.getText());
-					game.getFarmerStats(nameTextField.getText(), (Integer) farmersAge.getValue());
+					game.setFarmerStats(nameTextField.getText(), (Integer) farmersAge.getValue());
 					game.setNumDays((Integer) spinnerGameLength.getValue());
 					finishedWindow();
 
@@ -164,8 +191,13 @@ public class StartGameScreen {
 				}
 			}
 		});
-		btnNewButton.setBounds(169, 287, 89, 23);
+		btnNewButton.setBounds(266, 200, 145, 50);
 		window.getContentPane().add(btnNewButton);
+		
+		JLabel background = new JLabel("");
+		background.setIcon(new ImageIcon(StartGameScreen.class.getResource("/images/setupScreenGrass.png")));
+		background.setBounds(0, 0, 706, 263);
+		window.getContentPane().add(background);
 		
 		
 	}

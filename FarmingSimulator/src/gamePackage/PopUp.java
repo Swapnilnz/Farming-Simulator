@@ -39,15 +39,15 @@ public class PopUp extends JDialog {
 			errorMessage_1.setHorizontalTextPosition(SwingConstants.CENTER);
 			errorMessage_1.setIcon(new ImageIcon(PopUp.class.getResource("/images/errorText.png")));
 			errorMessage_1.setHorizontalAlignment(SwingConstants.CENTER);
-			errorMessage_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+			errorMessage_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 			errorMessage_1.setBounds(10, 11, 433, 57);
 			getContentPane().add(errorMessage_1);
 			
 		}
 		JButton exitButton = new JButton("Go Back");
+		exitButton.setBackground(new Color(210, 180, 140));
 		exitButton.setHorizontalTextPosition(SwingConstants.CENTER);
-		exitButton.setIcon(new ImageIcon(PopUp.class.getResource("/images/button.jpg")));
-		exitButton.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		exitButton.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		exitButton.setBounds(354, 79, 89, 23);
 		getContentPane().add(exitButton);
 		
@@ -70,8 +70,11 @@ public class PopUp extends JDialog {
 					game.nextDay(window, true);
 				}
 			});
-			btnYes.setBounds(50, 71, 89, 23);
+			btnYes.setBounds(50, 79, 89, 23);
 			getContentPane().add(btnYes);
+			btnYes.setBackground(new Color(210, 180, 140));
+			btnYes.setHorizontalTextPosition(SwingConstants.CENTER);
+			btnYes.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		}
 
 	}

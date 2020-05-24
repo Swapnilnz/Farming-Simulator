@@ -32,7 +32,7 @@ class GameEnvironment {
 	/**
 	 * Static String alphabet, used for validifying farmer name
 	 */
-	private static String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	private static String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' ";
 	/**
 	 * (Integer) Static number of actions the player has
 	 */
@@ -344,12 +344,14 @@ class GameEnvironment {
 		// Adds animal money
 		int moneyToAdd = getTotalMoney();
 		this.farm.farmMoney += moneyToAdd;
+		
 		// Decrease all days till harvest by 1 
 		for (Crop crop : this.farm.cropList) {
-			if (crop.getDaysTillHarvest() > this.farm.getGrowthRate()) {
+			if (crop.getDaysTillHarvest() >= this.farm.getGrowthRate()) {
 				crop.daysTillHarvest -= this.farm.getGrowthRate();
 			}
 		}
+		
 		// Decrease animal happiness if farm is not maintained and doesn't have animal statue
 		boolean containsStatue = this.farm.itemList.contains("Animal Statue");
 		boolean maintained = this.farm.isMaintained();
@@ -402,9 +404,11 @@ class GameEnvironment {
 	}
 	
 	/**
-	 * Get farmer name and age
+	 * Set farmer name and age
+	 * @param farmerName string of farmer name to set
+	 * @param farmerAge int of farmer age to set
 	 */
-	void getFarmerStats(String farmerName, int farmerAge) {
+	void setFarmerStats(String farmerName, int farmerAge) {
 		farmer = new Farmer(farmerName, farmerAge);
 	}
 	

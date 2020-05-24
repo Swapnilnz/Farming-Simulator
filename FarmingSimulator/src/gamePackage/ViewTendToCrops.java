@@ -35,10 +35,10 @@ public class ViewTendToCrops extends JDialog {
 		JTextPane txtpnWhichCropWould = new JTextPane();
 		txtpnWhichCropWould.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		txtpnWhichCropWould.setBackground(new Color(233, 150, 122));
-		txtpnWhichCropWould.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtpnWhichCropWould.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtpnWhichCropWould.setEditable(false);
 		txtpnWhichCropWould.setText("Which crop would you like to tend to?");
-		txtpnWhichCropWould.setBounds(27, 20, 237, 22);
+		txtpnWhichCropWould.setBounds(5, 20, 274, 22);
 		getContentPane().add(txtpnWhichCropWould);
 		
 		// Make combo box of crops
@@ -52,9 +52,9 @@ public class ViewTendToCrops extends JDialog {
 		
 		// Choose crop
 		JButton btnEnter = new JButton("Enter");
-		btnEnter.setIcon(new ImageIcon(ViewTendToCrops.class.getResource("/images/button.jpg")));
+		btnEnter.setBackground(new Color(210, 180, 140));
 		btnEnter.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnEnter.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
+		btnEnter.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		btnEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (game.getNumActions() > 0) {
@@ -72,9 +72,9 @@ public class ViewTendToCrops extends JDialog {
 		
 		// Exit
 		JButton exit = new JButton("Exit");
-		exit.setIcon(new ImageIcon(ViewTendToCrops.class.getResource("/images/button.jpg")));
+		exit.setBackground(new Color(210, 180, 140));
 		exit.setHorizontalTextPosition(SwingConstants.CENTER);
-		exit.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
+		exit.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		exit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

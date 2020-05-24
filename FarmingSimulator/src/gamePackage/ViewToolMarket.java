@@ -65,9 +65,9 @@ public class ViewToolMarket extends JDialog {
 			txtpnWelcomeToToms.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 			txtpnWelcomeToToms.setBackground(new Color(233, 150, 122));
 			txtpnWelcomeToToms.setEditable(false);
-			txtpnWelcomeToToms.setFont(new Font("Tahoma", Font.PLAIN, 20));
+			txtpnWelcomeToToms.setFont(new Font("Tahoma", Font.BOLD, 20));
 			txtpnWelcomeToToms.setText("Welcome to Tom's Tool Market!");
-			txtpnWelcomeToToms.setBounds(10, 11, 291, 31);
+			txtpnWelcomeToToms.setBounds(10, 11, 322, 31);
 			getContentPane().add(txtpnWelcomeToToms);
 		}
 		{
@@ -75,14 +75,15 @@ public class ViewToolMarket extends JDialog {
 			txtpnWhatWouldYou.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 			txtpnWhatWouldYou.setBackground(new Color(233, 150, 122));
 			txtpnWhatWouldYou.setEditable(false);
-			txtpnWhatWouldYou.setFont(new Font("Tahoma", Font.PLAIN, 14));
+			txtpnWhatWouldYou.setFont(new Font("Tahoma", Font.BOLD, 14));
 			txtpnWhatWouldYou.setText("What would you like to buy?");
-			txtpnWhatWouldYou.setBounds(10, 57, 183, 23);
+			txtpnWhatWouldYou.setBounds(10, 57, 204, 23);
 			getContentPane().add(txtpnWhatWouldYou);
 		}
 
 		
 		JLabel harvesterCount = new JLabel("Not Owned");
+		harvesterCount.setFont(new Font("Tahoma", Font.BOLD, 11));
 		harvesterCount.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		harvesterCount.setHorizontalTextPosition(SwingConstants.CENTER);
 		harvesterCount.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/button.jpg")));
@@ -91,6 +92,7 @@ public class ViewToolMarket extends JDialog {
 		getContentPane().add(harvesterCount);
 		
 		JLabel animalStatueCount = new JLabel("Not Owned");
+		animalStatueCount.setFont(new Font("Tahoma", Font.BOLD, 11));
 		animalStatueCount.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		animalStatueCount.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/button.jpg")));
 		animalStatueCount.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -99,6 +101,7 @@ public class ViewToolMarket extends JDialog {
 		getContentPane().add(animalStatueCount);
 		
 		JLabel canCount = new JLabel("Not Owned");
+		canCount.setFont(new Font("Tahoma", Font.BOLD, 11));
 		canCount.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		canCount.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/button.jpg")));
 		canCount.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -107,6 +110,7 @@ public class ViewToolMarket extends JDialog {
 		getContentPane().add(canCount);
 		
 		JLabel milkCount = new JLabel("Not Owned");
+		milkCount.setFont(new Font("Tahoma", Font.BOLD, 11));
 		milkCount.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		milkCount.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/button.jpg")));
 		milkCount.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -115,6 +119,7 @@ public class ViewToolMarket extends JDialog {
 		getContentPane().add(milkCount);
 		
 		JLabel telePadCount = new JLabel("Not Owned");
+		telePadCount.setFont(new Font("Tahoma", Font.BOLD, 11));
 		telePadCount.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		telePadCount.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/button.jpg")));
 		telePadCount.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -123,6 +128,7 @@ public class ViewToolMarket extends JDialog {
 		getContentPane().add(telePadCount);
 		
 		JLabel shearCount = new JLabel("Not Owned");
+		shearCount.setFont(new Font("Tahoma", Font.BOLD, 11));
 		shearCount.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		shearCount.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/button.jpg")));
 		shearCount.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -131,12 +137,12 @@ public class ViewToolMarket extends JDialog {
 		getContentPane().add(shearCount);
 		
 		// Show Money
-		JLabel lblYouCurrentlyHave = new JLabel("You currently have $");
+		JLabel lblYouCurrentlyHave = new JLabel("You currently have $" + game.farm.getFarmMoney());
 		lblYouCurrentlyHave.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		lblYouCurrentlyHave.setHorizontalAlignment(SwingConstants.CENTER);
 		lblYouCurrentlyHave.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblYouCurrentlyHave.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/button.jpg")));
-		lblYouCurrentlyHave.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblYouCurrentlyHave.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblYouCurrentlyHave.setBounds(230, 57, 183, 23);
 		getContentPane().add(lblYouCurrentlyHave);
 		
@@ -147,8 +153,8 @@ public class ViewToolMarket extends JDialog {
 		{
 			// Buy Harvester
 			JButton btnBuyHarvester = new JButton("Buy Harvester: $" + toolMarket.getHarvesterPrice());
-			btnBuyHarvester.setBorder(new BevelBorder(BevelBorder.RAISED, Color.BLACK, null, null, null));
-			btnBuyHarvester.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/button.jpg")));
+			btnBuyHarvester.setBackground(new Color(210, 180, 140));
+			btnBuyHarvester.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 			btnBuyHarvester.setHorizontalTextPosition(SwingConstants.CENTER);
 			btnBuyHarvester.setVerticalTextPosition(JButton.CENTER);
 			btnBuyHarvester.addActionListener(new ActionListener() {
@@ -157,6 +163,7 @@ public class ViewToolMarket extends JDialog {
 					money.setText(Integer.toString(game.farm.getFarmMoney()));
 					if (game.farm.getItemList().contains("Harvester")) {
 						harvesterCount.setText("Owned");
+						lblYouCurrentlyHave.setText("You currently have $" + game.farm.getFarmMoney());
 					}
 				}
 			});
@@ -167,8 +174,8 @@ public class ViewToolMarket extends JDialog {
 		{
 			// Buy Animal Statue
 			JButton btnBuyAnimalStatue = new JButton("Buy Animal Statue: $" + toolMarket.getAnimalStatuePrice());
-			btnBuyAnimalStatue.setBorder(new BevelBorder(BevelBorder.RAISED, Color.BLACK, null, null, null));
-			btnBuyAnimalStatue.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/button.jpg")));
+			btnBuyAnimalStatue.setBackground(new Color(210, 180, 140));
+			btnBuyAnimalStatue.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 			btnBuyAnimalStatue.setHorizontalTextPosition(SwingConstants.CENTER);
 			btnBuyAnimalStatue.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -176,6 +183,8 @@ public class ViewToolMarket extends JDialog {
 					money.setText(Integer.toString(game.farm.getFarmMoney()));
 					if (game.farm.getItemList().contains("Animal Statue")) {
 						animalStatueCount.setText("Owned");
+						lblYouCurrentlyHave.setText("You currently have $" + game.farm.getFarmMoney());
+
 					}
 
 				}
@@ -187,8 +196,8 @@ public class ViewToolMarket extends JDialog {
 		{
 			// Buy Milk Master
 			JButton btnBuyMilkMaster = new JButton("Buy Milk Master: $" + toolMarket.getMilkMasterPrice());
-			btnBuyMilkMaster.setBorder(new BevelBorder(BevelBorder.RAISED, Color.BLACK, null, null, null));
-			btnBuyMilkMaster.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/button.jpg")));
+			btnBuyMilkMaster.setBackground(new Color(210, 180, 140));
+			btnBuyMilkMaster.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 			btnBuyMilkMaster.setHorizontalTextPosition(SwingConstants.CENTER);
 			btnBuyMilkMaster.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -196,6 +205,8 @@ public class ViewToolMarket extends JDialog {
 					money.setText(Integer.toString(game.farm.getFarmMoney()));
 					if (game.farm.getItemList().contains("Milk Master")) {
 						milkCount.setText("Owned");
+						lblYouCurrentlyHave.setText("You currently have $" + game.farm.getFarmMoney());
+
 					}
 				}
 			});
@@ -206,8 +217,8 @@ public class ViewToolMarket extends JDialog {
 		{
 			// Buy Shear Master
 			JButton btnBuyShearMaster = new JButton("Buy Shear Master: $" + toolMarket.getShearMasterPrice());
-			btnBuyShearMaster.setBorder(new BevelBorder(BevelBorder.RAISED, Color.BLACK, null, null, null));
-			btnBuyShearMaster.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/button.jpg")));
+			btnBuyShearMaster.setBackground(new Color(210, 180, 140));
+			btnBuyShearMaster.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 			btnBuyShearMaster.setHorizontalTextPosition(SwingConstants.CENTER);
 			btnBuyShearMaster.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -215,6 +226,8 @@ public class ViewToolMarket extends JDialog {
 					money.setText(Integer.toString(game.farm.getFarmMoney()));
 					if (game.farm.getItemList().contains("Shear Master")) {
 						shearCount.setText("Owned");
+						lblYouCurrentlyHave.setText("You currently have $" + game.farm.getFarmMoney());
+
 					}
 				}
 			});
@@ -225,8 +238,8 @@ public class ViewToolMarket extends JDialog {
 		{
 			// Buy Watering Can
 			JButton btnBuyWateringCan = new JButton("Buy Ultimate Watering Can: $" + toolMarket.getWateringCanPrice());
-			btnBuyWateringCan.setBorder(new BevelBorder(BevelBorder.RAISED, Color.BLACK, null, null, null));
-			btnBuyWateringCan.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/button.jpg")));
+			btnBuyWateringCan.setBackground(new Color(210, 180, 140));
+			btnBuyWateringCan.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 			btnBuyWateringCan.setHorizontalTextPosition(SwingConstants.CENTER);
 			btnBuyWateringCan.setToolTipText("Doubles the effect of tending to crops!");
 			btnBuyWateringCan.addActionListener(new ActionListener() {
@@ -235,6 +248,8 @@ public class ViewToolMarket extends JDialog {
 					money.setText(Integer.toString(game.farm.getFarmMoney()));
 					if (game.farm.getItemList().contains("Watering Can")) {
 						canCount.setText("Owned");
+						lblYouCurrentlyHave.setText("You currently have $" + game.farm.getFarmMoney());
+
 					}
 				}
 			});
@@ -244,8 +259,8 @@ public class ViewToolMarket extends JDialog {
 		{
 			// Buy Teleportation Pad
 			JButton btnBuyTeleportationPad = new JButton("Buy Teleportation Pad: $" + toolMarket.getTeleportationPadPrice());
-			btnBuyTeleportationPad.setBorder(new BevelBorder(BevelBorder.RAISED, Color.BLACK, null, null, null));
-			btnBuyTeleportationPad.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/button.jpg")));
+			btnBuyTeleportationPad.setBackground(new Color(210, 180, 140));
+			btnBuyTeleportationPad.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 			btnBuyTeleportationPad.setHorizontalTextPosition(SwingConstants.CENTER);
 			btnBuyTeleportationPad.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -253,6 +268,8 @@ public class ViewToolMarket extends JDialog {
 					money.setText(Integer.toString(game.farm.getFarmMoney()));
 					if (game.farm.getTelePadCount() > 0) {
 						harvesterCount.setText(game.farm.getTelePadCount() + " Owned");
+						lblYouCurrentlyHave.setText("You currently have $" + game.farm.getFarmMoney());
+
 					}
 				}
 			});
@@ -262,10 +279,10 @@ public class ViewToolMarket extends JDialog {
 		}
 		
 		JButton exitButton = new JButton("Exit");
-		exitButton.setBorder(new BevelBorder(BevelBorder.RAISED, Color.BLACK, null, null, null));
-		exitButton.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/button.jpg")));
+		exitButton.setBackground(new Color(210, 180, 140));
+		exitButton.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		exitButton.setHorizontalTextPosition(SwingConstants.CENTER);
-		exitButton.setBounds(324, 11, 89, 23);
+		exitButton.setBounds(349, 19, 89, 23);
 		getContentPane().add(exitButton);
 		
 		JLabel background = new JLabel("");

@@ -11,19 +11,19 @@ class AnimalMarket {
 	/**
 	 * Cow price
 	 */
-	private int cowPrice;
+	int cowPrice;
 	/** 
 	 * Pig price
 	 */
-	private int pigPrice;
+	int pigPrice;
 	/** 
 	 * Chicken price
 	 */
-	private int chickenPrice;
+	int chickenPrice;
 	/** 
 	 * Sheep price
 	 */
-	private int sheepPrice;
+	int sheepPrice;
 	
 	/**
 	 * Constructer; sets animal prices
@@ -121,5 +121,61 @@ class AnimalMarket {
 				
 			}
 		}
+	}
+
+	/**
+	 * @return the cowPrice
+	 */
+	public int getCowPrice() {
+		return cowPrice;
+	}
+
+	/**
+	 * @param cowPrice the cowPrice to set
+	 */
+	public void setCowPrice(int cowPrice) {
+		this.cowPrice = cowPrice;
+	}
+
+	/**
+	 * @return the pigPrice
+	 */
+	public int getPigPrice() {
+		return pigPrice;
+	}
+
+	/**
+	 * @param pigPrice the pigPrice to set
+	 */
+	public void setPigPrice(int pigPrice) {
+		this.pigPrice = pigPrice;
+	}
+
+	/**
+	 * @return the chickenPrice
+	 */
+	public int getChickenPrice() {
+		return chickenPrice;
+	}
+
+	/**
+	 * @param chickenPrice the chickenPrice to set
+	 */
+	public void setChickenPrice(int chickenPrice) {
+		this.chickenPrice = chickenPrice;
+	}
+
+	/**
+	 * @return the sheepPrice
+	 */
+	public int getSheepPrice() {
+		return sheepPrice;
+	}
+
+	/**
+	 * @param sheepPrice the sheepPrice to set
+	 */
+	public void setSheepPrice(int sheepPrice) {
+		this.sheepPrice = sheepPrice;
 	}
 }

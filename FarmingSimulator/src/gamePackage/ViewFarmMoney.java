@@ -44,9 +44,9 @@ public class ViewFarmMoney extends JDialog {
 		txtpnYourFarmCurrently.setBackground(new Color(233, 150, 122));
 		txtpnYourFarmCurrently.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		txtpnYourFarmCurrently.setEditable(false);
-		txtpnYourFarmCurrently.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		txtpnYourFarmCurrently.setFont(new Font("Tahoma", Font.BOLD, 20));
 		txtpnYourFarmCurrently.setText("Your farm currently has");
-		txtpnYourFarmCurrently.setBounds(111, 27, 223, 31);
+		txtpnYourFarmCurrently.setBounds(99, 31, 244, 27);
 		getContentPane().add(txtpnYourFarmCurrently);
 	
 		
@@ -60,8 +60,8 @@ public class ViewFarmMoney extends JDialog {
 		getContentPane().add(lblMoney);
 		
 		JButton exitButton = new JButton("Exit");
-		exitButton.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
-		exitButton.setIcon(new ImageIcon(ViewFarmMoney.class.getResource("/images/button.jpg")));
+		exitButton.setBackground(new Color(210, 180, 140));
+		exitButton.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		exitButton.setHorizontalTextPosition(SwingConstants.CENTER);
 		exitButton.setBounds(335, 151, 89, 23);
 		getContentPane().add(exitButton);

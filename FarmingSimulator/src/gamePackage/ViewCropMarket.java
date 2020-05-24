@@ -33,7 +33,26 @@ public class ViewCropMarket extends JDialog {
 	private boolean valid;
 
 
+	/**
+	 * Validifies amount input (makes sure its greater than 0)
+	 * @param text text to be validified
+	 * @return boolean if/if not validified
+	 */
+	boolean validifier(String text) {
+		try {
+			int tempNum = Integer.parseInt(text);
+			if (tempNum >= 0) {
+				amount = tempNum;
+				return true;
 
+			} else {
+				return false;
+			}
+		} catch (Exception ex) {
+				return false;
+		}
+	
+	}
 	/**
 	 * Create the dialog.
 	 */
@@ -47,9 +66,9 @@ public class ViewCropMarket extends JDialog {
 			txtpnWelcomeToToms.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 			txtpnWelcomeToToms.setBackground(new Color(233, 150, 122));
 			txtpnWelcomeToToms.setEditable(false);
-			txtpnWelcomeToToms.setFont(new Font("Tahoma", Font.PLAIN, 20));
+			txtpnWelcomeToToms.setFont(new Font("Tahoma", Font.BOLD, 20));
 			txtpnWelcomeToToms.setText("Welcome to Cassie's Crop Market!");
-			txtpnWelcomeToToms.setBounds(10, 11, 315, 31);
+			txtpnWelcomeToToms.setBounds(10, 11, 352, 31);
 			getContentPane().add(txtpnWelcomeToToms);
 		}
 		{
@@ -57,19 +76,19 @@ public class ViewCropMarket extends JDialog {
 			txtpnWhatWouldYou.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 			txtpnWhatWouldYou.setBackground(new Color(233, 150, 122));
 			txtpnWhatWouldYou.setEditable(false);
-			txtpnWhatWouldYou.setFont(new Font("Tahoma", Font.PLAIN, 14));
+			txtpnWhatWouldYou.setFont(new Font("Tahoma", Font.BOLD, 14));
 			txtpnWhatWouldYou.setText("What would you like to buy?");
-			txtpnWhatWouldYou.setBounds(20, 53, 183, 23);
+			txtpnWhatWouldYou.setBounds(20, 53, 199, 23);
 			getContentPane().add(txtpnWhatWouldYou);
 		}
 		
 		// Show Money
-		JLabel lblYouCurrentlyHave = new JLabel("You currently have $");
+		JLabel lblYouCurrentlyHave = new JLabel("You currently have $" + game.farm.getFarmMoney());
 		lblYouCurrentlyHave.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		lblYouCurrentlyHave.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblYouCurrentlyHave.setHorizontalAlignment(SwingConstants.CENTER);
 		lblYouCurrentlyHave.setIcon(new ImageIcon(ViewCropMarket.class.getResource("/images/button.jpg")));
-		lblYouCurrentlyHave.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblYouCurrentlyHave.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblYouCurrentlyHave.setBounds(40, 267, 163, 23);
 		getContentPane().add(lblYouCurrentlyHave);
 		
@@ -166,30 +185,46 @@ public class ViewCropMarket extends JDialog {
 			animalFeedCount.setMaximumSize(new Dimension(46, 23));
 			animalFeedCount.setPreferredSize(new Dimension(46, 23));
 			
-			{
-				JLabel youHave = new JLabel("You have:");
-				youHave.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
-				youHave.setHorizontalTextPosition(SwingConstants.CENTER);
-				youHave.setIcon(new ImageIcon(ViewCropMarket.class.getResource("/images/button.jpg")));
-				youHave.setHorizontalAlignment(SwingConstants.CENTER);
-				youHave.setBounds(372, 78, 97, 23);
-				getContentPane().add(youHave);
-			}
+			
+			JLabel youHave = new JLabel("Owned");
+			youHave.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
+			youHave.setHorizontalTextPosition(SwingConstants.CENTER);
+			youHave.setIcon(new ImageIcon(ViewCropMarket.class.getResource("/images/button.jpg")));
+			youHave.setHorizontalAlignment(SwingConstants.CENTER);
+			youHave.setBounds(372, 78, 97, 23);
+			getContentPane().add(youHave);
+			
+			// Button/error label to enter and check amount
+			
+			JLabel error = new JLabel("");
+			error.setHorizontalTextPosition(SwingConstants.CENTER);
+			error.setForeground(new Color(204, 0, 0));
+			error.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
+			error.setIcon(new ImageIcon(ViewCropMarket.class.getResource("/images/button.jpg")));
+			error.setHorizontalAlignment(SwingConstants.CENTER);
+			error.setBounds(40, 226, 163, 20);
+			getContentPane().add(error);
+		
+			
 			
 			{
 				// Buy avocado
 				JButton buyAvocado = new JButton("Buy Avocado ($" + cropMarket.cropPurchaseDic.get("Avocado") + ")");
-				buyAvocado.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
+				buyAvocado.setBackground(new Color(210, 180, 140));
+				buyAvocado.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 				buyAvocado.setHorizontalTextPosition(SwingConstants.CENTER);
-				buyAvocado.setIcon(new ImageIcon(ViewCropMarket.class.getResource("/images/button.jpg")));
 				buyAvocado.setBounds(241, 112, 163, 20);
 				getContentPane().add(buyAvocado);
 				buyAvocado.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						boolean valid = validifier(textAmount.getText());
 						if (valid) {
 							cropMarket.buyAvocado(game, amount, window);
 							money.setText(Integer.toString(game.farm.getFarmMoney()));
 							avocadoCount.setText(Integer.toString(game.farm.cropInventory.get("Avocado")));
+							lblYouCurrentlyHave.setText("You now have $" + game.farm.getFarmMoney());
+						} else {
+							error.setText("Please enter a valid number!");
 						}
 					}
 				});
@@ -199,18 +234,22 @@ public class ViewCropMarket extends JDialog {
 			{
 				// Buy corn
 				JButton buyCorn = new JButton("Buy Corn ($" + cropMarket.cropPurchaseDic.get("Corn") + ")");
-				buyCorn.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
+				buyCorn.setBackground(new Color(210, 180, 140));
+				buyCorn.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 				buyCorn.setHorizontalTextPosition(SwingConstants.CENTER);
-				buyCorn.setIcon(new ImageIcon(ViewCropMarket.class.getResource("/images/button.jpg")));
 				buyCorn.setBounds(241, 145, 163, 20);
 				getContentPane().add(buyCorn);
 				buyCorn.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						boolean valid = validifier(textAmount.getText());
 						if (valid) {
 							cropMarket.buyCorn(game, amount, window);
 							money.setText(Integer.toString(game.farm.getFarmMoney()));
 							cornCount.setText(Integer.toString(game.farm.cropInventory.get("Corn")));
+							lblYouCurrentlyHave.setText("You now have $" + game.farm.getFarmMoney());
 
+						} else {
+							error.setText("Please enter a valid number!");
 						}
 					}
 				});
@@ -219,18 +258,21 @@ public class ViewCropMarket extends JDialog {
 			{
 				// Buy wheat
 				JButton buyWheat = new JButton("Buy Wheat ($" + cropMarket.cropPurchaseDic.get("Wheat") + ")");
-				buyWheat.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
+				buyWheat.setBackground(new Color(210, 180, 140));
+				buyWheat.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 				buyWheat.setHorizontalTextPosition(SwingConstants.CENTER);
-				buyWheat.setIcon(new ImageIcon(ViewCropMarket.class.getResource("/images/button.jpg")));
 				buyWheat.setBounds(241, 180, 163, 20);
 				getContentPane().add(buyWheat);
 				buyWheat.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						boolean valid = validifier(textAmount.getText());
 						if (valid) {
 							cropMarket.buyWheat(game, amount, window);
 							money.setText(Integer.toString(game.farm.getFarmMoney()));
 							wheatCount.setText(Integer.toString(game.farm.cropInventory.get("Wheat")));
-
+							lblYouCurrentlyHave.setText("You now have $" + game.farm.getFarmMoney());
+						} else {
+							error.setText("Please enter a valid number!");
 						}
 					}
 				});
@@ -239,19 +281,21 @@ public class ViewCropMarket extends JDialog {
 			{
 				// Buy potato
 				JButton buyPotato = new JButton("Buy Potato ($" + cropMarket.cropPurchaseDic.get("Potato") + ")");
-				buyPotato.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
+				buyPotato.setBackground(new Color(210, 180, 140));
+				buyPotato.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 				buyPotato.setHorizontalTextPosition(SwingConstants.CENTER);
-				buyPotato.setIcon(new ImageIcon(ViewCropMarket.class.getResource("/images/button.jpg")));
 				buyPotato.setBounds(241, 214, 163, 20);
 				getContentPane().add(buyPotato);
 				buyPotato.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						boolean valid = validifier(textAmount.getText());
 						if (valid) {
 							cropMarket.buyPotato(game, amount, window);
 							money.setText(Integer.toString(game.farm.getFarmMoney()));
 							potatoCount.setText(Integer.toString(game.farm.cropInventory.get("Potato")));
-
-
+							lblYouCurrentlyHave.setText("You now have $" + game.farm.getFarmMoney());
+						} else {
+							error.setText("Please enter a valid number!");
 						}
 					}
 				});
@@ -259,19 +303,21 @@ public class ViewCropMarket extends JDialog {
 			{
 				// Buy carrot
 				JButton buyCarrot = new JButton("Buy Carrot ($" + cropMarket.cropPurchaseDic.get("Carrot") + ")");
-				buyCarrot.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
+				buyCarrot.setBackground(new Color(210, 180, 140));
+				buyCarrot.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 				buyCarrot.setHorizontalTextPosition(SwingConstants.CENTER);
-				buyCarrot.setIcon(new ImageIcon(ViewCropMarket.class.getResource("/images/button.jpg")));
 				buyCarrot.setBounds(241, 246, 163, 20);
 				getContentPane().add(buyCarrot);
 				buyCarrot.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						boolean valid = validifier(textAmount.getText());
 						if (valid) {
 							cropMarket.buyCarrot(game, amount, window);
 							money.setText(Integer.toString(game.farm.getFarmMoney()));
 							carrotCount.setText(Integer.toString(game.farm.cropInventory.get("Carrot")));
-
-
+							lblYouCurrentlyHave.setText("You now have $" + game.farm.getFarmMoney());
+						} else {
+							error.setText("Please enter a valid number!");
 						}
 					}
 				});
@@ -280,18 +326,21 @@ public class ViewCropMarket extends JDialog {
 			{
 				// Buy apple
 				JButton buyApple = new JButton("Buy Apple ($" + cropMarket.cropPurchaseDic.get("Apple") + ")");
-				buyApple.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
+				buyApple.setBackground(new Color(210, 180, 140));
+				buyApple.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 				buyApple.setHorizontalTextPosition(SwingConstants.CENTER);
-				buyApple.setIcon(new ImageIcon(ViewCropMarket.class.getResource("/images/button.jpg")));
 				buyApple.setBounds(241, 276, 163, 20);
 				getContentPane().add(buyApple);
 				buyApple.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						boolean valid = validifier(textAmount.getText());
 						if (valid) {
 							cropMarket.buyApple(game, amount, window);
 							money.setText(Integer.toString(game.farm.getFarmMoney()));
 							appleCount.setText(Integer.toString(game.farm.cropInventory.get("Apple")));
-
+							lblYouCurrentlyHave.setText("You now have $" + game.farm.getFarmMoney());
+						} else {
+							error.setText("Please enter a valid number!");
 						}
 					}
 				});
@@ -299,19 +348,21 @@ public class ViewCropMarket extends JDialog {
 			{
 				// Buy animal feed
 				JButton buyAnimalFeed = new JButton("Buy Animal Feed ($" + cropMarket.cropPurchaseDic.get("Animal Feed") + ")");
-				buyAnimalFeed.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
+				buyAnimalFeed.setBackground(new Color(210, 180, 140));
+				buyAnimalFeed.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 				buyAnimalFeed.setHorizontalTextPosition(SwingConstants.CENTER);
-				buyAnimalFeed.setIcon(new ImageIcon(ViewCropMarket.class.getResource("/images/button.jpg")));
 				buyAnimalFeed.setBounds(241, 306, 163, 20);
 				getContentPane().add(buyAnimalFeed);
 				buyAnimalFeed.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						boolean valid = validifier(textAmount.getText());
 						if (valid) {
 							cropMarket.buyAnimalFeed(game, amount, window);
 							money.setText(Integer.toString(game.farm.getFarmMoney()));
 							animalFeedCount.setText(Integer.toString(game.farm.getAnimalFeed()));
-
-
+							lblYouCurrentlyHave.setText("You now have $" + game.farm.getFarmMoney());
+						} else {
+							error.setText("Please enter a valid number!");
 						}
 					}
 				});
@@ -322,50 +373,18 @@ public class ViewCropMarket extends JDialog {
 			txtpnEnterAmountBefore.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 			txtpnEnterAmountBefore.setBackground(new Color(233, 150, 122));
 			txtpnEnterAmountBefore.setEditable(false);
-			txtpnEnterAmountBefore.setFont(new Font("Tahoma", Font.PLAIN, 12));
+			txtpnEnterAmountBefore.setFont(new Font("Tahoma", Font.BOLD, 12));
 			txtpnEnterAmountBefore.setText("Enter amount before buying");
-			txtpnEnterAmountBefore.setBounds(40, 126, 163, 21);
+			txtpnEnterAmountBefore.setBounds(30, 125, 179, 21);
 			getContentPane().add(txtpnEnterAmountBefore);
 		}
 		
-		// Button/error label to enter and check amount
-		{
-			JLabel error = new JLabel("");
-			error.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
-			error.setIcon(new ImageIcon(ViewCropMarket.class.getResource("/images/button.jpg")));
-			error.setHorizontalAlignment(SwingConstants.CENTER);
-			error.setBounds(40, 226, 163, 20);
-			getContentPane().add(error);
-			
-			JButton enter = new JButton("Enter");
-			enter.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
-			enter.setHorizontalTextPosition(SwingConstants.CENTER);
-			enter.setIcon(new ImageIcon(ViewCropMarket.class.getResource("/images/button.jpg")));
-			enter.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					try {
-						int tempNum = Integer.parseInt(textAmount.getText());
-						if (tempNum >= 0) {
-							amount = tempNum;
-							valid = true;
-							error.setText("Valid!");
-
-						} else {
-							error.setText("Please enter a valid number!");
-						}
-					} catch (Exception ex) {
-						error.setText("Please enter a valid number!");
-					}
-				}
-			});
-			enter.setBounds(73, 192, 97, 23);
-			getContentPane().add(enter);
-		}
+	
 		
 		JButton exitButton = new JButton("Exit");
-		exitButton.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
+		exitButton.setBackground(new Color(210, 180, 140));
+		exitButton.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		exitButton.setHorizontalTextPosition(SwingConstants.CENTER);
-		exitButton.setIcon(new ImageIcon(ViewCropMarket.class.getResource("/images/button.jpg")));
 		exitButton.setBounds(372, 11, 97, 23);
 		getContentPane().add(exitButton);
 		

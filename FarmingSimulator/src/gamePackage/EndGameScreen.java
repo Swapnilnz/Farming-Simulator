@@ -15,6 +15,8 @@ import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.border.BevelBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class EndGameScreen extends JDialog {
 
@@ -29,18 +31,24 @@ public class EndGameScreen extends JDialog {
 		getContentPane().setLayout(null);
 		
 		JButton btnNewButton = new JButton("Exit game");
+		btnNewButton.setBackground(new Color(210, 180, 140));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnNewButton.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnNewButton.setIcon(new ImageIcon(EndGameScreen.class.getResource("/images/button.jpg")));
-		btnNewButton.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
-		btnNewButton.setBounds(179, 242, 89, 23);
+		btnNewButton.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
+		btnNewButton.setBounds(179, 227, 89, 23);
 		getContentPane().add(btnNewButton);
 		
 		JLabel scoreLabel = new JLabel("You got " + game.calculateScore() + " points!");
 		scoreLabel.setOpaque(true);
 		scoreLabel.setBackground(new Color(154, 205, 50));
 		scoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		scoreLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		scoreLabel.setBounds(0, 202, 444, 37);
+		scoreLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+		scoreLabel.setBounds(0, 187, 444, 37);
 		getContentPane().add(scoreLabel);
 		
 		JLabel farmName = new JLabel("Farm name: " + game.farm.getFarmName());
@@ -48,8 +56,8 @@ public class EndGameScreen extends JDialog {
 		farmName.setIcon(new ImageIcon(EndGameScreen.class.getResource("/images/bigButton.png")));
 		farmName.setHorizontalTextPosition(SwingConstants.CENTER);
 		farmName.setHorizontalAlignment(SwingConstants.CENTER);
-		farmName.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		farmName.setBounds(0, 72, 444, 37);
+		farmName.setFont(new Font("Tahoma", Font.BOLD, 18));
+		farmName.setBounds(0, 57, 444, 37);
 		getContentPane().add(farmName);
 		
 		JLabel gameDuration = new JLabel("Your game lasted " + game.getGameDuration() + " days");
@@ -57,8 +65,8 @@ public class EndGameScreen extends JDialog {
 		gameDuration.setIcon(new ImageIcon(EndGameScreen.class.getResource("/images/bigButton.png")));
 		gameDuration.setHorizontalTextPosition(SwingConstants.CENTER);
 		gameDuration.setHorizontalAlignment(SwingConstants.CENTER);
-		gameDuration.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		gameDuration.setBounds(0, 107, 444, 37);
+		gameDuration.setFont(new Font("Tahoma", Font.BOLD, 18));
+		gameDuration.setBounds(0, 92, 444, 37);
 		getContentPane().add(gameDuration);
 		
 		JLabel label_1 = new JLabel("Over this time, you made $" + (game.farm.farmMoney - game.farm.staticFarmMoney));
@@ -66,16 +74,16 @@ public class EndGameScreen extends JDialog {
 		label_1.setIcon(new ImageIcon(EndGameScreen.class.getResource("/images/bigButton.png")));
 		label_1.setHorizontalTextPosition(SwingConstants.CENTER);
 		label_1.setHorizontalAlignment(SwingConstants.CENTER);
-		label_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		label_1.setBounds(0, 142, 444, 37);
+		label_1.setFont(new Font("Tahoma", Font.BOLD, 18));
+		label_1.setBounds(0, 127, 444, 37);
 		getContentPane().add(label_1);
 		
 		JLabel lblNewLabel_1 = new JLabel("--------------------------------------------------------------------------------------------------------------");
-		lblNewLabel_1.setBounds(2, 181, 444, 14);
+		lblNewLabel_1.setBounds(2, 166, 444, 14);
 		getContentPane().add(lblNewLabel_1);
 		
 		JLabel label_2 = new JLabel("--------------------------------------------------------------------------------------------------------------");
-		label_2.setBounds(0, 246, 444, 14);
+		label_2.setBounds(0, 231, 444, 14);
 		getContentPane().add(label_2);
 		
 		JLabel lblNewLabel_2 = new JLabel("Congratulations! Game Finished!");
@@ -83,8 +91,8 @@ public class EndGameScreen extends JDialog {
 		lblNewLabel_2.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblNewLabel_2.setIcon(new ImageIcon(EndGameScreen.class.getResource("/images/bigButton.png")));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_2.setBounds(0, 26, 444, 37);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 22));
+		lblNewLabel_2.setBounds(0, 11, 444, 37);
 		getContentPane().add(lblNewLabel_2);
 		
 		JLabel background = new JLabel("");

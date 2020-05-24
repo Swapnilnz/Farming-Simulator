@@ -50,9 +50,9 @@ public class ViewFarm extends JDialog {
 		txtpnViewCrop.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		txtpnViewCrop.setBackground(new Color(233, 150, 122));
 		txtpnViewCrop.setEditable(false);
-		txtpnViewCrop.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		txtpnViewCrop.setFont(new Font("Tahoma", Font.BOLD, 16));
 		txtpnViewCrop.setText("View Crop");
-		txtpnViewCrop.setBounds(58, 23, 80, 26);
+		txtpnViewCrop.setBounds(55, 23, 86, 22);
 		getContentPane().add(txtpnViewCrop);
 		
 		JTextPane txtpnViewAnimal = new JTextPane();
@@ -60,17 +60,17 @@ public class ViewFarm extends JDialog {
 		txtpnViewAnimal.setBackground(new Color(233, 150, 122));
 		txtpnViewAnimal.setEditable(false);
 		txtpnViewAnimal.setText("View Animal");
-		txtpnViewAnimal.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		txtpnViewAnimal.setBounds(280, 23, 96, 26);
+		txtpnViewAnimal.setFont(new Font("Tahoma", Font.BOLD, 16));
+		txtpnViewAnimal.setBounds(273, 23, 105, 22);
 		getContentPane().add(txtpnViewAnimal);
 		
 		
 		
 		// Exit
 		JButton exitButton = new JButton("Exit");
+		exitButton.setBackground(new Color(210, 180, 140));
 		exitButton.setHorizontalTextPosition(SwingConstants.CENTER);
-		exitButton.setIcon(new ImageIcon(ViewFarm.class.getResource("/images/button.jpg")));
-		exitButton.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
+		exitButton.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
