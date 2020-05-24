@@ -1,7 +1,6 @@
 package gamePackage;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Random;
 
 import javax.swing.JFrame;
@@ -33,7 +32,7 @@ public class GameEnvironment {
 	 */
 	public int gameDuration;
 	/**
-	 * Object farmer, contains farmer name and age (maybe avatar)
+	 * Object farmer, contains farmer name and age (maybe avatar).
 	 */
 	protected Farmer farmer;
 	/**
@@ -47,7 +46,7 @@ public class GameEnvironment {
 	/**
 	 * (Integer) Static number of actions the player has
 	 */
-	private static int numActions = 2;
+	private int numActions = 2;
 	/**
 	 * Mutable number of actions a player has
 	 */
@@ -60,11 +59,6 @@ public class GameEnvironment {
 	 * Main Screen GUI
 	 */
 	private MainScreen mainScreen;
-	/**
-	 * Setup screen GUI
-	 */
-	private StartGameScreen setupScreen;
-	
 	/**
 	 * Constructer; sets starting number of actions
 	 */
@@ -96,9 +90,9 @@ public class GameEnvironment {
 		test = true;
 
 	}
-	
+
 	/**
-	 * Visit Tom's Tool Market and purches various utility items
+	 * Visit Tom's Tool Market and purches various utility items.
 	 * @param window main game window
 	 */
 	public void visitToolMarket(JFrame window) {
@@ -108,7 +102,7 @@ public class GameEnvironment {
 		test = true;
 
 	}
-	
+
 	/**
 	 * Visit crop market to buy crops
 	 * @param window main game window
@@ -279,6 +273,7 @@ public class GameEnvironment {
 			for (Crop crop : this.farm.cropList) {
 				if (crop.getDaysTillHarvest() == 0) {
 					this.farm.farmMoney += crop.getSellPrice();
+					farm.cropInventory.put(crop.getCropType(), farm.cropInventory.get(crop.getCropType()) - 1);
 				} else {
 					tempCropList.add(crop);
 				}
@@ -496,7 +491,7 @@ public class GameEnvironment {
 	 * Launch set up screen
 	 */
 	public void launchSetupScreen() {
-		setupScreen = new StartGameScreen(this);
+		new StartGameScreen(this);
 	}
 	
 	/**

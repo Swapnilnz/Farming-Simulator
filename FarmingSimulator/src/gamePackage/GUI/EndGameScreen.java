@@ -23,6 +23,11 @@ public class EndGameScreen extends JDialog {
 
 
 	/**
+	 * Default serial version ID
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * Create the end game screen
 	 * @param game main game
 	 */

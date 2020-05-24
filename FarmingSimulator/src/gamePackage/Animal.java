@@ -9,29 +9,29 @@ package gamePackage;
 
 public class Animal {
 	/**
-	 * Type of animal
+	 * Type of animal.
 	 */
 	private String animalType;
 	/**
-	 * int animal weight
+	 * int animal weight.
 	 */
 	private int weight;
 	/**
-	 * int animal happiness
+	 * int animal happiness.
 	 */
 	private int happiness;
 	/**
-	 * int animal health
+	 * int animal health.
 	 */
 	private int health;
-	
+
 	/**
-	 * animal number for when animal is viewed, there is not ambiguity
+	 * animal number for when animal is viewed, there is not ambiguity.
 	 */
 	private int animalNum;
-	
+
 	/**
-	 * Constructer, used for initialising class attributes
+	 * Constructer, used for initialising class attributes.
 	 * @param animalType animal type
 	 * @param weight starting weight
 	 * @param happiness starting happiness
@@ -44,17 +44,17 @@ public class Animal {
 		this.happiness = happiness;
 		this.health = health;
 		this.animalNum = num;
-	
+
 	}
-	
+
 	/**
-	 * overrides java's toString, as to not return a memory location but rather the animal type + animal num
+	 * overrides java's toString, as to not return a memory location but rather the animal type + animal num.
 	 * @return animal type + animal num
 	 */
 	public String toString() {
 		return animalType + " " + animalNum;
 	}
-	
+
 	/**
 	 * Increase health by a set amount (25)
 	 */

@@ -25,6 +25,11 @@ public class ViewToolMarket extends JDialog {
 
 
 	/**
+	 * Default serial version ID
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * Create the tool market
 	 * @param game main game
 	 * @param window main window

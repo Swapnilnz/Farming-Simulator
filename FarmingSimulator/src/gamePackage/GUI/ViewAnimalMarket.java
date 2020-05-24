@@ -26,6 +26,10 @@ import gamePackage.GameEnvironment;
 public class ViewAnimalMarket extends JDialog {
 	
 	/**
+	 * Default serial version ID
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
 	 * Amount to buy
 	 */
 	private int amount;

@@ -8,7 +8,6 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -27,6 +26,10 @@ import gamePackage.GameEnvironment;
  */
 public class ViewCropMarket extends JDialog {
 	
+	/**
+	 * Default serial version ID
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * User input in text field
 	 */

@@ -24,6 +24,11 @@ import gamePackage.GameEnvironment;
 public class ViewTendToCrops extends JDialog {
 
 	/**
+	 * Default serial version ID
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * Create the dialog
 	 * @param game main game
 	 * @param window main window

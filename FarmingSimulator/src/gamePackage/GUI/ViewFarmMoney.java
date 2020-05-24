@@ -3,7 +3,6 @@ package gamePackage.GUI;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -25,6 +24,11 @@ import gamePackage.GameEnvironment;
 public class ViewFarmMoney extends JDialog {
 
 	
+	/**
+	 * Default serial version ID
+	 */
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * Create the dialog.
 	 * @param game main game
