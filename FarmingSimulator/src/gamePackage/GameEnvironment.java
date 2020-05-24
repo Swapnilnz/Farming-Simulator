@@ -129,6 +129,8 @@ public class GameEnvironment {
 		AnimalMarket animalMarket = new AnimalMarket();
 		ViewAnimalMarket viewAnimalMarket = new ViewAnimalMarket(this, window, animalMarket);
 		viewAnimalMarket.setVisible(true);
+		test = true;
+
 	}
 	
 	/**
@@ -137,22 +139,23 @@ public class GameEnvironment {
 	 * @param givenWarning boolean for if warning has been given (warning is given if num actions greater than 0)
 	 */
 	public void nextDay(JFrame window, boolean givenWarning) {
-
 		if ((this.getNumActions() > 0) && !(givenWarning)) {
 			PopUp error = new PopUp(this, window, "You still have actions left, are you sure?");
 			error.setVisible(true);
+			test = true;
 		} else {
 			endDay();
 			numDays--;
 			gameDuration++;
 			if (numDays > 0) {
-
 				runDay();
+				test = true;
 			} else {
 				// IMPLEMENT END GAME
 				this.closeMainScreen(mainScreen);
 				EndGameScreen endGameScreen = new EndGameScreen(this);
 				endGameScreen.setVisible(true);
+				test = true;
 			}
 		}
 	}

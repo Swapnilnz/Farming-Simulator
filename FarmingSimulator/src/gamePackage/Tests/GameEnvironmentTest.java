@@ -18,16 +18,67 @@ class GameEnvironmentTest {
 	private GameEnvironment game;
 	Farm farm;
 	JFrame window;
+	Crop apple;
+	Crop avocado;
 
 	@BeforeEach
 	public void init() {
 		game = new GameEnvironment();
 		farm = new MountainFarm();
 		game.farm = farm;
-		
+		game.setNumDays(5);
+		apple = new Crop("Apple", 1);
+		game.farm.cropInventory.put("Apple", 1);
+		game.farm.cropList.add(apple);
+		avocado = new Crop("Avocado", 1);
+		game.farm.cropInventory.put("Avocado", 1);
+		game.farm.cropList.add(avocado);
 		
 	}
+	@Test
+	void viewFarmTest() {
+		game.viewFarm(window);
+		assertTrue(game.test);
+	}
 	
+	@Test
+	void viewFarmMoneyTest() {
+		game.viewFarmMoney(window);
+		assertTrue(game.test);
+	}
+	
+	@Test
+	void visitToolMarketTest() {
+		game.visitToolMarket(window);
+		assertTrue(game.test);
+	}
+	
+	@Test
+	void visitCropMarketTest() {
+		game.visitCropMarket(window);
+		assertTrue(game.test);
+	}
+	
+	@Test
+	void visitAnimalMarketTest() {
+		game.visitAnimalMarket(window);
+		assertTrue(game.test);
+	}
+	
+	@Test
+	void nextDayTest() {
+		game.setNumActions(0);
+		game.nextDay(window, false);
+		assertTrue(game.test);
+		game.setNumActions(2);
+		game.setNumDays(2);
+		game.nextDay(window, true);
+		assertTrue(game.test);
+		game.setNumActions(2);
+		game.nextDay(window, false);
+		assertTrue(game.test);
+		
+	}
 	@Test
 	void farmerNameTest() {
 		assertTrue(game.farmerNameChecker("Dave"));
@@ -38,6 +89,25 @@ class GameEnvironmentTest {
 		assertFalse(game.farmerNameChecker("ab"));
 		assertFalse(game.farmerNameChecker("12345"));
 	}
+	
+	@Test
+	void tendToCropTest1() {
+		farm.addToItemList("Watering Can");
+		game.tendToCrops(window, "Apple");
+		assertEquals(0, apple.getDaysTillHarvest());
+		game.tendToCrops(window, "Avocado");
+		assertEquals(4, avocado.getDaysTillHarvest());
+	}
+	
+	@Test
+	void tendToCropTest2() {
+		game.tendToCrops(window, "Apple");
+		assertEquals(0, apple.getDaysTillHarvest());
+		game.tendToCrops(window, "Avocado");
+
+		assertEquals(6, avocado.getDaysTillHarvest());
+
+	}
 
 	@Test
 	void feedAnimals() {
@@ -46,6 +116,7 @@ class GameEnvironmentTest {
 		game.farm.setAnimalFeed(5);
 		game.feedAnimals(window);
 		assertEquals(75, cow.getHealth());
+
 		
 	}
 	
@@ -60,12 +131,12 @@ class GameEnvironmentTest {
 	
 	@Test
 	void harvestCropsTest() {
-		Crop avocado = new Crop("Avocado", 1);
+		Crop avocado = new Crop("Avocado", 2);
 		avocado.setDaysTillHarvest(0);
 		farm.cropList.add(avocado);
 		game.harvestCrops(window);
 		assertEquals(144, farm.getFarmMoney());
-		assertEquals(0, farm.cropList.size());
+		assertEquals(2, farm.cropList.size());
 	}
 	
 	@Test
