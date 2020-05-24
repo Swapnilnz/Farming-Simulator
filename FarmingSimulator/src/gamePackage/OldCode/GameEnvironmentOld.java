@@ -33,7 +33,7 @@ package gamePackage.OldCode;
 //	 */
 //	private static String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 //	/**
-//	 * (Integer) Number of actions the player has, may increase and indecrease
+//	 * (Integer) Number of actions the player has, may increase and indecreas
 //	 */
 //	private int numActions;
 //	/**
