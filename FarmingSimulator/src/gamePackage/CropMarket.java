@@ -9,7 +9,7 @@ import javax.swing.JFrame;
  * @author Swapnil Bhagat, Reed Earl
  *
  */
-class CropMarket {
+public class CropMarket {
 	
 	/**
 	 * Dictionary of crops to their purchase price
@@ -31,7 +31,7 @@ class CropMarket {
 	 * @param amount amount to buy
 	 * @param window main screen window
 	 */
-	void buyAvocado(GameEnvironment game, int amount, JFrame window) {
+	public void buyAvocado(GameEnvironment game, int amount, JFrame window) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Avocado");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
@@ -56,7 +56,7 @@ class CropMarket {
 	 * @param amount amount to buy
 	 * @param window main screen window
 	 */
-	void buyCorn(GameEnvironment game, int amount, JFrame window) {
+	public void buyCorn(GameEnvironment game, int amount, JFrame window) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Corn");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
@@ -80,7 +80,7 @@ class CropMarket {
 	 * @param amount amount to buy
 	 * @param window main screen window
 	 */
-	void buyWheat(GameEnvironment game, int amount, JFrame window) {
+	public void buyWheat(GameEnvironment game, int amount, JFrame window) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Wheat");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
@@ -104,7 +104,7 @@ class CropMarket {
 	 * @param amount amount to buy
 	 * @param window main screen window
 	 */
-	void buyPotato(GameEnvironment game, int amount, JFrame window) {
+	public void buyPotato(GameEnvironment game, int amount, JFrame window) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Potato");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
@@ -128,7 +128,7 @@ class CropMarket {
 	 * @param amount amount to buy
 	 * @param window main screen window
 	 */
-	void buyCarrot(GameEnvironment game, int amount, JFrame window) {
+	public void buyCarrot(GameEnvironment game, int amount, JFrame window) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Carrot");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {
@@ -152,7 +152,7 @@ class CropMarket {
 	 * @param amount amount to buy
 	 * @param window main screen window
 	 */
-	void buyApple(GameEnvironment game, int amount, JFrame window) {
+	public void buyApple(GameEnvironment game, int amount, JFrame window) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Apple");
 		int curMoney = game.farm.getFarmMoney();
 		if (totalPurchasePrice > curMoney) {

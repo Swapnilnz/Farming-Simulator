@@ -5,7 +5,7 @@ package gamePackage;
  * @author Swapnil
  *
  */
-class SwampFarm extends Farm {
+public class SwampFarm extends Farm {
 		
 	/**
 	 * Constructer, uses superclass to initialise farm variables
@@ -13,7 +13,7 @@ class SwampFarm extends Farm {
 	 * Starting money 60
 	 */
 	public SwampFarm() {
-		super("Swamp Farm", 1, 60);
+		super("Swamp Farm", 1, 50);
 	}
 
 }

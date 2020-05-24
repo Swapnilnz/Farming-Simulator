@@ -7,7 +7,7 @@ import javax.swing.JFrame;
  * @author Swapnil Bhagat, Reed Earl
  *
  */
-class AnimalMarket {
+public class AnimalMarket {
 	/**
 	 * Cow price
 	 */
@@ -41,7 +41,7 @@ class AnimalMarket {
 	 * @param amount amount to buy
 	 * @param window main screen window
 	 */
-	void buyCow(GameEnvironment game, int amount, JFrame window) {
+	public void buyCow(GameEnvironment game, int amount, JFrame window) {
 		// Add cow, remove money
 		int totalPurchasePrice = amount * cowPrice;
 		int curMoney = game.farm.getFarmMoney();
@@ -64,7 +64,7 @@ class AnimalMarket {
 	 * @param amount amount to buy
 	 * @param window main screen window
 	 */
-	void buyPig(GameEnvironment game, int amount, JFrame window) {
+	public void buyPig(GameEnvironment game, int amount, JFrame window) {
 		// Add pig, remove money
 		int totalPurchasePrice = amount * pigPrice;
 		int curMoney = game.farm.getFarmMoney();
@@ -87,7 +87,7 @@ class AnimalMarket {
 	 * @param amount amount to buy
 	 * @param window main screen window
 	 */
-	void buyChicken(GameEnvironment game, int amount, JFrame window) {
+	public void buyChicken(GameEnvironment game, int amount, JFrame window) {
 		// Add chicken, remove money
 		int totalPurchasePrice = amount * chickenPrice;
 		int curMoney = game.farm.getFarmMoney();
@@ -110,7 +110,7 @@ class AnimalMarket {
 	 * @param amount amount to buy
 	 * @param window main screen window
 	 */
-	void buySheep(GameEnvironment game, int amount, JFrame window) {
+	public void buySheep(GameEnvironment game, int amount, JFrame window) {
 		// Add sheep, remove money
 		int totalPurchasePrice = amount * sheepPrice;
 		int curMoney = game.farm.getFarmMoney();

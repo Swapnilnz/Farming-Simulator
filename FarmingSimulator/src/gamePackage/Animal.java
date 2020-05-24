@@ -7,7 +7,7 @@ package gamePackage;
  *
  */
 
-class Animal {
+public class Animal {
 	/**
 	 * Type of animal
 	 */

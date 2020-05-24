@@ -1,4 +1,4 @@
-package gamePackage;
+package gamePackage.Tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -6,6 +6,12 @@ import javax.swing.JFrame;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import gamePackage.Crop;
+import gamePackage.CropMarket;
+import gamePackage.Farm;
+import gamePackage.GameEnvironment;
+import gamePackage.SwampFarm;
 
 /**
  * Tests class CropMarket
@@ -22,7 +28,7 @@ class CropMarketTest {
 	@BeforeEach
 	public void init() {
 		game = new GameEnvironment();
-		farm = new DesertFarm();
+		farm = new SwampFarm();
 		game.farm = farm;
 		market = new CropMarket();
 		window = new JFrame();

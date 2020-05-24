@@ -8,7 +8,7 @@ import java.util.HashMap;
  * Thus crop attributes are initialised through "crop". Has usual getters and setters for attributes
  * purchasePrice, sellPrice, daysTillHarvest, cropAmount, cropType.
  */
-class Crop {
+public class Crop {
 	
 	/**
 	 * Crop purchase price
@@ -43,7 +43,7 @@ class Crop {
 	 * @param crop input crop
 	 * @param incomingCropNumber crop's allocated number
 	 */
-	Crop(String crop, int incomingCropNumber) {
+	public Crop(String crop, int incomingCropNumber) {
 		cropNumber = incomingCropNumber;
 		cropDic = new HashMap<String, Integer>();
 		cropDic.put("Avocado", 8); cropDic.put("Corn", 6); cropDic.put("Wheat", 4); 
@@ -97,7 +97,7 @@ class Crop {
 	 * Deletion of crop is done in GameEnvironment class
 	 * @param game main game; class GameEnvironment
 	 */
-	void harvest(GameEnvironment game) {
+	public void harvest(GameEnvironment game) {
 		int farmMoney = game.farm.getFarmMoney();
 		game.farm.setFarmMoney(farmMoney + this.sellPrice);
 		

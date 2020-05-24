@@ -5,7 +5,7 @@ package gamePackage;
  * @author Swapnil
  *
  */
-class PlainsFarm extends Farm {
+public class PlainsFarm extends Farm {
 	
 	/**
 	 * Constructer, uses superclass to initialise farm variables

@@ -6,7 +6,7 @@ package gamePackage;
  *
  */
 
-class Chicken extends Animal {
+public class Chicken extends Animal {
 	
 	
 	

@@ -1,4 +1,4 @@
-package gamePackage;
+package gamePackage.Tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -6,6 +6,11 @@ import javax.swing.JFrame;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import gamePackage.AnimalMarket;
+import gamePackage.Farm;
+import gamePackage.GameEnvironment;
+import gamePackage.PlainsFarm;
 
 /**
  * Tests Animal Market Class
@@ -31,25 +36,25 @@ class AnimalMarketTest {
 	@Test
 	public void buyCowTest() {
 		market.buyCow(game, 1, window);
-		assertEquals(40, game.farm.getFarmMoney());
+		assertEquals(90, game.farm.getFarmMoney());
 	}
 
 	@Test
 	void buyPigTest() {
 		market.buyPig(game, 1, window);
-		assertEquals(42, game.farm.getFarmMoney());
+		assertEquals(92, game.farm.getFarmMoney());
 	}
 	
 	@Test
 	void buyChickenTest() {
 		market.buyChicken(game, 1, window);
-		assertEquals(45, game.farm.getFarmMoney());
+		assertEquals(95, game.farm.getFarmMoney());
 	}
 	
 	@Test
 	void buySheepTest() {
 		market.buySheep(game, 1, window);
-		assertEquals(41, game.farm.getFarmMoney());
+		assertEquals(91, game.farm.getFarmMoney());
 	}
 
 }

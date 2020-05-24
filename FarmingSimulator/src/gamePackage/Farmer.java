@@ -5,7 +5,7 @@ package gamePackage;
  * @author Swapnil Bhagat, Reed Earl
  *
  */
-class Farmer {
+public class Farmer {
 	/**
 	 * Farmer name
 	 */
@@ -20,7 +20,7 @@ class Farmer {
 	 * @param inputName farmer name
 	 * @param farmerAge farmer age
 	 */
-	Farmer(String inputName, int farmerAge) {
+	public Farmer(String inputName, int farmerAge) {
 		name = inputName;
 		age = farmerAge;
 	}

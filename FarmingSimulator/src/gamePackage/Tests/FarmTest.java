@@ -1,10 +1,15 @@
-package gamePackage;
+package gamePackage.Tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class FarmTest {
+import gamePackage.DesertFarm;
+import gamePackage.MountainFarm;
+import gamePackage.PlainsFarm;
+import gamePackage.SwampFarm;
+
+class TestFarm {
 	/*
 	 * First check Mountain Farm
 	 */
@@ -17,7 +22,7 @@ class FarmTest {
 	@Test
 	public void startMoneyTest() {
 		MountainFarm item = new MountainFarm();
-		assertEquals((int)50, (int)item.getFarmMoney());
+		assertEquals((int)80, (int)item.getFarmMoney());
 	}
 	
 	@Test
@@ -37,7 +42,7 @@ class FarmTest {
 	@Test
 	public void startMoneyTestPlainsFarm() {
 		PlainsFarm item = new PlainsFarm();
-		assertEquals((int)50, (int)item.getFarmMoney());
+		assertEquals((int)100, (int)item.getFarmMoney());
 	}
 	
 	@Test
@@ -77,7 +82,7 @@ class FarmTest {
 	@Test
 	public void startMoneyTestDesertFarm() {
 		DesertFarm item = new DesertFarm();
-		assertEquals((int)50, (int)item.getFarmMoney());
+		assertEquals((int)30, (int)item.getFarmMoney());
 	}
 	
 	@Test
@@ -93,6 +98,6 @@ class FarmTest {
 		MountainFarm item = new MountainFarm();
 		item.decreaseFarmMoney(50);
 		item.increaseFarmMoney(100);
-		assertEquals((int)100, (int)item.getFarmMoney());
+		assertEquals((int)130, (int)item.getFarmMoney());
 	}
 }

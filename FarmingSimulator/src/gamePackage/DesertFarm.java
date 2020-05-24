@@ -5,7 +5,7 @@ package gamePackage;
  * @author Swapnil Bhagat, Reed Earl
  *
  */
-class DesertFarm extends Farm {
+public class DesertFarm extends Farm {
 	
 	/**
 	 * Constructer, uses superclass to initialise farm

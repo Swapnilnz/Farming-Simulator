@@ -5,7 +5,7 @@ package gamePackage;
  * @author Swapnil Bhagat, Reed Earl
  *
  */
-class Cow extends Animal{
+public class Cow extends Animal{
 	
 	
 	

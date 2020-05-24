@@ -1,8 +1,10 @@
-package gamePackage;
+package gamePackage.Tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
+import gamePackage.Farmer;
 
 /**
  * Tests class Farmer

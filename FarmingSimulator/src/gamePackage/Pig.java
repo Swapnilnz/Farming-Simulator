@@ -5,7 +5,7 @@ package gamePackage;
  * @author Swapnil Bhagat, Reed Earl
  *
  */
-class Pig extends Animal {
+public class Pig extends Animal {
 	
 	/**
 	 * Constructer, uses superclass to initialise pig attributes

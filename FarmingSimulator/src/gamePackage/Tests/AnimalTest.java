@@ -1,12 +1,13 @@
-package gamePackage;
+package gamePackage.Tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import gamePackage.Chicken;
+import gamePackage.Cow;
+import gamePackage.Pig;
+import gamePackage.Sheep;
 
 /**
  * Tests class Animal
@@ -33,7 +34,7 @@ class AnimalTest {
 	void testAnimalSheep() {
 		Sheep item = new Sheep(1);
 		assertEquals((String)"Sheep", (String)item.getAnimalType());
-		assertEquals((int)60, (int)item.getWeight());
+		assertEquals((int)300, (int)item.getWeight());
 		assertEquals((int)80, (int)item.getHappiness());
 	}
 	

@@ -1,4 +1,4 @@
-package gamePackage;
+package gamePackage.Tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -6,6 +6,12 @@ import javax.swing.JFrame;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import gamePackage.Cow;
+import gamePackage.Crop;
+import gamePackage.Farm;
+import gamePackage.GameEnvironment;
+import gamePackage.MountainFarm;
 
 class GameEnvironmentTest {
 	
@@ -58,7 +64,7 @@ class GameEnvironmentTest {
 		avocado.setDaysTillHarvest(0);
 		farm.cropList.add(avocado);
 		game.harvestCrops(window);
-		assertEquals(114, farm.getFarmMoney());
+		assertEquals(144, farm.getFarmMoney());
 		assertEquals(0, farm.cropList.size());
 	}
 	
@@ -85,7 +91,7 @@ class GameEnvironmentTest {
 		farm.addToItemList("Shear Master");
 		farm.addToItemList("Harvester");
 		game.endDay();
-		assertEquals(184, farm.getFarmMoney());
+		assertEquals(214, farm.getFarmMoney());
 		assertEquals(40, farm.animalList.get(0).getHappiness());
 		assertEquals(30, farm.animalList.get(0).getHealth());
 	}
@@ -94,7 +100,7 @@ class GameEnvironmentTest {
 	void calculateScoreTest() {
 		farm.addCowToFarm();
 		game.gameDuration = 5;
-		assertEquals(31732, game.calculateScore());
+		assertEquals(50398, game.calculateScore());
 		
 	}
 }

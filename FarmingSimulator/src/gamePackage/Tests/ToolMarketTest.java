@@ -1,4 +1,4 @@
-package gamePackage;
+package gamePackage.Tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -6,6 +6,11 @@ import javax.swing.JFrame;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import gamePackage.Farm;
+import gamePackage.GameEnvironment;
+import gamePackage.SwampFarm;
+import gamePackage.ToolMarket;
 
 /**
  * Tests class ToolMarket on logic
@@ -35,42 +40,42 @@ class ToolMarketTest {
 	void buyHarvesterTest() {
 		market.buyHarvester(game, window);
 		assertEquals(450, farm.getFarmMoney());
-		assertEquals(true, farm.itemList.contains("Harvester"));
+		assertEquals(true, farm.getItemList().contains("Harvester"));
 	}
 	
 	@Test
 	void buyWateringCanTest() {
 		market.buyWateringCan(game, window);
 		assertEquals(450, farm.getFarmMoney());
-		assertEquals(true, farm.itemList.contains("Watering Can"));
+		assertEquals(true, farm.getItemList().contains("Watering Can"));
 	}
 	
 	@Test
 	void buyAnimalStatueTest() {
 		market.buyAnimalStatue(game, window);
 		assertEquals(440, farm.getFarmMoney());
-		assertEquals(true, farm.itemList.contains("Animal Statue"));
+		assertEquals(true, farm.getItemList().contains("Animal Statue"));
 	}
 	
 	@Test
 	void buyMilkMasterTest() {
 		market.buyMilkMaster(game, window);
 		assertEquals(440, farm.getFarmMoney());
-		assertEquals(true, farm.itemList.contains("Milk Master"));
+		assertEquals(true, farm.getItemList().contains("Milk Master"));
 	}
 
 	@Test
 	void buyShearMasterTest() {
 		market.buyShearMaster(game, window);
 		assertEquals(440, farm.getFarmMoney());
-		assertEquals(true, farm.itemList.contains("Shear Master"));
+		assertEquals(true, farm.getItemList().contains("Shear Master"));
 	}
 	
 	@Test
 	void buyTeleportationPadTest() {
 		market.buyTeleportationPad(game, window);
 		assertEquals(400, farm.getFarmMoney());
-		assertEquals(true, farm.itemList.contains("Teleportation Pad"));
+		assertEquals(true, farm.getItemList().contains("Teleportation Pad"));
 		game.nextDay(window, true);
 		assertEquals(3, game.getNumActions());
 	}

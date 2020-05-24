@@ -7,7 +7,7 @@ import javax.swing.JFrame;
  * @author Swapnil Bhagat, Reed Earl
  *
  */
-class ToolMarket {
+public class ToolMarket {
 	/**
 	 * Int harvester price
 	 */
@@ -52,7 +52,7 @@ class ToolMarket {
 	 * @param game main game
 	 * @param window main screen window
 	 */
-	void buyHarvester(GameEnvironment game, JFrame window) {
+	public void buyHarvester(GameEnvironment game, JFrame window) {
 		// Add harvester, remove money
 		if (game.farm.itemList.contains("Harvester")) {
 			// Error, already have one
@@ -76,7 +76,7 @@ class ToolMarket {
 	 * @param game main game
 	 * @param window main screen window
 	 */
-	void buyWateringCan(GameEnvironment game, JFrame window) {
+	public void buyWateringCan(GameEnvironment game, JFrame window) {
 		// Add watering can, remove money
 		if (game.farm.itemList.contains("Watering Can")) {
 			// Error, already have one
@@ -99,7 +99,7 @@ class ToolMarket {
 	 * @param game main game
 	 * @param window main screen window
 	 */
-	void buyAnimalStatue(GameEnvironment game, JFrame window) {
+	public void buyAnimalStatue(GameEnvironment game, JFrame window) {
 		// Add animalStatue, remove money
 		if (game.farm.itemList.contains("Animal Statue")) {
 			// Error, already have one
@@ -123,7 +123,7 @@ class ToolMarket {
 	 * @param game main game
 	 * @param window main screen window
 	 */
-	void buyMilkMaster(GameEnvironment game, JFrame window) {
+	public void buyMilkMaster(GameEnvironment game, JFrame window) {
 		// Add milk master, remove money
 		if (game.farm.itemList.contains("Milk Master")) {
 			// Error, already have one
@@ -146,7 +146,7 @@ class ToolMarket {
 	 * @param game main game
 	 * @param window main screen window
 	 */
-	void buyShearMaster(GameEnvironment game, JFrame window) {
+	public void buyShearMaster(GameEnvironment game, JFrame window) {
 		// Add shear master, remove money
 		if (game.farm.itemList.contains("Shear Master")) {
 			// Error, already have one
@@ -169,7 +169,7 @@ class ToolMarket {
 	 * @param game main game
 	 * @param window main screen window
 	 */
-	void buyTeleportationPad(GameEnvironment game, JFrame window) {
+	public void buyTeleportationPad(GameEnvironment game, JFrame window) {
 		// Add teleportation pad, remove money
 		int farmMoney = game.farm.getFarmMoney();
 		if (farmMoney >= teleportationPadPrice) {

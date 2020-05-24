@@ -1,12 +1,17 @@
 /**
  * 
  */
-package gamePackage;
+package gamePackage.Tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import gamePackage.Crop;
+import gamePackage.Farm;
+import gamePackage.GameEnvironment;
+import gamePackage.PlainsFarm;
 
 /**
  * Tests class Crop
@@ -36,7 +41,7 @@ class CropTest {
 		avocado.setDaysTillHarvest(0);
 		farm.cropList.add(avocado);
 		avocado.harvest(game);
-		assertEquals(114, farm.getFarmMoney());
+		assertEquals(164, farm.getFarmMoney());
 		
 		
 	}
@@ -52,7 +57,7 @@ class CropTest {
 		corn.setDaysTillHarvest(0);
 		farm.cropList.add(corn);
 		corn.harvest(game);
-		assertEquals(80, farm.getFarmMoney());
+		assertEquals(130, farm.getFarmMoney());
 		
 		
 	}
@@ -68,7 +73,7 @@ class CropTest {
 		wheat.setDaysTillHarvest(0);
 		farm.cropList.add(wheat);
 		wheat.harvest(game);
-		assertEquals(66, farm.getFarmMoney());
+		assertEquals(116, farm.getFarmMoney());
 		
 		
 	}
@@ -84,7 +89,7 @@ class CropTest {
 		potato.setDaysTillHarvest(0);
 		farm.cropList.add(potato);
 		potato.harvest(game);
-		assertEquals(78, farm.getFarmMoney());
+		assertEquals(128, farm.getFarmMoney());
 		
 		
 	}
@@ -100,7 +105,7 @@ class CropTest {
 		carrot.setDaysTillHarvest(0);
 		farm.cropList.add(carrot);
 		carrot.harvest(game);
-		assertEquals(80, farm.getFarmMoney());
+		assertEquals(130, farm.getFarmMoney());
 		
 		
 	}
@@ -116,7 +121,7 @@ class CropTest {
 		apple.setDaysTillHarvest(0);
 		farm.cropList.add(apple);
 		apple.harvest(game);
-		assertEquals(62, farm.getFarmMoney());
+		assertEquals(112, farm.getFarmMoney());
 		
 		
 	}

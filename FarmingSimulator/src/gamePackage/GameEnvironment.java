@@ -12,7 +12,7 @@ import javax.swing.JFrame;
  * @author Swapnil Bhagat, Reed Earl
  *
  */
-class GameEnvironment {
+public class GameEnvironment {
 	/**
 	 * (Integer) Number of days the player has chosen to play the game (5-15), counts DOWN
 	 */
@@ -20,7 +20,7 @@ class GameEnvironment {
 	/**
 	 * (Integer) Number of days the player has chosen to play the game (5-15), counts UP
 	 */
-	int gameDuration;
+	public int gameDuration;
 	/**
 	 * Object farmer, contains farmer name and age (maybe avatar)
 	 */
@@ -28,7 +28,7 @@ class GameEnvironment {
 	/**
 	 * Object Farm, is the player's farm, used to house all farm attributes
 	 */
-	protected Farm farm;
+	public Farm farm;
 	/**
 	 * Static String alphabet, used for validifying farmer name
 	 */
@@ -116,7 +116,7 @@ class GameEnvironment {
 	 * @param window main game window
 	 * @param givenWarning boolean for if warning has been given (warning is given if num actions > 0)
 	 */
-	void nextDay(JFrame window, boolean givenWarning) {
+	public void nextDay(JFrame window, boolean givenWarning) {
 
 		if ((this.getNumActions() > 0) && !(givenWarning)) {
 			PopUp error = new PopUp(this, window, "You still have actions left, are you sure?");
@@ -194,7 +194,7 @@ class GameEnvironment {
 	 * Feed animals to make them healthier
 	 * @param window main game window
 	 */
-	void feedAnimals(JFrame window) {
+	public void feedAnimals(JFrame window) {
 		if (this.getNumActions() > 0) {
 			if (this.farm.animalFeed > 0) {
 				for (Animal animal : this.farm.animalList) {
@@ -222,7 +222,7 @@ class GameEnvironment {
 	 * Play with animals to make them happier, or error if no animals
 	 * @param window main game window
 	 */
-	void playWithAnimals(JFrame window) {
+	public void playWithAnimals(JFrame window) {
 		if (this.getNumActions() > 0) {
 			if (this.farm.animalList.size() > 0) {
 				for (Animal animal : this.farm.animalList) {
@@ -250,7 +250,7 @@ class GameEnvironment {
 	 * Adds required money
 	 * @param window main game window
 	 */
-	void harvestCrops(JFrame window) {
+	public void harvestCrops(JFrame window) {
 		if (this.getNumActions() > 0) {
 			ArrayList<Crop> tempCropList = new ArrayList<Crop>();
 			for (Crop crop : this.farm.cropList) {
@@ -284,7 +284,7 @@ class GameEnvironment {
 	 * Simple method that sets the farm's maintenance attribute to true
 	 * @param window main game window
 	 */
-	void tendToFarmLand(JFrame window) {
+	public void tendToFarmLand(JFrame window) {
 		if (this.getNumActions() > 0) {
 			this.farm.setMaintained(true);
 			this.setNumActions(this.getNumActions() - 1);
@@ -311,7 +311,7 @@ class GameEnvironment {
 	 * Returns total money based on animal happiness/healthiness
 	 * @return int total money
 	 */
-	int getTotalMoney() {
+	public int getTotalMoney() {
 		int totalMoney = 0;
 		int happinessSum = 0;
 		int healthinessSum = 0;
@@ -332,7 +332,7 @@ class GameEnvironment {
 	/**
 	 * Does end of day calculations to add money, harvest if necessary 
 	 */
-	void endDay() {
+	public void endDay() {
 		// Add money (Milk Master; Shear Master; Harvester)
 		if (this.farm.itemList.contains("Milk Master")) {
 			for (Animal animal: this.farm.animalList) {
@@ -386,7 +386,7 @@ class GameEnvironment {
 	 * Calculates final score: (money * happinessAv * healthinessAv) / duration
 	 * @return score game score
 	 */
-	int calculateScore() {
+	public int calculateScore() {
 		int money = this.farm.getFarmMoney();
 		int duration = this.gameDuration;
 		int score = 0;
@@ -431,7 +431,7 @@ class GameEnvironment {
 	 * @param name, name to check
 	 * @return boolean if valid (true) or not (false)
 	 */
-	boolean farmerNameChecker(String name) {
+	public boolean farmerNameChecker(String name) {
 		// Checks between 3-15 chars
 		boolean acceptableLength = false;
 		if ((name.length() >= 3) && (name.length() <= 15)) {

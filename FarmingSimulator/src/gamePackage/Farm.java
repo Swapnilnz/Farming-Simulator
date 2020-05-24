@@ -8,7 +8,7 @@ import java.util.HashMap;
  * @author Swapnil Bhagat, Reed Earl
  *
  */
-class Farm {
+public class Farm {
 	/**
 	 * Type of farm (Desert, Mountain, Plains, Swamp)
 	 */
@@ -40,15 +40,15 @@ class Farm {
 	/**
 	 * Array list of animals
 	 */
-	ArrayList<Animal> animalList;
+	public ArrayList<Animal> animalList;
 	/**
 	 * Array list of crops
 	 */
-	ArrayList<Crop> cropList;
+	public ArrayList<Crop> cropList;
 	/**
 	 * Dictionary that holds count of each crop
 	 */
-	HashMap<String, Integer> cropInventory;
+	public HashMap<String, Integer> cropInventory;
 	/**
 	 * Array list of items on the farm
 	 */
@@ -97,7 +97,7 @@ class Farm {
 	 * Add item to item list
 	 * @param item item to add
 	 */
-	void addToItemList(String item) {
+	public void addToItemList(String item) {
 		itemList.add(item);
 	}
 	
@@ -115,7 +115,7 @@ class Farm {
 	/**
 	 * Adds cow to farm	
 	 */
-	void addCowToFarm() {
+	public void addCowToFarm() {
 		this.cowCount++;
 
 		Cow cow = new Cow(this.getCowCount());
@@ -125,7 +125,7 @@ class Farm {
 	/**
 	 * Adds sheep to farm	
 	 */
-	void addSheepToFarm() {
+	public void addSheepToFarm() {
 		this.sheepCount++;
 
 		Sheep sheep = new Sheep(this.getSheepCount());
@@ -147,7 +147,7 @@ class Farm {
 	 * Decrease farm money
 	 * @param money money to decrease by
 	 */
-	void decreaseFarmMoney(int money) {
+	public void decreaseFarmMoney(int money) {
 		this.farmMoney -= money;
 	}
 	
@@ -155,7 +155,7 @@ class Farm {
 	 * Increase farm money
 	 * @param money money to increase by
 	 */
-	void increaseFarmMoney(int money) {
+	public void increaseFarmMoney(int money) {
 		this.farmMoney += money;
 	}
 
