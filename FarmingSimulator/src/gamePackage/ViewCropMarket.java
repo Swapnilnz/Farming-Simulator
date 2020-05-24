@@ -1,7 +1,5 @@
 package gamePackage;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,27 +10,28 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
-import javax.swing.border.EmptyBorder;
-import javax.swing.Icon;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import java.awt.Color;
-import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 
+/**
+ * Crop market GUI dialog
+ * @author Swapnil Bhagat, Reed Earl
+ *
+ */
 public class ViewCropMarket extends JDialog {
-
-	private final JPanel contentPanel = new JPanel();
+	
+	/**
+	 * User input in text field
+	 */
 	private JTextField textAmount;
+	/**
+	 * amount to buy
+	 */
 	private int amount;
-	private boolean valid;
-
-
 	/**
 	 * Validifies amount input (makes sure its greater than 0)
 	 * @param text text to be validified
@@ -54,7 +53,10 @@ public class ViewCropMarket extends JDialog {
 	
 	}
 	/**
-	 * Create the dialog.
+	 * Create the crop market
+	 * @param game main game
+	 * @param window main window
+	 * @param animalMarket crop market instance
 	 */
 	public ViewCropMarket(GameEnvironment game, JFrame window, CropMarket cropMarket) {
 		super(window, "Cassie's Crop Market", true);
@@ -91,19 +93,14 @@ public class ViewCropMarket extends JDialog {
 		lblYouCurrentlyHave.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblYouCurrentlyHave.setBounds(40, 267, 163, 23);
 		getContentPane().add(lblYouCurrentlyHave);
-		
-		JLabel money = new JLabel(Integer.toString(game.farm.getFarmMoney()));
-		money.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		money.setBounds(144, 267, 29, 23);
-		getContentPane().add(money);
 		{
-			
+			// Text field where user enters amount
 			textAmount = new JTextField();
 			textAmount.setBounds(89, 168, 64, 20);
 			getContentPane().add(textAmount);
 			textAmount.setColumns(10);
 				
-			
+			// Amount of avocado owned
 			JLabel avocadoCount = new JLabel(Integer.toString(game.farm.cropInventory.get("Avocado")));
 			avocadoCount.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 			avocadoCount.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -114,6 +111,7 @@ public class ViewCropMarket extends JDialog {
 			avocadoCount.setMinimumSize(new Dimension(46, 23));
 			avocadoCount.setMaximumSize(new Dimension(46, 23));
 			
+			// Amount of corn owned
 			JLabel cornCount = new JLabel(Integer.toString(game.farm.cropInventory.get("Corn")));
 			cornCount.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 			cornCount.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -125,7 +123,7 @@ public class ViewCropMarket extends JDialog {
 			cornCount.setMaximumSize(new Dimension(46, 23));
 			cornCount.setPreferredSize(new Dimension(46, 23));
 					
-					
+			// Amount of wheat owned
 			JLabel wheatCount = new JLabel(Integer.toString(game.farm.cropInventory.get("Wheat")));
 			wheatCount.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 			wheatCount.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -137,7 +135,7 @@ public class ViewCropMarket extends JDialog {
 			wheatCount.setMaximumSize(new Dimension(46, 23));
 			wheatCount.setPreferredSize(new Dimension(46, 23));
 						
-						
+			// Amount of poatato owned
 			JLabel potatoCount = new JLabel(Integer.toString(game.farm.cropInventory.get("Potato")));
 			potatoCount.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 			potatoCount.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -149,7 +147,7 @@ public class ViewCropMarket extends JDialog {
 			potatoCount.setMaximumSize(new Dimension(46, 23));
 			potatoCount.setPreferredSize(new Dimension(46, 23));
 							
-							
+			// Amount of carrot owned		
 			JLabel carrotCount = new JLabel(Integer.toString(game.farm.cropInventory.get("Carrot")));
 			carrotCount.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 			carrotCount.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -161,7 +159,7 @@ public class ViewCropMarket extends JDialog {
 			carrotCount.setMaximumSize(new Dimension(46, 23));
 			carrotCount.setPreferredSize(new Dimension(46, 23));
 								
-								
+			// Amount of apple owned		
 			JLabel appleCount = new JLabel(Integer.toString(game.farm.cropInventory.get("Apple")));
 			appleCount.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 			appleCount.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -173,7 +171,7 @@ public class ViewCropMarket extends JDialog {
 			appleCount.setMaximumSize(new Dimension(46, 23));
 			appleCount.setPreferredSize(new Dimension(46, 23));
 									
-									
+			// Amount of animal feed owned			
 			JLabel animalFeedCount = new JLabel(Integer.toString(game.farm.getAnimalFeed()));
 			animalFeedCount.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 			animalFeedCount.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -191,11 +189,10 @@ public class ViewCropMarket extends JDialog {
 			youHave.setHorizontalTextPosition(SwingConstants.CENTER);
 			youHave.setIcon(new ImageIcon(ViewCropMarket.class.getResource("/images/button.jpg")));
 			youHave.setHorizontalAlignment(SwingConstants.CENTER);
-			youHave.setBounds(372, 78, 97, 23);
+			youHave.setBounds(405, 78, 64, 23);
 			getContentPane().add(youHave);
 			
 			// Button/error label to enter and check amount
-			
 			JLabel error = new JLabel("");
 			error.setHorizontalTextPosition(SwingConstants.CENTER);
 			error.setForeground(new Color(204, 0, 0));
@@ -220,7 +217,6 @@ public class ViewCropMarket extends JDialog {
 						boolean valid = validifier(textAmount.getText());
 						if (valid) {
 							cropMarket.buyAvocado(game, amount, window);
-							money.setText(Integer.toString(game.farm.getFarmMoney()));
 							avocadoCount.setText(Integer.toString(game.farm.cropInventory.get("Avocado")));
 							lblYouCurrentlyHave.setText("You now have $" + game.farm.getFarmMoney());
 						} else {
@@ -244,7 +240,6 @@ public class ViewCropMarket extends JDialog {
 						boolean valid = validifier(textAmount.getText());
 						if (valid) {
 							cropMarket.buyCorn(game, amount, window);
-							money.setText(Integer.toString(game.farm.getFarmMoney()));
 							cornCount.setText(Integer.toString(game.farm.cropInventory.get("Corn")));
 							lblYouCurrentlyHave.setText("You now have $" + game.farm.getFarmMoney());
 
@@ -268,7 +263,6 @@ public class ViewCropMarket extends JDialog {
 						boolean valid = validifier(textAmount.getText());
 						if (valid) {
 							cropMarket.buyWheat(game, amount, window);
-							money.setText(Integer.toString(game.farm.getFarmMoney()));
 							wheatCount.setText(Integer.toString(game.farm.cropInventory.get("Wheat")));
 							lblYouCurrentlyHave.setText("You now have $" + game.farm.getFarmMoney());
 						} else {
@@ -291,7 +285,6 @@ public class ViewCropMarket extends JDialog {
 						boolean valid = validifier(textAmount.getText());
 						if (valid) {
 							cropMarket.buyPotato(game, amount, window);
-							money.setText(Integer.toString(game.farm.getFarmMoney()));
 							potatoCount.setText(Integer.toString(game.farm.cropInventory.get("Potato")));
 							lblYouCurrentlyHave.setText("You now have $" + game.farm.getFarmMoney());
 						} else {
@@ -313,7 +306,6 @@ public class ViewCropMarket extends JDialog {
 						boolean valid = validifier(textAmount.getText());
 						if (valid) {
 							cropMarket.buyCarrot(game, amount, window);
-							money.setText(Integer.toString(game.farm.getFarmMoney()));
 							carrotCount.setText(Integer.toString(game.farm.cropInventory.get("Carrot")));
 							lblYouCurrentlyHave.setText("You now have $" + game.farm.getFarmMoney());
 						} else {
@@ -336,7 +328,6 @@ public class ViewCropMarket extends JDialog {
 						boolean valid = validifier(textAmount.getText());
 						if (valid) {
 							cropMarket.buyApple(game, amount, window);
-							money.setText(Integer.toString(game.farm.getFarmMoney()));
 							appleCount.setText(Integer.toString(game.farm.cropInventory.get("Apple")));
 							lblYouCurrentlyHave.setText("You now have $" + game.farm.getFarmMoney());
 						} else {
@@ -358,7 +349,6 @@ public class ViewCropMarket extends JDialog {
 						boolean valid = validifier(textAmount.getText());
 						if (valid) {
 							cropMarket.buyAnimalFeed(game, amount, window);
-							money.setText(Integer.toString(game.farm.getFarmMoney()));
 							animalFeedCount.setText(Integer.toString(game.farm.getAnimalFeed()));
 							lblYouCurrentlyHave.setText("You now have $" + game.farm.getFarmMoney());
 						} else {

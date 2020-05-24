@@ -9,7 +9,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * @author Swapnil
+ * Tests class Crop
+ * @author Swapnil Bhagat, Reed Earl
  *
  */
 class CropTest {
@@ -20,7 +21,7 @@ class CropTest {
 	@BeforeEach
 	void init() {
 		game = new GameEnvironment();
-		farm = new Farm("Desert", 1);
+		farm = new PlainsFarm();
 		game.setFarm(farm);
 	}
 

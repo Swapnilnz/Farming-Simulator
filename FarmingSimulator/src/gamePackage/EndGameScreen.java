@@ -1,28 +1,26 @@
 package gamePackage;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextPane;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
-import javax.swing.border.BevelBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * End game screen, shows farm name, game duration, money earnt, and score
+ * @author Swapnil Bhagat, Reed Earl
+ *
+ */
 public class EndGameScreen extends JDialog {
 
 
 	/**
-	 * Create the dialog.
+	 * Create the end game screen
 	 */
 	public EndGameScreen(GameEnvironment game) {
 		setResizable(false);
@@ -30,6 +28,7 @@ public class EndGameScreen extends JDialog {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
 		
+		// Exit game
 		JButton btnNewButton = new JButton("Exit game");
 		btnNewButton.setBackground(new Color(210, 180, 140));
 		btnNewButton.addActionListener(new ActionListener() {
@@ -43,6 +42,7 @@ public class EndGameScreen extends JDialog {
 		btnNewButton.setBounds(179, 227, 89, 23);
 		getContentPane().add(btnNewButton);
 		
+		// Score
 		JLabel scoreLabel = new JLabel("You got " + game.calculateScore() + " points!");
 		scoreLabel.setOpaque(true);
 		scoreLabel.setBackground(new Color(154, 205, 50));
@@ -51,6 +51,7 @@ public class EndGameScreen extends JDialog {
 		scoreLabel.setBounds(0, 187, 444, 37);
 		getContentPane().add(scoreLabel);
 		
+		// Farm name
 		JLabel farmName = new JLabel("Farm name: " + game.farm.getFarmName());
 		farmName.setBorder(new LineBorder(new Color(139, 69, 19), 2, true));
 		farmName.setIcon(new ImageIcon(EndGameScreen.class.getResource("/images/bigButton.png")));
@@ -60,6 +61,7 @@ public class EndGameScreen extends JDialog {
 		farmName.setBounds(0, 57, 444, 37);
 		getContentPane().add(farmName);
 		
+		// Game duration
 		JLabel gameDuration = new JLabel("Your game lasted " + game.getGameDuration() + " days");
 		gameDuration.setBorder(new LineBorder(new Color(139, 69, 19), 2, true));
 		gameDuration.setIcon(new ImageIcon(EndGameScreen.class.getResource("/images/bigButton.png")));
@@ -69,6 +71,7 @@ public class EndGameScreen extends JDialog {
 		gameDuration.setBounds(0, 92, 444, 37);
 		getContentPane().add(gameDuration);
 		
+		// Money earnt
 		JLabel label_1 = new JLabel("Over this time, you made $" + (game.farm.farmMoney - game.farm.staticFarmMoney));
 		label_1.setBorder(new LineBorder(new Color(139, 69, 19), 2, true));
 		label_1.setIcon(new ImageIcon(EndGameScreen.class.getResource("/images/bigButton.png")));
@@ -86,6 +89,7 @@ public class EndGameScreen extends JDialog {
 		label_2.setBounds(0, 231, 444, 14);
 		getContentPane().add(label_2);
 		
+		// Congratulation message
 		JLabel lblNewLabel_2 = new JLabel("Congratulations! Game Finished!");
 		lblNewLabel_2.setBorder(new LineBorder(new Color(139, 69, 19), 4, true));
 		lblNewLabel_2.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -95,6 +99,7 @@ public class EndGameScreen extends JDialog {
 		lblNewLabel_2.setBounds(0, 11, 444, 37);
 		getContentPane().add(lblNewLabel_2);
 		
+		// Background
 		JLabel background = new JLabel("");
 		background.setIcon(new ImageIcon(EndGameScreen.class.getResource("/images/endGameBackground.png")));
 		background.setBounds(0, 0, 444, 271);

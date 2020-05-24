@@ -14,7 +14,6 @@ class Farmer {
 	 * farmer age
 	 */
 	private int age;
-	// Avatar?
 	
 	/**
 	 * Constructer, initialises farmer age and name

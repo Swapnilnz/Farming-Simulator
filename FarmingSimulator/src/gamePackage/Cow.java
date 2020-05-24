@@ -11,6 +11,9 @@ class Cow extends Animal{
 	
 	/**
 	 * Constructor for cow, uses superclass to initialise variables
+	 * Weight: 500
+	 * Happiness: 60
+	 * Health: 50
 	 */
 	public Cow(int num) {
 		super("Cow", 500, 60, 50, num);
@@ -18,7 +21,7 @@ class Cow extends Animal{
 	
 	/**
 	 * Milks cow, adds money to farm money
-	 * @param game game
+	 * @param game main game; class GameEnvironment
 	 */
 	public void milk(GameEnvironment game) {
 		game.farm.increaseFarmMoney(5);

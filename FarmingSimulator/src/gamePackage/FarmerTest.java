@@ -4,6 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests class Farmer
+ * @author Swapnil Bhagat, Reed Earl
+ *
+ */
 class FarmerTest {
 
 	@Test

@@ -1,20 +1,9 @@
 package gamePackage;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JTextPane;
-import java.awt.GridBagLayout;
-import javax.swing.BoxLayout;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
-import java.awt.GridLayout;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
@@ -24,20 +13,18 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
-import javax.swing.border.BevelBorder;
 
+/**
+ * View the farm crops and animals
+ * @author Swapnil Bhagat, Reed Earl
+ *
+ */
 public class ViewFarm extends JDialog {
-
 	
 	/**
-	 * Launch the application. //TESTING ONLY
-	 */
-	public static void main(String[] args) {
-
-	}
-	
-	/**
-	 * Create the dialog.
+	 * Create the dialog
+	 * @param game main game
+	 * @param window main window
 	 */
 	public ViewFarm(GameEnvironment game, JFrame window) {
 		super(window, "View Farm", true);
@@ -82,7 +69,7 @@ public class ViewFarm extends JDialog {
 		
 		
 		// Days till harvest
-		JLabel lblDaysTill = new JLabel("Days till harvest:");
+		JLabel lblDaysTill = new JLabel("Time till harvest:");
 		lblDaysTill.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		lblDaysTill.setIcon(new ImageIcon(ViewFarm.class.getResource("/images/button.jpg")));
 		lblDaysTill.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -101,7 +88,7 @@ public class ViewFarm extends JDialog {
 		getContentPane().add(lblDaysTillHarvest);
 		
 		// Days grown
-		JLabel lblDaysG = new JLabel("Days grown:");
+		JLabel lblDaysG = new JLabel("Time grown:");
 		lblDaysG.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		lblDaysG.setIcon(new ImageIcon(ViewFarm.class.getResource("/images/button.jpg")));
 		lblDaysG.setHorizontalTextPosition(SwingConstants.CENTER);

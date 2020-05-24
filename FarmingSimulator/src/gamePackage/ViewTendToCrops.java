@@ -1,13 +1,8 @@
 package gamePackage;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JComboBox;
 import javax.swing.JTextPane;
 import java.awt.Font;
@@ -15,15 +10,21 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
-import javax.swing.border.BevelBorder;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+/**
+ * Choose which crop to tend to
+ * @author Swapnil Bhagat, Reed Earl
+ *
+ */
 public class ViewTendToCrops extends JDialog {
 
 	/**
-	 * Create the dialog.
+	 * Create the dialog
+	 * @param game main game
+	 * @param window main window
 	 */
 	public ViewTendToCrops(GameEnvironment game, JFrame window) {
 		super(window, "Tend to Crops", true);
@@ -47,9 +48,7 @@ public class ViewTendToCrops extends JDialog {
 		getContentPane().add(cropDropDown);
 		cropDropDown.addItem("Avocado");cropDropDown.addItem("Corn");cropDropDown.addItem("Wheat");
 		cropDropDown.addItem("Potato");cropDropDown.addItem("Carrot");cropDropDown.addItem("Apple");
-			
-		
-		
+				
 		// Choose crop
 		JButton btnEnter = new JButton("Enter");
 		btnEnter.setBackground(new Color(210, 180, 140));
@@ -83,6 +82,7 @@ public class ViewTendToCrops extends JDialog {
 		exit.setBounds(175, 154, 89, 23);
 		getContentPane().add(exit);
 		
+		// Background
 		JLabel background = new JLabel("");
 		background.setIcon(new ImageIcon(ViewTendToCrops.class.getResource("/images/tendToCropsBackground.png")));
 		background.setBounds(0, 0, 284, 191);

@@ -9,8 +9,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests Animal class
- * @author Swapnil
+ * Tests class Animal
+ * @author Swapnil Bhagat, Reed Earl
  *
  */
 class AnimalTest {

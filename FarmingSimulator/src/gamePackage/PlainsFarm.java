@@ -9,9 +9,11 @@ class PlainsFarm extends Farm {
 	
 	/**
 	 * Constructer, uses superclass to initialise farm variables
+	 * Growth rate 3
+	 * Starting money 100
 	 */
 	public PlainsFarm() {
-		super("Plains Farm", 3);
+		super("Plains Farm", 3, 100);
 	}
 
 }

@@ -49,7 +49,8 @@ class ToolMarket {
 	
 	/**
 	 * Buy harvester; adds harvester to farm's item list, removes money
-	 * @param game game
+	 * @param game main game
+	 * @param window main screen window
 	 */
 	void buyHarvester(GameEnvironment game, JFrame window) {
 		// Add harvester, remove money
@@ -72,7 +73,8 @@ class ToolMarket {
 	
 	/**
 	 * Buy watering can; adds watering can to farm's item list, removes money
-	 * @param game game
+	 * @param game main game
+	 * @param window main screen window
 	 */
 	void buyWateringCan(GameEnvironment game, JFrame window) {
 		// Add watering can, remove money
@@ -94,7 +96,8 @@ class ToolMarket {
 	
 	/**
 	 * Buy animal statue; adds animal statue to farm's item list, removes money
-	 * @param game game
+	 * @param game main game
+	 * @param window main screen window
 	 */
 	void buyAnimalStatue(GameEnvironment game, JFrame window) {
 		// Add animalStatue, remove money
@@ -117,7 +120,8 @@ class ToolMarket {
 	
 	/**
 	 * Buy milk master; adds milk master to farm's item list, removes money
-	 * @param game game
+	 * @param game main game
+	 * @param window main screen window
 	 */
 	void buyMilkMaster(GameEnvironment game, JFrame window) {
 		// Add milk master, remove money
@@ -139,7 +143,8 @@ class ToolMarket {
 	
 	/**
 	 * Buy shear master; adds shear master to farm's item list, removes money
-	 * @param game game
+	 * @param game main game
+	 * @param window main screen window
 	 */
 	void buyShearMaster(GameEnvironment game, JFrame window) {
 		// Add shear master, remove money
@@ -161,7 +166,8 @@ class ToolMarket {
 	
 	/**
 	 * Buy tele pad; adds tele pad to farm's item list, removes money
-	 * @param game game
+	 * @param game main game
+	 * @param window main screen window
 	 */
 	void buyTeleportationPad(GameEnvironment game, JFrame window) {
 		// Add teleportation pad, remove money
@@ -177,8 +183,6 @@ class ToolMarket {
 	}
 
 
-
-	
 	/**
 	 * @return the harvesterPrice
 	 */

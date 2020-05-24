@@ -9,9 +9,11 @@ class SwampFarm extends Farm {
 		
 	/**
 	 * Constructer, uses superclass to initialise farm variables
+	 * Growthrate 1
+	 * Starting money 60
 	 */
 	public SwampFarm() {
-		super("Swamp Farm", 1);
+		super("Swamp Farm", 1, 60);
 	}
 
 }

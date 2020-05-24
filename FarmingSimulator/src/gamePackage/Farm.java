@@ -68,7 +68,7 @@ class Farm {
 	/**
 	 * Money that the player starts with
 	 */
-	int staticFarmMoney = 50;
+	int staticFarmMoney;
 	/**
 	 * Number of tele pads
 	 */
@@ -79,7 +79,8 @@ class Farm {
 	 * @param farmType type of farm
 	 * @param growthRate growth rate of farm
 	 */
-	Farm(String farmType, int growthRate) {
+	Farm(String farmType, int growthRate, int startingMoney) {
+		staticFarmMoney = startingMoney;
 		this.farmType = farmType;
 		this.growthRate = growthRate;
 		farmMoney = staticFarmMoney;
@@ -140,19 +141,6 @@ class Farm {
 		this.pigCount++;
 		Pig pig = new Pig(this.getPigCount());
 		this.animalList.add(pig);
-	}
-		
-	
-	
-
-	/**
-	 * Display count of each animal 
-	 */
-	public void displayAnimalCounts() {
-		System.out.printf("Number of Sheep on Farm %s\n", this.sheepCount);
-		System.out.printf("Number of Cow on Farm %s\n", this.cowCount);
-		System.out.printf("Number of Pig on Farm %s\n", this.pigCount);
-		System.out.printf("Number of Chicken on Farm %s\n", this.chickenCount);
 	}
 
 	/**

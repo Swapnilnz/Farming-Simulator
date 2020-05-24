@@ -1,30 +1,31 @@
 package gamePackage;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextPane;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import java.awt.Window.Type;
 import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 
+/**
+ * Multi use popup dialog (used mostly for errors)
+ * @author Swapnil Bhagat, Reed Earl
+ *
+ */
 public class PopUp extends JDialog {
 
 
 	/**
 	 * Create the dialog.
+	 * @param game main game
+	 * @param window main window
+	 * @param errorMessage message to show
 	 */
 	public PopUp(GameEnvironment game, JFrame window, String errorMessage) {
 		super(window, "Error", true);
@@ -33,6 +34,8 @@ public class PopUp extends JDialog {
 		setTitle("Error");
 		setBounds(100, 100, 469, 146);
 		getContentPane().setLayout(null);
+		
+		// Message
 		{
 			JLabel errorMessage_1 = new JLabel(errorMessage);
 			errorMessage_1.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
@@ -44,24 +47,28 @@ public class PopUp extends JDialog {
 			getContentPane().add(errorMessage_1);
 			
 		}
+		
+		// Exit button
 		JButton exitButton = new JButton("Go Back");
 		exitButton.setBackground(new Color(210, 180, 140));
 		exitButton.setHorizontalTextPosition(SwingConstants.CENTER);
 		exitButton.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		exitButton.setBounds(354, 79, 89, 23);
 		getContentPane().add(exitButton);
+		exitButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		
+		// Background
 		JLabel background = new JLabel("");
 		background.setIcon(new ImageIcon(PopUp.class.getResource("/images/errorBackground.png")));
 		background.setBounds(0, 0, 463, 117);
 		getContentPane().add(background);
 		
 
-		exitButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-			}
-		});
+		// For moving onto next day, if actions are left, shows confirmatory 'yes' option to continue
 		if (errorMessage.equals("You still have actions left, are you sure?")) {
 			JButton btnYes = new JButton("Yes");
 			btnYes.addActionListener(new ActionListener() {

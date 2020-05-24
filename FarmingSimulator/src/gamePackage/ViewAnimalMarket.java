@@ -1,13 +1,8 @@
 package gamePackage;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JTextPane;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -15,18 +10,25 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
-import javax.swing.border.BevelBorder;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 
+/**
+ * Animal Market dialog class
+ * @author Swapnil Bhagat, Reed Earl
+ *
+ */
 public class ViewAnimalMarket extends JDialog {
-	private JTextField textField;
+	
+	/**
+	 * Amount to buy
+	 */
 	private int amount;
+	/**
+	 * Text in the textfield
+	 */
 	private JTextField textAmount;
 
 	/**
@@ -51,7 +53,10 @@ public class ViewAnimalMarket extends JDialog {
 	}
 	
 	/**
-	 * Create the dialog.
+	 * Create the animal market
+	 * @param game main game
+	 * @param window main window
+	 * @param animalMarket animal market instance
 	 */
 	public ViewAnimalMarket(GameEnvironment game, JFrame window, AnimalMarket animalMarket) {
 		super(window, "Andy's Animal Market", true);
@@ -95,18 +100,14 @@ public class ViewAnimalMarket extends JDialog {
 		textPane_1.setEditable(false);
 		textPane_1.setBounds(20, 89, 187, 21);
 		getContentPane().add(textPane_1);
-		
-		textAmount = new JTextField();
-		textAmount.setColumns(10);
-		textAmount.setBounds(73, 121, 64, 20);
-		getContentPane().add(textAmount);
+
 		
 		JLabel youHave = new JLabel("Owned");
 		youHave.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		youHave.setIcon(new ImageIcon(ViewAnimalMarket.class.getResource("/images/button.jpg")));
 		youHave.setHorizontalTextPosition(SwingConstants.CENTER);
 		youHave.setHorizontalAlignment(SwingConstants.CENTER);
-		youHave.setBounds(394, 100, 64, 14);
+		youHave.setBounds(389, 100, 69, 14);
 		getContentPane().add(youHave);
 		
 		JLabel cowCount = new JLabel(Integer.toString(game.farm.getCowCount()));
@@ -141,8 +142,17 @@ public class ViewAnimalMarket extends JDialog {
 		sheepCount.setBounds(389, 215, 69, 23);
 		getContentPane().add(sheepCount);
 		
+		// Text field where user enters amount
+		textAmount = new JTextField();
+		textAmount.setColumns(10);
+		textAmount.setBounds(73, 121, 64, 20);
+		getContentPane().add(textAmount);
+		
 		// Button/error label to enter and check amount
 		JLabel error = new JLabel("");
+		error.setFont(new Font("Tahoma", Font.BOLD, 11));
+		error.setForeground(new Color(255, 0, 0));
+		error.setHorizontalTextPosition(SwingConstants.CENTER);
 		error.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		error.setIcon(new ImageIcon(ViewAnimalMarket.class.getResource("/images/button.jpg")));
 		error.setHorizontalAlignment(SwingConstants.CENTER);
@@ -250,7 +260,7 @@ public class ViewAnimalMarket extends JDialog {
 			}
 		});
 
-		
+		// Background
 		JLabel background = new JLabel("");
 		background.setIcon(new ImageIcon(ViewAnimalMarket.class.getResource("/images/animalMarketBackground.png")));
 		background.setBounds(0, 0, 495, 281);

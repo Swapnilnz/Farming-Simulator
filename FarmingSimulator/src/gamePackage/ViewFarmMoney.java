@@ -1,13 +1,9 @@
 package gamePackage;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JTextPane;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -16,21 +12,17 @@ import java.awt.event.ActionListener;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
-import javax.swing.border.BevelBorder;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 
+/**
+ * View farm money
+ * @author Swapnil
+ *
+ */
 public class ViewFarmMoney extends JDialog {
 
-	private final JPanel contentPanel = new JPanel();
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-
-	}
-
+	
 	/**
 	 * Create the dialog.
 	 */
@@ -49,7 +41,7 @@ public class ViewFarmMoney extends JDialog {
 		txtpnYourFarmCurrently.setBounds(99, 31, 244, 27);
 		getContentPane().add(txtpnYourFarmCurrently);
 	
-		
+		// Show current farm money
 		JLabel lblMoney = new JLabel("$" + game.farm.getFarmMoney());
 		lblMoney.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		lblMoney.setHorizontalAlignment(SwingConstants.CENTER);
@@ -59,6 +51,7 @@ public class ViewFarmMoney extends JDialog {
 		lblMoney.setBounds(190, 69, 64, 37);
 		getContentPane().add(lblMoney);
 		
+		// Exit
 		JButton exitButton = new JButton("Exit");
 		exitButton.setBackground(new Color(210, 180, 140));
 		exitButton.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
@@ -66,6 +59,7 @@ public class ViewFarmMoney extends JDialog {
 		exitButton.setBounds(335, 151, 89, 23);
 		getContentPane().add(exitButton);
 		
+		// Background
 		JLabel background = new JLabel("");
 		background.setIcon(new ImageIcon(ViewFarmMoney.class.getResource("/images/grassBackground.png")));
 		background.setBounds(0, 0, 444, 195);

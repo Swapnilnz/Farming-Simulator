@@ -16,7 +16,7 @@ class GameEnvironmentTest {
 	@BeforeEach
 	public void init() {
 		game = new GameEnvironment();
-		farm = new Farm("Mountain", 1);
+		farm = new MountainFarm();
 		game.farm = farm;
 		
 		

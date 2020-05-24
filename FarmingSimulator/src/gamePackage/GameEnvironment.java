@@ -63,6 +63,7 @@ class GameEnvironment {
 	
 	/**
 	 * View time left until crop harvest, animal happiness
+	 * @param window main game window
 	 */
 	void viewFarm(JFrame window) {
 		// Using GUI
@@ -72,6 +73,7 @@ class GameEnvironment {
 	}
     /**
      * View the farm's money
+     * @param window main game window
      */
 	void viewFarmMoney(JFrame window) {
 		ViewFarmMoney viewFarmMoney = new ViewFarmMoney(this, window);
@@ -81,6 +83,7 @@ class GameEnvironment {
 	
 	/**
 	 * Visit Tom's Tool Market and purches various utility items
+	 * @param window main game window
 	 */
 	void visitToolMarket(JFrame window) {
 		ToolMarket toolMarket = new ToolMarket();
@@ -90,6 +93,7 @@ class GameEnvironment {
 	
 	/**
 	 * Visit crop market to buy crops
+	 * @param window main game window
 	 */
 	void visitCropMarket(JFrame window) {
 		CropMarket cropMarket = new CropMarket();
@@ -99,6 +103,7 @@ class GameEnvironment {
 	
 	/** 
 	 * Visit Andy's animal market to buy animals
+	 * @param window main game window
 	 */
 	void visitAnimalMarket(JFrame window) {
 		AnimalMarket animalMarket = new AnimalMarket();
@@ -108,10 +113,12 @@ class GameEnvironment {
 	
 	/**
 	 * Move on to next day
+	 * @param window main game window
+	 * @param givenWarning boolean for if warning has been given (warning is given if num actions > 0)
 	 */
-	void nextDay(JFrame window, boolean yes) {
+	void nextDay(JFrame window, boolean givenWarning) {
 
-		if ((this.getNumActions() > 0) && !(yes)) {
+		if ((this.getNumActions() > 0) && !(givenWarning)) {
 			PopUp error = new PopUp(this, window, "You still have actions left, are you sure?");
 			error.setVisible(true);
 		} else {
@@ -133,6 +140,8 @@ class GameEnvironment {
 	/**
 	 * Tend to one type of crop on the farm, has window and crop parameters
 	 * Used only by the Error class
+	 * @param window main game window
+	 * @param crop crop to tend to, decreases its days till harvest
 	 */
 	void tendToCrops(JFrame window, String crop) {
 		if (farm.cropInventory.get(crop) > 0) {
@@ -173,6 +182,7 @@ class GameEnvironment {
 	
 	/**
 	 * Tend to one type of crop on the farm, has only window parameter
+	 * @param window main game window
 	 */
 	void tendToCrops(JFrame window) {
 		ViewTendToCrops view = new ViewTendToCrops(this, window);
@@ -182,6 +192,7 @@ class GameEnvironment {
 	
 	/**
 	 * Feed animals to make them healthier
+	 * @param window main game window
 	 */
 	void feedAnimals(JFrame window) {
 		if (this.getNumActions() > 0) {
@@ -209,6 +220,7 @@ class GameEnvironment {
 	
 	/**
 	 * Play with animals to make them happier, or error if no animals
+	 * @param window main game window
 	 */
 	void playWithAnimals(JFrame window) {
 		if (this.getNumActions() > 0) {
@@ -236,6 +248,7 @@ class GameEnvironment {
 	/**
 	 * Harvest harvestable crops (days till harvest == 0) and remove them from cropList
 	 * Adds required money
+	 * @param window main game window
 	 */
 	void harvestCrops(JFrame window) {
 		if (this.getNumActions() > 0) {
@@ -269,6 +282,7 @@ class GameEnvironment {
 	
 	/**
 	 * Simple method that sets the farm's maintenance attribute to true
+	 * @param window main game window
 	 */
 	void tendToFarmLand(JFrame window) {
 		if (this.getNumActions() > 0) {
@@ -449,7 +463,7 @@ class GameEnvironment {
 	
 	/**
 	 * Close the main screen
-	 * @param mainWindow
+	 * @param mainWindow main screen window to close
 	 */
 	public void closeMainScreen(MainScreen mainWindow) {
 		mainWindow.closeWindow();
@@ -464,8 +478,8 @@ class GameEnvironment {
 	
 	/**
 	 * Close set up screen
+	 * @param setupWindow set up window to close
 	 */
-	
 	public void closeSetupScreen(StartGameScreen setupWindow) {
 		setupWindow.closeWindow();
 		this.launchMainScreen();

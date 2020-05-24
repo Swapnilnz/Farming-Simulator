@@ -22,7 +22,7 @@ class AnimalMarketTest {
 	@BeforeEach
 	public void init() {
 		game = new GameEnvironment();
-		farm = new Farm("Plains", 1);
+		farm = new PlainsFarm();
 		game.farm = farm;
 		market = new AnimalMarket();
 		window = new JFrame();

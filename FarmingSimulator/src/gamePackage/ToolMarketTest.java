@@ -7,6 +7,11 @@ import javax.swing.JFrame;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests class ToolMarket on logic
+ * @author Swapnil Bhagat, Reed Earl
+ *
+ */
 class ToolMarketTest {
 
 	GameEnvironment game;
@@ -18,7 +23,7 @@ class ToolMarketTest {
 	public void init() {
 		game = new GameEnvironment();
 		game.setNumDays(5);
-		farm = new Farm("Swamp", 1);
+		farm = new SwampFarm();
 		game.farm = farm;
 		market = new ToolMarket();
 		farm.setFarmMoney(500);

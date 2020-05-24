@@ -1,13 +1,8 @@
 package gamePackage;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JTextPane;
 import java.awt.Font;
 import javax.swing.JLabel;
@@ -15,15 +10,22 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
-import javax.swing.border.BevelBorder;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 
+/**
+ * View tool market, allows buying of utility items
+ * @author Swapnil Bhagat, Reed Earl
+ *
+ */
 public class ViewToolMarket extends JDialog {
 
 
 	/**
-	 * Create the dialog.
+	 * Create the tool market
+	 * @param game main game
+	 * @param window main window
+	 * @param toolMarket tool market instance
 	 */
 	public ViewToolMarket(GameEnvironment game, JFrame window, ToolMarket toolMarket) {
 		super(window, "Tom's Tool Market", true);
@@ -41,6 +43,7 @@ public class ViewToolMarket extends JDialog {
 		lblNewLabel.setBounds(85, 248, 53, 53);
 		getContentPane().add(lblNewLabel);
 		
+		// Images
 		JLabel cowImage = new JLabel("");
 		cowImage.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/cowImage.png")));
 		cowImage.setBounds(296, 167, 53, 40);
@@ -60,6 +63,7 @@ public class ViewToolMarket extends JDialog {
 		harvesterImage.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/harvesterr.png")));
 		harvesterImage.setBounds(45, 84, 130, 40);
 		getContentPane().add(harvesterImage);
+		
 		{
 			JTextPane txtpnWelcomeToToms = new JTextPane();
 			txtpnWelcomeToToms.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
@@ -81,7 +85,7 @@ public class ViewToolMarket extends JDialog {
 			getContentPane().add(txtpnWhatWouldYou);
 		}
 
-		
+		// Harvester owned
 		JLabel harvesterCount = new JLabel("Not Owned");
 		harvesterCount.setFont(new Font("Tahoma", Font.BOLD, 11));
 		harvesterCount.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
@@ -91,6 +95,7 @@ public class ViewToolMarket extends JDialog {
 		harvesterCount.setBounds(75, 147, 71, 14);
 		getContentPane().add(harvesterCount);
 		
+		// Animal Statue owned
 		JLabel animalStatueCount = new JLabel("Not Owned");
 		animalStatueCount.setFont(new Font("Tahoma", Font.BOLD, 11));
 		animalStatueCount.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
@@ -100,6 +105,7 @@ public class ViewToolMarket extends JDialog {
 		animalStatueCount.setBounds(289, 147, 71, 14);
 		getContentPane().add(animalStatueCount);
 		
+		// Ultimate Watering Can owned
 		JLabel canCount = new JLabel("Not Owned");
 		canCount.setFont(new Font("Tahoma", Font.BOLD, 11));
 		canCount.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
@@ -109,6 +115,7 @@ public class ViewToolMarket extends JDialog {
 		canCount.setBounds(75, 230, 71, 14);
 		getContentPane().add(canCount);
 		
+		// Milk Master owned
 		JLabel milkCount = new JLabel("Not Owned");
 		milkCount.setFont(new Font("Tahoma", Font.BOLD, 11));
 		milkCount.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
@@ -118,6 +125,7 @@ public class ViewToolMarket extends JDialog {
 		milkCount.setBounds(289, 230, 71, 14);
 		getContentPane().add(milkCount);
 		
+		// Teleportation pad owned, if so how many
 		JLabel telePadCount = new JLabel("Not Owned");
 		telePadCount.setFont(new Font("Tahoma", Font.BOLD, 11));
 		telePadCount.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
@@ -127,6 +135,7 @@ public class ViewToolMarket extends JDialog {
 		telePadCount.setBounds(75, 323, 71, 14);
 		getContentPane().add(telePadCount);
 		
+		// Shear Master owned
 		JLabel shearCount = new JLabel("Not Owned");
 		shearCount.setFont(new Font("Tahoma", Font.BOLD, 11));
 		shearCount.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
@@ -146,10 +155,7 @@ public class ViewToolMarket extends JDialog {
 		lblYouCurrentlyHave.setBounds(230, 57, 183, 23);
 		getContentPane().add(lblYouCurrentlyHave);
 		
-		JLabel money = new JLabel(Integer.toString(game.farm.getFarmMoney()));
-		money.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		money.setBounds(372, 57, 29, 23);
-		getContentPane().add(money);
+
 		{
 			// Buy Harvester
 			JButton btnBuyHarvester = new JButton("Buy Harvester: $" + toolMarket.getHarvesterPrice());
@@ -160,7 +166,6 @@ public class ViewToolMarket extends JDialog {
 			btnBuyHarvester.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					toolMarket.buyHarvester(game, window);
-					money.setText(Integer.toString(game.farm.getFarmMoney()));
 					if (game.farm.getItemList().contains("Harvester")) {
 						harvesterCount.setText("Owned");
 						lblYouCurrentlyHave.setText("You currently have $" + game.farm.getFarmMoney());
@@ -180,7 +185,6 @@ public class ViewToolMarket extends JDialog {
 			btnBuyAnimalStatue.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					toolMarket.buyAnimalStatue(game, window);
-					money.setText(Integer.toString(game.farm.getFarmMoney()));
 					if (game.farm.getItemList().contains("Animal Statue")) {
 						animalStatueCount.setText("Owned");
 						lblYouCurrentlyHave.setText("You currently have $" + game.farm.getFarmMoney());
@@ -202,7 +206,6 @@ public class ViewToolMarket extends JDialog {
 			btnBuyMilkMaster.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					toolMarket.buyMilkMaster(game, window);
-					money.setText(Integer.toString(game.farm.getFarmMoney()));
 					if (game.farm.getItemList().contains("Milk Master")) {
 						milkCount.setText("Owned");
 						lblYouCurrentlyHave.setText("You currently have $" + game.farm.getFarmMoney());
@@ -223,7 +226,6 @@ public class ViewToolMarket extends JDialog {
 			btnBuyShearMaster.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					toolMarket.buyShearMaster(game, window);
-					money.setText(Integer.toString(game.farm.getFarmMoney()));
 					if (game.farm.getItemList().contains("Shear Master")) {
 						shearCount.setText("Owned");
 						lblYouCurrentlyHave.setText("You currently have $" + game.farm.getFarmMoney());
@@ -245,7 +247,6 @@ public class ViewToolMarket extends JDialog {
 			btnBuyWateringCan.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					toolMarket.buyWateringCan(game, window);
-					money.setText(Integer.toString(game.farm.getFarmMoney()));
 					if (game.farm.getItemList().contains("Watering Can")) {
 						canCount.setText("Owned");
 						lblYouCurrentlyHave.setText("You currently have $" + game.farm.getFarmMoney());
@@ -265,7 +266,6 @@ public class ViewToolMarket extends JDialog {
 			btnBuyTeleportationPad.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					toolMarket.buyTeleportationPad(game, window);
-					money.setText(Integer.toString(game.farm.getFarmMoney()));
 					if (game.farm.getTelePadCount() > 0) {
 						harvesterCount.setText(game.farm.getTelePadCount() + " Owned");
 						lblYouCurrentlyHave.setText("You currently have $" + game.farm.getFarmMoney());
@@ -278,6 +278,7 @@ public class ViewToolMarket extends JDialog {
 			getContentPane().add(btnBuyTeleportationPad);
 		}
 		
+		// Exit
 		JButton exitButton = new JButton("Exit");
 		exitButton.setBackground(new Color(210, 180, 140));
 		exitButton.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
@@ -285,6 +286,7 @@ public class ViewToolMarket extends JDialog {
 		exitButton.setBounds(349, 19, 89, 23);
 		getContentPane().add(exitButton);
 		
+		// Background
 		JLabel background = new JLabel("");
 		background.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/toolMarketBackground.jpg")));
 		background.setBounds(0, 0, 452, 354);

@@ -18,7 +18,7 @@ class UI {
 	
 	/**
 	 * Procedure that gets the farmers name through cmd input; follows given guidelines of 3-15 length alphabetic String
-	 * @param game game
+	 * @param game main game
 	 * @return String of farmer name
 	 */
 	String inputFarmerName(GameEnvironment game) {
@@ -50,7 +50,7 @@ class UI {
 
 	/**
 	 * Procedure that gets the farmers age through cmd input; follows given guidelines num between 0-100
-	 *@param game game
+	 *@param game main game
 	 *@return int of farmer age
 	 */
 	int inputFarmerAge(GameEnvironment game) {
@@ -80,7 +80,7 @@ class UI {
 	
 	/**
 	 * Procedure that gets the number of days the farmer would like to play (between 5 and 15)
-	 * @param game game
+	 * @param game main game
 	 */
 	void inputNumDays(GameEnvironment game) {
 		System.out.println("How long would you like your farming adventure to last?\nYou can choose between 5 and 15 days!");
@@ -108,7 +108,7 @@ class UI {
 	/**
 	 * Procedure that lets the farmer choose their farm out of the four: Desert, Mountain, Plains, or Swamp
 	 * This is done through user cmd input of a number from 1 to 4.
-	 * @param game game
+	 * @param game main game
 	 */
 	void inputChooseFarm(GameEnvironment game) {
 		System.out.println("Awesome! Now, you have to make a big decision...\n"
@@ -157,7 +157,7 @@ class UI {
 	/**
 	 * Gets farm name by input from user and updates class attribute farmName.
 	 * Given name must be less than or equal to 20 characters long.
-	 *@param game game
+	 *@param game main game
 	 */
 	void inputFarmName(GameEnvironment game) {
 		System.out.println("You have chosen a " + game.getFarm().getFarmType()
@@ -185,7 +185,7 @@ class UI {
 
 	/**
 	 * Asks if user wants to start playing
-	 * @param game game
+	 * @param game main game
 	 */
 	void inputStartAdventure(GameEnvironment game) {
 		System.out.println("Awesome! Would you like to start your adventure? (Y/N)");
@@ -210,7 +210,7 @@ class UI {
 	
 	/**
 	 * Choose an action for the day
-	 * @param game game
+	 * @param game main game
 	 * @param withActions boolean if actions need to be displayed or not
 	 * @return int of action chosen
 	 */
@@ -274,7 +274,7 @@ class UI {
 
 	/**
 	 * Print cropList stats
-	 * @param farm farm
+	 * @param farm main farm
 	 */
 	void showCrops(Farm farm) {
 		ArrayList<Crop> cropList = farm.cropList;
@@ -291,7 +291,7 @@ class UI {
 	
 	/**
 	 * Print animalList stats
-	 * @param farm farm
+	 * @param farm main farm
 	 */
 	void showAnimals(Farm farm) {
 		ArrayList<Animal> animalList = farm.animalList;
@@ -310,7 +310,7 @@ class UI {
 	
 	/**
 	 * Shows the farm's money
-	 *@param farm farm
+	 *@param farm main farm
 	 */
 	public void showFarmMoney(Farm farm) {
 		System.out.println("-------------------------------");
@@ -321,7 +321,7 @@ class UI {
 
 	/** 
 	 * Visit tool market, choose buy option
-	 * @param farm farm
+	 * @param farm main farm
 	 * @param toolMarket tool market
 	 * @return buy option
 	 */
@@ -368,7 +368,7 @@ class UI {
 	
 	/**
 	 * Visit crop market, choose buy option
-	 * @param farm farm
+	 * @param farm main farm
 	 * @param cropMarket crop market
 	 * @return buy option
 	 */
@@ -416,7 +416,7 @@ class UI {
 
 	/**
 	 * Visit animal market, choose buy option
-	 * @param farm farm
+	 * @param farm main farm
 	 * @param animalMarket animal market
 	 * @return buy option
 	 */
@@ -461,7 +461,7 @@ class UI {
 	
 	/**
 	 * Choose buy amount for animals and crops
-	 * @param game game
+	 * @param game main game
 	 * @return buy amount
 	 */
 	public int buyAmount(GameEnvironment game) {
@@ -499,7 +499,7 @@ class UI {
 
 	/**
 	 * Choose which crop to tend to, or exit
-	 * @param game game
+	 * @param game main game
 	 * @return crop
 	 */
 	public String chooseTendToCrop(GameEnvironment game) {
@@ -538,7 +538,7 @@ class UI {
 
 	/**
 	 * Displays how long the game lasted and money made
-	 * @param game game
+	 * @param game main game
 	 */
 	public void displayEndAdventure(GameEnvironment game) {
 		System.out.println("-------- " + game.farm.getFarmName() + " Farm --------");

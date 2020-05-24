@@ -7,6 +7,11 @@ import javax.swing.JFrame;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests class CropMarket
+ * @author Swapnil Bhagat, Reed Earl
+ *
+ */
 class CropMarketTest {
 	
 	GameEnvironment game;
@@ -17,7 +22,7 @@ class CropMarketTest {
 	@BeforeEach
 	public void init() {
 		game = new GameEnvironment();
-		farm = new Farm("Swamp", 1);
+		farm = new DesertFarm();
 		game.farm = farm;
 		market = new CropMarket();
 		window = new JFrame();

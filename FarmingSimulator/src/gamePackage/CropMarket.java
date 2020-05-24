@@ -15,16 +15,11 @@ class CropMarket {
 	 * Dictionary of crops to their purchase price
 	 */
 	HashMap<String, Integer> cropPurchaseDic;
-	/**
-	 * int animal feed price
-	 */
-	private int animalFeedPrice;
 	
 	/**
 	 * Constructer; initialises the crop purchase dictionary
 	 */
 	public CropMarket() {
-		animalFeedPrice = 5;
 		cropPurchaseDic = new HashMap<String, Integer>();
 		cropPurchaseDic.put("Avocado", 8); cropPurchaseDic.put("Corn", 5); cropPurchaseDic.put("Wheat", 4);
 		cropPurchaseDic.put("Potato", 7); cropPurchaseDic.put("Carrot", 10); cropPurchaseDic.put("Apple", 6); cropPurchaseDic.put("Animal Feed", 5);
@@ -32,8 +27,9 @@ class CropMarket {
 	
 	/**
 	 * Buy avocado or error if not enough money
-	 * @param game game
+	 * @param game main game; class GameEnvironment
 	 * @param amount amount to buy
+	 * @param window main screen window
 	 */
 	void buyAvocado(GameEnvironment game, int amount, JFrame window) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Avocado");
@@ -56,8 +52,9 @@ class CropMarket {
 	
 	/**
 	 * Buy corn or error if not enough money
-	 * @param game game 
+	 * @param game main game; class GameEnvironment
 	 * @param amount amount to buy
+	 * @param window main screen window
 	 */
 	void buyCorn(GameEnvironment game, int amount, JFrame window) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Corn");
@@ -79,8 +76,9 @@ class CropMarket {
 	
 	/**
 	 * Buy wheat or error if not enough money
-	 * @param game game 
+	 * @param game main game; class GameEnvironment
 	 * @param amount amount to buy
+	 * @param window main screen window
 	 */
 	void buyWheat(GameEnvironment game, int amount, JFrame window) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Wheat");
@@ -102,8 +100,9 @@ class CropMarket {
 	
 	/**
 	 * Buy potato or error if not enough money
-	 * @param game game
+	 * @param game main game; class GameEnvironment
 	 * @param amount amount to buy
+	 * @param window main screen window
 	 */
 	void buyPotato(GameEnvironment game, int amount, JFrame window) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Potato");
@@ -125,8 +124,9 @@ class CropMarket {
 	
 	/**
 	 * Buy carrot or error if not enough money
-	 * @param game game 
+	 * @param game main game; class GameEnvironment
 	 * @param amount amount to buy
+	 * @param window main screen window
 	 */
 	void buyCarrot(GameEnvironment game, int amount, JFrame window) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Carrot");
@@ -148,8 +148,9 @@ class CropMarket {
 	
 	/**
 	 * Buy apple or error if not enough money
-	 * @param game game 
+	 * @param game main game; class GameEnvironment
 	 * @param amount amount to buy
+	 * @param window main screen window
 	 */
 	void buyApple(GameEnvironment game, int amount, JFrame window) {
 		int totalPurchasePrice = amount * cropPurchaseDic.get("Apple");
@@ -173,7 +174,9 @@ class CropMarket {
 	
 	/**
 	 * Buy animal feed; adds animal feed to farm's item list, removes money
-	 * @param game game
+	 * @param game main game; class GameEnvironment
+	 * @param amount amount to buy
+	 * @param window main screen window
 	 */
 	void buyAnimalFeed(GameEnvironment game, int amount, JFrame window) {
 		// Add animal feed, remove money
@@ -189,32 +192,5 @@ class CropMarket {
 		}
 	}
 	
-	/**
-	 * Check if amount is greater than zero
-	 * @param amount amount
-	 * @return boolean
-	 */
-	boolean checkAmount(int amount) {
-		if (amount >= 0) {
-			return true;
-		} else {
-			return false;
-		}
-	}
 	
-	/**
-	 * @return the animalFeedPrice
-	 */
-	public int getAnimalFeedPrice() {
-		return animalFeedPrice;
-	}
-
-	
-	/**
-	 * @param animalFeedPrice the animalFeedPrice to set
-	 */
-	public void setAnimalFeedPrice(int animalFeedPrice) {
-		this.animalFeedPrice = animalFeedPrice;
-	}
-
 }

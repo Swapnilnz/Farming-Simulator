@@ -1,32 +1,36 @@
 package gamePackage;
 
-import java.awt.EventQueue;
-
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Cursor;
 import javax.swing.JLabel;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.border.BevelBorder;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
 
+/**
+ * Main screen of the game, hub for all actions
+ * @author Swapnil Bhagat, Reed Earl
+ *
+ */
 public class MainScreen {
-
-	JFrame window;
-	private GameEnvironment game;
-	private int actions;
 	
-
-
 	/**
-	 * Create the application.
+	 * Main window
+	 */
+	JFrame window;
+	/**
+	 * Game to update
+	 */
+	private GameEnvironment game;
+	
+	/**
+	 * Create the main screen
+	 * @param incomingGame game to update
 	 * @wbp.parser.entryPoint
 	 */
 	public MainScreen(GameEnvironment incomingGame) {
@@ -43,7 +47,7 @@ public class MainScreen {
 	}
 	
 	/**
-	 * Finished with the window --> close screen
+	 * Finished with the window
 	 */
 	public void finishedWindow() {
 		game.closeMainScreen(this);
@@ -64,15 +68,15 @@ public class MainScreen {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setLayout(null);
 		
+		// Actions left
 		JLabel actionsLabel = new JLabel("You have " + game.getNumActions() + " action(s) left");
 		actionsLabel.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		actionsLabel.setHorizontalTextPosition(SwingConstants.CENTER);
-		actionsLabel.setIcon(new ImageIcon(MainScreen.class.getResource("/images/button.jpg")));
+		actionsLabel.setIcon(new ImageIcon(MainScreen.class.getResource("/images/bigButton.png")));
 		actionsLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		actionsLabel.setBounds(507, 410, 200, 23);
+		actionsLabel.setBounds(502, 410, 210, 23);
 		window.getContentPane().add(actionsLabel);
 		
-
 		
 		// View crops and animals
 		JButton btnViewCropsAndAnimals = new JButton("View crops and animals");
@@ -80,7 +84,7 @@ public class MainScreen {
 		btnViewCropsAndAnimals.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnViewCropsAndAnimals.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnViewCropsAndAnimals.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
-		btnViewCropsAndAnimals.setBounds(10, 230, 210, 23);
+		btnViewCropsAndAnimals.setBounds(495, 139, 210, 23);
 		window.getContentPane().add(btnViewCropsAndAnimals);
 		btnViewCropsAndAnimals.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -95,7 +99,7 @@ public class MainScreen {
 		btnViewFarmMoney.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnViewFarmMoney.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnViewFarmMoney.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
-		btnViewFarmMoney.setBounds(10, 264, 210, 23);
+		btnViewFarmMoney.setBounds(495, 173, 210, 23);
 		window.getContentPane().add(btnViewFarmMoney);
 		btnViewFarmMoney.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -248,21 +252,18 @@ public class MainScreen {
 		btnTendToFarmland.setBounds(10, 445, 210, 23);
 		window.getContentPane().add(btnTendToFarmland);
 		
+		// Farm name on screen
 		JLabel farmName = new JLabel(game.farm.getFarmName());
+		farmName.setIcon(new ImageIcon(MainScreen.class.getResource("/images/sign.png")));
 		farmName.setForeground(new Color(102, 51, 0));
 		farmName.setHorizontalTextPosition(SwingConstants.CENTER);
 		farmName.setBackground(new Color(255, 255, 255));
 		farmName.setHorizontalAlignment(SwingConstants.CENTER);
 		farmName.setFont(new Font("Ravie", Font.PLAIN, 20));
-		farmName.setBounds(456, 35, 210, 104);
+		farmName.setBounds(479, 11, 241, 113);
 		window.getContentPane().add(farmName);
 		
-		JLabel sign = new JLabel("");
-		sign.setIcon(new ImageIcon(MainScreen.class.getResource("/images/sign.png")));
-		sign.setBounds(432, 11, 250, 206);
-		window.getContentPane().add(sign);
-		
-
+		// Background
 		JLabel background = new JLabel("");
 		background.setIcon(new ImageIcon(MainScreen.class.getResource("/images/farm_background.gif")));
 		background.setBounds(0, 0, 722, 480);

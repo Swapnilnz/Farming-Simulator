@@ -37,8 +37,9 @@ class AnimalMarket {
 	
 	/**
 	 * Buy cow or cause error if not enough money
-	 * @param game game
-	 * @param amount amount
+	 * @param game main game; class GameEnvironment
+	 * @param amount amount to buy
+	 * @param window main screen window
 	 */
 	void buyCow(GameEnvironment game, int amount, JFrame window) {
 		// Add cow, remove money
@@ -59,8 +60,9 @@ class AnimalMarket {
 	
 	/**
 	 * Buy pig or cause error if not enough money
-	 * @param game game
-	 * @param amount amount
+	 * @param game main game; class GameEnvironment
+	 * @param amount amount to buy
+	 * @param window main screen window
 	 */
 	void buyPig(GameEnvironment game, int amount, JFrame window) {
 		// Add pig, remove money
@@ -81,8 +83,9 @@ class AnimalMarket {
 	
 	/**
 	 * Buy chicken or cause error if not enough money
-	 * @param game game
-	 * @param amount amount
+	 * @param game main game; class GameEnvironment
+	 * @param amount amount to buy
+	 * @param window main screen window
 	 */
 	void buyChicken(GameEnvironment game, int amount, JFrame window) {
 		// Add chicken, remove money
@@ -103,8 +106,9 @@ class AnimalMarket {
 	
 	/**
 	 * Buy sheep or cause error if not enough money
-	 * @param game game
-	 * @param amount amount
+	 * @param game main game; class GameEnvironment
+	 * @param amount amount to buy
+	 * @param window main screen window
 	 */
 	void buySheep(GameEnvironment game, int amount, JFrame window) {
 		// Add sheep, remove money

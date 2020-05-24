@@ -41,6 +41,7 @@ class Crop {
 	/**
 	 * Constructer; uses switch statement to set the type of crop and its respective attributes
 	 * @param crop input crop
+	 * @param incomingCropNumber crop's allocated number
 	 */
 	Crop(String crop, int incomingCropNumber) {
 		cropNumber = incomingCropNumber;
@@ -82,6 +83,10 @@ class Crop {
 		}
 	}
 	
+	/**
+	 * overrides java's toString, as to not return a memory location but rather the crop type + crop num
+	 * @return crop type + crop num
+	 */
 	public String toString() {
 		String toReturn = cropType + " " + cropNumber;
 		return toReturn;
@@ -90,7 +95,7 @@ class Crop {
 	/**
 	 * Harvest this crop object by simply adding money required
 	 * Deletion of crop is done in GameEnvironment class
-	 * @param game game
+	 * @param game main game; class GameEnvironment
 	 */
 	void harvest(GameEnvironment game) {
 		int farmMoney = game.farm.getFarmMoney();

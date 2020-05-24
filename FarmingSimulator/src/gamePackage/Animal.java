@@ -26,7 +26,7 @@ class Animal {
 	private int health;
 	
 	/**
-	 * animal number
+	 * animal number for when animal is viewed, there is not ambiguity
 	 */
 	private int animalNum;
 	
@@ -46,6 +46,10 @@ class Animal {
 	
 	}
 	
+	/**
+	 * overrides java's toString, as to not return a memory location but rather the animal type + animal num
+	 * @return animal type + animal num
+	 */
 	public String toString() {
 		return animalType + " " + animalNum;
 	}
