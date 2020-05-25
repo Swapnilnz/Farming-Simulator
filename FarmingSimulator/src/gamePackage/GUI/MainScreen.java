@@ -267,7 +267,7 @@ public class MainScreen {
 		// Background
 		JLabel background = new JLabel("");
 		background.setIcon(new ImageIcon(MainScreen.class.getResource("/images/farm_background.gif")));
-		background.setBounds(0, 0, 722, 480);
+		background.setBounds(0, 0, 720, 479);
 		window.getContentPane().add(background);
 		
 		

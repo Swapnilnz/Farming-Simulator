@@ -294,11 +294,10 @@ public class ViewToolMarket extends JDialog {
 		exitButton.setBounds(349, 19, 89, 23);
 		getContentPane().add(exitButton);
 		
-		// Background
-		JLabel background = new JLabel("");
-		background.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/toolMarketBackground.jpg")));
-		background.setBounds(0, 0, 452, 354);
-		getContentPane().add(background);
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/toolMarket.png")));
+		lblNewLabel_1.setBounds(0, 0, 462, 364);
+		getContentPane().add(lblNewLabel_1);
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
