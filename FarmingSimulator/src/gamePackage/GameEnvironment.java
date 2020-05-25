@@ -304,10 +304,17 @@ public class GameEnvironment {
 	 */
 	public void tendToFarmLand(JFrame window) {
 		if (this.getNumActions() > 0) {
-			this.farm.setMaintained(true);
-			this.setNumActions(this.getNumActions() - 1);
-			PopUp popup = new PopUp(this, window, "You tended to your farm land! Your animals are happier!");
-			popup.setVisible(true);
+			if (this.farm.animalList.size() > 0) {
+				this.farm.setMaintained(true);
+				this.setNumActions(this.getNumActions() - 1);
+				PopUp popup = new PopUp(this, window, "You tended to your farm land! Your animals are happier!");
+				popup.setVisible(true);
+			} else {
+				// No animals on farm
+				PopUp error = new PopUp(this, window, "You have no animals to please!");
+				error.setVisible(true);	
+			}
+
 		} else {
 			// No actions left
 			PopUp error = new PopUp(this, window, "Sorry, you don't have any actions left!");

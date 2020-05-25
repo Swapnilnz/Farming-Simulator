@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
 
 import gamePackage.DesertFarm;
+import gamePackage.Farm;
 import gamePackage.GameEnvironment;
 import gamePackage.MountainFarm;
 import gamePackage.PlainsFarm;
@@ -84,7 +85,7 @@ public class StartGameScreen {
 		window.getContentPane().setLayout(null);
 		
 		JLabel farmTypeTip = new JLabel("Farms have different starting money and growth rates");
-		farmTypeTip.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		farmTypeTip.setFont(new Font("Tahoma", Font.BOLD, 11));
 		farmTypeTip.setIcon(new ImageIcon(StartGameScreen.class.getResource("/images/bigButton.png")));
 		farmTypeTip.setHorizontalTextPosition(SwingConstants.CENTER);
 		farmTypeTip.setHorizontalAlignment(SwingConstants.CENTER);
@@ -94,7 +95,7 @@ public class StartGameScreen {
 		
 		// Hint for num characters
 		JLabel hint1 = new JLabel("(3 - 15 Characters, alphabetic, no symbols)");
-		hint1.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		hint1.setFont(new Font("Dialog", Font.BOLD, 11));
 		hint1.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		hint1.setHorizontalTextPosition(SwingConstants.CENTER);
 		hint1.setIcon(new ImageIcon(StartGameScreen.class.getResource("/images/bigButton.png")));
@@ -135,7 +136,7 @@ public class StartGameScreen {
 		
 		// Hint for num chars
 		JLabel hint2 = new JLabel("(3 - 15 Characters, alphabetic, no symbols)");
-		hint2.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		hint2.setFont(new Font("Dialog", Font.BOLD, 11));
 		hint2.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		hint2.setIcon(new ImageIcon(StartGameScreen.class.getResource("/images/bigButton.png")));
 		hint2.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -176,7 +177,7 @@ public class StartGameScreen {
 		// Spiner to set Farmers age 
 		JSpinner farmersAge = new JSpinner();
 		farmersAge.setModel(new SpinnerNumberModel(0, 0, 100, 1));
-		farmersAge.setBounds(222, 94, 102, 34);
+		farmersAge.setBounds(222, 92, 102, 34);
 		window.getContentPane().add(farmersAge);
 		
 		// What is your farmers age? label
@@ -224,6 +225,44 @@ public class StartGameScreen {
 		});
 		btnNewButton.setBounds(266, 200, 145, 50);
 		window.getContentPane().add(btnNewButton);
+		
+		// Gives user stats of selected farm
+		JButton checkFarmStats = new JButton("Farm Stats");
+		checkFarmStats.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Farm farm;
+				PopUp popup;
+				switch((String)theFarmType.getSelectedItem()) {
+				case "Swamp Farm":
+					farm = new SwampFarm();
+					popup = new PopUp(game, window, "Starting money: $" + farm.getFarmMoney() + ", Growth rate: " + farm.getGrowthRate());
+					popup.setVisible(true);
+					break;
+				case "Desert Farm":
+					farm = new DesertFarm();
+					popup = new PopUp(game, window, "Starting money: $" + farm.getFarmMoney() + ", Growth rate: " + farm.getGrowthRate());
+					popup.setVisible(true);
+
+					break;
+				case "Plains Farm":
+					farm = new PlainsFarm();
+					popup = new PopUp(game, window, "Starting money: $" + farm.getFarmMoney() + ", Growth rate: " + farm.getGrowthRate());
+					popup.setVisible(true);
+
+					break;
+				case "Mountain Farm":
+					farm = new MountainFarm();
+					popup = new PopUp(game, window, "Starting money: $" + farm.getFarmMoney() + ", Growth rate: " + farm.getGrowthRate());
+					popup.setVisible(true);
+
+					break;
+			}
+			}
+		});
+		checkFarmStats.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
+		checkFarmStats.setBackground(new Color(210, 180, 140));
+		checkFarmStats.setBounds(595, 68, 89, 23);
+		window.getContentPane().add(checkFarmStats);
 		
 		JLabel background = new JLabel("");
 		background.setIcon(new ImageIcon(StartGameScreen.class.getResource("/images/setupScreenGrass.png")));

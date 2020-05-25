@@ -81,7 +81,7 @@ public class EndGameScreen extends JDialog {
 		getContentPane().add(gameDuration);
 		
 		// Money earnt
-		JLabel label_1 = new JLabel("Over this time, you made $" + (game.farm.getStaticFarmMoney() - game.farm.getStaticFarmMoney()));
+		JLabel label_1 = new JLabel("Over this time, you made $" + (game.farm.getFarmMoney() - game.farm.getStaticFarmMoney()));
 		label_1.setBorder(new LineBorder(new Color(139, 69, 19), 2, true));
 		label_1.setIcon(new ImageIcon(EndGameScreen.class.getResource("/images/bigButton.png")));
 		label_1.setHorizontalTextPosition(SwingConstants.CENTER);

@@ -79,7 +79,7 @@ public class ViewToolMarket extends JDialog {
 			txtpnWelcomeToToms.setEditable(false);
 			txtpnWelcomeToToms.setFont(new Font("Dialog", Font.BOLD, 18));
 			txtpnWelcomeToToms.setText("Welcome to Tom's Tool Market!");
-			txtpnWelcomeToToms.setBounds(10, 11, 322, 31);
+			txtpnWelcomeToToms.setBounds(10, 11, 283, 35);
 			getContentPane().add(txtpnWelcomeToToms);
 		}
 		{
@@ -291,7 +291,7 @@ public class ViewToolMarket extends JDialog {
 		exitButton.setBackground(new Color(210, 180, 140));
 		exitButton.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		exitButton.setHorizontalTextPosition(SwingConstants.CENTER);
-		exitButton.setBounds(349, 19, 89, 23);
+		exitButton.setBounds(325, 11, 89, 23);
 		getContentPane().add(exitButton);
 		
 		JLabel lblNewLabel_1 = new JLabel("");

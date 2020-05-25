@@ -50,7 +50,7 @@ public class PopUp extends JDialog {
 			errorMessage_1.setIcon(new ImageIcon(PopUp.class.getResource("/images/errorText.png")));
 			errorMessage_1.setHorizontalAlignment(SwingConstants.CENTER);
 			errorMessage_1.setFont(new Font("Tahoma", Font.BOLD, 12));
-			errorMessage_1.setBounds(10, 11, 433, 57);
+			errorMessage_1.setBounds(10, 11, 421, 57);
 			getContentPane().add(errorMessage_1);
 			
 		}
@@ -60,7 +60,7 @@ public class PopUp extends JDialog {
 		exitButton.setBackground(new Color(210, 180, 140));
 		exitButton.setHorizontalTextPosition(SwingConstants.CENTER);
 		exitButton.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
-		exitButton.setBounds(354, 79, 89, 23);
+		exitButton.setBounds(342, 70, 89, 23);
 		getContentPane().add(exitButton);
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
