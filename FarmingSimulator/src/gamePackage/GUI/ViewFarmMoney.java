@@ -37,7 +37,7 @@ public class ViewFarmMoney extends JDialog {
 	public ViewFarmMoney(GameEnvironment game, JFrame window) {
 		super(window, "View Farm Money", true);
 		setResizable(false);
-		setBounds(100, 100, 450, 224);
+		setBounds(100, 100, 442, 215);
 		getContentPane().setLayout(null);
 		
 		JTextPane txtpnYourFarmCurrently = new JTextPane();
@@ -46,7 +46,7 @@ public class ViewFarmMoney extends JDialog {
 		txtpnYourFarmCurrently.setEditable(false);
 		txtpnYourFarmCurrently.setFont(new Font("Tahoma", Font.BOLD, 20));
 		txtpnYourFarmCurrently.setText("Your farm currently has");
-		txtpnYourFarmCurrently.setBounds(99, 31, 244, 27);
+		txtpnYourFarmCurrently.setBounds(83, 31, 274, 26);
 		getContentPane().add(txtpnYourFarmCurrently);
 	
 		// Show current farm money

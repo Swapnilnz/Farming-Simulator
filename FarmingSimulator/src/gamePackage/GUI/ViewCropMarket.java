@@ -67,14 +67,14 @@ public class ViewCropMarket extends JDialog {
 	public ViewCropMarket(GameEnvironment game, JFrame window, CropMarket cropMarket) {
 		super(window, "Cassie's Crop Market", true);
 		setResizable(false);
-		setBounds(100, 100, 497, 378);
+		setBounds(100, 100, 489, 374);
 		getContentPane().setLayout(null);
 		{
 			JTextPane txtpnWelcomeToToms = new JTextPane();
 			txtpnWelcomeToToms.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 			txtpnWelcomeToToms.setBackground(new Color(233, 150, 122));
 			txtpnWelcomeToToms.setEditable(false);
-			txtpnWelcomeToToms.setFont(new Font("Tahoma", Font.BOLD, 20));
+			txtpnWelcomeToToms.setFont(new Font("Dialog", Font.BOLD, 18));
 			txtpnWelcomeToToms.setText("Welcome to Cassie's Crop Market!");
 			txtpnWelcomeToToms.setBounds(10, 11, 352, 31);
 			getContentPane().add(txtpnWelcomeToToms);
@@ -86,7 +86,7 @@ public class ViewCropMarket extends JDialog {
 			txtpnWhatWouldYou.setEditable(false);
 			txtpnWhatWouldYou.setFont(new Font("Tahoma", Font.BOLD, 14));
 			txtpnWhatWouldYou.setText("What would you like to buy?");
-			txtpnWhatWouldYou.setBounds(20, 53, 199, 23);
+			txtpnWhatWouldYou.setBounds(20, 53, 235, 23);
 			getContentPane().add(txtpnWhatWouldYou);
 		}
 		
@@ -371,7 +371,7 @@ public class ViewCropMarket extends JDialog {
 			txtpnEnterAmountBefore.setEditable(false);
 			txtpnEnterAmountBefore.setFont(new Font("Tahoma", Font.BOLD, 12));
 			txtpnEnterAmountBefore.setText("Enter amount before buying");
-			txtpnEnterAmountBefore.setBounds(30, 125, 179, 21);
+			txtpnEnterAmountBefore.setBounds(27, 125, 202, 21);
 			getContentPane().add(txtpnEnterAmountBefore);
 		}
 		
@@ -386,7 +386,7 @@ public class ViewCropMarket extends JDialog {
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(ViewCropMarket.class.getResource("/images/cropMarketBackground.png")));
-		lblNewLabel.setBounds(0, 0, 491, 349);
+		lblNewLabel.setBounds(0, 0, 492, 349);
 		getContentPane().add(lblNewLabel);
 		
 		

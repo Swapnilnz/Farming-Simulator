@@ -39,7 +39,7 @@ public class ViewFarm extends JDialog {
 		super(window, "View Farm", true);
 		setResizable(false);
 		setTitle("View Farm");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 444, 295);
 		getContentPane().setLayout(null);
 		
 		JTextPane txtpnViewCrop = new JTextPane();
@@ -48,7 +48,7 @@ public class ViewFarm extends JDialog {
 		txtpnViewCrop.setEditable(false);
 		txtpnViewCrop.setFont(new Font("Tahoma", Font.BOLD, 16));
 		txtpnViewCrop.setText("View Crop");
-		txtpnViewCrop.setBounds(55, 23, 86, 22);
+		txtpnViewCrop.setBounds(48, 23, 93, 21);
 		getContentPane().add(txtpnViewCrop);
 		
 		JTextPane txtpnViewAnimal = new JTextPane();
@@ -57,7 +57,7 @@ public class ViewFarm extends JDialog {
 		txtpnViewAnimal.setEditable(false);
 		txtpnViewAnimal.setText("View Animal");
 		txtpnViewAnimal.setFont(new Font("Tahoma", Font.BOLD, 16));
-		txtpnViewAnimal.setBounds(273, 23, 105, 22);
+		txtpnViewAnimal.setBounds(275, 23, 108, 21);
 		getContentPane().add(txtpnViewAnimal);
 		
 		
@@ -131,7 +131,7 @@ public class ViewFarm extends JDialog {
 		lblAnimalHappiness.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblAnimalHappiness.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAnimalHappiness.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblAnimalHappiness.setBounds(252, 117, 119, 26);
+		lblAnimalHappiness.setBounds(240, 117, 131, 26);
 		getContentPane().add(lblAnimalHappiness);
 		
 		// Health

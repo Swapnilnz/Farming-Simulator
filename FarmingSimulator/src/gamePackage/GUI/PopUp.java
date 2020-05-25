@@ -38,9 +38,8 @@ public class PopUp extends JDialog {
 	public PopUp(GameEnvironment game, JFrame window, String errorMessage) {
 		super(window, "Error", true);
 		setResizable(false);
-		setType(Type.POPUP);
 		setTitle("Error");
-		setBounds(100, 100, 469, 146);
+		setBounds(100, 100, 460, 141);
 		getContentPane().setLayout(null);
 		
 		// Message

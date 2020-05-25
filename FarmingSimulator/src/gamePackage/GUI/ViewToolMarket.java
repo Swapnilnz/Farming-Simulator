@@ -38,7 +38,7 @@ public class ViewToolMarket extends JDialog {
 	public ViewToolMarket(GameEnvironment game, JFrame window, ToolMarket toolMarket) {
 		super(window, "Tom's Tool Market", true);
 		setResizable(false);
-		setBounds(100, 100, 468, 393);
+		setBounds(100, 100, 460, 388);
 		getContentPane().setLayout(null);
 		
 		JLabel label = new JLabel("");
@@ -77,7 +77,7 @@ public class ViewToolMarket extends JDialog {
 			txtpnWelcomeToToms.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 			txtpnWelcomeToToms.setBackground(new Color(233, 150, 122));
 			txtpnWelcomeToToms.setEditable(false);
-			txtpnWelcomeToToms.setFont(new Font("Tahoma", Font.BOLD, 20));
+			txtpnWelcomeToToms.setFont(new Font("Dialog", Font.BOLD, 18));
 			txtpnWelcomeToToms.setText("Welcome to Tom's Tool Market!");
 			txtpnWelcomeToToms.setBounds(10, 11, 322, 31);
 			getContentPane().add(txtpnWelcomeToToms);
@@ -87,7 +87,7 @@ public class ViewToolMarket extends JDialog {
 			txtpnWhatWouldYou.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 			txtpnWhatWouldYou.setBackground(new Color(233, 150, 122));
 			txtpnWhatWouldYou.setEditable(false);
-			txtpnWhatWouldYou.setFont(new Font("Tahoma", Font.BOLD, 14));
+			txtpnWhatWouldYou.setFont(new Font("Dialog", Font.BOLD, 12));
 			txtpnWhatWouldYou.setText("What would you like to buy?");
 			txtpnWhatWouldYou.setBounds(10, 57, 204, 23);
 			getContentPane().add(txtpnWhatWouldYou);
@@ -100,7 +100,7 @@ public class ViewToolMarket extends JDialog {
 		harvesterCount.setHorizontalTextPosition(SwingConstants.CENTER);
 		harvesterCount.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/button.jpg")));
 		harvesterCount.setHorizontalAlignment(SwingConstants.CENTER);
-		harvesterCount.setBounds(75, 147, 71, 14);
+		harvesterCount.setBounds(65, 147, 100, 14);
 		getContentPane().add(harvesterCount);
 		
 		// Animal Statue owned
@@ -110,7 +110,7 @@ public class ViewToolMarket extends JDialog {
 		animalStatueCount.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/button.jpg")));
 		animalStatueCount.setHorizontalTextPosition(SwingConstants.CENTER);
 		animalStatueCount.setHorizontalAlignment(SwingConstants.CENTER);
-		animalStatueCount.setBounds(289, 147, 71, 14);
+		animalStatueCount.setBounds(273, 147, 100, 14);
 		getContentPane().add(animalStatueCount);
 		
 		// Ultimate Watering Can owned
@@ -120,7 +120,7 @@ public class ViewToolMarket extends JDialog {
 		canCount.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/button.jpg")));
 		canCount.setHorizontalTextPosition(SwingConstants.CENTER);
 		canCount.setHorizontalAlignment(SwingConstants.CENTER);
-		canCount.setBounds(75, 230, 71, 14);
+		canCount.setBounds(65, 230, 100, 14);
 		getContentPane().add(canCount);
 		
 		// Milk Master owned
@@ -130,7 +130,7 @@ public class ViewToolMarket extends JDialog {
 		milkCount.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/button.jpg")));
 		milkCount.setHorizontalTextPosition(SwingConstants.CENTER);
 		milkCount.setHorizontalAlignment(SwingConstants.CENTER);
-		milkCount.setBounds(289, 230, 71, 14);
+		milkCount.setBounds(273, 230, 100, 14);
 		getContentPane().add(milkCount);
 		
 		// Teleportation pad owned, if so how many
@@ -140,7 +140,7 @@ public class ViewToolMarket extends JDialog {
 		telePadCount.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/button.jpg")));
 		telePadCount.setHorizontalTextPosition(SwingConstants.CENTER);
 		telePadCount.setHorizontalAlignment(SwingConstants.CENTER);
-		telePadCount.setBounds(75, 323, 71, 14);
+		telePadCount.setBounds(65, 323, 100, 14);
 		getContentPane().add(telePadCount);
 		
 		// Shear Master owned
@@ -150,7 +150,7 @@ public class ViewToolMarket extends JDialog {
 		shearCount.setIcon(new ImageIcon(ViewToolMarket.class.getResource("/images/button.jpg")));
 		shearCount.setHorizontalTextPosition(SwingConstants.CENTER);
 		shearCount.setHorizontalAlignment(SwingConstants.CENTER);
-		shearCount.setBounds(289, 323, 71, 14);
+		shearCount.setBounds(273, 323, 100, 14);
 		getContentPane().add(shearCount);
 		
 		// Show Money

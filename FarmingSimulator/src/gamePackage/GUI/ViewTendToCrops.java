@@ -37,16 +37,16 @@ public class ViewTendToCrops extends JDialog {
 		super(window, "Tend to Crops", true);
 		setResizable(false);
 		setTitle("Tend To Crops");
-		setBounds(100, 100, 290, 220);
+		setBounds(100, 100, 284, 214);
 		getContentPane().setLayout(null);
 		
 		JTextPane txtpnWhichCropWould = new JTextPane();
 		txtpnWhichCropWould.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		txtpnWhichCropWould.setBackground(new Color(233, 150, 122));
-		txtpnWhichCropWould.setFont(new Font("Tahoma", Font.BOLD, 14));
+		txtpnWhichCropWould.setFont(new Font("Dialog", Font.BOLD, 12));
 		txtpnWhichCropWould.setEditable(false);
 		txtpnWhichCropWould.setText("Which crop would you like to tend to?");
-		txtpnWhichCropWould.setBounds(5, 20, 274, 22);
+		txtpnWhichCropWould.setBounds(5, 25, 269, 17);
 		getContentPane().add(txtpnWhichCropWould);
 		
 		// Make combo box of crops

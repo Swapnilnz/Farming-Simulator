@@ -68,7 +68,7 @@ public class ViewAnimalMarket extends JDialog {
 	public ViewAnimalMarket(GameEnvironment game, JFrame window, AnimalMarket animalMarket) {
 		super(window, "Andy's Animal Market", true);
 		setResizable(false);
-		setBounds(100, 100, 501, 310);
+		setBounds(100, 100, 494, 306);
 		getContentPane().setLayout(null);
 		{
 			JTextPane txtpnWelcomeToAndys = new JTextPane();
@@ -76,7 +76,7 @@ public class ViewAnimalMarket extends JDialog {
 			txtpnWelcomeToAndys.setBackground(new Color(233, 150, 122));
 			txtpnWelcomeToAndys.setEditable(false);
 			txtpnWelcomeToAndys.setText("Welcome to Andy's Animal Market!");
-			txtpnWelcomeToAndys.setFont(new Font("Tahoma", Font.BOLD, 20));
+			txtpnWelcomeToAndys.setFont(new Font("Dialog", Font.BOLD, 18));
 			txtpnWelcomeToAndys.setBounds(10, 11, 366, 31);
 			getContentPane().add(txtpnWelcomeToAndys);
 		}
@@ -96,7 +96,7 @@ public class ViewAnimalMarket extends JDialog {
 		textPane.setText("What would you like to buy?");
 		textPane.setFont(new Font("Tahoma", Font.BOLD, 14));
 		textPane.setEditable(false);
-		textPane.setBounds(10, 53, 204, 23);
+		textPane.setBounds(10, 53, 240, 23);
 		getContentPane().add(textPane);
 		
 		JTextPane textPane_1 = new JTextPane();
@@ -105,7 +105,7 @@ public class ViewAnimalMarket extends JDialog {
 		textPane_1.setText("Enter amount before buying");
 		textPane_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		textPane_1.setEditable(false);
-		textPane_1.setBounds(20, 89, 187, 21);
+		textPane_1.setBounds(20, 89, 211, 21);
 		getContentPane().add(textPane_1);
 
 		

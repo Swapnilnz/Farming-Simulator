@@ -79,7 +79,7 @@ public class StartGameScreen {
 		window = new JFrame();
 		window.setResizable(false);
 		window.setTitle("Farm Simulator Start Menu");
-		window.setBounds(100, 100, 722, 302);
+		window.setBounds(100, 100, 707, 295);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setLayout(null);
 		
@@ -107,7 +107,7 @@ public class StartGameScreen {
 		farmerNameQuestion.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		farmerNameQuestion.setIcon(new ImageIcon(StartGameScreen.class.getResource("/images/setupButton.png")));
 		farmerNameQuestion.setHorizontalTextPosition(SwingConstants.CENTER);
-		farmerNameQuestion.setFont(new Font("Tahoma", Font.BOLD, 14));
+		farmerNameQuestion.setFont(new Font("Dialog", Font.BOLD, 12));
 		farmerNameQuestion.setBounds(10, 14, 115, 34);
 		window.getContentPane().add(farmerNameQuestion);
 		
@@ -122,7 +122,7 @@ public class StartGameScreen {
 		lblSelectFarmType.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		lblSelectFarmType.setIcon(new ImageIcon(StartGameScreen.class.getResource("/images/setupbutton2.png")));
 		lblSelectFarmType.setHorizontalTextPosition(SwingConstants.CENTER);
-		lblSelectFarmType.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblSelectFarmType.setFont(new Font("Dialog", Font.BOLD, 12));
 		lblSelectFarmType.setBounds(362, 14, 136, 34);
 		window.getContentPane().add(lblSelectFarmType);
 		
@@ -148,7 +148,7 @@ public class StartGameScreen {
 		lblFarmName.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		lblFarmName.setIcon(new ImageIcon(StartGameScreen.class.getResource("/images/setupButton.png")));
 		lblFarmName.setHorizontalTextPosition(SwingConstants.CENTER);
-		lblFarmName.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblFarmName.setFont(new Font("Dialog", Font.BOLD, 12));
 		lblFarmName.setBounds(362, 92, 115, 34);
 		window.getContentPane().add(lblFarmName);
 		
@@ -169,7 +169,7 @@ public class StartGameScreen {
 		gameLastQuestion.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		gameLastQuestion.setIcon(new ImageIcon(StartGameScreen.class.getResource("/images/bigButton.png")));
 		gameLastQuestion.setHorizontalTextPosition(SwingConstants.CENTER);
-		gameLastQuestion.setFont(new Font("Tahoma", Font.BOLD, 14));
+		gameLastQuestion.setFont(new Font("Dialog", Font.BOLD, 12));
 		gameLastQuestion.setBounds(97, 155, 442, 34);
 		window.getContentPane().add(gameLastQuestion);
 		
@@ -184,7 +184,7 @@ public class StartGameScreen {
 		farmAgeQuestion.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 		farmAgeQuestion.setIcon(new ImageIcon(StartGameScreen.class.getResource("/images/button.jpg")));
 		farmAgeQuestion.setHorizontalTextPosition(SwingConstants.CENTER);
-		farmAgeQuestion.setFont(new Font("Tahoma", Font.BOLD, 14));
+		farmAgeQuestion.setFont(new Font("Dialog", Font.BOLD, 12));
 		farmAgeQuestion.setBounds(10, 92, 202, 34);
 		window.getContentPane().add(farmAgeQuestion);
 
