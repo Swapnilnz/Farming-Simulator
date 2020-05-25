@@ -69,6 +69,16 @@ public class MainScreen {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setLayout(null);
 		
+		// Day count
+		JLabel lblDayCount = new JLabel("Day " + (game.getGameDuration() + 1));
+		lblDayCount.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
+		lblDayCount.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblDayCount.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblDayCount.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDayCount.setIcon(new ImageIcon(MainScreen.class.getResource("/images/button.jpg")));
+		lblDayCount.setBounds(258, 11, 201, 39);
+		window.getContentPane().add(lblDayCount);
+		
 		// Actions left
 		JLabel actionsLabel = new JLabel("You have " + game.getNumActions() + " action(s) left");
 		actionsLabel.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
@@ -161,6 +171,9 @@ public class MainScreen {
 			public void actionPerformed(ActionEvent e) {
 				game.nextDay(window, false);
 				actionsLabel.setText("You have " + game.getNumActions() + " actions left");
+				lblDayCount.setText("Day " + (game.getGameDuration() + 1));
+				
+				
 
 			}
 		});
@@ -263,6 +276,8 @@ public class MainScreen {
 		farmName.setFont(new Font("Ravie", Font.PLAIN, 20));
 		farmName.setBounds(479, 11, 241, 113);
 		window.getContentPane().add(farmName);
+		
+
 		
 		// Background
 		JLabel background = new JLabel("");
